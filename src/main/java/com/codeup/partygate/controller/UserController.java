@@ -30,7 +30,7 @@ public class UserController {
     @GetMapping(path="/")
     @ResponseBody
     public String userShow() {
-        return "hello";
+        return "You did it";
     }
 
     @GetMapping(path = "/login")
