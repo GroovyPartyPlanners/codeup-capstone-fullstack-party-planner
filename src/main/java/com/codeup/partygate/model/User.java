@@ -1,5 +1,6 @@
-package com.codeup.partygate.model;
+package com.codeup.partygate.models;
 
+<<<<<<< HEAD
 import javax.persistence.*;
 
 @Table(name="user")
@@ -12,6 +13,30 @@ public class User {
 
     @Column
     public String username;
+=======
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery;
+
+import javax.persistence.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+
+
+@Table(name="posts")
+@Entity
+public class Post{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long id;
+
+    @Column
+    public String title;
+>>>>>>> 03ade362110eb2382cb2a974fc5907007e2bd4c1
 
     @Column
     public String description;

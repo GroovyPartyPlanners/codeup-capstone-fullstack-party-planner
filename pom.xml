@@ -11,7 +11,7 @@
     <groupId>com.codeup</groupId>
     <artifactId>PartyGate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+
     <name>PartyGate</name>
     <description>PartyGate</description>
     <properties>
@@ -33,6 +33,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>2.7.1</version>
         </dependency>
 
         <dependency>
