@@ -1,6 +1,6 @@
-package com.codeup.partygate.controller;
+package com.codeup.partygate.controllers;
 
-import com.codeup.partygate.model.UserRepository;
+import com.codeup.partygate.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

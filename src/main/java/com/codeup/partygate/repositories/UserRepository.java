@@ -1,4 +1,5 @@
-package com.codeup.partygate.model;
+package com.codeup.partygate.repositories;
+import com.codeup.partygate.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
