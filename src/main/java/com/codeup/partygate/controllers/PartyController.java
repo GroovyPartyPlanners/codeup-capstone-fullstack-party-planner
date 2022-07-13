@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PartyController {
 
-    @GetMapping(path = "/parties")
+    @GetMapping(path = "/party")
     public String showParty() {
-        return "views/parties";
+        return "views/party";
     }
 }
