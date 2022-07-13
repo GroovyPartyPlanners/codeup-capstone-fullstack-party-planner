@@ -1,6 +1,5 @@
-package com.codeup.partygate.models;
+package com.codeup.partygate.model;
 
-<<<<<<< HEAD
 import javax.persistence.*;
 
 @Table(name="user")
@@ -13,59 +12,89 @@ public class User {
 
     @Column
     public String username;
-=======
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery;
-
-import javax.persistence.*;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
-
-
-@Table(name="posts")
-@Entity
-public class Post{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
 
     @Column
-    public String title;
->>>>>>> 03ade362110eb2382cb2a974fc5907007e2bd4c1
+    public String first;
 
     @Column
-    public String description;
+    public String last;
 
-    public Post(){
+    @Column
+    public String password;
 
+    @Column
+    public String email;
+
+    @Column
+    public String group_name;
+
+//    @Column
+//    public String user_pic_url;
+
+    public User() {
     }
 
-    public long getId() {
-        return id;
+    public long getUser_id() {
+        return user_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getDescription() {
-        return description;
+    public String getFirst() {
+        return first;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setFirst(String first) {
+        this.first = first;
     }
+
+    public String getLast() {
+        return last;
+    }
+
+    public void setLast(String last) {
+        this.last = last;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGroup_name() {
+        return group_name;
+    }
+
+    public void setGroup_name(String group_name) {
+        this.group_name = group_name;
+    }
+
+//    public String getUser_pic_url() {
+//        return user_pic_url;
+//    }
+//
+//    public void setUser_pic_url(String user_pic_url) {
+//        this.user_pic_url = user_pic_url;
+//    }
 }

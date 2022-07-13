@@ -1,9 +1,12 @@
 package com.codeup.partygate.controller;
 
+import com.codeup.partygate.model.User;
 import com.codeup.partygate.model.UserRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 
 
 //import com.codeup.partygate.model.User;  ==========================
@@ -19,16 +22,30 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping(path = "/user")
+//    @GetMapping(path = "/user")
+//    public String userShow() {
+//
+//        return "user";
+//    }
+    @GetMapping(path="/")
+    @ResponseBody
     public String userShow() {
-        return "user";
+        return "hello";
     }
 
-<<<<<<< HEAD
-    @PostMapping(path= "/user/create")
-    public String userLogin() {
+    @GetMapping(path = "/login")
+    public String userForm(Model model) {
+        model.addAttribute("user", new User());
+        return "login";
     }
+
+    @PostMapping(path = "/login/create")
+    public String postPost(@ModelAttribute User newUser) {
+        userRepository.save(newUser);
+
+        return "login";
     }
+}
 
 
 //    @PostMapping(path = "/user/login")
@@ -43,16 +60,14 @@ public class UserController {
 //        return "event";
 //    }
 //}
-=======
-    @PostMapping(path = "/user/login")
-    public String userLogin() {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if (username.equals("admin") && password.equals("password")) {
-            response.sendRedirect("/profile");
-        } else{
-            response.sendRedirect("/login");
-        }
-    }
-}
->>>>>>> 03ade362110eb2382cb2a974fc5907007e2bd4c1
+
+//    @PostMapping(path = "/user/login")
+//    public String userLogin() {
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        if (username.equals("admin") && password.equals("password")) {
+//            response.sendRedirect("/profile");
+//        } else{
+//            response.sendRedirect("/login");
+//        }
+//    }
