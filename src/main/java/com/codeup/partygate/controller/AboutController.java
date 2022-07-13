@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class AboutController {
 
     @GetMapping(path = "/about")
-    public String showLanding() {
+    public String showAbout() {
         return "about";
     }
 }
-
