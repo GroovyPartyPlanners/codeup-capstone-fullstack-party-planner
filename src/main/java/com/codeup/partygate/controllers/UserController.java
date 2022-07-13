@@ -2,13 +2,8 @@ package com.codeup.partygate.controllers;
 
 import com.codeup.partygate.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-
-
-//import com.codeup.partygate.model.User;  ==========================
-//import com.codeup.partygate.model.PostRepository;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -27,20 +22,8 @@ public class UserController {
     @PostMapping(path= "/user/create")
     public String userLogin() {
         return null;
-         }
     }
+}
 
 
-//    @PostMapping(path = "/user/login")
-//    public String userLogin() {
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        if (username.equals("admin") && password.equals("password")) {
-//            response.sendRedirect("/profile");
-//        } else{
-//            response.sendRedirect("/login");
-//        }
-//        return "event";
-//    }
-//}
 
