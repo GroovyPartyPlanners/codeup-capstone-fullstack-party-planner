@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @GetMapping(path = "/user")
-    public String showLanding() {
+    public String showUser() {
         return "user";
     }
 }

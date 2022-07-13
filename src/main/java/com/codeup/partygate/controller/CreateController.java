@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class PartyController {
+public class CreateController {
 
-    @GetMapping(path = "/party")
-    public String showParty() {
-        return "party";
+    @GetMapping(path = "/create")
+    public String showCreate() {
+        return "create";
     }
 }

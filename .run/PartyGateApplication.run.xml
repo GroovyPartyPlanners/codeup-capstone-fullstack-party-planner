@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PartyGateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="PartyGate" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.codeup.partygate.PartyGateApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
