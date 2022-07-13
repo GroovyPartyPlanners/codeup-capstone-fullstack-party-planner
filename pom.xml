@@ -11,7 +11,7 @@
     <groupId>com.codeup</groupId>
     <artifactId>PartyGate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+
     <name>PartyGate</name>
     <description>PartyGate</description>
     <properties>
