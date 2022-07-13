@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class CreateController {
 
     @GetMapping(path = "/create")
-    public String showCreate() {
-        return "create";
+    public String showCreateForm() {
+        return "views/create";
     }
 }

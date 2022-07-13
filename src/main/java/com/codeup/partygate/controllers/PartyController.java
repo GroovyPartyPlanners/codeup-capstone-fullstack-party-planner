@@ -8,6 +8,6 @@ public class PartyController {
 
     @GetMapping(path = "/party")
     public String showParty() {
-        return "party";
+        return "views/party";
     }
 }
