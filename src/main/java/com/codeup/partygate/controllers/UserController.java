@@ -24,10 +24,10 @@ public class UserController {
         return "user";
     }
 
-<<<<<<< HEAD
     @PostMapping(path= "/user/create")
     public String userLogin() {
-    }
+        return null;
+         }
     }
 
 
@@ -43,16 +43,4 @@ public class UserController {
 //        return "event";
 //    }
 //}
-=======
-    @PostMapping(path = "/user/login")
-    public String userLogin() {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if (username.equals("admin") && password.equals("password")) {
-            response.sendRedirect("/profile");
-        } else{
-            response.sendRedirect("/login");
-        }
-    }
-}
->>>>>>> 03ade362110eb2382cb2a974fc5907007e2bd4c1
+
