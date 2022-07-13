@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class AboutController {
+public class HomeController {
 
-    @GetMapping(path = "/about")
-    public String showAbout() {
-        return "views/about";
+    @GetMapping(path = "/")
+    public String showHomePage() {
+        return "views/home";
     }
 }

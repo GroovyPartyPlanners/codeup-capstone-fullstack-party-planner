@@ -8,6 +8,6 @@ public class EventController {
 
     @GetMapping(path = "/event")
     public String showEvent() {
-        return "event";
+        return "views/event";
     }
 }
