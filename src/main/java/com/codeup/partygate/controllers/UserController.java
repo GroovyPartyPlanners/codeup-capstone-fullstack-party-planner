@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
-    private final UserRepository userRepository;
+    private final UserRepository usersRepository;
 
     public UserController(UserRepository usersRepository) {
-        this.userRepository = usersRepository;
+        this.usersRepository = usersRepository;
     }
 
     @GetMapping(path = "/sign-up")
