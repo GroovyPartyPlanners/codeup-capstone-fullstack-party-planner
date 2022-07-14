@@ -31,6 +31,8 @@ public class User {
     @Column(length = 100, nullable = true)
     private String user_pic_url;
 
+    public User () {}
+
 //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
@@ -44,7 +46,6 @@ public class User {
     }
 
 //  OLD CONSTRUCTOR - BEFORE AUTHENTICATION PROCESS
-    public User () {}
 //    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String user_pic_url) {
 //        this.id = id;
 //        this.first_name = first_name;
