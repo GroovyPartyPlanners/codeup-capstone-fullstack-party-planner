@@ -1,4 +1,4 @@
-package com.codeup.partygate.controller;
+package com.codeup.partygate.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +8,6 @@ public class AboutController {
 
     @GetMapping(path = "/about")
     public String showAbout() {
-        return "about";
+        return "views/about";
     }
 }

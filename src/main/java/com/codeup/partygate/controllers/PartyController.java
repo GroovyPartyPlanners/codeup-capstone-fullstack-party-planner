@@ -1,13 +1,14 @@
-package com.codeup.partygate.controller;
+package com.codeup.partygate.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PartyController {
 
     @GetMapping(path = "/party")
     public String showParty() {
-        return "party";
+        return "views/party";
     }
+
 }

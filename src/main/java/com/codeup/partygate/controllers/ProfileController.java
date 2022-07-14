@@ -1,4 +1,4 @@
-package com.codeup.partygate.controller;
+package com.codeup.partygate.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProfileController {
 
     @GetMapping(path = "/profile")
-    public String showProfile() {
-        return "profile";
+    public String showProfilePage() {
+        return "views/profile";
     }
 }
