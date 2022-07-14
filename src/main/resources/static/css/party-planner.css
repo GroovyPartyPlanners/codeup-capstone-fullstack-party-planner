@@ -3,7 +3,7 @@
 .login-button, .signup-button {
     text-decoration: none;
     color: #fff;
-    background: lightseagreen;
+    background: seagreen;
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.75rem 0;
@@ -23,7 +23,7 @@
 }
 
 .login-button, .signup-button:hover {
-    background: darkseagreen;
+    background: darkgreen;
 }
 
 .prof-pic {
