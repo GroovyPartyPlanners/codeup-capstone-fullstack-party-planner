@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+
+
+<!--    public long user_id;-->
+
+<!--    public String username;-->
+
+<!--    public String first;-->
+
+<!--    public String last;-->
+
+<!--    public String password;-->
+
+<!--    public String email;-->
+
+<!--    public String group_name;-->
+
+<!--    public String user_pic_url;-->
+
+    <h1>Register Now</h1>
+    <form th:action= "@{/login/create}" method="post" th:object="${user}">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" th:field="*{username}" class="field" type="text">
+        </div>
+        <div class="form-group">
+            <label for="first">First Name</label>
+            <input id="first" th:field="*{first}" class="field" type="text">
+        </div>
+        <div class="form-group">
+            <label for="last">Last Name</label>
+            <input id="last" th:field="*{last}" class="field" type="text">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" th:field="*{email}" class="field" type="text">
+        </div>
+        <div class="form-group">
+            <label for="group_name">Group Name</label>
+            <input id="group_name" th:field="*{group_name}" class="field" type="text">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" th:field="*{password}" class="field" type="text">
+        </div>
+        <button>Submit</button>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,3 +1,18 @@
+<<<<<<< HEAD:src/main/java/com/codeup/partygate/controller/AboutController.java
+//package com.codeup.partygate.controller;
+//
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.*;
+//
+//@Controller
+//public class AboutController {
+//
+//    @GetMapping(path = "/about")
+//    public String showAbout() {
+//        return "about";
+//    }
+//}
+=======
 package com.codeup.partygate.controllers;
 
 import org.springframework.stereotype.Controller;
@@ -11,3 +26,4 @@ public class AboutController {
         return "views/about";
     }
 }
+>>>>>>> 54dc1e7653e7afc1e7b121e3cdbbb137299536f0:src/main/java/com/codeup/partygate/controllers/AboutController.java
