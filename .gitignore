@@ -32,5 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 
-# Database connection credentials
-src/main/resources/application.properties
+
