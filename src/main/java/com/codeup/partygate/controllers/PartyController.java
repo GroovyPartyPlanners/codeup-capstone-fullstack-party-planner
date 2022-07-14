@@ -1,4 +1,4 @@
-package com.codeup.partygate.controller;
+package com.codeup.partygate.controllers;
 
 import com.codeup.partygate.model.Party;
 import com.codeup.partygate.model.PartyRepository;
@@ -17,6 +17,7 @@ public class PartyController {
     }
 
     @GetMapping(path = "/party")
+<<<<<<< HEAD:src/main/java/com/codeup/partygate/controller/PartyController.java
     public String userForm(Model model) {
         model.addAttribute("party", new Party());
         return "party";
@@ -29,3 +30,11 @@ public class PartyController {
         return "/";
     }
 }
+=======
+    public String showParty() {
+        return "views/party";
+    }
+
+
+}
+>>>>>>> 54dc1e7653e7afc1e7b121e3cdbbb137299536f0:src/main/java/com/codeup/partygate/controllers/PartyController.java
