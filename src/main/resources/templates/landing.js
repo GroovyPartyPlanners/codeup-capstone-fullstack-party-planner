@@ -1,4 +1,4 @@
-
+"use strict";
 
 function getLocation() {
     if (navigator.geolocation) {
