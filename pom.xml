@@ -82,27 +82,18 @@
             <version>2.7.0</version>
             <scope>test</scope>
         </dependency>
-<<<<<<< HEAD
-=======
 
->>>>>>> 54dc1e7653e7afc1e7b121e3cdbbb137299536f0
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-<<<<<<< HEAD
-=======
 
->>>>>>> 54dc1e7653e7afc1e7b121e3cdbbb137299536f0
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
             <version>3.0.4.RELEASE</version>
         </dependency>
-<<<<<<< HEAD
-
-=======
->>>>>>> 54dc1e7653e7afc1e7b121e3cdbbb137299536f0
+        
     </dependencies>
 
     <build>
