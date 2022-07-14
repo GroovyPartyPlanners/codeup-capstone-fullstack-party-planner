@@ -4,9 +4,11 @@ import com.codeup.partygate.model.User;
 import com.codeup.partygate.model.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 //import com.codeup.partygate.model.User;  ==========================
@@ -32,6 +34,19 @@ public class UserController {
     public String userForm(Model model) {
         model.addAttribute("user", new User());
         return "login";
+    }
+
+    @PostMapping(path = "/login/auth")
+    public String userAuth(@ModelAttribute User self) {
+
+        List<User> users = userRepository.findAll();
+
+//        User user = users.findByUsername(username);
+
+        User thisUser = userRepository.findByUsername(self.username);
+
+//        hash check password
+
     }
 
     @PostMapping(path = "/login/create")
