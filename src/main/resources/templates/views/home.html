@@ -2,17 +2,36 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head  th:replace="partials/header :: header-links"></head>
 <body style="text-align: center">
+
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
     <nav th:replace="partials/navbar :: navbar"></nav>
+
+    <h1>Home Page Here</h1>
+
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <button><a class="btn btn-lg" th:href="@{/login}">Login</a></button>
+                </div>
+
+                <div class="col">
+                    <button><a class="btn btn-lg" th:href="@{/sign-up}">Sign-up</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div sec:authorize="isAuthenticated()">
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
-</div>
 
-<h1>Home Page Here</h1>
+    <h1>Home Page Here</h1>
+
+</div>
 
 <!-- JQuery Library -->
 <script type="application/javascript"  src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
