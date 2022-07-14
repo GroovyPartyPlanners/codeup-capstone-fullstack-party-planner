@@ -27,11 +27,6 @@ public class UserController {
 //
 //        return "user";
 //    }
-    @GetMapping(path="/")
-    @ResponseBody
-    public String userShow() {
-        return "You did it";
-    }
 
     @GetMapping(path = "/login")
     public String userForm(Model model) {
@@ -46,7 +41,6 @@ public class UserController {
         return "login";
     }
 }
-
 
 //    @PostMapping(path = "/user/login")
 //    public String userLogin() {
