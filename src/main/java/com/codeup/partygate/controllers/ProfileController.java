@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProfileController {
 
     @GetMapping(path = "/profile")
-    public String showProfile() {
+    public String showProfilePage() {
         return "views/profile";
     }
 }

@@ -4,7 +4,33 @@
 <body style="text-align: center">
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<h1>Sign-up Page Here</h1>
+<body>
+<h1>Create an account</h1>
+<form th:action="@{/sign-up}" method="POST" th:object="${user}">
+    <label for="first-name">First Name</label>
+    <input id="first-name" th:field="*{first_name}" />
+
+    <label for="last-name">Last Name</label>
+    <input id="last-name" th:field="*{last_name}" />
+
+    <label for="username">Username</label>
+    <input id="username" th:field="*{username}" />
+
+    <label for="email">Email</label>
+    <input id="email" th:field="*{email}" />
+
+    <label for="group-name">Group Name (optional)</label>
+    <input id="group-name" th:field="*{group_name}" />
+
+    <label for="prof-pic">Profile Picture (optional)</label>
+    <input id="prof-pic" th:field="*{user_pic_url}" />
+
+    <label for="password">Password</label>
+    <input id="password" type="password" th:field="*{password}" />
+
+    <input value="Sign me up!" type="submit" />
+</form>
+</body>
 
 <!-- JQuery Library -->
 <script type="application/javascript"  src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

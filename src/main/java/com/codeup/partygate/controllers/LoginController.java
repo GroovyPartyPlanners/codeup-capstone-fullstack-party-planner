@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
     @GetMapping(path = "/login")
-    public String showAbout() {
+    public String showLoginForm() {
         return "views/login";
     }
+
 }

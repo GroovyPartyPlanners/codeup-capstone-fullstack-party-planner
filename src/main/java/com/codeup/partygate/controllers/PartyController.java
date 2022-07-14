@@ -10,4 +10,6 @@ public class PartyController {
     public String showParty() {
         return "views/party";
     }
+
+
 }

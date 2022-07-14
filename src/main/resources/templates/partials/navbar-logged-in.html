@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+<nav th:fragment="navbar-logged-in" class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" th:href="@{/}">PartyGate</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,8 +19,9 @@
             <li class="nav-item"><a class="nav-link" th:href="@{/events}">Events</a></li>
             <li class="nav-item"><a class="nav-link" th:href="@{/parties}">Parties</a></li>
             <li class="nav-item"><a class="nav-link" th:href="@{/create}">Create</a></li>
-            <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" th:href="@{/sign-up}">Sign-up</a></li>
+            <li class="nav-item">
+                <form th:action="@{/logout}" th:method="post"><a class="nav-link">Logout</a></form>
+            </li>
             <li class="nav-item"><a class="nav-link" th:href="@{/about}">About Us</a></li>
         </ul>
     </div>

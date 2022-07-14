@@ -31,30 +31,30 @@ public class User {
     @Column(length = 100, nullable = true)
     private String user_pic_url;
 
-////    NEW CONSTRUCTOR for authentication process (login/logout)
-//    public User(User copy) {
-//        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-//        first_name = copy.first_name;
-//        last_name = copy.last_name;
-//        email = copy.email;
-//        username = copy.username;
-//        group_name = copy.group_name;
-//        password = copy.password;
-//        user-pic-url = copy.user_pic_url;
-//    }
-
-    public User () {}
-
-    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String user_pic_url) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.username = username;
-        this.group_name = group_name;
-        this.password = password;
-        this.user_pic_url = user_pic_url;
+//  NEW CONSTRUCTOR for authentication process (login/logout)
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        first_name = copy.first_name;
+        last_name = copy.last_name;
+        email = copy.email;
+        username = copy.username;
+        group_name = copy.group_name;
+        password = copy.password;
+        user_pic_url = copy.user_pic_url;
     }
+
+//  OLD CONSTRUCTOR - BEFORE AUTHENTICATION PROCESS
+    public User () {}
+//    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String user_pic_url) {
+//        this.id = id;
+//        this.first_name = first_name;
+//        this.last_name = last_name;
+//        this.email = email;
+//        this.username = username;
+//        this.group_name = group_name;
+//        this.password = password;
+//        this.user_pic_url = user_pic_url;
+//    }
 
     public long getId() {
         return id;
