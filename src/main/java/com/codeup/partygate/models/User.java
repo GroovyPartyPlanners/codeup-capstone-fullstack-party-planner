@@ -8,7 +8,7 @@ public class User {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    protected long user_id;
 
     @Column(length = 50, nullable = false)
     private String first_name;
@@ -35,7 +35,7 @@ public class User {
 
 //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {
-        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        user_id = copy.user_id; // This line is SUPER important! Many things won't work if it's absent
         first_name = copy.first_name;
         last_name = copy.last_name;
         email = copy.email;
@@ -58,11 +58,11 @@ public class User {
 //    }
 
     public long getId() {
-        return id;
+        return user_id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.user_id = id;
     }
 
     public String getFirst_name() {
