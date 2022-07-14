@@ -1,4 +1,5 @@
 
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -11,7 +12,8 @@ function showPosition(position) {
     console.log(position);
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
-    fetch('https://api.seatgeek.com/2/events?client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI')
+    
+    fetch(`https://api.seatgeek.com/2/venues?lat=${lat}&lon=${long}&client_id=${clientId}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -21,7 +23,7 @@ function showPosition(position) {
     
 }
 getLocation();
-//get users lat and long and save save as a variables
+
 
 
 
