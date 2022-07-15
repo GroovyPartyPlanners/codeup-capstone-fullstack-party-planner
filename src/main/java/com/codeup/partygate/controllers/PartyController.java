@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 @Controller
 public class PartyController {
@@ -37,11 +38,21 @@ public class PartyController {
         return "redirect:/parties";
     }
 
-    @PostMapping("/party/{name}")
-    public String showParty(@PathVariable String name) {
-        return "redirect:/party";
+    @GetMapping("/party/{name}")
+    public String showParty(@PathVariable String name, Model model) {
+        ArrayList<Party> parties = partyRepository.findAll();
+        Party thisParty = null;
+        for (Party party : parties) {
+            if (Objects.equals(party.getParty_name(), name)) {
+                thisParty = party;
+            }
+        }
+        model.addAttribute("party", thisParty);
+
     }
 
+
     @GetMapping("/party-form")
-    public String formParty(@PathVariable )
+    public String formParty(Model model)
+
 }
