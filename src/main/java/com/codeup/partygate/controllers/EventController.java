@@ -10,4 +10,5 @@ public class EventController {
     public String showEvent() {
         return "views/event";
     }
+
 }
