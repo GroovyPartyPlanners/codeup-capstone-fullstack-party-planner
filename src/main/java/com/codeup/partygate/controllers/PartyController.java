@@ -24,12 +24,12 @@ public class PartyController {
     @GetMapping(path = "/parties")
     public String showPartyForm(Model model) {
         model.addAttribute("party", new Party());
-        ArrayList<Party> parties = partyRepository.findAll();
+        ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         model.addAttribute("parties" , parties);
         return "views/parties";
     }
 
-    @PostMapping("/parties")
+    @PostMapping(path = "/parties")
     public String saveParty(@ModelAttribute Party party){
 //        if (party.getEvent_id() == null) {
 //            party.setEvent_id("0");
@@ -38,9 +38,9 @@ public class PartyController {
         return "redirect:/parties";
     }
 
-    @GetMapping("/party/{name}")
+    @GetMapping(path = "/party/{name}")
     public String showParty(@PathVariable String name, Model model) {
-        ArrayList<Party> parties = partyRepository.findAll();
+        ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         Party thisParty = null;
         for (Party party : parties) {
             if (Objects.equals(party.getParty_name(), name)) {
@@ -48,11 +48,22 @@ public class PartyController {
             }
         }
         model.addAttribute("party", thisParty);
+        String html = "redirect: /views/party/{" + thisParty.getParty_name()+ "}";
 
+        return html;
     }
 
 
-    @GetMapping("/party-form")
-    public String formParty(Model model)
+    @GetMapping(path = "/party-form")
+    public String partyForm (Model model) {
+        model.addAttribute("party", new Party());
+        return "/views/party-form";
+    }
 
+    @PostMapping(path = "/party-form")
+    public String partyCreate (@ModelAttribute Party party) {
+        partyRepository.save(party);
+        String html = "redirect: /party/{" + party.getParty_name()+ "}";
+        return html;
+    }
 }

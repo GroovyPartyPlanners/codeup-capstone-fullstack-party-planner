@@ -16,8 +16,10 @@
 <h1>Hey!  Check out all these cool parties!  Pick one!</h1>
 <div class="container">
 
-    <div th:object="parties" th:each="item : ${parties}">
-        <p><a th:text="${party.party_name}" th:href="@{/party/party.name}"></a></p><br/>
+
+<!--    <a th:href="@{'/details/'+${user.login}(orderId=${o.id})}">view</a>-->
+    <div th:each="party : ${parties}">
+        <p><a th:text="${party.party_name}" th:href="@{'/views/'+'{'+${party.party_name}+'}'}">view</a></p><br/>
     </div>
     <br/>
     <br/>
