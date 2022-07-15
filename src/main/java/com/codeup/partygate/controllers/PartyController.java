@@ -16,18 +16,18 @@ public class PartyController {
         this.partyRepository = partyRepository;
     }
 
-    @GetMapping(path = "/party")
+    @GetMapping(path = "/parties")
     public String showPartyForm(Model model) {
         model.addAttribute("party", new Party());
-        return "views/party";
+        return "views/parties";
     }
 
-    @PostMapping("/party")
+    @PostMapping("/parties")
     public String saveParty(@ModelAttribute Party party){
 //        if (party.getEvent_id() == null) {
 //            party.setEvent_id("0");
 //        }
         partyRepository.save(party);
-        return "redirect:/party";
+        return "redirect:/parties";
     }
 }
