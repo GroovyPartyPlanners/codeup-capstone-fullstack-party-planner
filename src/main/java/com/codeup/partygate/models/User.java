@@ -1,6 +1,7 @@
 package com.codeup.partygate.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -25,6 +26,7 @@ public class User {
     @Column(length = 75, nullable = true)
     private String group_name;
 
+    @NotBlank(message = "Confirm password or enter a new one!")
     @Column(length = 60, nullable = false)
     private String password;
 
