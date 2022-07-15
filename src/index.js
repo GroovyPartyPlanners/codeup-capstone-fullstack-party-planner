@@ -13,10 +13,17 @@ function showPosition(position) {
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     
-    fetch(`https://api.seatgeek.com/2/venues?lat=${lat}&lon=${long}&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        var events ='';
+        var eventsDate = '';
+        for(var i = 0; i < data.events.length; i++) {
+            events += `<li>${data.events[i].title}${data.events[i].datetime_local}${data.events[i].venue.name}</li>`
+        }
+        document.getElementById("eventTitle", "eventDate").innerHTML = events + eventsDate;
+        
     }
     )
     .catch(error => console.log(error));
@@ -24,11 +31,21 @@ function showPosition(position) {
 }
 getLocation();
 
-
-
-
-
-
-
+// function getEvents() {
+//     fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data);
+//         var events ='';
+//         for(var i = 0; i < data.events.length; i++) {
+//             events += `<li>${data.events[i].title}</li>`;
+            
+//         }
+//         document.getElementById("eventTitle").innerHTML = events
+//     }
+//     )
+//     .catch(error => console.log(error));
+// }
+// getEvents();
 
 
