@@ -35,7 +35,7 @@ public class PartyController {
 //            party.setEvent_id("0");
 //        }
         partyRepository.save(party);
-        return "redirect:/parties";
+        return "redirect:views/parties";
     }
 
     @GetMapping(path = "/party/{name}")
