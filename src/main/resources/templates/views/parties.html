@@ -13,9 +13,10 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
+<h1>Hey!  Check out all these cool parties!  Pick one!</h1>
 <div class="container">
     <br/>
-    <h1>List of parties goes here!</h1><br/>
+    <h1><a th:href="@{/views/party}">List of parties goes here!</a></h1><br/>
     <h1>List of parties goes here!</h1><br/>
     <h1>List of parties goes here!</h1><br/>
     <h1>List of parties goes here!</h1><br/>
@@ -25,32 +26,5 @@
     <br/>
     <h1>Create a Party</h1>
 </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form th:action="@{/parties}" method="POST" th:object="${party}">
-
-                <div class="form-group">
-                    <label for="party-name">Party Name:</label>
-                    <input id="party-name" class="form-control text-center" th:field="*{party_name}" />
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input id="description" class="form-control text-center" th:field="*{description}" />
-                </div>
-
-                <div class="form-group">
-                    <input value="Create a Party!" type="submit" class="btn btn-primary"/>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-</body>
-
-<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
