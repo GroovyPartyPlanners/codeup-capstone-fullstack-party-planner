@@ -15,16 +15,14 @@
 
 <h1>Hey!  Check out all these cool parties!  Pick one!</h1>
 <div class="container">
-    <br/>
-    <h1><a th:href="@{/views/party}">List of parties goes here!</a></h1><br/>
-    <h1>List of parties goes here!</h1><br/>
-    <h1>List of parties goes here!</h1><br/>
-    <h1>List of parties goes here!</h1><br/>
-    <h1>List of parties goes here!</h1><br/>
+
+    <div th:object="parties" th:each="item : ${parties}">
+        <p><a th:text="${party.party_name}" th:href="@{/party/party.name}"></a></p><br/>
+    </div>
     <br/>
     <br/>
     <br/>
-    <h1>Create a Party</h1>
+    <h1 th:href="@{/party-form}">Create a Party</h1>
 </div>
 </body>
 </html>

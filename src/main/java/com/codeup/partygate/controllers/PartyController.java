@@ -6,7 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
+
 @Controller
 public class PartyController {
 
@@ -19,6 +23,8 @@ public class PartyController {
     @GetMapping(path = "/parties")
     public String showPartyForm(Model model) {
         model.addAttribute("party", new Party());
+        ArrayList<Party> parties = partyRepository.findAll();
+        model.addAttribute("parties" , parties);
         return "views/parties";
     }
 
@@ -30,4 +36,12 @@ public class PartyController {
         partyRepository.save(party);
         return "redirect:/parties";
     }
+
+    @PostMapping("/party/{name}")
+    public String showParty(@PathVariable String name) {
+        return "redirect:/party";
+    }
+
+    @GetMapping("/party-form")
+    public String formParty(@PathVariable )
 }
