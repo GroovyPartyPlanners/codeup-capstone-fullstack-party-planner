@@ -10,4 +10,5 @@ public class AboutController {
     public String showAbout() {
         return "views/about";
     }
+
 }

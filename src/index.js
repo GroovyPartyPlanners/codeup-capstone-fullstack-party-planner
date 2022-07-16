@@ -20,9 +20,10 @@ function showPosition(position) {
         var events ='';
         var eventsDate = '';
         for(var i = 0; i < data.events.length; i++) {
-            events += `<li>${data.events[i].title}${data.events[i].datetime_local}${data.events[i].venue.name}</li>`
+            events += `<li>${data.events[i].title}${data.events[i].datetime_local}${data.events[i].venue.name}${data.events[i].performers[0].images.huge}</li>`
         }
         document.getElementById("eventTitle", "eventDate").innerHTML = events + eventsDate;
+        document.getElementById("eventImg").src = events;
         
     }
     )
