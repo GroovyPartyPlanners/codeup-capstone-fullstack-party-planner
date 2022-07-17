@@ -12,9 +12,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 
-</div>
-
-<div th:object="${party}" ><p th:text="${party.party_name}" ></p><br/><p th:text="${party.description}"></p><br/>
+<div><p th:text="${party.party_name}" ></p><br/><p th:text="${party.description}"></p><br/>
 
 </div>
 </body>
