@@ -7,12 +7,12 @@
     height: 900px;
 }
 
-/* Login page */
+/* Sign-up form/page */
 .prof-pic {
-    margin-left: 47px;
+    margin-left: 100px;
 }
 
-/* Profile Page*/
+/* Edit profile page/form  */
 .errors {
     color: red;
 }
