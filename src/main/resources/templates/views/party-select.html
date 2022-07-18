@@ -5,14 +5,14 @@
 <title>Party!</title>
 <body style="text-align: center">
 
-<!--<div sec:authorize="!isAuthenticated()">-->
-<!--    &lt;!&ndash;    This content is only shown to UNAUTHENTICATED users.&ndash;&gt;-->
-<!--    <nav th:replace="partials/navbar :: navbar"></nav>-->
-<!--</div>-->
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
 
-<!--<div sec:authorize="isAuthenticated()">-->
-<!--    &lt;!&ndash;    This content is only shown to AUTHENTICATED users.&ndash;&gt;-->
-<!--    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>-->
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 
 <!--<div>-->
 <!--    <div th:each="party : ${parties}">-->
@@ -20,12 +20,18 @@
         <br/><br/>
 
 <h1><em th:text="${description}"></em></h1>
+    <br/>
+    <br/>
+    <br/>
 <h1><em>SHAZAM!</em></h1>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <h1>This is the only party you need to worry about</h1><br/>
     <br/>
 
 
-<!--</div>-->
-<!--</div>-->
+</div>
 </body>
 </html>
