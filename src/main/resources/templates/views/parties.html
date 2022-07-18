@@ -3,15 +3,15 @@
 <head  th:replace="partials/header :: header-links"></head>
 <body style="text-align: center">
 
-<!--<div sec:authorize="!isAuthenticated()">-->
-<!--    &lt;!&ndash;    This content is only shown to UNAUTHENTICATED users.&ndash;&gt;-->
-<!--    <nav th:replace="partials/navbar :: navbar"></nav>-->
-<!--</div>-->
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
 
-<!--<div sec:authorize="isAuthenticated()">-->
-<!--    &lt;!&ndash;    This content is only shown to AUTHENTICATED users.&ndash;&gt;-->
-<!--    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>-->
-<!--</div>-->
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+</div>
 
 <h1>Hey!  Check out all these cool parties!  Pick one!</h1>
 <div class="container">
@@ -26,5 +26,7 @@
     <br/>
     <h1 th:href="@{/party-form}">Create a Party</h1>
 <!--</div>-->
+
+<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>

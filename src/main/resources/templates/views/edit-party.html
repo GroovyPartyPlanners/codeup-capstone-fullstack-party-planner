@@ -16,27 +16,28 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form th:action="@{/party-form}" method="POST" th:object="${party}">
+            <form th:action="@{/party/{id}/edit(id=${party.id})}" method="POST" th:object="${party}">
 
                 <div class="form-group">
-                    <label for="party-name">Party Name:</label>
-                    <input id="party-name" class="form-control text-center" th:field="*{party_name}" />
+                    <label for="title">Party Name</label>
+                    <input th:field="*{name}" id="title" name="title" type="text" class="form-control text-center" />
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" class="form-control text-center" rows="5" th:field="*{description}"></textarea>
+                    <label for="description">Party Description</label>
+                    <textarea th:field="*{description}" id="description" name="description" class="form-control text-center" rows="5"></textarea>
                 </div>
-
                 <div class="form-group">
-                    <input value="Create a Party!" type="submit" class="btn btn-primary"/>
+                    <input type="submit" value="Edit Party" class="btn btn-primary"/>
                 </div>
+            </form>
+
+            <form th:action="@{|/party/${party.id}/delete|}" th:method="POST">
+                <input type="submit" value="Delete Party" class="btn btn-primary" />
             </form>
         </div>
     </div>
 </div>
-
-</body>
 
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
