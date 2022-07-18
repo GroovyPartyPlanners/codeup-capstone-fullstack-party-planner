@@ -15,15 +15,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="btn nav-link" th:href="@{/home}">Home</a></li>
-<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/profile}">Profile</a></li>-->
-<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/event}">Events</a></li>-->
             <li class="nav-item"><a class="btn nav-link" th:href="@{/parties}">Parties</a></li>
-<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/create}">Create</a></li>-->
-            <li class="nav-item"><a class="btn nav-link" th:href="@{/login}">Login</a></li>
-            <li class="nav-item"><a class="btn nav-link" th:href="@{/sign-up}">Sign-up</a></li>
             <li class="nav-item"><a class="btn nav-link" th:href="@{/about}">About Us</a></li>
+            <li class="nav-item">
+                <!-- Button trigger Login modal -->
+                <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#staticBackdropLogin">
+                    Login
+                </button>
+            </li>
+            <li class="nav-item">
+                <!-- Button trigger Sign-up modal -->
+                <button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#staticBackdropSignUp">
+                    Sign-up
+                </button>
+            </li>
         </ul>
     </div>
 </nav>
+
 </body>
 </html>
