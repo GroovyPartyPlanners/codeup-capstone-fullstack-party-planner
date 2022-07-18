@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 @Controller
@@ -23,21 +22,21 @@ public class PartyController {
 
     @GetMapping(path = "/parties")
     public String showPartyForm(Model model) {
-        model.addAttribute("party", new Party());
+//        model.addAttribute("party", new Party());
         ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         model.addAttribute("parties", parties);
         return "views/parties";
     }
 
-    @PostMapping(path = "/parties")
-    public String saveParty(@ModelAttribute Party party, HttpServletRequest request) {
-//        if (party.getEvent_id() == null) {
-//            party.setEvent_id("0");
-//        }
-        partyRepository.save(party);
-
-        return "views/parties";
-    }
+//    @PostMapping(path = "/party/save")
+//    public String saveParty(@ModelAttribute Party party) {
+////        if (party.getEvent_id() == null) {
+////            party.setEvent_id("0");
+////        }
+//        partyRepository.save(party);
+//
+//        return "views/parties";
+//    }
 
 //    @GetMapping(path = "/party/{id}")
 //    public void showParty(@PathVariable String id, Model model, Request request) {
@@ -65,17 +64,18 @@ public class PartyController {
 
 
     @GetMapping(path = "/party-form")
-    public String partyForm(Model model) {
+    public String partyForm (Model model) {
         model.addAttribute("party", new Party());
         return "/views/party-form";
     }
 
-//    @PostMapping(path = "/party-form")
-//    public String partyCreate (@ModelAttribute Party party) {
-//        partyRepository.save(party);
-//        String html = "party/{" + party.getParty_name()+ "}";
-//        return html;
-//    }
+
+
+    @PostMapping(path = "/party-form")
+    public String partyCreate (@ModelAttribute Party party) {
+        partyRepository.save(party);
+        return "views/home";
+    }
 
     @GetMapping(path = "/party-select/{id}")
     public String partyPage(@PathVariable long id, Model model) {
@@ -85,6 +85,7 @@ public class PartyController {
 //        String partyDescription = party.getDescription();
         Party party = partyRepository.getById(id);
         model.addAttribute("name", party.getParty_name());
+        model.addAttribute("description", party.getDescription());
         return "views/party-select";
 
     }
