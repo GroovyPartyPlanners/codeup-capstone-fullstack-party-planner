@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head  th:replace="partials/header :: header-links"></head>
+<body style="text-align: center">
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+
+
+    <!--  OLD CODE THAT REDIRECTS USER TO A SEPARATE LOGIN OR SIGN-UP PAGE  -->
+    <!--    <div class="container">-->
+    <!--        <div class="col">-->
+    <!--            <div class="row">-->
+    <!--                <div class="col">-->
+    <!--                    <a class="btn btn-primary" th:href="@{/login}">Login</a>-->
+    <!--                </div>-->
+
+    <!--                <div class="col">-->
+    <!--                    <a class="btn btn-primary" th:href="@{/sign-up}">Sign-up</a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <!-- Button trigger Login modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdropLogin">
+        Login
+    </button>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabelLogin">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <form th:action="@{/login}" method="POST">
+
+                                    <div class="form-group">
+                                        <label for="username-login">Username</label>
+                                        <input id="username-login" name="username" type="text" class="form-control text-center" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password-login">Password</label>
+                                        <input id="password-login" name="password" type="password" class="form-control text-center" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Log In" class="btn btn-primary"/>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Button trigger Sign-up modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdropSignUp">
+    Sign-up
+</button>
+
+<!-- Sign-up Modal -->
+<div class="modal fade" id="staticBackdropSignUp" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelSignUp" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabelSignUp">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+
+                                <div class="form-group">
+                                    <label for="first-name">First Name:</label>
+                                    <input id="first-name" class="form-control text-center" th:field="*{first_name}" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="last-name">Last Name:</label>
+                                    <input id="last-name" class="form-control text-center" th:field="*{last_name}" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="username-signup">Username:</label>
+                                    <input id="username-signup" class="form-control text-center" th:field="*{username}" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address:</label>
+                                    <input id="email" class="form-control text-center" th:field="*{email}" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="group-name">Group Name (optional):</label>
+                                    <input id="group-name" class="form-control text-center" th:field="*{group_name}" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password-signup">Password:</label>
+                                    <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />
+                                </div>
+
+                                <div class="form-group prof-pic">
+                                    <label for="prof-pic" class="form-label">Profile Picture (optional):</label>
+                                    <input id="prof-pic" type="file" th:field="*{user_pic_url}" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input value="Sign me up!" type="submit" class="btn btn-primary"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+
+</div>
+
+<div th:replace="partials/scripts :: scripts"></div>
+</body>
+</html>
