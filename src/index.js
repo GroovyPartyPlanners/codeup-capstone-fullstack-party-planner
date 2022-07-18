@@ -19,11 +19,13 @@ function showPosition(position) {
         console.log(data);
         var events ='';
         var eventsDate = '';
+        var eventImage = '';
         for(var i = 0; i < data.events.length; i++) {
-            events += `<li>${data.events[i].title}${data.events[i].datetime_local}${data.events[i].venue.name}${data.events[i].performers[0].images.huge}</li>`
+            events += `<li>${data.events[i].title}${data.events[i].datetime_local}${data.events[i].venue.name}</li>`
+            eventImage = data.events[i].performers[0].images.huge;
         }
         document.getElementById("eventTitle", "eventDate").innerHTML = events + eventsDate;
-        document.getElementById("eventImg").src = events;
+        document.getElementById("eventImage").src = eventImage;
         
     }
     )
@@ -32,21 +34,5 @@ function showPosition(position) {
 }
 getLocation();
 
-// function getEvents() {
-//     fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//         var events ='';
-//         for(var i = 0; i < data.events.length; i++) {
-//             events += `<li>${data.events[i].title}</li>`;
-            
-//         }
-//         document.getElementById("eventTitle").innerHTML = events
-//     }
-//     )
-//     .catch(error => console.log(error));
-// }
-// getEvents();
 
-
+//${data.events[i].performers[0].images.huge}
