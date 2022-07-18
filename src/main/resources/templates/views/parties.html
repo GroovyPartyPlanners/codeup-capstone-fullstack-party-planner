@@ -17,10 +17,10 @@
 <div class="container">
 <!--    <a th:href="@{'/details/'+${user.login}(orderId=${o.id})}">view</a>-->
     <div th:each="party : ${parties}">
-        <p><a th:text="${party.party_name}" th:onclick="/party/select/${party.party_name}" th:href="@{/views/party}"></a></p><br/>
+        <p><a th:text="${party.party_name}" th:href="@{'/party-select/'+ ${party.party_id}}"></a></p><br/>
 <!--            th:name="${party.party_name}-->
-    </form>
     </div>
+</div>
     <br/>
     <br/>
     <br/>
