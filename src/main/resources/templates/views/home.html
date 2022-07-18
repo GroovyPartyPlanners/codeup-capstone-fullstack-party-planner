@@ -6,32 +6,15 @@
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
     <nav th:replace="partials/navbar :: navbar"></nav>
-
-    <h1>Home Page Here</h1>
-
-    <div class="container">
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <a class="btn btn-primary" th:href="@{/login}">Login</a>
-                </div>
-
-                <div class="col">
-                    <a class="btn btn-primary" th:href="@{/sign-up}">Sign-up</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <div sec:authorize="isAuthenticated()">
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 
-    <h1>Home Page Here</h1>
-
 </div>
+
+<h1>Home Page</h1>
 
 <div th:replace="partials/scripts :: scripts"></div>
 </body>

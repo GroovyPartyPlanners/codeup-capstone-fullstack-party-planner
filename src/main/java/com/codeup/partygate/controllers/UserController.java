@@ -33,4 +33,5 @@ public class UserController {
         usersRepository.save(user);
         return "redirect:/login";
     }
+
 }

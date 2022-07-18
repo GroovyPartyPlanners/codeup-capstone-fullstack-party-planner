@@ -2,6 +2,7 @@ package com.codeup.partygate.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -9,20 +10,25 @@ public class User {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    protected long user_id;
+    private long id;
 
+    @NotBlank
     @Column(length = 50, nullable = false)
     private String first_name;
 
+    @NotBlank
     @Column(length = 50, nullable = false)
     private String last_name;
 
+    @NotBlank
     @Column(length = 75, nullable = false, unique = true)
     private String email;
 
+    @NotBlank
     @Column(length = 50, nullable = false, unique = true)
     private String username;
 
+    @NotBlank
     @Column(length = 75, nullable = true)
     private String group_name;
 
@@ -33,11 +39,14 @@ public class User {
     @Column(length = 100, nullable = true)
     private String user_pic_url;
 
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Party> parties;
+
     public User () {}
 
-//  NEW CONSTRUCTOR for authentication process (login/logout)
+    //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {
-        user_id = copy.user_id; // This line is SUPER important! Many things won't work if it's absent
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
         first_name = copy.first_name;
         last_name = copy.last_name;
         email = copy.email;
@@ -60,11 +69,11 @@ public class User {
 //    }
 
     public long getId() {
-        return user_id;
+        return id;
     }
 
     public void setId(long id) {
-        this.user_id = id;
+        this.id = id;
     }
 
     public String getFirst_name() {
