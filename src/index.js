@@ -1,4 +1,4 @@
-
+//test
 
 function getLocation() {
     if (navigator.geolocation) {
