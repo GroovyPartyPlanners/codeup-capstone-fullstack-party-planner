@@ -1,7 +1,9 @@
 package com.codeup.partygate.controllers;
 
 import com.codeup.partygate.models.Party;
+import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,15 +81,18 @@ public class PartyController {
 
     @GetMapping(path = "/party-select/{id}")
     public String partyPage(@PathVariable long id, Model model) {
+
+        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        Party party = partyRepository.findAll(party_id);
 //        party = partyRepository.getById(party_id);
 //        String partyName = party.getParty_name();
 //        String partyDescription = party.getDescription();
         Party party = partyRepository.getById(id);
+        model.addAttribute("user", loggedUser);
         model.addAttribute("name", party.getParty_name());
         model.addAttribute("description", party.getDescription());
+        model.addAttribute("id", id);
         return "views/party-select";
-
     }
 }
 //        for (Party party: parties

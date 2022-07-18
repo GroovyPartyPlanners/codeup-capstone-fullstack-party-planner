@@ -2,6 +2,7 @@ package com.codeup.partygate.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Table(name = "parties")
@@ -22,6 +23,11 @@ public class Party {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToMany(mappedBy = "tailgateParties")
+    private List<User> attendees;
+
+
 
     public Party() {}
 
