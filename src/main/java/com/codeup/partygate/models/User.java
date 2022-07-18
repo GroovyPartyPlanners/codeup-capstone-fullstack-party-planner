@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
-    @Id
+    @Id()
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -41,6 +41,28 @@ public class User {
 
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Party> parties;
+
+    @ManyToMany
+    @JoinTable(name = "attendees",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "party_id"))
+    private List<Party> tailgateParties;
+
+    public List<Party> getParties() {
+        return parties;
+    }
+
+    public void setParties(List<Party> parties) {
+        this.parties = parties;
+    }
+
+    public List<Party> getTailgateParties() {
+        return tailgateParties;
+    }
+
+    public void setTailgateParties(List<Party> tailgateParties) {
+        this.tailgateParties = tailgateParties;
+    }
 
     public User () {}
 
