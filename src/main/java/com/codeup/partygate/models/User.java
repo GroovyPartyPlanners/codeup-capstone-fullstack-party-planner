@@ -48,18 +48,23 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "party_id"))
     private List<Party> tailgateParties;
 
+
+    //parties owned by user
     public List<Party> getParties() {
         return parties;
     }
 
+    //parties owned by user
     public void setParties(List<Party> parties) {
         this.parties = parties;
     }
 
+    //parties attended by user
     public List<Party> getTailgateParties() {
         return tailgateParties;
     }
 
+    //parties attended by user
     public void setTailgateParties(List<Party> tailgateParties) {
         this.tailgateParties = tailgateParties;
     }

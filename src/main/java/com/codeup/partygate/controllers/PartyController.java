@@ -3,6 +3,7 @@ package com.codeup.partygate.controllers;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
+import com.codeup.partygate.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +13,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PartyController {
 
     private final PartyRepository partyRepository;
+    private final UserRepository userRepository;
 
-    public PartyController(PartyRepository partyRepository) {
+    public PartyController(PartyRepository partyRepository, UserRepository userRepository) {
+        this.userRepository = userRepository;
         this.partyRepository = partyRepository;
     }
 
@@ -67,6 +71,27 @@ public class PartyController {
 
     @GetMapping(path = "/party-form")
     public String partyForm (Model model) {
+
+        System.out.println("Stuff is going to happen");
+
+//        HOW TO JOIN TABLES
+//===========================================================================
+        User user = userRepository.getById(1L);
+        Party party = partyRepository.getById(1L);
+
+        System.out.println("user.getUsername() = " + user.getUsername());
+        System.out.println("party.getParty_name() = " + party.getParty_name());
+
+        List<Party> parties = new ArrayList<>();
+
+        parties.add(party);
+//===============
+
+//        user-party association
+        user.setTailgateParties(parties);
+
+        userRepository.save(user); //persist to the db
+//===========================================================================
         model.addAttribute("party", new Party());
         return "/views/party-form";
     }
@@ -94,7 +119,17 @@ public class PartyController {
         model.addAttribute("id", id);
         return "views/party-select";
     }
+
+//    @GetMapping(path="/attend/{userId}/{partyId}")
+//    public String userAttend(@PathVariable long userId, long partyId) {
+//
+//    }
+
+
+
 }
+
+
 //        for (Party party: parties
 //             )
 //        {
