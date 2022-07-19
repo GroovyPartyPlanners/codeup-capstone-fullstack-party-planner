@@ -4,6 +4,7 @@ import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
+import com.codeup.partygate.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +18,15 @@ import java.util.ArrayList;
 @Controller
 public class PartyController {
 
+    private final UserService userService;
     private final PartyRepository partyRepository;
 //    private final UserRepository userRepository;
 
-    public PartyController(PartyRepository partyRepository, UserRepository userRepository) {
-//        this.userRepository = userRepository;
+
+    public PartyController(PartyRepository partyRepository, UserRepository userRepository, UserService userService) {
+       this.userService = userService;
         this.partyRepository = partyRepository;
+//        this.userRepository = userRepository;
     }
 
     @GetMapping(path = "/parties")
@@ -30,7 +34,6 @@ public class PartyController {
         model.addAttribute("party", new Party());
         ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         model.addAttribute("parties", parties);
-
         return "views/parties";
     }
 
@@ -57,13 +60,15 @@ public class PartyController {
 
 //        System.out.println("Stuff is going to happen");
         model.addAttribute("party", new Party());
-        return "/views/party-form";
+        return "views/party-form";
     }
 
     @PostMapping(path = "/party-form")
     public String partyCreate (@ModelAttribute Party party) {
+        User user = userService.loggedInUser();
+        party.setUser(user);
         partyRepository.save(party);
-        return "views/home";
+        return "redirect:/home";
     }
 
     @GetMapping(path = "/party-select/{id}")
