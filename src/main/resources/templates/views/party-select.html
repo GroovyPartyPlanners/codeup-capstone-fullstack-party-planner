@@ -7,7 +7,7 @@
 
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
-    <nav th:replace="partials/navbar :: navbar"></nav>
+    <nav th:href=""></nav>
 </div>
 
 <div sec:authorize="isAuthenticated()">
