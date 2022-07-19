@@ -19,9 +19,9 @@ public class Party {
     @Column(length = 10000, nullable = false)
     private String description;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 //    @ManyToMany(mappedBy = "tailgateParties")
 //    private List<User> attendees;
@@ -60,12 +60,12 @@ public class Party {
         this.description = description;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
+    public User getUser() {
+        return user;
+    }
 //
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 }
