@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
-    @Id
+    @Id()
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -32,7 +32,7 @@ public class User {
     @Column(length = 75, nullable = true)
     private String group_name;
 
-    @NotBlank
+    @NotBlank(message = "Confirm password or enter a new one!")
     @Column(length = 60, nullable = false)
     private String password;
 
