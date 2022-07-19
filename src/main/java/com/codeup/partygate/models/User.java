@@ -2,7 +2,6 @@ package com.codeup.partygate.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -39,35 +38,35 @@ public class User {
     @Column(length = 100, nullable = true)
     private String user_pic_url;
 
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Party> parties;
+//    @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
+//    private List<Party> parties;
 
-    @ManyToMany
-    @JoinTable(name = "attendees",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "party_id"))
-    private List<Party> tailgateParties;
+//    @ManyToMany
+//    @JoinTable(name = "attendees",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "party_id"))
+//    private List<Party> tailgateParties;
 
-
-    //parties owned by user
-    public List<Party> getParties() {
-        return parties;
-    }
 
     //parties owned by user
-    public void setParties(List<Party> parties) {
-        this.parties = parties;
-    }
-
-    //parties attended by user
-    public List<Party> getTailgateParties() {
-        return tailgateParties;
-    }
-
-    //parties attended by user
-    public void setTailgateParties(List<Party> tailgateParties) {
-        this.tailgateParties = tailgateParties;
-    }
+//    public List<Party> getParties() {
+//        return parties;
+//    }
+//
+//    //parties owned by user
+//    public void setParties(List<Party> parties) {
+//        this.parties = parties;
+//    }
+//
+//    //parties attended by user
+//    public List<Party> getTailgateParties() {
+//        return tailgateParties;
+//    }
+//
+//    //parties attended by user
+//    public void setTailgateParties(List<Party> tailgateParties) {
+//        this.tailgateParties = tailgateParties;
+//    }
 
     public User () {}
 
