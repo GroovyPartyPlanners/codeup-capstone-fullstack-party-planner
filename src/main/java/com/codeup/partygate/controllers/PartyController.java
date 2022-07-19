@@ -71,6 +71,29 @@ public class PartyController {
         return "redirect:/home";
     }
 
+    // Edit party details button on profile page
+    @GetMapping("/party/{id}/edit")
+    public String editPartyForm(@PathVariable long id, Model model) {
+        model.addAttribute("party", partyRepository.getById(id));
+        return "views/edit-party";
+    }
+
+    // Post edits of party to database
+    @PostMapping("/party/{id}/edit")
+    public String editParty(@PathVariable long id, @ModelAttribute Party party) {
+        User user = userService.loggedInUser();
+        party.setUser(user);
+        partyRepository.saveAndFlush(party);
+        return "redirect:/profile";
+    }
+
+    // Delete party button on edit-party page
+    @PostMapping("party/{id}/delete")
+    public String deleteParty(@PathVariable long id) {
+        partyRepository.deleteById(id);
+        return "redirect:/profile";
+    }
+
     @GetMapping(path = "/party-select/{id}")
     public String partyPage(@PathVariable long id, Model model) {
         User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
