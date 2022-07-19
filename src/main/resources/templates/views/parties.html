@@ -17,8 +17,8 @@
 <div class="container">
 <!--    <a th:href="@{'/details/'+${user.login}(orderId=${o.id})}">view</a>-->
     <div th:each="party : ${parties}">
-        <p><a th:text="${party.party_name}" th:href="@{'/party-select/'+ ${party.party_id}}"></a></p><br/>
-        <button th:text = "join ${party.party_name}" th:href="@{/}"></button>
+        <p><a th:text="${party.party_name}" th:href="@{'/party-select/'+ ${party.id}}"></a></p><br/>
+<!--        <button th:text = "join ${party.party_name}" th:method="POST" th:href="@{/}" th:object = "party"></button>-->
 <!--            th:name="${party.party_name}-->
     </div>
 
@@ -26,7 +26,7 @@
     <br/>
     <br/>
     <br/>
-    <h1 th:href="@{/party-form}">Create a Party</h1>
+<!--    <h1 th:href="@{/party-form}">Create a Party</h1>-->
 <!--</div>-->
 
 <div th:replace="partials/scripts :: scripts"></div>
