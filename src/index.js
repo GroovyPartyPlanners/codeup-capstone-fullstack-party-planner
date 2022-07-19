@@ -19,15 +19,17 @@ function showPosition(position) {
         console.log(data);
         var events ='';
         var eventsDate = '';
+        var eventsLocation = '';
+        var eventsCity = '';
         var eventImage = '';
         for(var i = 0; i < data.events.length; i++) {
-            events += `<li>${data.events[i].title}${data.events[i].datetime_local}${data.events[i].venue.name}</li>`
-            eventImage = data.events[i].performers[0].images.huge;
+            events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
+            eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
+            
         }
-        document.getElementById("eventTitle", "eventDate").innerHTML = events + eventsDate;
-        document.getElementById("eventImage").src = eventImage;
-        
+        document.getElementById("eventTitle").innerHTML = events
     }
+        
     )
     .catch(error => console.log(error));
     
@@ -36,3 +38,5 @@ getLocation();
 
 
 //${data.events[i].performers[0].images.huge}
+//document.getElementById("eventImage").src = eventImage;
+//eventImage = data.events[i].performers[0].images.huge;
