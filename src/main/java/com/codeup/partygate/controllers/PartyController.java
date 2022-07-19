@@ -71,14 +71,14 @@ public class PartyController {
         return "redirect:/home";
     }
 
-    // Edit party details button on profile page
+    // Edit party details button on profile page - navigates to edit-party page
     @GetMapping("/party/{id}/edit")
     public String editPartyForm(@PathVariable long id, Model model) {
         model.addAttribute("party", partyRepository.getById(id));
         return "views/edit-party";
     }
 
-    // Post edits of party to database
+    // Post edits of party to database - updates party
     @PostMapping("/party/{id}/edit")
     public String editParty(@PathVariable long id, @ModelAttribute Party party) {
         User user = userService.loggedInUser();
@@ -87,7 +87,7 @@ public class PartyController {
         return "redirect:/profile";
     }
 
-    // Delete party button on edit-party page
+    // Delete party button on edit-party page - deletes party post
     @PostMapping("party/{id}/delete")
     public String deleteParty(@PathVariable long id) {
         partyRepository.deleteById(id);
