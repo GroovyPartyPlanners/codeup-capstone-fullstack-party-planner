@@ -34,7 +34,5 @@ application.properties
 ### VS Code ###
 .vscode/
 
+# Seatgeek API Keys
 /src/api.js
-
-# Database Connection Credentials
-src/main/resources/application.properties
