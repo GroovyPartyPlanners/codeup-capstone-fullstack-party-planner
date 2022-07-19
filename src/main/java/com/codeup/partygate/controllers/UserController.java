@@ -21,13 +21,13 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping(path = "/sign-up")
+    @GetMapping("/sign-up")
     public String showSignUpForm(Model model) {
         model.addAttribute("user", new User());
         return "views/sign-up";
     }
 
-    @PostMapping(path ="/sign-up")
+    @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user, Errors validation, Model model) {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
