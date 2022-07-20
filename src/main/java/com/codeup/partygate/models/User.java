@@ -40,6 +40,8 @@ public class User {
     @Column(length = 100, nullable = true)
     private String user_pic_url;
 
+
+
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Party> parties;
 
