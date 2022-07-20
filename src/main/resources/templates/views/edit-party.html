@@ -13,6 +13,8 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
+<h1>Edit your Party Details</h1>
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -20,7 +22,7 @@
 
                 <div class="form-group">
                     <label for="title">Party Name</label>
-                    <input th:field="*{name}" id="title" name="title" type="text" class="form-control text-center" />
+                    <input th:field="*{party_name}" id="title" name="title" type="text" class="form-control text-center" />
                 </div>
 
                 <div class="form-group">

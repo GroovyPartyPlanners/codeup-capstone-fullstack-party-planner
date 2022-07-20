@@ -30,7 +30,6 @@ public class User {
     @Column(length = 50, nullable = false, unique = true)
     private String username;
 
-    @NotBlank
     @Column(length = 75, nullable = true)
     private String group_name;
 
