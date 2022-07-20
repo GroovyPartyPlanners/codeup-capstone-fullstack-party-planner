@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns="http://www.w3.org/1999/html">
+<head  th:replace="partials/header :: header-links"></head>
+<title>Party!</title>
+<body style="text-align: center">
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:href=""></nav>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+
+<!--<div>-->
+<!--    <div th:each="party : ${parties}">-->
+<h1><em th:text="${name}"></em></h1>
+        <br/><br/>
+
+<h1><em th:text="${description}"></em></h1>
+    <br/>
+    <br/>
+    <br/>
+<h1><em>SHAZAM!</em></h1>
+    <div th:replace="partials/party-comments :: party-comments"></div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h1>This is the only party you need to worry about</h1><br/>
+
+<!--    the id in the following href is the party_id, this button allows a user to "attend" a party-->
+    <form  class="form-group" th:action="@{'/attend/'+${user.id}+'/'+${id}}">
+        <div class="form-group">
+            <input th:value="${name}" type="submit" class="btn btn-primary"/>
+        </div>
+    </form>
+    <br/>
+
+</div>
+
+</body>
+</html>

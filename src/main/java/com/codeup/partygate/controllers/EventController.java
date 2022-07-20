@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class EventController {
 
-    @GetMapping(path = "/event")
+//    serves events view
+    @GetMapping( "/event")
     public String showEvent() {
         return "views/event";
     }
+
 }

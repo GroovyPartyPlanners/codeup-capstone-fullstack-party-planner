@@ -1,41 +1,86 @@
 package com.codeup.partygate.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.List;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "users")
 public class User {
 
-    @Id
+    @Id()
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    protected long user_id;
+    private long id;
 
+    @NotBlank
     @Column(length = 50, nullable = false)
     private String first_name;
 
+    @NotBlank
     @Column(length = 50, nullable = false)
     private String last_name;
 
+    @NotBlank
     @Column(length = 75, nullable = false, unique = true)
     private String email;
 
+    @NotBlank
     @Column(length = 50, nullable = false, unique = true)
     private String username;
 
     @Column(length = 75, nullable = true)
     private String group_name;
 
+    @NotBlank(message = "Confirm password or enter a new one!")
     @Column(length = 60, nullable = false)
     private String password;
 
     @Column(length = 100, nullable = true)
     private String user_pic_url;
 
+
+
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Party> parties;
+
+//    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
+//    added missing referencedColumnName
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "attendees",
+//            , nullable = true, updatable = true
+            joinColumns = @JoinColumn(name = "user_id"),
+//            , nullable = true, updatable = true
+            inverseJoinColumns = @JoinColumn(name = "party_id"))
+    private Set<Party> tailgateParties;
+
+
+    //parties owned by user
+    public List<Party> getParties() {
+        return parties;
+    }
+//
+//    //parties owned by user
+    public void setParties(List<Party> parties) {
+        this.parties = parties;
+    }
+//
+//    //parties attended by user
+    public Set<Party> getTailgateParties() {
+        return tailgateParties;
+    }
+//
+//    //parties attended by user
+    public void setTailgateParties(Set<Party> tailgateParties) {
+        this.tailgateParties = tailgateParties;
+    }
+
     public User () {}
 
-//  NEW CONSTRUCTOR for authentication process (login/logout)
+    //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {
-        user_id = copy.user_id; // This line is SUPER important! Many things won't work if it's absent
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
         first_name = copy.first_name;
         last_name = copy.last_name;
         email = copy.email;
@@ -58,11 +103,11 @@ public class User {
 //    }
 
     public long getId() {
-        return user_id;
+        return id;
     }
 
     public void setId(long id) {
-        this.user_id = id;
+        this.id = id;
     }
 
     public String getFirst_name() {

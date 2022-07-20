@@ -1,6 +1,8 @@
 package com.codeup.partygate.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 @Entity
 @Table(name = "parties")
@@ -8,43 +10,58 @@ public class Party {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long party_id;
+    private long id;
 
-//    @Column(length = 200, nullable = false)
-//    private String event_id;
-
-    @Column(length = 1000, nullable = false)
-    private String description;
-
-    @Column(length = 200, nullable = false)
+    @NotBlank
+    @Column(length = 100, nullable = false)
     private String party_name;
 
-    public Party() {
+    @NotBlank
+    @Column(length = 10000, nullable = false)
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<User> attendees;
+
+
+
+    public Party() {}
+
+
+
+    public Party(long id, String name, String description) {
+        this.id = id;
+        this.party_name = name;
+        this.description = description;
     }
 
-    //  NEW CONSTRUCTOR for authentication process (login/logout)
-    public Party(Party copy) {
-        party_id = copy.party_id; // This line is SUPER important! Many things won't work if it's absent
-//        event_id = copy.event_id;
-        description = copy.description;
-        party_name = copy.party_name;
+    public Set<User> getAttendees() {
+        return attendees;
     }
 
-    public long getParty_id() {
-        return party_id;
+    public void setAttendees(Set<User> attendees) {
+        this.attendees = attendees;
     }
 
-    public void setParty_id(long party_id) {
-        this.party_id = party_id;
+    public long getId() {
+        return id;
     }
 
-//    public String getEvent_id() {
-//        return event_id;
-//    }
-//
-//    public void setEvent_id(String event_id) {
-//        this.event_id = event_id;
-//    }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getParty_name() {
+        return party_name;
+    }
+
+    public void setParty_name(String name) {
+        this.party_name = name;
+    }
 
     public String getDescription() {
         return description;
@@ -54,23 +71,12 @@ public class Party {
         this.description = description;
     }
 
-    public String getParty_name() {
-        return party_name;
+    public User getUser() {
+        return user;
+    }
+//
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setParty_name(String party_name) {
-        this.party_name = party_name;
-    }
-
-    //  OLD CONSTRUCTOR - BEFORE AUTHENTICATION PROCESS
-//    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String user_pic_url) {
-//        this.id = id;
-//        this.first_name = first_name;
-//        this.last_name = last_name;
-//        this.email = email;
-//        this.username = username;
-//        this.group_name = group_name;
-//        this.password = password;
-//        this.user_pic_url = user_pic_url;
-//    }
 }

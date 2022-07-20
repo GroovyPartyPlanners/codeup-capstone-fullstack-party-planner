@@ -4,53 +4,31 @@
 <body style="text-align: center">
 
 <div sec:authorize="!isAuthenticated()">
-    <!--    This content is only shown to UNAUTHENTICATED users.-->
-    <nav th:replace="partials/navbar :: navbar"></nav>
+<!--    &lt;!&ndash;    This content is only shown to UNAUTHENTICATED users.&ndash;&gt;-->
+<!--    <nav th:replace="partials/navbar :: navbar"></nav>-->
 </div>
 
 <div sec:authorize="isAuthenticated()">
-    <!--    This content is only shown to AUTHENTICATED users.-->
+<!--    &lt;!&ndash;    This content is only shown to AUTHENTICATED users.&ndash;&gt;-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
+<h1>Hey!  Check out all these cool parties!  Pick one!</h1>
 <div class="container">
-    <br/>
-    <h1>List of parties goes here!</h1><br/>
-    <h1>List of parties goes here!</h1><br/>
-    <h1>List of parties goes here!</h1><br/>
-    <h1>List of parties goes here!</h1><br/>
-    <h1>List of parties goes here!</h1><br/>
-    <br/>
-    <br/>
-    <br/>
-    <h1>Create a Party</h1>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form th:action="@{/parties}" method="POST" th:object="${party}">
-
-                <div class="form-group">
-                    <label for="party-name">Party Name:</label>
-                    <input id="party-name" class="form-control text-center" th:field="*{party_name}" />
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input id="description" class="form-control text-center" th:field="*{description}" />
-                </div>
-
-                <div class="form-group">
-                    <input value="Create a Party!" type="submit" class="btn btn-primary"/>
-                </div>
-            </form>
-        </div>
+<!--    <a th:href="@{'/details/'+${user.login}(orderId=${o.id})}">view</a>-->
+    <div th:each="party : ${parties}">
+        <p><a th:text="${party.party_name}" th:href="@{'/party-select/'+ ${party.id}}"></a></p><br/>
+<!--        <button th:text = "join ${party.party_name}" th:method="POST" th:href="@{/}" th:object = "party"></button>-->
+<!--            th:name="${party.party_name}-->
     </div>
+
 </div>
+    <br/>
+    <br/>
+    <br/>
+<!--    <h1 th:href="@{/party-form}">Create a Party</h1>-->
+<!--</div>-->
 
-</body>
-
-<div th:replace="partials/scripts :: scripts"></div>
+<div th:insert="partials/scripts :: scripts" class = "d-flex container"></div>
 </body>
 </html>
