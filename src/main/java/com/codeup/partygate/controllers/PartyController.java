@@ -4,7 +4,6 @@ import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
-import com.codeup.partygate.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,23 +19,12 @@ import java.util.Set;
 @Controller
 public class PartyController {
 
-<<<<<<< HEAD
     public final PartyRepository partyRepository;
     public final UserRepository userRepository;
 
     public PartyController(PartyRepository partyRepository, UserRepository userRepository) {
         this.userRepository = userRepository;
-=======
-    private final UserService userService;
-    private final PartyRepository partyRepository;
-//    private final UserRepository userRepository;
-
-
-    public PartyController(PartyRepository partyRepository, UserRepository userRepository, UserService userService) {
-       this.userService = userService;
->>>>>>> 8bba817163aa39cdbbf5ef9a20670967894b51a7
         this.partyRepository = partyRepository;
-//        this.userRepository = userRepository;
     }
 
     //  delivers the party-creation form which allows the creation of new parties
@@ -57,6 +45,7 @@ public class PartyController {
         model.addAttribute("party", new Party());
         ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         model.addAttribute("parties", parties);
+
         return "views/parties";
     }
 //    allows the storing of new party details
@@ -79,53 +68,12 @@ public class PartyController {
 //    }
 
 
-<<<<<<< HEAD
 //
 //    @PostMapping(path = "/party-form")
 //    public String partyCreate (@ModelAttribute Party party) {
 //        partyRepository.save(party);
 //        return "views/home";
 //    }
-=======
-    @GetMapping(path = "/party-form")
-    public String partyForm (Model model) {
-
-//        System.out.println("Stuff is going to happen");
-        model.addAttribute("party", new Party());
-        return "views/party-form";
-    }
-
-    @PostMapping(path = "/party-form")
-    public String partyCreate (@ModelAttribute Party party) {
-        User user = userService.loggedInUser();
-        party.setUser(user);
-        partyRepository.save(party);
-        return "redirect:/home";
-    }
-
-    // Edit party details button on profile page - navigates to edit-party page
-    @GetMapping("/party/{id}/edit")
-    public String editPartyForm(@PathVariable long id, Model model) {
-        model.addAttribute("party", partyRepository.getById(id));
-        return "views/edit-party";
-    }
-
-    // Post edits of party to database - updates party
-    @PostMapping("/party/{id}/edit")
-    public String editParty(@PathVariable long id, @ModelAttribute Party party) {
-        User user = userService.loggedInUser();
-        party.setUser(user);
-        partyRepository.saveAndFlush(party);
-        return "redirect:/profile";
-    }
-
-    // Delete party button on edit-party page - deletes party post
-    @PostMapping("party/{id}/delete")
-    public String deleteParty(@PathVariable long id) {
-        partyRepository.deleteById(id);
-        return "redirect:/profile";
-    }
->>>>>>> 8bba817163aa39cdbbf5ef9a20670967894b51a7
 
 //    uses party id
     @GetMapping(path = "/party-select/{id}")
@@ -169,15 +117,8 @@ public class PartyController {
         userRepository.save(u); //persist to the db
         String redirect = "/views/party-select/" + partyId;
 //===========================================================================
-<<<<<<< HEAD
         return redirect;
     }
-=======
-//        return "views/party";
-//    }
-
-
->>>>>>> 8bba817163aa39cdbbf5ef9a20670967894b51a7
 }
 
 

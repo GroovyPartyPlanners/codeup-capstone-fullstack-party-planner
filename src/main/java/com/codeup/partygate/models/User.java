@@ -45,7 +45,7 @@ public class User {
 
 //    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
 //    added missing referencedColumnName
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "attendees",
 //            , nullable = true, updatable = true
             joinColumns = @JoinColumn(name = "user_id"),

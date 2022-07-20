@@ -24,7 +24,7 @@ public class Party {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<User> attendees;
 
 
