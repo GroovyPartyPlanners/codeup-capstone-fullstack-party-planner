@@ -3,6 +3,7 @@ package com.codeup.partygate.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -42,11 +43,15 @@ public class User {
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Party> parties;
 
-//    @ManyToMany
-//    @JoinTable(name = "attendees",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "party_id"))
-//    private List<Party> tailgateParties;
+//    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
+//    added missing referencedColumnName
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "attendees",
+//            , nullable = true, updatable = true
+            joinColumns = @JoinColumn(name = "user_id"),
+//            , nullable = true, updatable = true
+            inverseJoinColumns = @JoinColumn(name = "party_id"))
+    private Set<Party> tailgateParties;
 
 
     //parties owned by user
@@ -60,14 +65,14 @@ public class User {
     }
 //
 //    //parties attended by user
-//    public List<Party> getTailgateParties() {
-//        return tailgateParties;
-//    }
+    public Set<Party> getTailgateParties() {
+        return tailgateParties;
+    }
 //
 //    //parties attended by user
-//    public void setTailgateParties(List<Party> tailgateParties) {
-//        this.tailgateParties = tailgateParties;
-//    }
+    public void setTailgateParties(Set<Party> tailgateParties) {
+        this.tailgateParties = tailgateParties;
+    }
 
     public User () {}
 

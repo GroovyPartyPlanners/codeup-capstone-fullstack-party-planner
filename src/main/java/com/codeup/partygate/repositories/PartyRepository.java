@@ -9,6 +9,7 @@ import java.util.List;
 public interface PartyRepository extends JpaRepository<Party, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM partyplanner_db.parties WHERE user_id = ?")
     List<Party> findAllByUserId(long id);
+
 //    Party findByPartyName(String party_name);
 //    ArrayList<Party> findAll();
 
