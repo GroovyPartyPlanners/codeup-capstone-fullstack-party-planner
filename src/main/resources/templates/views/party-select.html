@@ -32,7 +32,7 @@
     <h1>This is the only party you need to worry about</h1><br/>
 
 <!--    the id in the following href is the party_id, this button allows a user to "attend" a party-->
-    <form  class="form-group" th:action="@{'/attend/'+${user.id}+'/'+${id}}">
+    <form  class="form-group" th:method="POST" th:action="@{'/attend/'+${user.id}+'/'+${id}}">
         <div class="form-group">
             <input th:value="${name}" type="submit" class="btn btn-primary"/>
         </div>

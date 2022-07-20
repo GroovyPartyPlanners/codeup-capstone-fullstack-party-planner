@@ -3,9 +3,9 @@ package com.codeup.partygate.controllers;
 import com.codeup.partygate.models.Comment;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
+import com.codeup.partygate.repositories.CommentRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
-import com.codeup.partygate.repositories.CommentRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Controller
 public class PartyController {
@@ -97,8 +96,8 @@ public class PartyController {
         return "views/party-select";
     }
 
-    @GetMapping(path="/attend/{userId}/{partyId}")
-    public String userAttend(@PathVariable String userId, String partyId) {
+    @PostMapping(path="/attend/{userId}/{partyId}")
+    public String userAttend(@PathVariable String userId, @PathVariable String partyId) {
         //        HOW TO JOIN TABLES
 //===========================================================================
         Long user = Integer.toUnsignedLong(Integer.parseInt(userId));
@@ -109,10 +108,10 @@ public class PartyController {
 //        System.out.println("user.getUsername() = " + user.getUsername());
 //        System.out.println("party.getParty_name() = " + party.getParty_name());
 
-        Set<Party> parties = new HashSet<>();
-//        List<User> users = new ArrayList<>();
+        List<Party> parties = new ArrayList<>();
+
         parties.add(p);
-//        users.add(u);
+
 //===============
 //        p.setAttendees(users);
 //        user-party association
@@ -121,7 +120,7 @@ public class PartyController {
 //        System.out.println(user);
 //        partyRepository.save(p);
         userRepository.save(u); //persist to the db
-        String redirect = "/views/party-select/" + partyId;
+        String redirect = "redirect:/party-select/" + partyId;
 //===========================================================================
         return redirect;
     }

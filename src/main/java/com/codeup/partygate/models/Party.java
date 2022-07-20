@@ -2,7 +2,7 @@ package com.codeup.partygate.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "parties")
@@ -24,8 +24,8 @@ public class Party {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<User> attendees;
+    @ManyToMany
+    private List<User> attendees;
 
 
 
@@ -39,11 +39,11 @@ public class Party {
         this.description = description;
     }
 
-    public Set<User> getAttendees() {
+    public List<User> getAttendees() {
         return attendees;
     }
 
-    public void setAttendees(Set<User> attendees) {
+    public void setAttendees(List<User> attendees) {
         this.attendees = attendees;
     }
 
@@ -78,5 +78,7 @@ public class Party {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 
 }
