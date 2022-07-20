@@ -1,9 +1,11 @@
 package com.codeup.partygate.controllers;
 
+import com.codeup.partygate.models.Comment;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
+import com.codeup.partygate.repositories.CommentRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +23,12 @@ public class PartyController {
 
     public final PartyRepository partyRepository;
     public final UserRepository userRepository;
+    public final CommentRepository commentRepository;
 
-    public PartyController(PartyRepository partyRepository, UserRepository userRepository) {
+    public PartyController(PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository) {
         this.userRepository = userRepository;
         this.partyRepository = partyRepository;
+        this.commentRepository = commentRepository;
     }
 
     //  delivers the party-creation form which allows the creation of new parties
@@ -84,6 +88,8 @@ public class PartyController {
 //        String partyName = party.getParty_name();
 //        String partyDescription = party.getDescription();
         Party party = partyRepository.getById(id);
+        ArrayList<Comment> comments = (ArrayList<Comment>) commentRepository.findAll();
+        model.addAttribute("comments", comments);
         model.addAttribute("user", loggedUser);
         model.addAttribute("name", party.getParty_name());
         model.addAttribute("description", party.getDescription());
