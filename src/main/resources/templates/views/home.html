@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head  th:replace="partials/header :: header-links"></head>
-<body style="text-align: center">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div sec:authorize="!isAuthenticated()">
-    <!--    This content is only shown to UNAUTHENTICATED users.-->
-    <nav th:replace="partials/navbar :: navbar"></nav>
-</div>
 
-<div sec:authorize="isAuthenticated()">
-    <!--    This content is only shown to AUTHENTICATED users.-->
-    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
 
-</div>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places">
+    </script>
+    <title>Document</title>
+</head>
+<body>
 <div class="container">
+    <div id='map' style='width: 400px; height: 300px;'></div>
     <form>
-        <label for="">Enter a location(City,State,Stadium,Theatre,etc.)</label>
+        <label>Enter a location(City,State,Stadium,Theatre,etc.)</label>
         <input type="text" id="search" placeholder="Search">
-        <label for "type">Choose type of Event</label>
+        <label >Choose type of Event</label>
 
         <select id="type">
             <option value="">All</option>
@@ -39,8 +40,17 @@
     </h1>
 
 </div>
+
+
+
+
+
+
+
+
+
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
 <script type="text/javascript" th:src="@{/js/homepage.js}"></script>
-<div th:replace="partials/scripts :: scripts"></div>
+
 </body>
 </html>
