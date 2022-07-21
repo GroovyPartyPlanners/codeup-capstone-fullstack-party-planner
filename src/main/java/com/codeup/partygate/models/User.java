@@ -5,12 +5,11 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Set;
 
-
 @Entity
 @Table(name = "users")
 public class User {
 
-    @Id()
+    @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
