@@ -25,9 +25,21 @@ public class Comment {
 
     public Comment() {}
 
-    public Comment(long id, String comment_content) {
+    public Comment(String comment_content) {
+        this.comment_content = comment_content;
+    }
+
+    public Comment(String comment_content, User user, Party party) {
+        this.comment_content = comment_content;
+        this.user = user;
+        this.party = party;
+    }
+
+    public Comment(long id, String comment_content, User user, Party party) {
         this.id = id;
         this.comment_content = comment_content;
+        this.user = user;
+        this.party = party;
     }
 
     public long getId() {

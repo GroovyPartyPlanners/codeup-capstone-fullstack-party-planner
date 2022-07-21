@@ -34,7 +34,8 @@ public class CommentController {
     }
 
     @PostMapping("/party/{id}/comment-form")
-    public String postCommentForm(@PathVariable long id, @ModelAttribute Comment comment) {
+    public String postCommentForm(@PathVariable long id, @ModelAttribute Comment formComment) {
+        Comment comment = new Comment(formComment.getComment_content());
         User user = userService.loggedInUser();
         comment.setUser(user);
         Party party = partyRepository.getById(id);
@@ -42,5 +43,6 @@ public class CommentController {
         commentRepository.save(comment);
         return "redirect:/party/" + id;
     }
+
 
 }
