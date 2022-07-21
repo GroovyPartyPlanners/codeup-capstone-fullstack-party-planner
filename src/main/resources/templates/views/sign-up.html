@@ -23,46 +23,55 @@
             <form th:action="@{/sign-up}" method="POST" th:object="${user}">
 
                 <div class="form-group">
+                    <i class="fas fa-user prefix"></i>
                     <label for="first-name">First Name:</label>
                     <input id="first-name" class="form-control text-center" th:field="*{first_name}" />
+                    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>
                 </div>
 
                 <div class="form-group">
+                    <i class="fas fa-user prefix"></i>
                     <label for="last-name">Last Name:</label>
                     <input id="last-name" class="form-control text-center" th:field="*{last_name}" />
+                    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>
                 </div>
 
                 <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input id="username" class="form-control text-center" th:field="*{username}" />
+                    <i class="fa-solid fa-circle-user"></i>
+                    <label for="username-signup">Username:</label>
+                    <input id="username-signup" class="form-control text-center" th:field="*{username}" />
+                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>
                 </div>
 
                 <div class="form-group">
+                    <i class="fas fa-envelope prefix"></i>
                     <label for="email">Email Address:</label>
                     <input id="email" class="form-control text-center" th:field="*{email}" />
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>
+
                 </div>
 
                 <div class="form-group">
+                    <i class="fas fa-tag prefix"></i>
                     <label for="group-name">Group Name (optional):</label>
                     <input id="group-name" class="form-control text-center" th:field="*{group_name}" />
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input id="password" type="password" class="form-control text-center" th:field="*{password}" />
+                    <i class="fas fa-lock prefix"></i>
+                    <label for="password-signup">Password:</label>
+                    <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>
                 </div>
 
-                <div class="form-group prof-pic">
+                <div class="form-group">
                     <label for="prof-pic" class="form-label">Profile Picture (optional):</label>
+                    <input class="prof-pic" id="prof-pic" type="file" th:field="*{user_pic_url}" />
+                </div>
 
-                    <div class="form-group">
-                        <label style="margin-left: 47px;" for="prof-pic" class="form-label">Profile Picture (optional):</label>
-                        <input id="prof-pic" type="file" th:field="*{user_pic_url}" />
-                    </div>
-
-                    <div class="form-group">
-                        <input value="Sign me up!" type="submit" class="btn btn-warning"/>
-                    </div>
+                <div class="form-group">
+                    <input value="Sign me up!" type="submit" class="btn btn-warning"/>
+                </div>
             </form>
         </div>
     </div>
