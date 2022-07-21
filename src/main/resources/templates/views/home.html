@@ -14,8 +14,33 @@
 
 </div>
 
-<h1>Home Page</h1>
+<div class="container">
+    <form>
+        <label for="">Enter a location(City,State,Stadium,Theatre,etc.)</label>
+        <input type="text" id="search" placeholder="Search">
+        <label for "type">Choose type of Event</label>
 
+        <select id="type">
+            <option value="">All</option>
+            <option value="Concert">Concert</option>
+            <option value="mls">MLS</option>
+            <option value="Sports">Sports</option>
+            <option value="Comedy">Comedy</option>
+            <option value="theater">Theater</option>
+            <option value="family">Family</option>
+            <option value="broadway_tickets_national">Boadway</option>
+            <option value="dance_performance_tour">Dance Preformance</option>
+        </select>
+        <button id="search-btn">Search</button>
+    </form>
+    <h1 class="eventTitle" id="eventTitle">
+        <h2 class="eventDate" id="eventDate"></h2>
+        <img src='' id="eventImage" alt="">
+    </h1>
+
+</div>
+<script type="text/javascript" th:src="@{/js/clientid.js}"></script>
+<script type="text/javascript" th:src="@{/js/homepage.js}"></script>
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
