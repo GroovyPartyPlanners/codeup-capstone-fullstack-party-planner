@@ -3,7 +3,6 @@ package com.codeup.partygate.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -47,13 +46,13 @@ public class User {
 
 //    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
 //    added missing referencedColumnName
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "attendees",
 //            , nullable = true, updatable = true
             joinColumns = @JoinColumn(name = "user_id"),
 //            , nullable = true, updatable = true
             inverseJoinColumns = @JoinColumn(name = "party_id"))
-    private Set<Party> tailgateParties;
+    private List<Party> tailgateParties;
 
 
     //parties owned by user
@@ -66,13 +65,12 @@ public class User {
         this.parties = parties;
     }
 //
-//    //parties attended by user
-    public Set<Party> getTailgateParties() {
+
+    public List<Party> getTailgateParties() {
         return tailgateParties;
     }
-//
-//    //parties attended by user
-    public void setTailgateParties(Set<Party> tailgateParties) {
+
+    public void setTailgateParties(List<Party> tailgateParties) {
         this.tailgateParties = tailgateParties;
     }
 
