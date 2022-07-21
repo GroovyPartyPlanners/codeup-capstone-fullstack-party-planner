@@ -13,7 +13,7 @@ public interface PartyRepository extends JpaRepository<Party, Long> {
 
     List<Party> findAllByUser(User user);
 
-
+    Object findAllByUserId(long id);
 
 
 //    Party findByPartyName(String party_name);
