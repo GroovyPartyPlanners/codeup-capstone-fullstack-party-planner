@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PartyRepository extends JpaRepository<Party, Long> {
-    @Query(nativeQuery = true, value = "SELECT * FROM partyplanner_db.parties WHERE user_id = ?")
+    
     List<Party> findAllByUserId(long id);
 }
