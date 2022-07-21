@@ -32,12 +32,12 @@
 </div>
 
 <!--    the id in the following href is the party_id, this button allows a user to "attend" a party-->
-    <form  class="form-group" th:action="@{'/attend/'+${user.id}+'/'+${id}}">
-        <div class="form-group">
-            <input th:value="${name}" type="submit" class="btn btn-primary"/>
-        </div>
-    </form>
-    <br/>
+<!--    <form  class="form-group" th:action="@{'/attend/'+${user.id}+'/'+${id}}">-->
+<!--        <div class="form-group">-->
+<!--            <input th:value="${name}" type="submit" class="btn btn-primary"/>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--    <br/>-->
 
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
