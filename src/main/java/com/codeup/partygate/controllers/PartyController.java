@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Controller
 public class PartyController {
+//    private String apiFromProp =
 
     public final PartyRepository partyRepository;
     public final UserRepository userRepository;
@@ -45,6 +48,7 @@ public class PartyController {
 //    which allows navigation to /party-select/{id}, the individual party page
     @GetMapping(path = "/parties")
     public String partiesShow(Model model) {
+
         model.addAttribute("party", new Party());
         ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         model.addAttribute("parties", parties);

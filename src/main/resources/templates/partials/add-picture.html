@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+</head>
+<body>
+
+<label>
+    <button onclick= "apiCall()">image</button>
+</label>
+
+
+</body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const filestackapi = "${apiKey}";
+    // console.log(filestackapi);
+
+    function apiCall() {
+        const client = filestack.init(filestackapi);
+        return client.picker().open();
+    }
+    /*]]>*/
+</script>
+</html>

@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+
+
 @Entity
 @Table(name = "parties")
 public class Party {
@@ -30,6 +32,7 @@ public class Party {
 
 
     public Party() {}
+
 
 
 
@@ -78,7 +81,5 @@ public class Party {
     public void setUser(User user) {
         this.user = user;
     }
-
-
 
 }
