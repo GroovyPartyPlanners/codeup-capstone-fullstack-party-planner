@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AboutController {
 
     @GetMapping("/about")
-//    shows about page with String
     public String showAbout(User user, Model model, Errors validation) {
 
 //        User validation
