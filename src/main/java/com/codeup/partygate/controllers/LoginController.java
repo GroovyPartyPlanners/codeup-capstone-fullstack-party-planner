@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
+//    user verification serves locing page and gives model access to new User object
     @GetMapping("/login")
     public String showLoginForm(User user, Model model, Errors validation) {
         if (validation.hasErrors()) {

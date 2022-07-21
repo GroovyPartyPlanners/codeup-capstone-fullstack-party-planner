@@ -16,7 +16,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form th:action="@{/party-form}" method="POST" th:object="${party}">
+            <form th:action="@{/party/save}" method="POST" th:object="${party}">
 
                 <div class="form-group">
                     <label for="party-name">Party Name:</label>
@@ -27,6 +27,11 @@
                     <label for="description">Description</label>
                     <textarea id="description" name="description" class="form-control text-center" rows="5" th:field="*{description}"></textarea>
                 </div>
+
+<!--                <div class="form-group">-->
+<!--                    <label for="description">Description</label>-->
+<!--                    <textarea id="description" name="description" class="form-control text-center" rows="5" th:field="*{name}"></textarea>-->
+<!--                </div>-->
 
                 <div class="form-group">
                     <input value="Create a Party!" type="submit" class="btn btn-primary"/>
