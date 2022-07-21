@@ -4,18 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places">        
+    </script>
     <title>Document</title>
 </head>
 <body>
         <div class="container">
+            <div id='map' style='width: 400px; height: 300px;'></div>
+            <form>
+            <label for="">Enter a location(City,State,Stadium,Theatre,etc.)</label>
+            <input type="text" id="search" placeholder="Search">
+            <label for "type">Choose type of Event</label>
+            
+            <select id="type">
+                <option value="">All</option>
+                <option value="Concert">Concert</option>
+                <option value="mls">MLS</option>
+                <option value="Sports">Sports</option>
+                <option value="Comedy">Comedy</option>
+                <option value="theater">Theater</option>
+                <option value="family">Family</option>
+                <option value="broadway_tickets_national">Boadway</option>
+                <option value="dance_performance_tour">Dance Preformance</option>
+            </select>
+            <button id="search-btn">Search</button>
+        </form>
             <h1 class="eventTitle" id="eventTitle">
-                <h2 class="eventDate" id="eventDate">
-                    <img src='' id="eventImage" alt="">
-                </h2>
-                
+                <h2 class="eventDate" id="eventDate"></h2>
+                <img src='' id="eventImage" alt="">
             </h1>
+            
         </div>
+
+
+
+
+
+
+
+
+       
+    <script src="api.js"></script>
     <script src="./index.js"></script>
-    <script src="./api.js"></script>
+    
 </body>
 </html>

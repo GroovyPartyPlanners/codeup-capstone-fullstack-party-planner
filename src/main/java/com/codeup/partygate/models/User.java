@@ -32,17 +32,18 @@ public class User {
     @Column(length = 75, nullable = true)
     private String group_name;
 
-    @NotBlank(message = "Confirm password or enter a new one!")
+    @NotBlank
     @Column(length = 60, nullable = false)
     private String password;
 
     @Column(length = 100, nullable = true)
     private String user_pic_url;
 
-
-
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Party> parties;
+
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Comment> comments;
 
 //    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
 //    added missing referencedColumnName
