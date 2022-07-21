@@ -11,18 +11,12 @@ public class AboutController {
 
     @GetMapping("/about")
     public String showAbout(User user, Model model, Errors validation) {
-
-//        User validation
         if (validation.hasErrors()) {
-//            adds errors to the model
             model.addAttribute("errors", validation);
-//            adds user to model
             model.addAttribute("user", user);
         } else {
-//            adds a new User to the model
             model.addAttribute("user", new User());
         }
-//        redirects to about us view
         return "views/about";
     }
 
