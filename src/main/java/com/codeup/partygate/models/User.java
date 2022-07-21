@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
-    @Id()
+    @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -32,7 +32,7 @@ public class User {
     @Column(length = 75, nullable = true)
     private String group_name;
 
-    @NotBlank(message = "Confirm password or enter a new one!")
+    @NotBlank
     @Column(length = 60, nullable = false)
     private String password;
 
@@ -42,12 +42,14 @@ public class User {
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Party> parties;
 
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Comment> comments;
+
 //    @ManyToMany
 //    @JoinTable(name = "attendees",
 //            joinColumns = @JoinColumn(name = "user_id"),
 //            inverseJoinColumns = @JoinColumn(name = "party_id"))
 //    private List<Party> tailgateParties;
-
 
     //parties owned by user
     public List<Party> getParties() {
@@ -157,5 +159,13 @@ public class User {
 
     public void setUser_pic_url(String user_pic_url) {
         this.user_pic_url = user_pic_url;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

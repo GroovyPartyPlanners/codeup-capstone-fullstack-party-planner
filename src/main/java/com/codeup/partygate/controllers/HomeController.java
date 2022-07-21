@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
+
 //    Landing page with navbar and
     @GetMapping("/")
     public String viewLandingPage(User user, Model model, Errors validation) {
@@ -19,6 +20,7 @@ public class HomeController {
         }
         return "views/landing";
     }
+
 //  navigates to home page with signup and navbar registration
     @GetMapping("/home")
     public String viewHomePage() {

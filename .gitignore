@@ -35,6 +35,3 @@ src/api.js
 .vscode/
 
 /src/api.js
-
-# Database Connection Credentials
-src/main/resources/application.properties
