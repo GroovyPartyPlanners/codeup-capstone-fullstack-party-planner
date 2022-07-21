@@ -165,4 +165,12 @@ public class User {
     public void setUser_pic_url(String user_pic_url) {
         this.user_pic_url = user_pic_url;
     }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }
