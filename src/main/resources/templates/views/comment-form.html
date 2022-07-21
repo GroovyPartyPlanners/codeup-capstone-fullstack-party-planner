@@ -4,12 +4,12 @@
 <body style="text-align: center">
 
 <div sec:authorize="!isAuthenticated()">
-    <!--    &lt;!&ndash;    This content is only shown to UNAUTHENTICATED users.&ndash;&gt;-->
-    <!--    <nav th:replace="partials/navbar :: navbar"></nav>-->
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
 </div>
 
 <div sec:authorize="isAuthenticated()">
-    <!--    &lt;!&ndash;    This content is only shown to AUTHENTICATED users.&ndash;&gt;-->
+    <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 

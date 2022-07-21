@@ -27,9 +27,6 @@ public class Party {
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "party")
     private List<Comment> comments;
 
-//    @ManyToMany(mappedBy = "tailgateParties")
-//    private List<User> attendees;
-
     public Party() {}
 
     public Party(long id, String name, String description) {

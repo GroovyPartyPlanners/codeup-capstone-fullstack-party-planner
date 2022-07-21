@@ -9,5 +9,4 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM partyplanner_db.comments WHERE party_id = ?")
     List<Comment> findAllByPartyId(long id);
-
 }

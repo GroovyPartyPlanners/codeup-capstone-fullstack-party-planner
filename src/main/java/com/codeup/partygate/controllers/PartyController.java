@@ -19,14 +19,12 @@ public class PartyController {
     private final UserService userService;
     private final PartyRepository partyRepository;
     private final CommentRepository commentRepository;
-//    private final UserRepository userRepository;
 
 
     public PartyController(PartyRepository partyRepository, UserRepository userRepository, UserService userService, CommentRepository commentRepository) {
        this.userService = userService;
         this.partyRepository = partyRepository;
         this.commentRepository = commentRepository;
-//        this.userRepository = userRepository;
     }
 
     @GetMapping(path = "/parties")
