@@ -3,8 +3,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
-# Database Connection Credentials
 src/main/resources/application.properties
 
 ### STS ###
@@ -36,4 +34,5 @@ src/api.js
 ### VS Code ###
 .vscode/
 
+# API
 /src/api.js

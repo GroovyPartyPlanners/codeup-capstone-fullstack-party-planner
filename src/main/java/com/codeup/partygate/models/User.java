@@ -4,12 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-
 @Entity
 @Table(name = "users")
 public class User {
 
-    @Id()
+    @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -163,5 +162,13 @@ public class User {
 
     public void setUser_pic_url(String user_pic_url) {
         this.user_pic_url = user_pic_url;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
