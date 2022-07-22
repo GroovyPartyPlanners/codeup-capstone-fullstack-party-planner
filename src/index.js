@@ -137,7 +137,7 @@ downvote.addEventListener('click', function() {
 });
 marker.on('dragend', onDragEnd);
     
-    fetch(`https://api.seatgeek.com/2/events?lat=32.796&lon=-96.77&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?lat=32.796&lon=-96.77&type=comedy&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
                 
@@ -148,9 +148,10 @@ marker.on('dragend', onDragEnd);
                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Popularity "+ `${data.events[i].popularity}</h1>`
                     if(data.meta.total>=11){
                         pages = document.getElementById('pages');
-                        let pagesCount = Math.ceil(data.meta.total/10);
+                        let pagesCount = (data.meta.total/10);
+                        console.log(pagesCount);
                         for(let i = 0; i < pagesCount; i++){
-                            pages.innerHTML += `<a href="#" onclick="page(${i})">${i+1}</a>`
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
                         }
                     }
                     
@@ -176,7 +177,8 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                     
                     var events ='';
                     total = document.getElementById('total');
-                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                    total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                    
                     for(var i = 0; i < data.events.length; i++) {
                         var popularity = data.events[i].popularity;
                         var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
@@ -213,10 +215,7 @@ document.getElementById('search-btn').addEventListener('click', function (e){
         .then(data => {
                 
                 var events ='';
-                var eventsDate = '';
-                var eventsLocation = '';
-                var eventsCity = '';
-                var eventImage = '';
+                
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
