@@ -33,16 +33,21 @@ function onDragEnd() {
 const lngLat = marker.getLngLat();
 let lat = lngLat.lat;
 let lng = lngLat.lng;
+console.log(lat, lng);
 let type = document.getElementById('type').value;
+let pages = document.getElementById('pages');
 downvote.addEventListener('click', function() {
     fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
                 
                 var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
                     var popularity = data.events[i].popularity;
                     var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
+                    
                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Popularity "+ `${data.events[i].popularity}</h1>` 
                     
                 }
@@ -56,6 +61,8 @@ upvote.addEventListener('click', function() {
         .then(data => {
                 
                 var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
                     var popularity = data.events[i].popularity;
                     var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
@@ -72,7 +79,10 @@ fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&clie
                 
                 var events ='';
                 var popularity = '';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
+                    
                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Popularity "+ `${data.events[i].popularity}</h1>`
                     
                     
@@ -95,6 +105,8 @@ upvote.addEventListener('click', function() {
         .then(data => {
                 
                 var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
                     var popularity = data.events[i].popularity;
                     var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
@@ -111,6 +123,8 @@ downvote.addEventListener('click', function() {
         .then(data => {
                 
                 var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
                     var popularity = data.events[i].popularity;
                     var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
@@ -123,14 +137,22 @@ downvote.addEventListener('click', function() {
 });
 marker.on('dragend', onDragEnd);
     
-    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?lat=32.796&lon=-96.77&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
                 
                 var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Popularity "+ `${data.events[i].popularity}</h1>`
-                    
+                    if(data.meta.total>=11){
+                        pages = document.getElementById('pages');
+                        let pagesCount = Math.ceil(data.meta.total/10);
+                        for(let i = 0; i < pagesCount; i++){
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">${i+1}</a>`
+                        }
+                    }
                     
                     
                 }
@@ -153,6 +175,8 @@ document.getElementById('search-btn').addEventListener('click', function (e){
             .then(data => {
                     
                     var events ='';
+                    total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                     for(var i = 0; i < data.events.length; i++) {
                         var popularity = data.events[i].popularity;
                         var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
@@ -169,6 +193,8 @@ document.getElementById('search-btn').addEventListener('click', function (e){
             .then(data => {
                     
                     var events ='';
+                    total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                     for(var i = 0; i < data.events.length; i++) {
                         var popularity = data.events[i].popularity;
                         var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
@@ -181,7 +207,7 @@ document.getElementById('search-btn').addEventListener('click', function (e){
     });
     var type = document.getElementById("type").value
     var search = document.getElementById("search").value
-    console.log(search)
+    
     fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
@@ -191,6 +217,8 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                 var eventsLocation = '';
                 var eventsCity = '';
                 var eventImage = '';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Popularity "+ `${data.events[i].popularity}</h1>`
                     
@@ -200,7 +228,6 @@ document.getElementById('search-btn').addEventListener('click', function (e){
             })
             .catch(error => console.log(error));
 });
-
 
 
 
