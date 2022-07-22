@@ -54,8 +54,8 @@ public class CommentController {
     public String editComment(@PathVariable long id, @ModelAttribute Comment comment) {
         User user = userService.loggedInUser();
         comment.setUser(user);
-        Party party = new Party(comment.getId());
-        comment.setParty(party);
+    //  TODO: SET PARTY FOR THE COMMENT HERE
+
         commentRepository.saveAndFlush(comment);
         return "redirect:/parties";
     }

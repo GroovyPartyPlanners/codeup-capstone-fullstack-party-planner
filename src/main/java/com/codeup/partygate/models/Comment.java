@@ -25,6 +25,10 @@ public class Comment {
 
     public Comment() {}
 
+    public Comment(long id) {
+        this.id = id;
+    }
+
     public Comment(String comment_content) {
         this.comment_content = comment_content;
     }
