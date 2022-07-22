@@ -1,19 +1,21 @@
 package com.codeup.partygate.controllers;
 
+import com.codeup.partygate.models.Event;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.CommentRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
+import java.util.ArrayList;
+
+
 public class PartyController {
 
     private final UserService userService;
@@ -35,6 +37,7 @@ public class PartyController {
         model.addAttribute("comments", commentRepository.findAllByPartyId(party.getId()));
         return "views/party-select";
     }
+
 
     @GetMapping("/party/{id}/edit")
     public String editPartyForm(@PathVariable long id, Model model) {
@@ -71,9 +74,19 @@ public class PartyController {
     }
 
     @GetMapping("/parties")
-    public String viewParties(Model model) {
+    public String viewParties(Model model, Event event) {
+        ArrayList<Event> events = new ArrayList<>();
+        model.addAttribute("event", event);
+        model.addAttribute("events", events);
         model.addAttribute("parties", partyRepository.findAll());
         return "views/parties";
+    }
+
+    public PartyController(UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
+        this.userService = userService;
+        this.userRepository = userRepository;
+        this.partyRepository = partyRepository;
+        this.commentRepository = commentRepository;
     }
 }
 

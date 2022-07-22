@@ -1,29 +1,33 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>picture</title>
-    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-</head>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
+<!--<head  th:replace="partials/header :: header-links"></head>-->
+<!--<body style="text-align: center">-->
 
-<body>
+<!--<div sec:authorize="!isAuthenticated()">-->
+<!--    &lt;!&ndash;    This content is only shown to UNAUTHENTICATED users.&ndash;&gt;-->
+<!--    <nav th:replace="partials/navbar :: navbar"></nav>-->
+<!--</div>-->
 
-<form>
-    <input id="stashFilestackURL" name="stashFilestackURL" value="replaceme" th:field="*{img}" type="hidden">
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    &lt;!&ndash;    This content is only shown to AUTHENTICATED users.&ndash;&gt;-->
+<!--    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>-->
+<!--</div>-->
+<!--<form>-->
+<!--    <input id="stashFilestackURL" name="stashFilestackURL" value="replaceme" th:field="*{img}"  type="hidden">-->
+<!--&lt;!&ndash;    th:field="*{img}"&ndash;&gt;-->
+<!--    <label for="upload"></label>-->
+<!--    <button type="button" id="upload" name="upload">Upload an image</button>-->
+<!--</form>-->
 
-    <label for="upload"></label>
-    <button type="button" id="upload" name="upload">Upload an image</button>
-</form>
 
-
-</body>
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    var filestackapi = [[${filestackapi}]];
-    console.log(filestackapi);
-    /*]]>*/
-</script>
-<script>   $("#upload").click(function () {
-    client.picker().open()
-});</script>
-</html>
+<!--</body>-->
+<!--<script th:inline="javascript">-->
+<!--    /*<![CDATA[*/-->
+<!--    var filestackapi = [[${apikey}]];-->
+<!--    console.log(filestackapi);-->
+<!--    /*]]>*/-->
+<!--</script>-->
+<!--<script>   $("#upload").click(function () {-->
+<!--    client.picker().open()-->
+<!--});</script>-->
+<!--</html>-->
