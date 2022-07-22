@@ -14,7 +14,6 @@ function showPosition(position) {
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
     const coordinates = document.getElementById('coordinates');
     const map = new mapboxgl.Map({
     container: 'map',
@@ -145,10 +144,22 @@ marker.on('dragend', onDragEnd);
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Popularity "+ `${data.events[i].popularity}</h1>`
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
+                    const coordinates = document.getElementById('coordinates');
+                    const map = new mapboxgl.Map({
+                    container: 'mapSmall',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [long, lat],
+                    zoom: 8
+                    });
+                events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Popularity "+ `${data.events[i].popularity}</h1>`
+                }
+                for(var i = 0; i < 1; i++) {
                     if(data.meta.total>=11){
                         pages = document.getElementById('pages');
-                        let pagesCount = (data.meta.total/10);
+                        let pagesCount = Math.ceil(data.meta.total/10);
                         console.log(pagesCount);
                         for(let i = 0; i < pagesCount; i++){
                             pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
