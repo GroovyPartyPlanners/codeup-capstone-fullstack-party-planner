@@ -25,6 +25,7 @@
             <div class="card-body">
                 <h3 class="card-title" th:text="${comment.getUser().username}"></h3>
                 <p class="card-text" th:text="${comment.comment_content}"></p>
+                <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit Comment</a>
             </div>
         </div>
     </div>

@@ -25,6 +25,10 @@ public class Comment {
 
     public Comment() {}
 
+    public Comment(long id) {
+        this.id = id;
+    }
+
     public Comment(String comment_content) {
         this.comment_content = comment_content;
     }
@@ -72,5 +76,9 @@ public class Comment {
 
     public void setParty(Party party) {
         this.party = party;
+    }
+
+    public void setParty(long id) {
+        this.id = id;
     }
 }
