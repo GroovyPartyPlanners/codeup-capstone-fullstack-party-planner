@@ -73,4 +73,8 @@ public class Comment {
     public void setParty(Party party) {
         this.party = party;
     }
+
+    public void setParty(long id) {
+        this.id = id;
+    }
 }

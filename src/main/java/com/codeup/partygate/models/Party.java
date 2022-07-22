@@ -33,6 +33,10 @@ public class Party {
 
     public Party() {}
 
+    public Party(long id) {
+        this.id = id;
+    }
+
     public Party(long id, String name, String description) {
         this.id = id;
         this.party_name = name;
