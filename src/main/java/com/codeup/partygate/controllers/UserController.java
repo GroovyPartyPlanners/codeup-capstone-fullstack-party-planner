@@ -2,7 +2,6 @@ package com.codeup.partygate.controllers;
 
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +14,9 @@ import java.io.File;
 
 @Controller
 public class UserController {
-    @Value("${filestack.json.api}")
-    private String controllerVariable;
+
+//    @Value("${filestack.json.api}")
+//    private String controllerVariable;
 
     private final UserRepository usersRepository;
     private final PasswordEncoder passwordEncoder;
@@ -35,7 +35,7 @@ public class UserController {
 
     @GetMapping("/sign-up")
     public String showSignUpForm(@ModelAttribute Model model) {
-        model.addAttribute("apiKey", controllerVariable);
+//        model.addAttribute("apiKey", controllerVariable);
         model.addAttribute("user", new User());
         return "views/sign-up";
     }
