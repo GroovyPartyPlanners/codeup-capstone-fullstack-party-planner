@@ -1,7 +1,6 @@
 package com.codeup.partygate.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -9,12 +8,11 @@ import java.util.List;
 public class Event {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
-    @Column(length = 400, nullable = false)
-    private String event_name;
+//    @NotBlank
+//    @Column(length = 400, nullable = false)
+//    private String event_name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private List<Party> parties;
@@ -29,13 +27,13 @@ public class Event {
         this.id = id;
     }
 
-    public String getEvent_name() {
-        return event_name;
-    }
-
-    public void setEvent_name(String event_name) {
-        this.event_name = event_name;
-    }
+//    public String getEvent_name() {
+//        return event_name;
+//    }
+//
+//    public void setEvent_name(String event_name) {
+//        this.event_name = event_name;
+//    }
 
 
 }

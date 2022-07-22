@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-    <script src="../weathermap-api-project/weather_map_geocode.js"></script>
+<head  th:replace="partials/header :: header-links"></head>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<body style="text-align: center">
 
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+</div>
+<!--    <script src="../weathermap-api-project/weather_map_geocode.js"></script>-->
+
+<!--    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places">
     </script>
-    <title>Document</title>
-</head>
-<body>
+
 <div class="container">
     <div id='map' style='width: 400px; height: 300px;'></div>
     <form>
@@ -33,8 +39,8 @@
             <option value="Comedy">Comedy</option>
             <option value="theater">Theater</option>
             <option value="family">Family</option>
-            <option value="broadway_tickets_national">Boadway</option>
-            <option value="dance_performance_tour">Dance Preformance</option>
+            <option value="broadway_tickets_national">Broadway</option>
+            <option value="dance_performance_tour">Dance Performance</option>
         </select>
         <button id="search-btn">Search</button>
     </form>
@@ -45,40 +51,32 @@
 
 </div>
 
-
-
-
-
-
-
-
-
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
 <script type="text/javascript" th:src="@{/js/homepage.js}"></script>
 
 </body>
-<script>
-    // Open Weather Map website API Key for data pulls
-    const openWeatherMapAPIkey = "feafd6977e777352873ac6e055014150";
-    const mapboxToken = 'pk.eyJ1IjoibGF1cmEtY29kZXVwIiwiYSI6ImNrcHJjczFyYTBtMHIyb2xlNDBsanlva2EifQ.rXUs9LI80u-fy9wz-bG0Qw';
+<!--<script>-->
+<!--    // Open Weather Map website API Key for data pulls-->
+<!--    const openWeatherMapAPIkey = "feafd6977e777352873ac6e055014150";-->
+<!--    const mapboxToken = 'pk.eyJ1IjoibGF1cmEtY29kZXVwIiwiYSI6ImNrcHJjczFyYTBtMHIyb2xlNDBsanlva2EifQ.rXUs9LI80u-fy9wz-bG0Qw';-->
 
-    //=======JS for Rendering Map on Page=================
-    mapboxgl.accessToken = mapboxToken;
-    let map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [-98.5, 29.4], // starting position [lng, lat]
-        zoom: 9 // starting zoom
-    });
+<!--    //=======JS for Rendering Map on Page=================-->
+<!--    mapboxgl.accessToken = mapboxToken;-->
+<!--    let map = new mapboxgl.Map({-->
+<!--        container: 'map', // container ID-->
+<!--        style: 'mapbox://styles/mapbox/streets-v11', // style URL-->
+<!--        center: [-98.5, 29.4], // starting position [lng, lat]-->
+<!--        zoom: 9 // starting zoom-->
+<!--    });-->
 
-    $.get("http://api.openweathermap.org/data/2.5/forecast", {
-        APPID: openWeatherMapAPIkey,
-        q:     "San Antonio, US", //also able to use lat/lon or cityID from database file
-        units: "imperial"
-    }).done(function(data) {
-        console.log('5 day forecast', data);
-        // makesDayCards(data);
-        makeCard(data);
-    });
-</script>
+<!--    $.get("http://api.openweathermap.org/data/2.5/forecast", {-->
+<!--        APPID: openWeatherMapAPIkey,-->
+<!--        q:     "San Antonio, US", //also able to use lat/lon or cityID from database file-->
+<!--        units: "imperial"-->
+<!--    }).done(function(data) {-->
+<!--        console.log('5 day forecast', data);-->
+<!--        // makesDayCards(data);-->
+<!--        makeCard(data);-->
+<!--    });-->
+<!--</script>-->
 </html>

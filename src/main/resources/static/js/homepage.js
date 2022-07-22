@@ -69,8 +69,8 @@ function showPosition(position) {
                 var eventsCity = '';
                 var eventImage = '';
                 for(var i = 0; i < data.events.length; i++) {
-                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
-                    eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1><a th:href="@{/parties/${data.events[i].id}}">click here</a>`
+                    // eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
 
                 }
                 document.getElementById("eventTitle").innerHTML = events
@@ -123,11 +123,24 @@ document.getElementById('search-btn').addEventListener('click', function (e){
             var eventsLocation = '';
             var eventsCity = '';
             var eventImage = '';
+            var eventAnchor = '';
+
+            // for(var i = 0; i < data.events.length; i++) {
+            //     eventAnchor += `<a th:href="@{/parties/${data.events[i].id}">`
             for(var i = 0; i < data.events.length; i++) {
-                events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
-                eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
+
+                console.log(data.events[i]);
+                events = `<h1>hello world</h1>`
+
+                // events += `<h1><a th:href="@{/parties">${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
+                // events += `<h1><a th:href="@{/parties/${data.events[i].id}">${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</a></h1>`
+                // eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
             }
-            document.getElementById("eventTitle").innerHTML = events
+
+            document.getElementById("eventTitle").innerHTML = events;
+            // for(var i = 0; i < data.events.length; i++) {
+            //     document.getElementById(`${data.events[i].id}`).innerHTML = eventAnchor;
+            // }
         })
         .catch(error => console.log(error));
 });
