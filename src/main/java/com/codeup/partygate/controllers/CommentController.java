@@ -43,4 +43,5 @@ public class CommentController {
         commentRepository.save(comment);
         return "redirect:/party/" + id;
     }
+
 }
