@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form th:action="@{/comment/{id}/edit(id=${comment.id})}" method="POST" th:object="${comment}">
+            <form th:action="@{/comments/{id}/edit(id=${comment.id})}" method="POST" th:object="${comment}">
 
                 <div class="form-group">
                     <label for="comment-content">Comment Content:</label>
