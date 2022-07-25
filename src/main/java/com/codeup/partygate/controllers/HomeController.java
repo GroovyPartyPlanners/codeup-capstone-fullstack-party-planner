@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class HomeController {
@@ -23,7 +24,9 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String viewHomePage() {
+    public String viewHomePage(@ModelAttribute Event event, @ModelAttribute Model model) {
+        model.addAttribute("events", event);
+
         return "views/home";
     }
 
