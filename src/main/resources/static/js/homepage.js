@@ -69,8 +69,7 @@ function showPosition(position) {
                 var eventsCity = '';
                 var eventImage = '';
                 for(var i = 0; i < data.events.length; i++) {
-                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
-                    eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}`+`<a href="/parties" th:href="@{/parties}">Click</a></h1>`
 
                 }
                 document.getElementById("eventTitle").innerHTML = events
