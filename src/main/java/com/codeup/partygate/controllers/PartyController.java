@@ -7,6 +7,7 @@ import com.codeup.partygate.repositories.EventRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-
+@Controller
 public class PartyController {
 
     private final EventRepository eventsRepository;
@@ -104,13 +105,13 @@ public class PartyController {
 //        return "views/parties";
 //    }
 
-    public PartyController(EventRepository eventsRepository, UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
-        this.eventsRepository = eventsRepository;
-        this.userService = userService;
-        this.userRepository = userRepository;
-        this.partyRepository = partyRepository;
-        this.commentRepository = commentRepository;
-    }
+//    public PartyController(EventRepository eventsRepository, UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
+//        this.eventsRepository = eventsRepository;
+//        this.userService = userService;
+//        this.userRepository = userRepository;
+//        this.partyRepository = partyRepository;
+//        this.commentRepository = commentRepository;
+//    }
 }
 
 //    //  delivers the party-creation form which allows the creation of new parties
