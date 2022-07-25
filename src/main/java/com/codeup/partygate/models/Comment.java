@@ -33,6 +33,10 @@ public class Comment {
         this.comment_content = comment_content;
     }
 
+    public Comment(Party party) {
+        this.party = party;
+    }
+
     public Comment(String comment_content, User user, Party party) {
         this.comment_content = comment_content;
         this.user = user;

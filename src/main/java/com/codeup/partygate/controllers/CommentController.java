@@ -46,6 +46,9 @@ public class CommentController {
 
     @GetMapping("/comment/{id}/edit")
     public String editCommentForm(@PathVariable long id, Model model) {
+        //Add into the repo: I have THIS comment by id, find the PARTY that goes with it
+        //Pass party object to view in a 2nd model.addAttribute
+        //In view: deliberately access partyObject.id to get that party's id
         model.addAttribute("comment", commentRepository.getById(id));
         return "views/edit-comment";
     }
