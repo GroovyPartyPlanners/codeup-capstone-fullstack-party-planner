@@ -44,6 +44,7 @@
         </select>
         <button id="search-btn">Search</button>
     </form>
+
     <h1 class="eventTitle" id="eventTitle">
         <h2 class="eventDate" id="eventDate"></h2>
         <img src='' id="eventImage" alt="">
@@ -51,10 +52,12 @@
 
 </div>
 
-<script type="text/javascript" th:src="@{/js/clientid.js}"></script>
-<script type="text/javascript" th:src="@{/js/homepage.js}"></script>
+<!--<script type="text/javascript" th:src="@{/js/clientid.js}"></script>-->
+<!--<script type="text/javascript" th:src="@{/js/homepage.js}"></script>-->
+
 
 </body>
+<script th:replace="home-slice"></script>
 <!--<script>-->
 <!--    // Open Weather Map website API Key for data pulls-->
 <!--    const openWeatherMapAPIkey = "feafd6977e777352873ac6e055014150";-->

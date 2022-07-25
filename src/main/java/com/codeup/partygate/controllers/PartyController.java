@@ -1,6 +1,5 @@
 package com.codeup.partygate.controllers;
 
-import com.codeup.partygate.models.Event;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.CommentRepository;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -43,23 +40,26 @@ public class PartyController {
         return "views/party-select";
     }
 
-    @GetMapping(path = "parties/{event_id}")
-    public String showEventParties(@PathVariable String event_id, @ModelAttribute Model model) {
-        Long eventLong = Long.getLong(event_id);
-        ArrayList<Event> events = (ArrayList<Event>) eventsRepository.findAllById(Collections.singleton(eventLong));
-        Event thisEvent = events.get(0);
-        long eventId = thisEvent.getId();
+//    @GetMapping(path = "parties/{event_id}")
+    @GetMapping(path = "/parties")
+//    public String showEventParties(@PathVariable String event_id, @ModelAttribute Model model) {
+    public String showEventParties(@ModelAttribute Model model) {
+
+//        Long eventLong = Long.getLong(event_id);
+//        ArrayList<Event> events = (ArrayList<Event>) eventsRepository.findAllById(Collections.singleton(eventLong));
+//        Event thisEvent = events.get(0);
+//        long eventId = thisEvent.getId();
         List<Party> parties = partyRepository.findAll();
-        List<Party> eventParties = null;
-        for (Party party: parties
-             ) {
-            if (party.getId() == eventId) {
-                    eventParties.add(party);
-                }
-            }
-        model.addAttribute("event", thisEvent);
+//        List<Party> eventParties = null;
+//        for (Party party: parties
+//             ) {
+//            if (party.getId() == eventId) {
+//                    eventParties.add(party);
+//                }
+//            }
+//        model.addAttribute("event", thisEvent);
 //        model.addAttribute("events", events);
-        model.addAttribute("parties", eventParties );
+        model.addAttribute("parties", parties );
         return "views/parties";
     }
 
@@ -97,12 +97,12 @@ public class PartyController {
         return "redirect:/parties";
     }
 
-    @GetMapping("/parties")
-    public String viewParties(Model model, Event event) {
-
-        model.addAttribute("parties", partyRepository.findAll());
-        return "views/parties";
-    }
+//    @GetMapping("/parties")
+//    public String viewParties(Model model, Event event) {
+//
+//        model.addAttribute("parties", partyRepository.findAll());
+//        return "views/parties";
+//    }
 
     public PartyController(EventRepository eventsRepository, UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
         this.eventsRepository = eventsRepository;
