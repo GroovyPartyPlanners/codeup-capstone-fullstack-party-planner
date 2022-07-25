@@ -63,22 +63,19 @@ function showPosition(position) {
         .then(response => response.json())
         .then(data => {
                 console.log(data);
+            var eventsDate = '';
+            var eventsLocation = '';
+            var eventsCity = '';
+            var eventImage = '';
                 var events ='';
-                var eventsDate = '';
-                var eventsLocation = '';
-                var eventsCity = '';
-                var eventImage = '';
-                for(var i = 0; i < data.events.length; i++) {
-                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1><a th:href="@{/parties/${data.events[i].id}}">click here</a>`
-                    // eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
 
+                for(var i = 0; i < data.events.length; i++) {
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
                 }
                 document.getElementById("eventTitle").innerHTML = events
             }
-
         )
         .catch(error => console.log(error));
-
 }
 getLocation();
 
@@ -87,7 +84,7 @@ getLocation();
 //     google.maps.event.addListener(places, 'place_changed', function () {
 //         var city = places.getPlace().address_components[0].long_name;
 //         var state = places.getPlace().address_components[2].short_name
-//         var fulladdres = places.getPlace().formatted_address;        
+//         var fulladdres = places.getPlace().formatted_address;
 //          fetch(`https://api.seatgeek.com/2/events?venue.state=${state}&venue.city=${city}&client_id=${clientId}`)
 
 //             .then(response => response.json())
@@ -108,7 +105,7 @@ getLocation();
 //             .catch(error => console.log(error));
 //     });
 // });
-document.getElementById('search-btn').addEventListener('click', function (e){
+document.getElementById('search-btn').addEventListener('click', function (e) {
     e.preventDefault();
 
     var type = document.getElementById("type").value
@@ -118,7 +115,7 @@ document.getElementById('search-btn').addEventListener('click', function (e){
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            var events ='';
+            var events = '';
             var eventsDate = '';
             var eventsLocation = '';
             var eventsCity = '';
@@ -127,23 +124,26 @@ document.getElementById('search-btn').addEventListener('click', function (e){
 
             // for(var i = 0; i < data.events.length; i++) {
             //     eventAnchor += `<a th:href="@{/parties/${data.events[i].id}">`
-            for(var i = 0; i < data.events.length; i++) {
+            for (var i = 0; i < data.events.length; i++) {
 
                 console.log(data.events[i]);
-                events = `<h1>hello world</h1>`
+                var events = '';
+
+
+                events += `<h1>${data.events[i].title}\`+" "+\`${data.events[i].venue.name}\`+" "+\`${data.events[i].venue.display_location}</h1><a th:href=` / "@{/parties/"`${data.events[i].id}}>click here</a>`
 
                 // events += `<h1><a th:href="@{/parties">${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
                 // events += `<h1><a th:href="@{/parties/${data.events[i].id}">${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</a></h1>`
                 // eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`
+                document.getElementById("eventTitle").innerHTML = events;
+                // for(var i = 0; i < data.events.length; i++) {
+                //     document.getElementById(`${data.events[i].id}`).innerHTML = eventAnchor;
+                // }
             }
-
-            document.getElementById("eventTitle").innerHTML = events;
-            // for(var i = 0; i < data.events.length; i++) {
-            //     document.getElementById(`${data.events[i].id}`).innerHTML = eventAnchor;
-            // }
         })
         .catch(error => console.log(error));
 });
+
 
 
 
