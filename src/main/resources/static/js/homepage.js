@@ -181,12 +181,13 @@ function showPosition(position) {
     fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=comedy&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
-                console.log(data);
+                console.log('test');
                 var events ='';
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    events += `<h1>${data.events[i].title}\`+" "+\`${data.events[i].venue.name}\`+" "+\`${data.events[i].venue.display_location}</h1><a th:href=` / "@{/parties/"`${data.events[i].id}}>click here</a>`
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}`+`<a href="/views/parties.html" th:href="@{/parties}">Test</a></h1>`
+                    // events += `<h1>Hello<a href="/views/parties.html" th:href="@{/parties}">Test</a></h1>`
                 }
 
                 for(var i = 0; i < 1; i++) {
@@ -296,7 +297,6 @@ document.getElementById('search-btn').addEventListener('click', function (e){
             }})
         .catch(error => console.log(error));
 });
-
 
 
 
