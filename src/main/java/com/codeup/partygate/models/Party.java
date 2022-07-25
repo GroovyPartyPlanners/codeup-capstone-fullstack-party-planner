@@ -31,6 +31,18 @@ public class Party {
     @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<User> attendees;
 
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
     public Party() {}
 
     public Party(long id) {
