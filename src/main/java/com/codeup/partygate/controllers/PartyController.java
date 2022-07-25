@@ -1,34 +1,29 @@
 package com.codeup.partygate.controllers;
 
-import com.codeup.partygate.models.Event;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.CommentRepository;
-import com.codeup.partygate.repositories.EventRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-
+@Controller
 public class PartyController {
 
-    private final EventRepository eventsRepository;
+//    private final EventRepository eventsRepository;
     private final UserService userService;
     private final UserRepository userRepository;
     private final PartyRepository partyRepository;
     private final CommentRepository commentRepository;
 
-    public PartyController(EventRepository eventsRepository, PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
-        this.eventsRepository = eventsRepository;
+    public PartyController(PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
+//        this.eventsRepository = eventsRepository;
         this.userService = userService;
         this.userRepository = userRepository;
         this.partyRepository = partyRepository;
@@ -41,26 +36,6 @@ public class PartyController {
         model.addAttribute("party", party);
         model.addAttribute("comments", commentRepository.findAllByPartyId(party.getId()));
         return "views/party-select";
-    }
-
-    @GetMapping(path = "parties/{event_id}")
-    public String showEventParties(@PathVariable String event_id, @ModelAttribute Model model) {
-        Long eventLong = Long.getLong(event_id);
-        ArrayList<Event> events = (ArrayList<Event>) eventsRepository.findAllById(Collections.singleton(eventLong));
-        Event thisEvent = events.get(0);
-        long eventId = thisEvent.getId();
-        List<Party> parties = partyRepository.findAll();
-        List<Party> eventParties = null;
-        for (Party party: parties
-             ) {
-            if (party.getId() == eventId) {
-                    eventParties.add(party);
-                }
-            }
-        model.addAttribute("event", thisEvent);
-//        model.addAttribute("events", events);
-        model.addAttribute("parties", eventParties );
-        return "views/parties";
     }
 
     @GetMapping("/party/{id}/edit")
@@ -98,20 +73,41 @@ public class PartyController {
     }
 
     @GetMapping("/parties")
-    public String viewParties(Model model, Event event) {
-
+    public String viewParties(Model model) {
         model.addAttribute("parties", partyRepository.findAll());
         return "views/parties";
     }
 
-    public PartyController(EventRepository eventsRepository, UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
-        this.eventsRepository = eventsRepository;
-        this.userService = userService;
-        this.userRepository = userRepository;
-        this.partyRepository = partyRepository;
-        this.commentRepository = commentRepository;
-    }
 }
+
+//    @GetMapping(path = "parties/{event_id}")
+//    public String showEventParties(@PathVariable String event_id, @ModelAttribute Model model) {
+//        Long eventLong = Long.getLong(event_id);
+//        ArrayList<Event> events = (ArrayList<Event>) eventsRepository.findAllById(Collections.singleton(eventLong));
+//        Event thisEvent = events.get(0);
+//        long eventId = thisEvent.getId();
+//        List<Party> parties = partyRepository.findAll();
+//        List<Party> eventParties = null;
+//        for (Party party : parties
+//        ) {
+//            if (party.getId() == eventId) {
+//                eventParties.add(party);
+//            }
+//        }
+//        model.addAttribute("event", thisEvent);
+////        model.addAttribute("events", events);
+//        model.addAttribute("parties", eventParties);
+//        return "views/parties";
+//    }
+
+//    public PartyController(EventRepository eventsRepository, UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
+//        this.eventsRepository = eventsRepository;
+//        this.userService = userService;
+//        this.userRepository = userRepository;
+//        this.partyRepository = partyRepository;
+//        this.commentRepository = commentRepository;
+//    }
+//}
 
 //    //  delivers the party-creation form which allows the creation of new parties
 //    @GetMapping(path = "/party-form")
