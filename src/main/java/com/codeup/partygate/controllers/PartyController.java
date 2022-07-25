@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -82,15 +81,6 @@ public class PartyController {
         model.addAttribute("parties", partyRepository.findAll());
         return "views/parties";
     }
-
-    //    public PartyController(EventRepository eventsRepository, UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
-//        this.eventsRepository = eventsRepository;
-//        this.userService = userService;
-//        this.userRepository = userRepository;
-//        this.partyRepository = partyRepository;
-//        this.commentRepository = commentRepository;
-//    }
-//}
 
 }
 
