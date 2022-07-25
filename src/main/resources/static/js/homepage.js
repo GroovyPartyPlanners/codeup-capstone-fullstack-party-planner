@@ -13,6 +13,7 @@ function showPosition(position) {
 
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
+
     mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
     const coordinates = document.getElementById('coordinates');
     const map = new mapboxgl.Map({
