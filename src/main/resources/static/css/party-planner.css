@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-/* Landing page */
-.landing-page {
-    background-image: url("https://mpng.subpng.com/20180301/vfq/kisspng-tailgate-party-hamburger-hot-dog-barbecue-clip-art-vector-hot-dog-5a978b89dca519.8607025115198810979038.jpg");
-    width: 100%;
-    height: 900px;
-}
-
 /* Sign-up form/page */
 .prof-pic {
     margin-left: 100px;
