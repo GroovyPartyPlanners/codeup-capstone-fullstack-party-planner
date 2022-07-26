@@ -75,9 +75,8 @@ public class PartyController {
     @GetMapping("/parties")
     public String viewParties(Model model) {
         model.addAttribute("parties", partyRepository.findAll());
-        return "views/parties";
+        return "partials/parties";
     }
-
 }
 
 //    @GetMapping(path = "parties/{event_id}")

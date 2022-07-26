@@ -138,3 +138,24 @@
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
+
+<!--<div class="col w-100">-->
+<!--    <div class="row w-100">-->
+<!--        <div class = "col w-100">-->
+<!--            <div class="container">-->
+
+<!--<div class="row w-100">-->
+<!--    <div class = "col w-100">-->
+<!--        <div class="container">-->
+
+<h1>Hey!  Check out all these cool parties!  Pick one!</h1>
+<div class="card text-center mb-3" th:each="party : ${parties}">
+    <div class="card-header">Party</div>
+    <div class="card-body">
+        <h5 class="card-title" th:text="${party.party_name}"></h5>
+        <p class="card-text" th:text="${party.description}"></p>
+        <a th:href="@{|/party/${party.id}|}" class="btn btn-primary">View Party Details</a>
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
