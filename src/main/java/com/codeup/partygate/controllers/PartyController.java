@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 @Controller
 public class PartyController {
 
@@ -49,7 +45,7 @@ public class PartyController {
     }
 
     @PostMapping("/party/{id}/edit")
-    public String editParty(@PathVariable long id, @ModelAttribute Party party) {
+    public String editParty(@ModelAttribute Party party) {
         User user = userService.loggedInUser();
         party.setUser(user);
         partyRepository.saveAndFlush(party);
