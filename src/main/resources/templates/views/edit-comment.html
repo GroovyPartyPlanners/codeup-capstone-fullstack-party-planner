@@ -30,9 +30,11 @@
                 </div>
             </form>
 
-            <form th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">
-                <input type="submit" value="Delete Comment" class="btn btn-primary" />
-            </form>
+            <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
+                <form th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">
+                    <input type="submit" value="Delete Comment" class="btn btn-primary" />
+                </form>
+            </div>
         </div>
     </div>
 </div>
