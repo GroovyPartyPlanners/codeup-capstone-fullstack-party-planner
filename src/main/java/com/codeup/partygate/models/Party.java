@@ -60,14 +60,6 @@ public class Party {
 
     }
 
-    public Set<User> getAttendees() {
-        return attendees;
-    }
-
-    public void setAttendees(Set<User> attendees) {
-        this.attendees = attendees;
-    }
-
     public long getId() {
         return id;
     }
@@ -106,6 +98,14 @@ public class Party {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public Set<User> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(Set<User> attendees) {
+        this.attendees = attendees;
     }
 
 //    public Event getEvent() {

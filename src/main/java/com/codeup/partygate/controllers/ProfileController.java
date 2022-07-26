@@ -1,5 +1,6 @@
 package com.codeup.partygate.controllers;
 
+import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
@@ -31,7 +32,7 @@ public class ProfileController {
     }
 
     @GetMapping("/profile")
-    public String showProfilePage(Model model) {
+    public String showProfilePage(Model model, Party party) {
         User user = userService.loggedInUser();
         model.addAttribute("user", user);
         model.addAttribute("parties", partyRepository.findAllById(Collections.singleton(user.getId())));

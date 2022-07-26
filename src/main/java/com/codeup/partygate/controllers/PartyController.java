@@ -1,117 +1,104 @@
 package com.codeup.partygate.controllers;
 
-
 import com.codeup.partygate.models.Party;
+import com.codeup.partygate.models.User;
+import com.codeup.partygate.repositories.CommentRepository;
 import com.codeup.partygate.repositories.PartyRepository;
+import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PartyController {
 
-    //    private final EventRepository eventsRepository;
+//    private final EventRepository eventsRepository;
     private final UserService userService;
-    //    private final UserRepository userRepository;
+    private final UserRepository userRepository;
     private final PartyRepository partyRepository;
-//    private final CommentRepository commentRepository;
+    private final CommentRepository commentRepository;
 
-    //    DO NOT DELETE THIS LINE
-//    public PartyController(EventRepository eventsRepository, PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
-    public PartyController(PartyRepository partyRepository, UserService userService) {
+    public PartyController(PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
 //        this.eventsRepository = eventsRepository;
         this.userService = userService;
-//        this.userRepository = userRepository;
+        this.userRepository = userRepository;
         this.partyRepository = partyRepository;
-//        this.commentRepository = commentRepository;
+        this.commentRepository = commentRepository;
     }
 
-//    @GetMapping("/party/{id}")
-//    public String viewPartyDetails(@PathVariable long id, Model model) {
-//        Party party = partyRepository.getById(id);
-//        model.addAttribute("party", party);
-//        model.addAttribute("comments", commentRepository.findAllByPartyId(party.getId()));
-//        return "views/party-select";
-//    }
+    @GetMapping("/party/{id}")
+    public String viewPartyDetails(@PathVariable long id, Model model) {
+        Party party = partyRepository.getById(id);
+        model.addAttribute("party", party);
+        model.addAttribute("comments", commentRepository.findAllByPartyId(party.getId()));
+        return "views/party-select";
+    }
 
-    //    @GetMapping(path = "parties/{event_id}")
+    @GetMapping("/party/{id}/edit")
+    public String editPartyForm(@PathVariable long id, Model model) {
+        model.addAttribute("party", partyRepository.getById(id));
+        return "views/edit-party";
+    }
+
+    @PostMapping("/party/{id}/edit")
+    public String editParty(@ModelAttribute Party party) {
+        User user = userService.loggedInUser();
+        party.setUser(user);
+        partyRepository.saveAndFlush(party);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("party/{id}/delete")
+    public String deleteParty(@PathVariable long id) {
+        partyRepository.deleteById(id);
+        return "redirect:/profile";
+    }
+
+    @GetMapping("/party-form")
+    public String viewPartyForm(Model model) {
+        model.addAttribute("party", new Party());
+        return "views/party-form";
+    }
+
+    @PostMapping("/party-form")
+    public String postPartyForm(@ModelAttribute Party party) {
+        User user = userService.loggedInUser();
+        party.setUser(user);
+        partyRepository.save(party);
+        return "redirect:/parties";
+    }
+
     @GetMapping("/parties")
+    public String viewParties(Model model) {
+        model.addAttribute("parties", partyRepository.findAll());
+        return "views/parties";
+    }
+
+}
+
+//    @GetMapping(path = "parties/{event_id}")
 //    public String showEventParties(@PathVariable String event_id, @ModelAttribute Model model) {
-    public String showEventParties(@ModelAttribute Model model) {
-        List<Party> parties;
 //        Long eventLong = Long.getLong(event_id);
 //        ArrayList<Event> events = (ArrayList<Event>) eventsRepository.findAllById(Collections.singleton(eventLong));
 //        Event thisEvent = events.get(0);
 //        long eventId = thisEvent.getId();
-        parties = partyRepository.findAll();
+//        List<Party> parties = partyRepository.findAll();
 //        List<Party> eventParties = null;
-//        for (Party party: parties
-//             ) {
+//        for (Party party : parties
+//        ) {
 //            if (party.getId() == eventId) {
-//                    eventParties.add(party);
-//                }
+//                eventParties.add(party);
 //            }
+//        }
 //        model.addAttribute("event", thisEvent);
-//        model.addAttribute("events", events);
-        model.addAttribute("parties", parties);
-        return "views/parties";
-    }
-}
-
-//    @GetMapping("/party/{id}/edit")
-//    public String editPartyForm(@PathVariable long id, Model model) {
-//        model.addAttribute("party", partyRepository.getById(id));
-//        return "/views/edit-party";
-//    }
-//
-//    @PostMapping("/party/{id}/edit")
-//    public String editParty(@PathVariable long id, @ModelAttribute Party party) {
-//        User user = userService.loggedInUser();
-//        party.setUser(user);
-//        partyRepository.saveAndFlush(party);
-//        return "redirect:/profile";
-//    }
-
-//    @PostMapping("party/{id}/delete")
-//    public String deleteParty(@PathVariable long id) {
-//        partyRepository.deleteById(id);
-//        return "redirect:/profile";
-//    }
-
-//    @GetMapping("/party-form")
-//    public String viewPartyForm(Model model) {
-//        model.addAttribute("party", new Party());
-//        return "views/party-form";
-//    }
-//
-//    @PostMapping("/party-form")
-//    public String postPartyForm(@ModelAttribute Party party) {
-//        User user = userService.loggedInUser();
-//        party.setUser(user);
-//        partyRepository.save(party);
-//        return "redirect:/parties";
-//    }
-
-
-//    @GetMapping("/parties")
-//    public String viewParties(Model model, Event event) {
-//
-//        model.addAttribute("parties", partyRepository.findAll());
+////        model.addAttribute("events", events);
+//        model.addAttribute("parties", eventParties);
 //        return "views/parties";
 //    }
-
-//    public PartyController(EventRepository eventsRepository, UserService userService, UserRepository userRepository, PartyRepository partyRepository, CommentRepository commentRepository) {
-//        this.eventsRepository = eventsRepository;
-//        this.userService = userService;
-//        this.userRepository = userRepository;
-//        this.partyRepository = partyRepository;
-//        this.commentRepository = commentRepository;
-//    }
-
 
 //    //  delivers the party-creation form which allows the creation of new parties
 //    @GetMapping(path = "/party-form")
