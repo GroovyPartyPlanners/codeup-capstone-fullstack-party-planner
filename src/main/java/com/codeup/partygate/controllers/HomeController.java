@@ -2,16 +2,13 @@ package com.codeup.partygate.controllers;
 
 //import com.codeup.partygate.models.Event;
 
-import com.codeup.partygate.models.MainEvent;
+//import com.codeup.partygate.models.MainEvent;
+
 import com.codeup.partygate.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class HomeController {
@@ -28,9 +25,11 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String viewHomePage(@ModelAttribute MainEvent event, @ModelAttribute Model model) {
-        List<MainEvent> events = new ArrayList<>();
-        model.addAttribute("events", events);
+    public String viewHomePage() {
+
+//        public String viewHomePage(@ModelAttribute MainEvent event, @ModelAttribute Model model) {
+//        List<MainEvent> events = new ArrayList<>();
+//        model.addAttribute("events", events);
         return "views/home";
     }
 }
