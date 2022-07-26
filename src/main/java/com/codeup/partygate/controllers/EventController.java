@@ -1,8 +1,8 @@
 //package com.codeup.partygate.controllers;
 //
 //
-//import com.codeup.partygate.models.Event;
-//import com.codeup.partygate.repositories.EventRepository;
+//import com.codeup.partygate.models.MainEvent;
+////import com.codeup.partygate.repositories.EventRepository;
 //import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PostMapping;
@@ -10,11 +10,11 @@
 //@Controller
 //public class EventController {
 //
-//    private final EventRepository eventsRepository;
+////    private final EventRepository eventsRepository;
 //
-//    public EventController(EventRepository eventsRepository) {
-//        this.eventsRepository = eventsRepository;
-//    }
+////    public EventController(EventRepository eventsRepository) {
+////        this.eventsRepository = eventsRepository;
+////    }
 //
 //    @PostMapping(path = "/save-event/{event_id}")
 //    public String eventSave(@PathVariable String event_id) {
@@ -23,7 +23,7 @@
 //            String html = "parties/" + eventId;
 //            return html;
 //        }
-//        Event thisEvent = new Event();
+//        MainEvent thisEvent = new MainEvent();
 //        thisEvent.setId(eventId);
 //        eventsRepository.save(thisEvent);
 //        String html = "parties/" + eventId;

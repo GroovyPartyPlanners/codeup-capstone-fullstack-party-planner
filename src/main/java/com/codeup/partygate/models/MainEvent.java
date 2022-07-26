@@ -5,7 +5,7 @@
 //
 //@Entity
 //@Table(name = "events")
-//public class Event {
+//public class MainEvent {
 //
 //    @Id
 //    private long id;
@@ -14,10 +14,10 @@
 ////    @Column(length = 400, nullable = false)
 ////    private String event_name;
 //
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "mainEvent")
 //    private List<Party> parties;
 //
-//    public Event() {}
+//    public MainEvent() {}
 //
 //    public long getId() {
 //        return id;
