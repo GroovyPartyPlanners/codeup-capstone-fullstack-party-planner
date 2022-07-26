@@ -66,6 +66,9 @@ public class User {
         group_name = copy.group_name;
         password = copy.password;
         user_pic_url = copy.user_pic_url;
+        parties = copy.parties;
+        tailgateParties = copy.tailgateParties;
+        comments = copy.comments;
     }
 
     public long getId() {
