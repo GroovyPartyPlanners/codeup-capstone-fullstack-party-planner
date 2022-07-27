@@ -5,6 +5,7 @@ import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,9 @@ import javax.validation.Valid;
 
 @Controller
 public class ProfileController {
+
+    @Value("${fileStackAPI}")
+    private String fileStackAPIKey;
 
     private final PartyRepository partyRepository;
     private final UserRepository usersRepository;
@@ -42,6 +46,7 @@ public class ProfileController {
     public String viewProfileInfo(@PathVariable long id, Model model) {
         User user = userService.loggedInUser();
         model.addAttribute("user", user);
+        model.addAttribute("fileStackAPI", fileStackAPIKey);
         return "views/edit-profile";
     }
 

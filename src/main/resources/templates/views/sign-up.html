@@ -4,6 +4,7 @@
     <meta charset="UTF-8" name="fileStackAPI" th:content="${fileStackAPI}">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign-up Page</title>
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
     <!-- Cloudflare CDN -->
@@ -81,11 +82,6 @@
                     <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">
                     <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>
                 </div>
-
-<!--                <div class="form-group">-->
-<!--                    <label style="margin-left: 47px;" for="profilePicUrl" class="form-label">Upload Profile Picture (optional):</label>-->
-<!--                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" type="file" th:field="*{profilePicUrl}" />-->
-<!--                </div>-->
 
                 <div class="form-group">
                     <input value="Sign me up!" type="submit" class="btn btn-warning"/>

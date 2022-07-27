@@ -66,6 +66,19 @@ public class User {
         this.profilePicUrl = profilePicUrl;
     }
 
+    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String profilePicUrl, List<Party> parties, List<Comment> comments) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+        this.group_name = group_name;
+        this.password = password;
+        this.profilePicUrl = profilePicUrl;
+        this.parties = parties;
+        this.comments = comments;
+    }
+
     //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
@@ -138,7 +151,7 @@ public class User {
         return profilePicUrl;
     }
 
-    public void setProfilePicUrl(String user_pic_url) {
+    public void setProfilePicUrl(String profilePicUrl) {
         this.profilePicUrl = profilePicUrl;
     }
 
