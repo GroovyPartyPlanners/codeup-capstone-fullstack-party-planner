@@ -30,16 +30,63 @@ public class Party {
 //    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private Set<User> attendees;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "main_event_id")
-    private MainEvent mainEvent;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "event_id")
+//    private Event eventId;
 
-//    public MainEvent getMainEvent() {
-//        return mainEvent;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "event_id")
+    private Event event;
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "event_id")
+//    private Event event;
+
+//    public Event getEvent() {
+//        return event;
 //    }
 //
-//    public void setMainEvent(MainEvent mainEvent) {
-//        this.mainEvent = mainEvent;
+//    public void setEvent(Event event) {
+//        this.event = event;
+//    }
+
+//    @ManyToOne
+//    @JoinColumn(name = "event_id")
+//    private Event event;
+
+
+
+    public Event getEventId() {
+        return event;
+    }
+
+    public void setEventId(Event eventId) {
+        this.event = eventId;
+    }
+
+//    public Event getEvent() {
+//        return event;
+//    }
+//
+//    public void setEvent(Event event) {
+//        this.event = event;
+//    }
+//
+//    public Event getMainEvent() {
+//        return eventId;
+//    }
+//
+//    public void setMainEvent(Event event) {
+//        this.eventId = eventId;
 //    }
 
 //    @ManyToOne
@@ -56,7 +103,7 @@ public class Party {
         this.id = id;
         this.party_name = name;
         this.description = description;
-
+        this.event = null;
     }
 
     public long getId() {
