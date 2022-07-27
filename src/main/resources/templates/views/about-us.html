@@ -41,10 +41,9 @@
                 <p class="about">ABOUT ME INFORMATION HERE</p>
                 <a href="#" class="btn">Contact</a>
                 <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-google"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-github-square"></i></a></li>
                 </ul>
             </div>
 
@@ -56,25 +55,23 @@
                 <p class="about">ABOUT ME INFORMATION HERE</p>
                 <a href="#" class="btn">Contact</a>
                 <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-google"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-github-square"></i></a></li>
                 </ul>
             </div>
 
             <div class="card">
-                <img src="" alt="card background" class="card-img">
-                <img src="" alt="profile img" class="profile-img">
-                <h1>NAME HERE</h1>
+                <img src="https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="card background" class="card-img">
+                <img src="https://cdn.filestackcontent.com/JbuackQNQxao1S9HL2Fk" alt="profile img" class="profile-img">
+                <h1>David Prieto</h1>
                 <p class="job-title">Software Developer</p>
-                <p class="about">ABOUT ME INFORMATION HERE</p>
+                <p class="about">I'm an Air Force veteran and full stack developer with a passion for building applications that bring joy to people.</p>
                 <a href="#" class="btn">Contact</a>
                 <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+                    <li><a href="mailto:david.s.prieto1@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/davidsprieto/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://github.com/davidsprieto" target="_blank"><i class="fab fa-github-square"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -208,24 +205,3 @@
 <script type="text/javascript" th:src="@{/js/filestack.js}"></script>
 </body>
 </html>
-
-<!--<div class="col w-100">-->
-<!--    <div class="row w-100">-->
-<!--        <div class = "col w-100">-->
-<!--            <div class="container">-->
-
-<!--<div class="row w-100">-->
-<!--    <div class = "col w-100">-->
-<!--        <div class="container">-->
-
-<h1>Hey!  Check out all these cool parties!  Pick one!</h1>
-<div class="card text-center mb-3" th:each="party : ${parties}">
-    <div class="card-header">Party</div>
-    <div class="card-body">
-        <h5 class="card-title" th:text="${party.party_name}"></h5>
-        <p class="card-text" th:text="${party.description}"></p>
-        <a th:href="@{|/party/${party.id}|}" class="btn btn-primary">View Party Details</a>
-    </div>
-    <div class="card-footer text-muted">
-        2 days ago
-    </div>
