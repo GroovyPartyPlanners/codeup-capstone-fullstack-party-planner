@@ -4,13 +4,15 @@
     <meta charset="UTF-8" name="fileStackAPI" th:content="${fileStackAPI}">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign-up</title>
+    <title>Sign-up Page</title>
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
     <!-- Cloudflare CDN -->
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" th:href="@{/css/party-planner.css}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom CSS for Form Validation Errors -->
+    <link rel="stylesheet" th:href="@{/css/form-validation.css}">
 </head>
 <body style="text-align: center">
 
@@ -78,13 +80,8 @@
                 <div class="form-group">
                     <label for="profilePicUrl" class="form-label">Upload Profile Picture:</label>
                     <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">
-                    <button id="buttonUpload" type="button" class="btn btn-danger">Upload Picture</button>
+                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>
                 </div>
-
-<!--                <div class="form-group">-->
-<!--                    <label style="margin-left: 47px;" for="profilePicUrl" class="form-label">Upload Profile Picture (optional):</label>-->
-<!--                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" type="file" th:field="*{profilePicUrl}" />-->
-<!--                </div>-->
 
                 <div class="form-group">
                     <input value="Sign me up!" type="submit" class="btn btn-warning"/>
@@ -94,44 +91,13 @@
     </div>
 </div>
 
-<script th:inline="javascript">
-
-    window.addEventListener("DOMContentLoaded", function () {
-
-        let apikey = document.querySelector('meta').content;
-        const client = filestack.init(apikey);
-
-        const options = {
-            onUploadDone: (res) => {
-                $("#profilePicUrl").val(res.filesUploaded[0].url);
-                console.log(res);
-            },
-            accept: ["image/*"],
-            uploadConfig: {
-                retry: 5,
-                timeout: 60000
-            },
-            transformations: {
-                crop: true,
-                circle: true,
-                rotate: true
-            }
-        }
-
-        $("#buttonUpload").click(function () {
-            client.picker(options).open();
-        })
-    });
-
-</script>
-
-
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<!-- Filestack CDN -->
-<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!-- Partial that contains scripts for oth CDNs like bootstrap, cloudflare, etc -->
 <div th:replace="partials/scripts :: scripts"></div>
-
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- Filestack API -->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!-- Custom Filestack JS Script -->
+<script type="text/javascript" th:src="@{/js/filestack.js}"></script>
 </body>
 </html>
