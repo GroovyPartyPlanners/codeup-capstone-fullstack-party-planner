@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head  th:replace="partials/header :: header-links"></head>
-<body style="text-align: center">
+<head  th:replace="partials/header :: header-links">
+
+</head>
+<body>
 
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
@@ -13,8 +15,28 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<div class="landing-page container"></div>
+<div class="landing-page">
 
+    <h4 class="intro-title">Welcome to Party Planners</h4>
+    <p class="introParagraph">
+        PartyGate is a web application that allows you to plan your party and tailgates with people.
+        Sign up to comment, create parties, and view events in your local area or desired location!</p>
+    <div class="imgContainer">
+        <img class="img image1" th:src="@{imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp}" src="../../static/imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp">
+        <img class="img image2" th:src="@{imgs/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg}" alt="test" src="../../static/imgs/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg">
+        <img class="img image3" th:src="@{imgs/18920718_303.jpg}" src="../../static/imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp">
+    </div>
+    <div class="eventsContainer">
+        <h3 class="events-title">Below are the events in your area!</h3>
+        <p class="total" id="total"></p>
+        <p class="pages" id="pages"></p>
+        <h1 class="eventTitle" id="eventTitle">
+            <h2 class="eventDate" id="eventDate"></h2>
+            <h2 class="popularity" id="popularity"></h2>
+        </h1>
+    </div>
+
+</div>
 <!--OLD CODE THAT REDIRECTS USER TO A SEPARATE LOGIN OR SIGN-UP PAGE  -->
 <!--<div class="container">-->
 <!--    <div class="col">-->
@@ -151,5 +173,7 @@
 </div>
 
 <div th:replace="partials/scripts :: scripts"></div>
+<script type="text/javascript" th:src="@{/js/clientid.js}"></script>
+<script type="text/javascript" th:src="@{/js/landing.js}"></script>
 </body>
 </html>
