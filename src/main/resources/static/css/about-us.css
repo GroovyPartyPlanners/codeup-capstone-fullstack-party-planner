@@ -108,6 +108,7 @@ section {
     text-transform: uppercase;
     color: #eee;
     font-size: 1.4rem;
+    transition: all .5s;
 }
 
 .card .btn:hover {
@@ -116,6 +117,36 @@ section {
 }
 
 .card .btn:active {
-    transform: translateY(-2px);
-    box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.social-media {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-media i {
+    font-size: 3rem;
+}
+
+.fa-facebook-square {
+    color: #3b5999;
+}
+
+.fa-twitter-square {
+    color: #55acee;
+}
+
+.fa-linkedin-in {
+    color: #3b5999;
+}
+
+.fa-github-square {
+    color: #000000;
 }
