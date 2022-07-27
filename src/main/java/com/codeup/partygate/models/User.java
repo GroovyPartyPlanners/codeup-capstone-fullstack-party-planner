@@ -35,8 +35,7 @@ public class User {
     @Column(length = 60, nullable = false)
     private String password;
 
-    @NotBlank
-    @Column(length = 250)
+    @Column
     private String profilePicUrl;
 
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
@@ -57,15 +56,15 @@ public class User {
 
     public User () {}
 
-//    public User(String first_name, String last_name, String email, String username, String group_name, String password, String profilePicUrl) {
-//        this.first_name = first_name;
-//        this.last_name = last_name;
-//        this.email = email;
-//        this.username = username;
-//        this.group_name = group_name;
-//        this.password = password;
-//        this.profilePicUrl = profilePicUrl;
-//    }
+    public User(String first_name, String last_name, String email, String username, String group_name, String password, String profilePicUrl) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+        this.group_name = group_name;
+        this.password = password;
+        this.profilePicUrl = profilePicUrl;
+    }
 
     //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {

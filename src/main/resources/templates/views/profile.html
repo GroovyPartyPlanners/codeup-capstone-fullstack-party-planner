@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head  th:replace="partials/header :: header-links"></head>
+<head  th:replace="partials/header :: header-links">
+    <!-- Custom CSS for Form Validation Errors -->
+    <link rel="stylesheet" th:href="@{/css/form-validation.css}">
+</head>
 <body style="text-align: center">
 
 <div sec:authorize="!isAuthenticated()">

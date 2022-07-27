@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AboutController {
 
-    @GetMapping("/about")
+    @GetMapping("/about-us")
     public String showAbout(User user, Model model, Errors validation) {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
@@ -17,7 +17,7 @@ public class AboutController {
         } else {
             model.addAttribute("user", new User());
         }
-        return "views/about";
+        return "views/about-us";
     }
 
 }

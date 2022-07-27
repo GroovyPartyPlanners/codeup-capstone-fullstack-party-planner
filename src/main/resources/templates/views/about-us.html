@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head  th:replace="partials/header :: header-links"></head>
-<body style="text-align: center">
+<head  th:replace="partials/header :: header-links">
+    <!-- Custom CSS for Form Validation Errors -->
+    <link rel="stylesheet" th:href="@{/css/form-validation.css}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/about-us.css}">
+</head>
+
+<body>
 
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
@@ -13,7 +19,59 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<h1>About Us Page Here</h1>
+
+<section>
+    <div class="container">
+        <h1 class="heading">Meet The Team</h1>
+        <div class="card-wrapper">
+            <div class="card">
+                <img src="" alt="card background" class="card-img">
+                <img src="" alt="profile img" class="profile-img">
+                <h1>NAME HERE</h1>
+                <p class="job-title">Software Developer</p>
+                <p class="about">ABOUT ME INFORMATION HERE</p>
+                <a href="#" class="btn">Contact</a>
+                <ul class="social-media">
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="" alt="card background" class="card-img">
+                <img src="" alt="profile img" class="profile-img">
+                <h1>NAME HERE</h1>
+                <p class="job-title">Software Developer</p>
+                <p class="about">ABOUT ME INFORMATION HERE</p>
+                <a href="#" class="btn">Contact</a>
+                <ul class="social-media">
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="" alt="card background" class="card-img">
+                <img src="" alt="profile img" class="profile-img">
+                <h1>NAME HERE</h1>
+                <p class="job-title">Software Developer</p>
+                <p class="about">ABOUT ME INFORMATION HERE</p>
+                <a href="#" class="btn">Contact</a>
+                <ul class="social-media">
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <!-- Login Modal -->
 <div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
