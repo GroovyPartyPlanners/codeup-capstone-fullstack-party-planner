@@ -40,9 +40,6 @@ public class HomeController {
     @GetMapping("/home")
     public String viewHomePage() {
 
-        return "views/home";
+        return "redirect:/views/home.html";
     }
-    //        List<Party> parties = partyRepository.findAll();
-//        model.addAttribute("parties", parties);
-
 }
