@@ -16,14 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PartyController {
 
-//    private final EventRepository eventsRepository;
     private final UserService userService;
     private final UserRepository userRepository;
     private final PartyRepository partyRepository;
     private final CommentRepository commentRepository;
 
     public PartyController(PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
-//        this.eventsRepository = eventsRepository;
         this.userService = userService;
         this.userRepository = userRepository;
         this.partyRepository = partyRepository;

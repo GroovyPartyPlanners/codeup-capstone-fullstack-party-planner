@@ -28,15 +28,16 @@ public class User {
     @Column(length = 50, nullable = false, unique = true)
     private String username;
 
-    @Column(length = 75, nullable = true)
+    @Column(length = 75)
     private String group_name;
 
     @NotBlank
     @Column(length = 60, nullable = false)
     private String password;
 
-    @Column(length = 100, nullable = true)
-    private String user_pic_url;
+    @NotBlank
+    @Column(length = 250)
+    private String profilePicUrl;
 
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Party> parties;
@@ -46,15 +47,25 @@ public class User {
 
 //    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
 //    added missing referencedColumnName
-    @ManyToMany
-    @JoinTable(name = "attendees",
-//            , nullable = true, updatable = true
-            joinColumns = @JoinColumn(name = "user_id"),
-//            , nullable = true, updatable = true
-            inverseJoinColumns = @JoinColumn(name = "party_id"))
-    private List<Party> tailgateParties;
+//    @ManyToMany
+//    @JoinTable(name = "attendees",
+////            , nullable = true, updatable = true
+//            joinColumns = @JoinColumn(name = "user_id"),
+////            , nullable = true, updatable = true
+//            inverseJoinColumns = @JoinColumn(name = "party_id"))
+//    private List<Party> tailgateParties;
 
     public User () {}
+
+//    public User(String first_name, String last_name, String email, String username, String group_name, String password, String profilePicUrl) {
+//        this.first_name = first_name;
+//        this.last_name = last_name;
+//        this.email = email;
+//        this.username = username;
+//        this.group_name = group_name;
+//        this.password = password;
+//        this.profilePicUrl = profilePicUrl;
+//    }
 
     //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {
@@ -65,10 +76,7 @@ public class User {
         username = copy.username;
         group_name = copy.group_name;
         password = copy.password;
-        user_pic_url = copy.user_pic_url;
-        parties = copy.parties;
-        tailgateParties = copy.tailgateParties;
-        comments = copy.comments;
+        profilePicUrl = copy.profilePicUrl;
     }
 
     public long getId() {
@@ -127,20 +135,12 @@ public class User {
         this.password = password;
     }
 
-    public String getUser_pic_url() {
-        return user_pic_url;
+    public String getProfilePicUrl() {
+        return profilePicUrl;
     }
 
-    public void setUser_pic_url(String user_pic_url) {
-        this.user_pic_url = user_pic_url;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+    public void setProfilePicUrl(String user_pic_url) {
+        this.profilePicUrl = profilePicUrl;
     }
 
     public List<Party> getParties() {
@@ -151,11 +151,19 @@ public class User {
         this.parties = parties;
     }
 
-    public List<Party> getTailgateParties() {
-        return tailgateParties;
+    public List<Comment> getComments() {
+        return comments;
     }
 
-    public void setTailgateParties(List<Party> tailgateParties) {
-        this.tailgateParties = tailgateParties;
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
+
+//    public List<Party> getTailgateParties() {
+//        return tailgateParties;
+//    }
+//
+//    public void setTailgateParties(List<Party> tailgateParties) {
+//        this.tailgateParties = tailgateParties;
+//    }
 }
