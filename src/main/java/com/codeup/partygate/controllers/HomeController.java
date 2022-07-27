@@ -1,6 +1,5 @@
 package com.codeup.partygate.controllers;
 
-//import com.codeup.partygate.models.Event;
 import com.codeup.partygate.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

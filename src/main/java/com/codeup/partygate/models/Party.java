@@ -3,7 +3,6 @@ package com.codeup.partygate.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "parties")
@@ -28,8 +27,8 @@ public class Party {
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "party")
     private List<Comment> comments;
 
-    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<User> attendees;
+//    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Set<User> attendees;
 
 //    @ManyToOne
 //    @JoinColumn(name = "event_id")
@@ -87,13 +86,13 @@ public class Party {
         this.comments = comments;
     }
 
-    public Set<User> getAttendees() {
-        return attendees;
-    }
-
-    public void setAttendees(Set<User> attendees) {
-        this.attendees = attendees;
-    }
+//    public Set<User> getAttendees() {
+//        return attendees;
+//    }
+//
+//    public void setAttendees(Set<User> attendees) {
+//        this.attendees = attendees;
+//    }
 
 //    public Event getEvent() {
 //        return event;
