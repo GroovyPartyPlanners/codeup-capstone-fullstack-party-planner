@@ -1,3 +1,6 @@
+
+
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -6,136 +9,305 @@ function getLocation() {
     }
 }
 
-function mainEvent() {
-    this.id;
-    this.eventId;
-    this.name;
-    this.location;
-}
-
 function showPosition(position) {
-    console.log(position);
+
     var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    let events = getEvents(lat, lon);
-}
+    var long = position.coords.longitude;
 
-function getEvents(lat, lon) {
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
+    const coordinates = document.getElementById('coordinates');
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [long, lat],
+        zoom: 8
+    });
 
-    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lon}&client_id=${clientId}`)
+    const marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([long, lat])
+        .addTo(map);
+
+    function onDragEnd() {
+        const lngLat = marker.getLngLat();
+        let lat = lngLat.lat;
+        let lng = lngLat.lng;
+        let type = document.getElementById('type').value;
+        let pages = document.getElementById('pages');
+        downvote.addEventListener('click', function() {
+            fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId}`)
+                .then(response => response.json())
+                .then(data => {
+
+                    var events ='';
+                    total = document.getElementById('total');
+                    total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                    for(var i = 0; i < data.events.length; i++) {
+                        const date = new Date(data.events[i].datetime_local);
+                        const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                        const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                        events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                    }
+                    for(var i = 0; i < 1; i++) {
+                        if(data.meta.total>=11){
+                            pages = document.getElementById('pages');
+                            let pagesCount = Math.ceil(data.meta.total/10);
+                            console.log(pagesCount);
+                            for(let i = 0; i < pagesCount; i++){
+                                pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                            }
+                        }
+                        document.getElementById("eventTitle").innerHTML = events
+                    }})
+                .catch(error => console.log(error));
+        });
+        upvote.addEventListener('click', function() {
+            fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId}`)
+                .then(response => response.json())
+                .then(data => {
+
+                    var events ='';
+                    total = document.getElementById('total');
+                    total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                    for(var i = 0; i < data.events.length; i++) {
+                        const date = new Date(data.events[i].datetime_local);
+                        const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                        const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                        events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+
+                    }
+                    for(var i = 0; i < 1; i++) {
+                        if(data.meta.total>=11){
+                            pages = document.getElementById('pages');
+                            let pagesCount = Math.ceil(data.meta.total/10);
+                            console.log(pagesCount);
+                            for(let i = 0; i < pagesCount; i++){
+                                pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                            }
+                        }
+                        document.getElementById("eventTitle").innerHTML = events
+                    }})
+                .catch(error => console.log(error));
+        });
+        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId}`)
+            .then(response => response.json())
+            .then(data => {
+
+                var events ='';
+                var popularity = '';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                for(var i = 0; i < data.events.length; i++) {
+                    const date = new Date(data.events[i].datetime_local);
+                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+
+                }
+                for(var i = 0; i < 1; i++) {
+                    if(data.meta.total>=11){
+                        pages = document.getElementById('pages');
+                        let pagesCount = Math.ceil(data.meta.total/10);
+                        console.log(pagesCount);
+                        for(let i = 0; i < pagesCount; i++){
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                        }
+                    }
+                    document.getElementById("eventTitle").innerHTML = events
+
+                }}
+
+            )
+            .catch(error => console.log(error));
+    }
+    const upvote = document.getElementById('upvote');
+    const downvote = document.getElementById('downvote');
+
+    upvote.addEventListener('click', function() {
+
+
+        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
+            .then(response => response.json())
+            .then(data => {
+
+                var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                for(var i = 0; i < data.events.length; i++) {
+                    const date = new Date(data.events[i].datetime_local);
+                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+
+                }
+                for(var i = 0; i < 1; i++) {
+                    if(data.meta.total>=11){
+                        pages = document.getElementById('pages');
+                        let pagesCount = Math.ceil(data.meta.total/10);
+                        console.log(pagesCount);
+                        for(let i = 0; i < pagesCount; i++){
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                        }
+                    }
+                    document.getElementById("eventTitle").innerHTML = events
+                }})
+            .catch(error => console.log(error));
+    });
+    downvote.addEventListener('click', function() {
+        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
+            .then(response => response.json())
+            .then(data => {
+
+                var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                for(var i = 0; i < data.events.length; i++) {
+                    const date = new Date(data.events[i].datetime_local);
+                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+
+                }
+                for(var i = 0; i < 1; i++) {
+                    if(data.meta.total>=11){
+                        pages = document.getElementById('pages');
+                        let pagesCount = Math.ceil(data.meta.total/10);
+                        console.log(pagesCount);
+                        for(let i = 0; i < pagesCount; i++){
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                        }
+                    }
+                    document.getElementById("eventTitle").innerHTML = events
+                }})
+            .catch(error => console.log(error));
+    });
+    marker.on('dragend', onDragEnd);
+
+    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=comedy&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
                 console.log(data);
-                // var events ='';
-                var eventsDate = '';
-                var eventsLocation = '';
-                var eventsCity = '';
-                var eventImage = '';
-                let thisEvent = new mainEvent();
-                let theseEvents = [];
+                var events ='';
 
-                for (var i = 0; i < data.events.length; i++) {
-                    thisEvent.eventId = data.events[i].id;
-                    thisEvent.name = data.events[i].venue.name;
-                    thisEvent.location = data.events[i].venue.display_location;
-                    thisEvent.id = i;
-                    theseEvents.push(thisEvent);
+                total = document.getElementById('total');
+                total.innerHTML = `<h1 class='totalEvents '>Total Events ${data.meta.total}</h1>`
+                for(var i = 0; i < data.events.length; i++) {
+                    const date = new Date(data.events[i].datetime_local);
+                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}/">Click</a><span style="visibility: hidden">${data.events[i].id}</span></h1>`
                 }
 
-                //         let html = `<form th:action="@{/sign-up}" method="POST" th:object="${user}">
-                //     <div className="form-group">
-                //         <label htmlFor="first-name">First Name:</label>
-                //         <input id="first-name" className="form-control text-center" th:field="*{first_name}"/>
-                //         <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"
-                //            th:class="${#fields.hasErrors('first_name')}? errors"></p>
-                //     </div>
-                //
-                //     <div className="form-group">
-                //         <i className="fas fa-user prefix"></i>
-                //         <label htmlFor="last-name">Last Name:</label>
-                //         <input id="last-name" className="form-control text-center" th:field="*{last_name}"/>
-                //         <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"
-                //            th:class="${#fields.hasErrors('last_name')}? errors"></p>
-                //     </div>
-                //
-                //     <div className="form-group">
-                //         <i className="fa-solid fa-circle-user"></i>
-                //         <label htmlFor="username-signup">Username:</label>
-                //         <input id="username-signup" className="form-control text-center" th:field="*{username}"/>
-                //         <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
-                //            th:class="${#fields.hasErrors('username')}? errors"></p>
-                //     </div>
-                //
-                //     <div className="form-group">
-                //         <i className="fas fa-envelope prefix"></i>
-                //         <label htmlFor="email">Email Address:</label>
-                //         <input id="email" className="form-control text-center" th:field="*{email}"/>
-                //         <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                //            th:class="${#fields.hasErrors('email')}? errors"></p>
-                //
-                //     </div>
-                //
-                //     <div className="form-group">
-                //         <i className="fas fa-tag prefix"></i>
-                //         <label htmlFor="group-name">Group Name (optional):</label>
-                //         <input id="group-name" className="form-control text-center" th:field="*{group_name}"/>
-                //     </div>
-                //
-                //     <div className="form-group">
-                //         <i className="fas fa-lock prefix"></i>
-                //         <label htmlFor="password-signup">Password:</label>
-                //         <input id="password-signup" type="password" className="form-control text-center"
-                //                th:field="*{password}"/>
-                //         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                //            th:class="${#fields.hasErrors('password')}? errors"></p>
-                //     </div>
-                //
-                //     <div className="form-group">
-                //         <label htmlFor="profilePicUrl" className="form-label">Upload Profile Picture:</label>
-                //         <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}"
-                //                type="hidden">
-                //             <button id="buttonUpload" type="button" className="btn btn-danger">Upload Picture</button>
-                //     </div>
-                //
-                //     <!--                <div class="form-group">-->
-                //     <!--                    <label style="margin-left: 47px;" for="profilePicUrl" class="form-label">Upload Profile Picture (optional):</label>-->
-                //     <!--                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" type="file" th:field="*{profilePicUrl}" />-->
-                //     <!--                </div>-->
-                //
-                //     <div className="form-group">
-                //         <input value="Sign me up!" type="submit" className="btn btn-warning"/>
-                //     </div>
-                // </form>
-                // `
-                // events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
-                // }
-                // document.getElementById("eventTitle").innerHTML = events
-            return theseEvents;
+                for(var i = 0; i < 1; i++) {
+                    if(data.meta.total>=11){
+                        pages = document.getElementById('pages');
+                        let pagesCount = Math.ceil(data.meta.total/10);
+                        console.log(pagesCount);
+                        for(let i = 0; i < pagesCount; i++){
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                        }
+                    }
+
+
+                }
+                document.getElementById("eventTitle").innerHTML = events
+
             }
+
         )
         .catch(error => console.log(error));
 
 }
-let events = getLocation();
+getLocation();
 
-// document.getElementById('search-btn').addEventListener('click', function (e){
-//     e.preventDefault();
-//
-//     var type = document.getElementById("type").value
-//     var search = document.getElementById("search").value
-//     console.log(search)
-//     fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&client_id=${clientId}`)
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             var events ='';
-//             var eventsDate = '';
-//             var eventsCity = '';
-//             var eventImage = '';
-//             for(var i = 0; i < data.events.length; i++) {
-//                 events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`
-//             }
-//             document.getElementById("eventTitle").innerHTML = events
-//         })
-//         .catch(error => console.log(error));
-// });
+
+document.getElementById('search-btn').addEventListener('click', function (e){
+    e.preventDefault();
+    downvote.addEventListener('click', function() {
+        fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId}`)
+            .then(response => response.json())
+            .then(data => {
+
+                var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+
+                for(var i = 0; i < data.events.length; i++) {
+                    const date = new Date(data.events[i].datetime_local);
+                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+
+                }
+                for(var i = 0; i < 1; i++) {
+                    if(data.meta.total>=11){
+                        pages = document.getElementById('pages');
+                        let pagesCount = Math.ceil(data.meta.total/10);
+                        console.log(pagesCount);
+                        for(let i = 0; i < pagesCount; i++){
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                        }
+                    }
+                    document.getElementById("eventTitle").innerHTML = events
+                }})
+            .catch(error => console.log(error));
+    });
+    upvote.addEventListener('click', function() {
+        fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId}`)
+            .then(response => response.json())
+            .then(data => {
+
+                var events ='';
+                total = document.getElementById('total');
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                for(var i = 0; i < data.events.length; i++) {
+                    const date = new Date(data.events[i].datetime_local);
+                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+
+                }
+                for(var i = 0; i < 1; i++) {
+                    if(data.meta.total>=11){
+                        pages = document.getElementById('pages');
+                        let pagesCount = Math.ceil(data.meta.total/10);
+                        console.log(pagesCount);
+                        for(let i = 0; i < pagesCount; i++){
+                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                        }
+                    }
+                    document.getElementById("eventTitle").innerHTML = events
+                }})
+            .catch(error => console.log(error));
+    });
+    var type = document.getElementById("type").value
+    var search = document.getElementById("search").value
+    var range = document.getElementById("radius").value
+    fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId}`)
+        .then(response => response.json())
+        .then(data => {
+
+            var events ='';
+
+            total = document.getElementById('total');
+            total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+            for(var i = 0; i < data.events.length; i++) {
+                const date = new Date(data.events[i].datetime_local);
+                const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+            }
+            for(var i = 0; i < 1; i++) {
+                if(data.meta.total>=11){
+                    pages = document.getElementById('pages');
+                    let pagesCount = Math.ceil(data.meta.total/10);
+                    console.log(pagesCount);
+                    for(let i = 0; i < pagesCount; i++){
+                        pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+                    }
+                }
+                document.getElementById("eventTitle").innerHTML = events
+            }})
+        .catch(error => console.log(error));
+});

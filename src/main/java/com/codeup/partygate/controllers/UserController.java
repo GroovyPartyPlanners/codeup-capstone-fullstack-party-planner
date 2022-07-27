@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
-    @Value("${fileStackAPI}")
+    @Value("${filestack.api.key}")
     private String fileStackAPIKey;
 
     private final UserRepository usersRepository;
