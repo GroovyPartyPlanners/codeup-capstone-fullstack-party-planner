@@ -1,8 +1,10 @@
 package com.codeup.partygate.controllers;
 
+import com.codeup.partygate.models.Event;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.CommentRepository;
+import com.codeup.partygate.repositories.EventRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
@@ -13,12 +15,14 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PartyController {
 
+    private final EventRepository eventRepository;
     private final UserService userService;
     private final UserRepository userRepository;
     private final PartyRepository partyRepository;
     private final CommentRepository commentRepository;
 
-    public PartyController(PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
+    public PartyController(EventRepository eventRepository, PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
+        this.eventRepository = eventRepository;
         this.userService = userService;
         this.userRepository = userRepository;
         this.partyRepository = partyRepository;
@@ -61,10 +65,21 @@ public class PartyController {
 
     @PostMapping("/party-form")
     public String postPartyForm(@ModelAttribute Party party, @RequestParam(name="event-id") long eventId) {
-        System.out.println("Here's the incoming event id associated with this party: " + eventId);
+//        System.out.println("Here's the incoming event id associated with this party: " + eventId);
 //        party.set(eventId);
+            Event thisEvent  = new Event(eventId);
+//            eventRepository.save(thisEvent);
+            party.setEventId(thisEvent);
+//        party.set(eventId);
+//        User user = userService.loggedInUser();
+
+//        Party party = partyRepository.getById(id);
+//        comment.setParty(party);
+//        commentRepository.save(comment);
+
         User user = userService.loggedInUser();
         party.setUser(user);
+
         partyRepository.save(party);
         return "redirect:/parties";
     }
