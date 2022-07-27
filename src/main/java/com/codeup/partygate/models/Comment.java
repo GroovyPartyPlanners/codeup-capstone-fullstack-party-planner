@@ -37,11 +37,11 @@ public class Comment {
         this.party = party;
     }
 
-    public Comment(String comment_content, User user, Party party) {
-        this.comment_content = comment_content;
-        this.user = user;
-        this.party = party;
-    }
+//    public Comment(String comment_content, User user, Party party) {
+//        this.comment_content = comment_content;
+//        this.user = user;
+//        this.party = party;
+//    }
 
     public Comment(long id, String comment_content, User user, Party party) {
         this.id = id;

@@ -43,10 +43,10 @@ downvote.addEventListener('click', function() {
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`  
+                    var popularity = data.events[i].popularity;
+                    var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
+                    
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`   
                 }
                 for(var i = 0; i < 1; i++) {
                     if(data.meta.total>=11){
@@ -70,10 +70,9 @@ upvote.addEventListener('click', function() {
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                    var popularity = data.events[i].popularity;
+                    var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
                     
                 }
                 for(var i = 0; i < 1; i++) {
@@ -98,10 +97,8 @@ fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&clie
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                    
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
   
                 }
                 for(var i = 0; i < 1; i++) {
@@ -134,10 +131,9 @@ upvote.addEventListener('click', function() {
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                    var popularity = data.events[i].popularity;
+                    var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>` 
                     
                 }
                 for(var i = 0; i < 1; i++) {
@@ -162,10 +158,9 @@ downvote.addEventListener('click', function() {
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>` 
+                    var popularity = data.events[i].popularity;
+                    var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>` 
                     
                 }
                 for(var i = 0; i < 1; i++) {
@@ -188,14 +183,10 @@ marker.on('dragend', onDragEnd);
         .then(data => {
             console.log(data);
                 var events ='';
-                
                 total = document.getElementById('total');
-                total.innerHTML = `<h1 class='totalEvents '>Total Events ${data.meta.total}</h1>`
+                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
                 }
                 
                 for(var i = 0; i < 1; i++) {
@@ -233,10 +224,9 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                     total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                     
                     for(var i = 0; i < data.events.length; i++) {
-                        const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                        var popularity = data.events[i].popularity;
+                        var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
+                        events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>` 
                         
                     }
                     for(var i = 0; i < 1; i++) {
@@ -261,10 +251,9 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                     total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                     for(var i = 0; i < data.events.length; i++) {
-                        const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                        var popularity = data.events[i].popularity;
+                        var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
+                        events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>` 
                         
                     }
                     for(var i = 0; i < 1; i++) {
@@ -292,10 +281,7 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                 for(var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
                 }
                 for(var i = 0; i < 1; i++) {
                     if(data.meta.total>=11){

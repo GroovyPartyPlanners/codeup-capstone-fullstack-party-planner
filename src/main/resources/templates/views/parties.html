@@ -24,6 +24,7 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
+<div th:fragment="parties">
 <h1>Hey!  Check out all these cool parties!  Pick one!</h1>
 <div class="card text-center mb-3" th:each="party : ${parties}">
     <div class="card-header">Party</div>
@@ -36,7 +37,8 @@
         2 days ago
     </div>
 </div>
+</div>
 
-<div th:replace="partials/scripts :: scripts"></div>
+<!--<div th:replace="partials/home-slice :: home-slice"></div>-->
 </body>
 </html>

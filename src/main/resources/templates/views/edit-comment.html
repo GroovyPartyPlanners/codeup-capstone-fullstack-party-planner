@@ -31,7 +31,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form th:action="@{/comment/{commentId}/{partyId}/edit(commentId=${comment.id}, partyId=${comment.getParty().getId()})}" method="POST" th:object="${comment}">
+            <form th:action="@{/comments/{id}/edit(id=${comment.id})}" method="POST" th:object="${comment}">
 
                 <div class="form-group">
                     <label for="comment-content">Comment Content:</label>
@@ -43,11 +43,9 @@
                 </div>
             </form>
 
-            <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
-                <form th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">
-                    <input type="submit" value="Delete Comment" class="btn btn-primary" />
-                </form>
-            </div>
+            <form th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">
+                <input type="submit" value="Delete Comment" class="btn btn-primary" />
+            </form>
         </div>
     </div>
 </div>

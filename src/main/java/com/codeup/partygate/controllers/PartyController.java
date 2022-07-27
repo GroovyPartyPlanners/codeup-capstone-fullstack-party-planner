@@ -8,10 +8,7 @@ import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PartyController {
@@ -63,19 +60,29 @@ public class PartyController {
     }
 
     @PostMapping("/party-form")
-    public String postPartyForm(@ModelAttribute Party party) {
+    public String postPartyForm(@ModelAttribute Party party, @RequestParam(name="event-id") long eventId) {
+        System.out.println("Here's the incoming event id associated with this party: " + eventId);
+//        party.set(eventId);
         User user = userService.loggedInUser();
         party.setUser(user);
         partyRepository.save(party);
         return "redirect:/parties";
     }
 
+//    This is getmapping FROM event page WITH id of event.id as url.com/event/event.id <--
+    @GetMapping("/events/{eventId}")
+    public String postEventAndPartyForm(Model model, @PathVariable long eventId){
+
+        model.addAttribute("eventId", eventId);
+        model.addAttribute("party", new Party());
+        return "views/party-form";
+    }
+
     @GetMapping("/parties")
     public String viewParties(Model model) {
         model.addAttribute("parties", partyRepository.findAll());
-        return "views/parties";
+        return "partials/parties";
     }
-
 }
 
 //    @GetMapping(path = "parties/{event_id}")
