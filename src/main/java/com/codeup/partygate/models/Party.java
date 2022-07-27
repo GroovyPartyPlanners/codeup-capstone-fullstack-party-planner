@@ -30,10 +30,10 @@ public class Party {
 //    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private Set<User> attendees;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "main_event_id")
-//    private MainEvent mainEvent;
-//
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "main_event_id")
+    private MainEvent mainEvent;
+
 //    public MainEvent getMainEvent() {
 //        return mainEvent;
 //    }

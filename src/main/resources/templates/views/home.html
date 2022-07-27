@@ -59,6 +59,27 @@
             <h2 class="eventDate" id="eventDate"></h2>
             <h2 class="popularity" id="popularity"></h2>
         </h1>
+        <script>
+            function eventsDict() {
+                this.id;
+                this.eventId;
+            }
+
+            let eventsDict = new eventsDict();
+            for (var i = 0; i<events.length; i++) {
+            var html = `<p>${events[i]}</p>`
+
+        }
+            document.getElementById("eventTitle").innerHTML = html</script>
+        <form th:action="@{'/party-form/'}" method="POST" th:object="${user}">
+
+            <div className="form-group">
+                <label htmlFor="event_id">First Name:</label>
+                <input id="event_id" className="form-control text-center" th:field="*{event_id}"/>
+            </div>
+        </form>
+
+        </div>
     </div>
 </div>
 
