@@ -1,6 +1,3 @@
-console.log("Hello World!");
-
-
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -127,10 +124,11 @@ upvote.addEventListener('click', function() {
     fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
-            
+            console.log('click');
                 var events ='';
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                
                 for(var i = 0; i < data.events.length; i++) {
                     var popularity = data.events[i].popularity;
                     var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
@@ -158,6 +156,8 @@ downvote.addEventListener('click', function() {
                 var events ='';
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                
+
                 for(var i = 0; i < data.events.length; i++) {
                     var popularity = data.events[i].popularity;
                     var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
