@@ -51,7 +51,7 @@
     <input type="number" id="radius" class="inputBoxes" placeholder="Radius in miles">
 
     <button class="btn" id="search-btn">Search</button>
-    </form>
+
 
     <label class="searchParams">Sort By Popularity</label>
     <button class="btn"id="upvote">⬆</button>
@@ -76,7 +76,7 @@
 
         }
             document.getElementById("eventTitle").innerHTML = html</script>
-        <form th:action="@{'/party-form/'}" method="POST" th:object="${user}">
+        <form th:action="@{'/party-form/'}" method="POST" th:object="${event}">
 
             <div className="form-group">
                 <label htmlFor="event_id">First Name:</label>
