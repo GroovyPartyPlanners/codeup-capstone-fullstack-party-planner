@@ -13,6 +13,8 @@
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom CSS for Form Validation Errors -->
     <link rel="stylesheet" th:href="@{/css/form-validation.css}">
+    <!-- Custom Footer CSS -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
 </head>
 <body style="text-align: center">
 
@@ -53,6 +55,9 @@
         </div>
     </div>
 </div>
+
+<!-- Partial that contains Footer HTML -->
+<div th:replace="partials/footer.html :: footer"></div>
 
 <div th:replace="partials/scripts :: scripts"></div>
 </body>

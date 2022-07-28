@@ -95,17 +95,29 @@ public class PartyController {
     public String postPartyForm(@ModelAttribute Party party, @RequestParam(name = "event-id") long eventId) {
 //        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
 //        parties.add(party);
-        Event event = new Event();
-        event.setEventApiId(eventId);
+        if (eventsRepository.findAllById(eventId) == null) {
+            Event event = new Event();
+            event.setEventApiId(eventId);
 //        event.setParties(parties);
 
-        event =  eventsRepository.save(event);
+            event = eventsRepository.save(event);
 
+            User user = userRepository.getById(userService.loggedInUser().getId());
+            party.setUser(user);
+            party.setEvent(event);
+            partyRepository.save(party);
+            return "redirect:/parties";
+        }
         User user = userRepository.getById(userService.loggedInUser().getId());
         party.setUser(user);
-        party.setEvent(event);
+        for (Event event: eventsRepository.findAll()
+             ) {
+            if (event.getEventApiId() == eventId) {
+                party.setEvent(event);
+            }
+        }
         partyRepository.save(party);
-        return "redirect:/parties";
+        return "views/parties";
     }
 
     @GetMapping("/parties")

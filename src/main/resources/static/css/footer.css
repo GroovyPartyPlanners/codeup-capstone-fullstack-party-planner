@@ -5,6 +5,10 @@ footer {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     background-color: #ededed;
+    /*position: fixed;*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer {
@@ -18,6 +22,18 @@ footer {
     color: #4b4c4d;
 }
 
+.fa-google {
+    color: #eb5e34;
+}
+
+.fa-linkedin-in {
+    color: #3b5999;
+}
+
+.fa-github-square {
+    color: #000000;
+}
+
 .footer .social a {
     font-size: 24px;
     color: inherit;
@@ -29,8 +45,8 @@ footer {
     margin: 0 8px;
 }
 
-.footer .social a:hover {
-    opacity: 0.9;
+.fa-google:hover, .fa-linkedin-in:hover, .fa-github-square:hover {
+    color: #45e19f;
 }
 
 .footer ul {
@@ -51,11 +67,10 @@ footer {
 .footer ul li {
     display: inline-block;
     padding: 0 15px;
-    list-style: none;
 }
 
 .footer ul li a:hover {
-   color: #445ae3;
+   color: #5bc0be;
 }
 
 .footer .copyright {
