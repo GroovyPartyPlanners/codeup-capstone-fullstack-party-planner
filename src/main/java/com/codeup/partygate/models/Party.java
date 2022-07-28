@@ -27,83 +27,28 @@ public class Party {
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "party")
     private List<Comment> comments;
 
-//    @ManyToMany(mappedBy = "tailgateParties", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Set<User> attendees;
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "event_id")
-//    private Event eventId;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "event_id")
     private Event event;
 
-    public Event getEvent() {
-        return event;
+    public Party() {
     }
 
-    public void setEvent(Event event) {
+    public Party(long id, String party_name, String description, User user, List<Comment> comments, Event event) {
+        this.id = id;
+        this.party_name = party_name;
+        this.description = description;
+        this.user = user;
+        this.comments = comments;
         this.event = event;
     }
 
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "event_id")
-//    private Event event;
-
-//    public Event getEvent() {
-//        return event;
-//    }
-//
-//    public void setEvent(Event event) {
-//        this.event = event;
-//    }
-
-//    @ManyToOne
-//    @JoinColumn(name = "event_id")
-//    private Event event;
-
-
-
-    public Event getEventId() {
-        return event;
-    }
-
-    public void setEventId(Event eventId) {
-        this.event = eventId;
-    }
-
-//    public Event getEvent() {
-//        return event;
-//    }
-//
-//    public void setEvent(Event event) {
-//        this.event = event;
-//    }
-//
-//    public Event getMainEvent() {
-//        return eventId;
-//    }
-//
-//    public void setMainEvent(Event event) {
-//        this.eventId = eventId;
-//    }
-
-//    @ManyToOne
-//    @JoinColumn(name = "event_id")
-//    private Event event;
-
-    public Party() {}
-
-//    public Party(long id) {
-//        this.id = id;
-//    }
-
-    public Party(long id, String name, String description) {
-        this.id = id;
-        this.party_name = name;
+    public Party(String party_name, String description, User user, List<Comment> comments, Event event) {
+        this.party_name = party_name;
         this.description = description;
-        this.event = null;
+        this.user = user;
+        this.comments = comments;
+        this.event = event;
     }
 
     public long getId() {
@@ -118,8 +63,8 @@ public class Party {
         return party_name;
     }
 
-    public void setParty_name(String name) {
-        this.party_name = name;
+    public void setParty_name(String party_name) {
+        this.party_name = party_name;
     }
 
     public String getDescription() {
@@ -146,21 +91,11 @@ public class Party {
         this.comments = comments;
     }
 
-//    public Set<User> getAttendees() {
-//        return attendees;
-//    }
-//
-//    public void setAttendees(Set<User> attendees) {
-//        this.attendees = attendees;
-//    }
+    public Event getEvent() {
+        return event;
+    }
 
-//    public Event getEvent() {
-//        return event;
-//    }
-//
-//    public void setEvent(Event event) {
-//        this.event = event;
-//    }
-//
-
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 }
