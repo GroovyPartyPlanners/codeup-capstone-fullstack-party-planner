@@ -59,6 +59,8 @@
     color: var(--sec-text-color);
     border-bottom: 3px solid var(--accent);
     text-align: center;
+    padding-bottom: 3rem;
+    font-family: 'Righteous';
 }
 .mapLabel{
     color: var(--sec-text-color);
@@ -73,10 +75,12 @@
 
 .popMeaning{
     text-align: center;
+    
 }
 ul{
     list-style: none;
 }
+
 .break::after{
     content: "";
     width: 40rem;
@@ -87,4 +91,7 @@ ul{
     bottom:56%;
     transform: translateX(-50%);
     border-radius: 2rem;
+}
+.hidden{
+    visibility: hidden;
 }

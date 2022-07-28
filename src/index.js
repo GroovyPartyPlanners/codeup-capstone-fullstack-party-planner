@@ -1,6 +1,3 @@
-console.log("Hello World!");
-
-
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -130,10 +127,11 @@ upvote.addEventListener('click', function() {
     fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
         .then(response => response.json())
         .then(data => {
-            
+            console.log('click');
                 var events ='';
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                
                 for(var i = 0; i < data.events.length; i++) {
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
@@ -162,6 +160,8 @@ downvote.addEventListener('click', function() {
                 var events ='';
                 total = document.getElementById('total');
                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                
+
                 for(var i = 0; i < data.events.length; i++) {
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
