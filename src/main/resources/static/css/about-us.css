@@ -11,12 +11,12 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
-a {
+.about a {
     text-decoration: none;
     color: #fff;
 }
 
-section {
+body:nth-child(3) {
     padding: 10rem 0;
     background-color: #fff;
 }
