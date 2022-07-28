@@ -68,9 +68,6 @@ public class PartyController {
     @PostMapping("/party/{id}/edit")
     public String editParty(@ModelAttribute Party party) {
 
-
-
-
         User user = userService.loggedInUser();
         party.setUser(user);
         partyRepository.saveAndFlush(party);
