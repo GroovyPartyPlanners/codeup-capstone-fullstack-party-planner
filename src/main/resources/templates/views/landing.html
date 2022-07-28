@@ -184,12 +184,15 @@
     </div>
 </div>
 
+<!-- Partial that contains Bootstrap and jQuery CDNs -->
 <div th:replace="partials/scripts :: scripts"></div>
+<!-- Filestack API -->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!-- Custom Filestack JS Script -->
+<script type="text/javascript" th:src="@{/js/filestack.js}"></script>
 
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
 
 <script type="text/javascript" th:src="@{/js/landing.js}"></script>
-<!-- Custom Filestack JS Script -->
-<script type="text/javascript" th:src="@{/js/filestack.js}"></script>
 </body>
 </html>

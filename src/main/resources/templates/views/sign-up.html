@@ -91,10 +91,50 @@
     </div>
 </div>
 
-<!-- Partial that contains scripts for oth CDNs like bootstrap, cloudflare, etc -->
+<!-- Login Modal -->
+<div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title w-100 font-weight-bold" id="staticBackdropLabelLogin">Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <form th:action="@{/login}" method="POST">
+
+                                <div class="form-group">
+                                    <i class="fa-solid fa-circle-user"></i>
+                                    <label for="username-login">Username:</label>
+                                    <input id="username-login" name="username" type="text" class="form-control text-center" />
+                                </div>
+
+                                <div class="form-group">
+                                    <i class="fas fa-lock prefix"></i>
+                                    <label for="password-login">Password:</label>
+                                    <input id="password-login" name="password" type="password" class="form-control text-center" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Log In" class="btn btn-danger"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Partial that contains Bootstrap and jQuery CDNs -->
 <div th:replace="partials/scripts :: scripts"></div>
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <!-- Filestack API -->
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!-- Custom Filestack JS Script -->

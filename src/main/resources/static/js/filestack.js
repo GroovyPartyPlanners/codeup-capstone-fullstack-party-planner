@@ -25,5 +25,4 @@ window.addEventListener("DOMContentLoaded", function () {
     $("#upload").click(function () {
         client.picker(options).open();
     })
-
 });
