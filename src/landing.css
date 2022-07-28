@@ -1,10 +1,10 @@
 :root{
-    --main: #508aa9;
-    --sec: #ebeff8;
-    --third: #333;
-    --accent: #45e19f;
+    --main: #5bc0be;
+    --sec: #8f9aa8;
+    --third: #1c2541;
+    --accent: #6fffe9;
     --color-main: #000000;
-    --shadow: rgb(156, 156, 156);
+    --shadow: rgb(98, 98, 98);
     
 }
 body{
@@ -17,6 +17,7 @@ body{
 .intro-tite{
     text-align: center;
     font-size: 4rem;
+    font-family: 'Kanit', sans-serif;
 }
 .events-title, .total{
     text-align: center;
@@ -25,7 +26,7 @@ body{
 .intro-tite:after{
     content: "";
     width: 40rem;
-    height: .8rem;
+    height: .5rem;
     background-color: var(--accent);
     position: absolute;
     left: 50%;
@@ -41,6 +42,11 @@ body{
     
     
 } */
+.eventsContainer{
+    background-color: var(--main);
+    padding: 1rem;
+    border-radius: 10px;
+}
 .loopEvent{
     border: 1px solid var(--third);
     border-radius: 10px;
@@ -56,9 +62,13 @@ body{
 .imgContainer{
     display: flex;
     justify-content: space-around;
+    border-bottom: 3px solid var(--sec);
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    
 }
 .img{
     border-radius: 10px;
     margin: 1rem;
-    
+    box-shadow: 3px 3px var(--accent);
 }
