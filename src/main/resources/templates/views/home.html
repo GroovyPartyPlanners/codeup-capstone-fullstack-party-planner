@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Righteous&display=swap" rel="stylesheet">
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places"></script>
-    <title>Home</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom Home Page CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">
+    <!-- Custom Footer CSS -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
 </head>
 <body>
 <div sec:authorize="!isAuthenticated()">
@@ -70,14 +75,11 @@
     </div>
 </div>
 
-
-
-
-
-
-
+<!-- Partial that contains Footer HTML -->
+<div th:replace="partials/footer.html :: footer"></div>
 
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
+
 <script type="text/javascript" th:src="@{/js/homepage.js}"></script>
 
 </body>

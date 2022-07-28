@@ -44,7 +44,7 @@ public class CommentController {
         return "redirect:/party/" + id;
     }
 
-    @GetMapping("/comments/{id}/edit")
+    @GetMapping("/comment/{id}/edit")
     public String editCommentForm(@PathVariable long id, Model model) {
         model.addAttribute("comment", commentRepository.getById(id));
         return "views/edit-comment";
@@ -61,7 +61,7 @@ public class CommentController {
         return "redirect:/parties";
     }
 
-    @PostMapping("comments/{id}/delete")
+    @PostMapping("comment/{id}/delete")
     public String deleteComment(@PathVariable long id) {
         commentRepository.deleteById(id);
         return "redirect:/parties";
