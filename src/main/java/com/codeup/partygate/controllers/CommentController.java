@@ -46,19 +46,17 @@ public class CommentController {
 
     @GetMapping("/comments/{id}/edit")
     public String editCommentForm(@PathVariable long id, Model model) {
-        //Add into the repo: I have THIS comment by id, find the PARTY that goes with it
-        //Pass party object to view in a 2nd model.addAttribute
-        //In view: deliberately access partyObject.id to get that party's id
         model.addAttribute("comment", commentRepository.getById(id));
         return "views/edit-comment";
     }
 
-    @PostMapping("/comments/{id}/edit")
-    public String editComment(@PathVariable long id, @ModelAttribute Comment comment) {
+    @PostMapping("/comment/{commentId}/{partyId}/edit")
+    public String editComment(@ModelAttribute Comment comment, @PathVariable long commentId, @PathVariable long partyId) {
+        comment.setId(commentId);
         User user = userService.loggedInUser();
         comment.setUser(user);
-    //  TODO: SET PARTY FOR THE COMMENT HERE
-
+        Party party = partyRepository.getById(partyId);
+        comment.setParty(party);
         commentRepository.saveAndFlush(comment);
         return "redirect:/parties";
     }
