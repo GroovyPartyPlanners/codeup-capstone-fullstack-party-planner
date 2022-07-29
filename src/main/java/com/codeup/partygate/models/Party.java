@@ -37,6 +37,19 @@ public class Party {
     public Party() {
     }
 
+    public Party(long id, String party_name, String description) {
+        this.id = id;
+        this.party_name = party_name;
+        this.description = description;
+    }
+
+    public Party(long id, String partyPicUrl, String party_name, String description) {
+        this.id = id;
+        this.partyPicUrl = partyPicUrl;
+        this.party_name = party_name;
+        this.description = description;
+    }
+
     public Party(long id, String partyPicUrl, String party_name, String description, User user, List<Comment> comments, Event event) {
         this.id = id;
         this.partyPicUrl = partyPicUrl;
