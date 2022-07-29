@@ -11,8 +11,6 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
-    <!-- Custom CSS for Form Validation Errors -->
-    <link rel="stylesheet" th:href="@{/css/form-validation.css}">
     <!-- Custom About Us CSS -->
     <link rel="stylesheet" th:href="@{/css/about-us.css}">
     <!-- Custom Footer CSS -->
@@ -31,10 +29,9 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-
+<h1 class="heading">Meet The Team</h1>
 <section class="about">
     <div class="container">
-        <h1 class="heading">Meet The Team</h1>
         <div class="card-wrapper">
             <div class="card">
                 <img src="" alt="card background" class="card-img">
@@ -42,7 +39,7 @@
                 <h1>NAME HERE</h1>
                 <p class="job-title">Software Developer</p>
                 <p class="about">ABOUT ME INFORMATION HERE</p>
-                <a href="#" class="btn">Contact</a>
+                <a href="" class="btn">Contact</a>
                 <ul class="social-media">
                     <li><a href="#" target="_blank"><i class="fab fa-google"></i></a></li>
                     <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -70,7 +67,7 @@
                 <h1>David Prieto</h1>
                 <p class="job-title">Software Developer</p>
                 <p class="about">I'm an Air Force veteran and Full Stack Developer with a passion for building applications that bring joy to people.</p>
-                <a href="#" class="btn">Contact</a>
+                <a href="https://www.linkedin.com/in/davidsprieto/" target="_blank" class="btn">Contact</a>
                 <ul class="social-media">
                     <li><a href="mailto:david.s.prieto1@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>
                     <li><a href="https://www.linkedin.com/in/davidsprieto/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -211,6 +208,6 @@
 <!-- Filestack API -->
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!-- Custom Filestack JS Script -->
-<script type="text/javascript" th:src="@{/js/filestack.js}"></script>
+<script type="text/javascript" th:src="@{/js/profile-filestack.js}"></script>
 </body>
 </html>
