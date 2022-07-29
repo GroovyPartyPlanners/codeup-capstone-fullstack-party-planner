@@ -8,16 +8,31 @@ import java.util.List;
 public class Event {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @NotBlank
-//    @Column(length = 400, nullable = false)
-//    private String event_name;
+    @Column
+    private long eventApiId;
+
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private List<Party> parties;
 
-    public Event() {}
+
+    public Event() {
+    }
+
+    public Event(long id, long eventApiId, List<Party> parties) {
+        this.id = id;
+        this.eventApiId = eventApiId;
+        this.parties = parties;
+    }
+
+    public Event(long eventApiId, List<Party> parties) {
+        this.eventApiId = eventApiId;
+        this.parties = parties;
+    }
 
     public long getId() {
         return id;
@@ -27,13 +42,19 @@ public class Event {
         this.id = id;
     }
 
-//    public String getEvent_name() {
-//        return event_name;
-//    }
-//
-//    public void setEvent_name(String event_name) {
-//        this.event_name = event_name;
-//    }
+    public long getEventApiId() {
+        return eventApiId;
+    }
 
+    public void setEventApiId(long eventApiId) {
+        this.eventApiId = eventApiId;
+    }
 
+    public List<Party> getParties() {
+        return parties;
+    }
+
+    public void setParties(List<Party> parties) {
+        this.parties = parties;
+    }
 }

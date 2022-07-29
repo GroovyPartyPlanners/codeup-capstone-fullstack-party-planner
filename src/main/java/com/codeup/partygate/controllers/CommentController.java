@@ -50,12 +50,13 @@ public class CommentController {
         return "views/edit-comment";
     }
 
-    @PostMapping("/comment/{id}/edit")
-    public String editComment(@PathVariable long id, @ModelAttribute Comment comment) {
+    @PostMapping("/comment/{commentId}/{partyId}/edit")
+    public String editComment(@ModelAttribute Comment comment, @PathVariable long commentId, @PathVariable long partyId) {
+        comment.setId(commentId);
         User user = userService.loggedInUser();
         comment.setUser(user);
-    //  TODO: SET PARTY FOR THE COMMENT HERE
-
+        Party party = partyRepository.getById(partyId);
+        comment.setParty(party);
         commentRepository.saveAndFlush(comment);
         return "redirect:/parties";
     }

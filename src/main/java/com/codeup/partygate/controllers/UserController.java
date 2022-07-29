@@ -2,6 +2,7 @@ package com.codeup.partygate.controllers;
 
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
+    @Value("${fileStackAPI}")
+    private String fileStackAPIKey;
+
     private final UserRepository usersRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -22,8 +26,9 @@ public class UserController {
     }
 
     @GetMapping("/sign-up")
-    public String showSignUpForm(@ModelAttribute Model model) {
+    public String showSignUpForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("fileStackAPI", fileStackAPIKey);
         return "views/sign-up";
     }
 
@@ -36,8 +41,11 @@ public class UserController {
         } else {
             String hash = passwordEncoder.encode(user.getPassword());
             user.setPassword(hash);
-            usersRepository.save(user);
-            return "redirect:/login";
+            if (user.getProfilePicUrl().length() == 0) {
+                user.setProfilePicUrl("https://picsum.photos/id/1043/200/300");
+                usersRepository.save(user);
+            }
         }
+        return "redirect:/login";
     }
 }
