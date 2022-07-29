@@ -8,6 +8,7 @@ import com.codeup.partygate.repositories.EventRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 @Controller
 public class PartyController {
 
+    @Value("${fileStackAPI}")
+    private String fileStackAPIKey;
 
     private final EventRepository eventsRepository;
     private final UserService userService;
@@ -85,6 +88,7 @@ public class PartyController {
 
         model.addAttribute("event", new Event());
         model.addAttribute("party", new Party());
+        model.addAttribute("fileStackAPI", fileStackAPIKey);
         return "views/party-form";
     }
 
