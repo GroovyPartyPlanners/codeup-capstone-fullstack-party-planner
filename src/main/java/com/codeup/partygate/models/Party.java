@@ -43,8 +43,6 @@ public class Party {
         this.event = event;
     }
 
-    public Party(String party_name, String description, User user, List<Comment> comments, Event event) {
-        this.party_name = party_name;
         this.description = description;
         this.user = user;
         this.comments = comments;
