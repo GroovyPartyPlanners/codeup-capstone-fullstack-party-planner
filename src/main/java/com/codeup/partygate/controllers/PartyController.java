@@ -6,7 +6,6 @@ import com.codeup.partygate.repositories.CommentRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PartyController {
-
-    @Value("${fileStackAPI}")
-    private String fileStackAPIKey;
 
     private final UserService userService;
     private final UserRepository userRepository;
@@ -63,7 +59,6 @@ public class PartyController {
     @GetMapping("/party-form")
     public String viewPartyForm(Model model) {
         model.addAttribute("party", new Party());
-        model.addAttribute("fileStackAPI", fileStackAPIKey);
         return "views/party-form";
     }
 

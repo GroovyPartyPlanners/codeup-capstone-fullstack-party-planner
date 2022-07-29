@@ -12,9 +12,6 @@ public class Party {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
-    private String partyPicUrl;
-
     @NotBlank
     @Column(length = 100, nullable = false)
     private String party_name;
@@ -102,7 +99,6 @@ public class Party {
         this.id = id;
         this.party_name = name;
         this.description = description;
-        this.partyPicUrl = partyPicUrl;
         this.event = null;
     }
 
@@ -112,14 +108,6 @@ public class Party {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getPartyPicUrl() {
-        return partyPicUrl;
-    }
-
-    public void setPartyPicUrl(String partyPicUrl) {
-        this.partyPicUrl = partyPicUrl;
     }
 
     public String getParty_name() {
