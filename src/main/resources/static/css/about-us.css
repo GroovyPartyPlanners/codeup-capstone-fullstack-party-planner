@@ -6,9 +6,9 @@
     box-sizing: border-box;
 }
 
-html {
+:root {
     font-size: 10px;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .about a {
@@ -95,7 +95,6 @@ body:nth-child(3) {
 .about {
     font-size: 1.5rem;
     margin: 1.5rem 0;
-    font-style: italic;
     text-align: center;
     color: #333;
 }
@@ -151,6 +150,8 @@ body:nth-child(3) {
 .fa-google:hover, .fa-linkedin-in:hover, .fa-github-square:hover {
     color: #45e19f;
 }
+
+/* Media Queries */
 
 @media screen and (min-width: 700px) {
     .card-wrapper {

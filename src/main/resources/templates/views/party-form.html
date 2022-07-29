@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="fileStackAPI" th:content="${fileStackAPI}">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Post Party Form</title>
@@ -34,13 +34,20 @@
                     <h1> Here's a cool event id: <span th:text="${eventId}"></span></h1>
                 </div>
                 <div class="form-group">
+                    <label for="partyPicUrl" class="form-label">Upload Event Picture:</label>
+                    <input id="partyPicUrl" name="partyPicUrl" value="replaceMe" th:field="*{partyPicUrl}" type="hidden">
+                    <br>
+                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>
+                </div>
+
+                <div class="form-group">
                     <label for="party-name">Party Name:</label>
                     <input id="party-name" class="form-control text-center" th:field="*{party_name}" />
                 </div>
 
                 <input id="event-id" name="event-id" type="hidden" th:value="${eventId}">
                 <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">Description:</label>
                     <textarea id="description" name="description" class="form-control text-center" rows="5" th:field="*{description}"></textarea>
                 </div>
 
@@ -56,5 +63,9 @@
 <footer th:replace="partials/footer.html :: footer"></footer>
 
 <div th:replace="partials/scripts :: scripts"></div>
+<!-- Filestack API -->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!-- Custom Filestack JS Script -->
+<script type="text/javascript" th:src="@{/js/party-filestack.js}"></script>
 </body>
 </html>

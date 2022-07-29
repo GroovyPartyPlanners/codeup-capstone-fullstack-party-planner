@@ -12,9 +12,11 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
-    <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Parties CSS -->
+    <link rel="stylesheet" th:href="@{/css/parties.css}">
 </head>
-<body style="text-align: center">
+<body>
 
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
@@ -26,17 +28,30 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
+<h1 class="heading">Parties</h1>
+
 <div th:fragment="parties">
-<h1>Hey!  Check out all these cool parties!  Pick one!</h1>
-<div class="card text-center mb-3" th:each="party : ${parties}">
-    <div class="card-header">Party</div>
-    <div class="card-body">
-        <h5 class="card-title" th:text="${party.party_name}"></h5>
-        <p class="card-text" th:text="${party.description}"></p>
-        <a th:href="@{|/party/${party.id}|}" class="btn btn-primary">View Party Details</a>
-    </div>
-    <div class="card-footer text-muted">
-        2 days ago
+<div class="main-wrapper">
+    <div class="party-collection">
+        <article th:each="party : ${parties}">
+            <div class="img-box">
+                <img th:src="${party.getPartyPicUrl()}" alt="image here">
+            </div>
+            <div class="text-content">
+                <h3 th:text="${party.party_name}"></h3>
+                <div class="post-user">
+                    <span>
+                        <span><i class="fa-solid fa-circle-user" th:text="' Posted By: ' + ${party.getUser().username}"></i></span>
+                    </span>
+                </div>
+                <p th:text="${party.getEvent()}"></p>
+                <div class="details">
+                    <div>
+                        <a th:href="@{|/party/${party.id}|}" class="button">View Party Details</a>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
 </div>
 </div>
