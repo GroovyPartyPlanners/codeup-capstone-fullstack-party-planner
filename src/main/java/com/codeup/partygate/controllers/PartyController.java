@@ -1,31 +1,54 @@
 package com.codeup.partygate.controllers;
 
+import com.codeup.partygate.models.Event;
 import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.CommentRepository;
+import com.codeup.partygate.repositories.EventRepository;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @Controller
 public class PartyController {
 
+
+    private final EventRepository eventsRepository;
     private final UserService userService;
     private final UserRepository userRepository;
     private final PartyRepository partyRepository;
     private final CommentRepository commentRepository;
 
-    public PartyController(PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
+    public PartyController(EventRepository eventsRepository, PartyRepository partyRepository, UserRepository userRepository, CommentRepository commentRepository, UserService userService) {
+        this.eventsRepository = eventsRepository;
         this.userService = userService;
         this.userRepository = userRepository;
         this.partyRepository = partyRepository;
         this.commentRepository = commentRepository;
+    }
+
+    @GetMapping("/events/{eventId}")
+    public String eventPartyForm(Model model, @PathVariable Long eventId) {
+//        event.setId(eventId);
+        model.addAttribute("eventId", eventId);
+        model.addAttribute("party", new Party());
+        return "views/party-form";
+    }
+
+    @PostMapping("event/party/{eventId}")
+    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
+        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
+        parties.add(party);
+        Event event = new Event();
+        event.setId(eventId);
+        event.setParties(parties);
+        eventsRepository.save(event);
+        return "views/home";
     }
 
     @GetMapping("/party/{id}")
@@ -44,6 +67,7 @@ public class PartyController {
 
     @PostMapping("/party/{id}/edit")
     public String editParty(@ModelAttribute Party party) {
+
         User user = userService.loggedInUser();
         party.setUser(user);
         partyRepository.saveAndFlush(party);
@@ -57,17 +81,40 @@ public class PartyController {
     }
 
     @GetMapping("/party-form")
-    public String viewPartyForm(Model model) {
+    public String viewPartyForm(@ModelAttribute Model model) {
+
+        model.addAttribute("event", new Event());
         model.addAttribute("party", new Party());
         return "views/party-form";
     }
 
     @PostMapping("/party-form")
-    public String postPartyForm(@ModelAttribute Party party) {
-        User user = userService.loggedInUser();
+    public String postPartyForm(@ModelAttribute Party party, @RequestParam(name = "event-id") long eventId) {
+//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
+//        parties.add(party);
+        if (eventsRepository.findAllById(eventId) == null) {
+            Event event = new Event();
+            event.setEventApiId(eventId);
+//        event.setParties(parties);
+
+            event = eventsRepository.save(event);
+
+            User user = userRepository.getById(userService.loggedInUser().getId());
+            party.setUser(user);
+            party.setEvent(event);
+            partyRepository.save(party);
+            return "redirect:/parties";
+        }
+        User user = userRepository.getById(userService.loggedInUser().getId());
         party.setUser(user);
+        for (Event event: eventsRepository.findAll()
+             ) {
+            if (event.getEventApiId() == eventId) {
+                party.setEvent(event);
+            }
+        }
         partyRepository.save(party);
-        return "redirect:/parties";
+        return "views/parties";
     }
 
     @GetMapping("/parties")

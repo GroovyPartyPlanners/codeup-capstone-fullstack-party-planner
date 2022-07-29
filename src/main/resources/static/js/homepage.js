@@ -196,7 +196,7 @@ function showPosition(position) {
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
-                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}/">Click</a><span style="visibility: hidden">${data.events[i].id}</span></h1>`
+                    events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}/">Click</a></h1></br><p name = "eventId" style="visibility: hidden">${data.events[i].id}</p>`
                 }
 
                 for(var i = 0; i < 1; i++) {
