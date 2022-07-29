@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Navbar</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">
 </head>
 <body>
 
@@ -14,7 +15,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a class="btn nav-link" th:href="@{/home}">Events</a></li>
+            <li class="nav-item btn"><a class="btn nav-link" th:href="@{/home}">Events</a></li>
             <li class="nav-item"><a class="btn nav-link" th:href="@{/parties}">Parties</a></li>
             <li class="nav-item"><a class="btn nav-link" th:href="@{/about-us}">About Us</a></li>
         </ul>
