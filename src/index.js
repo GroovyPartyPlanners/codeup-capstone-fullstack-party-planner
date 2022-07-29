@@ -128,7 +128,7 @@ marker.on('dragend', onDragEnd);
 
 }
 getLocation();
-
+//
 //submit button
 document.getElementById('search-btn').addEventListener('click', function (e){
     e.preventDefault();
