@@ -1,6 +1,4 @@
-let mapboxgl = {
-    accessToken
-}
+
 
 // const mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmEtY29kZXVwIiwiYSI6ImNrcHJjczFyYTBtMHIyb2xlNDBsanlva2EifQ.rXUs9LI80u-fy9wz-bG0Qw';
 
@@ -16,8 +14,8 @@ function showPosition(position) {
 
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
-    mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmEtY29kZXVwIiwiYSI6ImNrcHJjczFyYTBtMHIyb2xlNDBsanlva2EifQ.rXUs9LI80u-fy9wz-bG0Qw';
-    const coordinates = document.getElementById('coordinates');
+    mapboxgl.accessToken = mapboxapi;
+    // const coordinates = document.getElementById('coordinates');
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
@@ -38,7 +36,7 @@ function showPosition(position) {
         let type = document.getElementById('type').value;
         let pages = document.getElementById('pages');
         downvote.addEventListener('click', function() {
-            fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId}`)
+            fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId+clientSecret}`)
                 .then(response => response.json())
                 .then(data => {
 
@@ -65,7 +63,7 @@ function showPosition(position) {
                 .catch(error => console.log(error));
         });
         upvote.addEventListener('click', function() {
-            fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId}`)
+            fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId+clientSecret}`)
                 .then(response => response.json())
                 .then(data => {
 
@@ -91,7 +89,7 @@ function showPosition(position) {
                     }})
                 .catch(error => console.log(error));
         });
-        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId}`)
+        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=${type}&client_id=${clientId+clientSecret}`)
             .then(response => response.json())
             .then(data => {
 
@@ -114,9 +112,7 @@ function showPosition(position) {
                         }
                     }
                     document.getElementById("eventTitle").innerHTML = events
-
                 }}
-
             )
             .catch(error => console.log(error));
     }
@@ -125,8 +121,7 @@ function showPosition(position) {
 
     upvote.addEventListener('click', function() {
 
-
-        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
+        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId+clientSecret}`)
             .then(response => response.json())
             .then(data => {
                 console.log('click');
@@ -154,7 +149,7 @@ function showPosition(position) {
             .catch(error => console.log(error));
     });
     downvote.addEventListener('click', function() {
-        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)
+        fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId+clientSecret}`)
             .then(response => response.json())
             .then(data => {
 
@@ -184,7 +179,7 @@ function showPosition(position) {
     });
     marker.on('dragend', onDragEnd);
 
-    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=comedy&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=comedy&client_id=${clientId+clientSecret}`)
         .then(response => response.json())
         .then(data => {
                 console.log(data);
@@ -204,101 +199,95 @@ function showPosition(position) {
                             pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
                         }
                     }
-
-
                 }
                 document.getElementById("eventTitle").innerHTML = events
-
             }
-
         )
         .catch(error => console.log(error));
-
 }
 getLocation();
 
-
-document.getElementById('search-btn').addEventListener('click', function (e){
-    e.preventDefault();
-    downvote.addEventListener('click', function() {
-        fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId}`)
-            .then(response => response.json())
-            .then(data => {
-
-                var events ='';
-                total = document.getElementById('total');
-                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
-
-                for(var i = 0; i < data.events.length; i++) {
-                    var popularity = data.events[i].popularity;
-                    var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
-                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
-
-                }
-                for(var i = 0; i < 1; i++) {
-                    if(data.meta.total>=11){
-                        pages = document.getElementById('pages');
-                        let pagesCount = Math.ceil(data.meta.total/10);
-                        console.log(pagesCount);
-                        for(let i = 0; i < pagesCount; i++){
-                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
-                        }
-                    }
-                    document.getElementById("eventTitle").innerHTML = events
-                }})
-            .catch(error => console.log(error));
-    });
-    upvote.addEventListener('click', function() {
-        fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId}`)
-            .then(response => response.json())
-            .then(data => {
-
-                var events ='';
-                total = document.getElementById('total');
-                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
-                for(var i = 0; i < data.events.length; i++) {
-                    var popularity = data.events[i].popularity;
-                    var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
-                    events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
-
-                }
-                for(var i = 0; i < 1; i++) {
-                    if(data.meta.total>=11){
-                        pages = document.getElementById('pages');
-                        let pagesCount = Math.ceil(data.meta.total/10);
-                        console.log(pagesCount);
-                        for(let i = 0; i < pagesCount; i++){
-                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
-                        }
-                    }
-                    document.getElementById("eventTitle").innerHTML = events
-                }})
-            .catch(error => console.log(error));
-    });
-    var type = document.getElementById("type").value
-    var search = document.getElementById("search").value
-    var range = document.getElementById("radius").value
-    fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId}`)
-        .then(response => response.json())
-        .then(data => {
-
-            var events ='';
-
-            total = document.getElementById('total');
-            total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
-            for(var i = 0; i < data.events.length; i++) {
-                events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
-            }
-            for(var i = 0; i < 1; i++) {
-                if(data.meta.total>=11){
-                    pages = document.getElementById('pages');
-                    let pagesCount = Math.ceil(data.meta.total/10);
-                    console.log(pagesCount);
-                    for(let i = 0; i < pagesCount; i++){
-                        pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
-                    }
-                }
-                document.getElementById("eventTitle").innerHTML = events
-            }})
-        .catch(error => console.log(error));
-});
+// document.getElementById('search-btn').addEventListener('click', function (e){
+//     e.preventDefault();
+//     downvote.addEventListener('click', function() {
+//         fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId+clientSecret}`)
+//             .then(response => response.json())
+//             .then(data => {
+//
+//                 var events ='';
+//                 total = document.getElementById('total');
+//                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+//
+//                 for(var i = 0; i < data.events.length; i++) {
+//                     var popularity = data.events[i].popularity;
+//                     var popularitySort = data.events.sort((a, b) => a.popularity - b.popularity);
+//                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
+//
+//                 }
+//                 for(var i = 0; i < 1; i++) {
+//                     if(data.meta.total>=11){
+//                         pages = document.getElementById('pages');
+//                         let pagesCount = Math.ceil(data.meta.total/10);
+//                         console.log(pagesCount);
+//                         for(let i = 0; i < pagesCount; i++){
+//                             pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+//                         }
+//                     }
+//                     document.getElementById("eventTitle").innerHTML = events
+//                 }})
+//             .catch(error => console.log(error));
+//     });
+//     upvote.addEventListener('click', function() {
+//         fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId+clientSecret}`)
+//             .then(response => response.json())
+//             .then(data => {
+//
+//                 var events ='';
+//                 total = document.getElementById('total');
+//                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+//                 for(var i = 0; i < data.events.length; i++) {
+//                     var popularity = data.events[i].popularity;
+//                     var popularitySort = data.events.sort((a, b) => b.popularity - a.popularity);
+//                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
+//
+//                 }
+//                 for(var i = 0; i < 1; i++) {
+//                     if(data.meta.total>=11){
+//                         pages = document.getElementById('pages');
+//                         let pagesCount = Math.ceil(data.meta.total/10);
+//                         console.log(pagesCount);
+//                         for(let i = 0; i < pagesCount; i++){
+//                             pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+//                         }
+//                     }
+//                     document.getElementById("eventTitle").innerHTML = events
+//                 }})
+//             .catch(error => console.log(error));
+//     });
+//     var type = document.getElementById("type").value
+//     var search = document.getElementById("search").value
+//     var range = document.getElementById("radius").value
+//     fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId+clientSecret}`)
+//         .then(response => response.json())
+//         .then(data => {
+//
+//             var events ='';
+//
+//             total = document.getElementById('total');
+//             total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+//             for(var i = 0; i < data.events.length; i++) {
+//                 events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+`${data.events[i].datetime_local}`+" Popularity "+ `${data.events[i].popularity}</h1>`
+//             }
+//             for(var i = 0; i < 1; i++) {
+//                 if(data.meta.total>=11){
+//                     pages = document.getElementById('pages');
+//                     let pagesCount = Math.ceil(data.meta.total/10);
+//                     console.log(pagesCount);
+//                     for(let i = 0; i < pagesCount; i++){
+//                         pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+//                     }
+//                 }
+//                 document.getElementById("eventTitle").innerHTML = events
+//             }})
+//         .catch(error => console.log(error));
+// });
