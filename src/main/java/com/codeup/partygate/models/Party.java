@@ -12,6 +12,9 @@ public class Party {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
+    private String partyPicUrl;
+
     @NotBlank
     @Column(length = 100, nullable = false)
     private String party_name;
@@ -34,16 +37,22 @@ public class Party {
     public Party() {
     }
 
-    public Party(long id, String party_name, String description, User user, List<Comment> comments, Event event) {
+    public Party(long id, String party_name, String description) {
         this.id = id;
         this.party_name = party_name;
         this.description = description;
-        this.user = user;
-        this.comments = comments;
-        this.event = event;
     }
 
-    public Party(String party_name, String description, User user, List<Comment> comments, Event event) {
+    public Party(long id, String partyPicUrl, String party_name, String description) {
+        this.id = id;
+        this.partyPicUrl = partyPicUrl;
+        this.party_name = party_name;
+        this.description = description;
+    }
+
+    public Party(long id, String partyPicUrl, String party_name, String description, User user, List<Comment> comments, Event event) {
+        this.id = id;
+        this.partyPicUrl = partyPicUrl;
         this.party_name = party_name;
         this.description = description;
         this.user = user;
@@ -57,6 +66,14 @@ public class Party {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getPartyPicUrl() {
+        return partyPicUrl;
+    }
+
+    public void setPartyPicUrl(String partyPicUrl) {
+        this.partyPicUrl = partyPicUrl;
     }
 
     public String getParty_name() {
@@ -99,3 +116,39 @@ public class Party {
         this.event = event;
     }
 }
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "event_id")
+//    private Event event;
+
+//    public Event getEvent() {
+//        return event;
+//    }
+//
+//    public void setEvent(Event event) {
+//        this.event = event;
+//    }
+
+//    @ManyToOne
+//    @JoinColumn(name = "event_id")
+//    private Event event;
+
+//    public Event getEvent() {
+//        return event;
+//    }
+//
+//    public void setEvent(Event event) {
+//        this.event = event;
+//    }
+//
+//    public Event getMainEvent() {
+//        return eventId;
+//    }
+//
+//    public void setMainEvent(Event event) {
+//        this.eventId = eventId;
+//    }
+
+//    @ManyToOne
+//    @JoinColumn(name = "event_id")
+//    private Event event;

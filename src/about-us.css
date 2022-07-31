@@ -78,7 +78,7 @@ body:nth-child(3) {
     margin-top: -11rem;
     z-index: 999;
     border: 1rem solid #ebeef8;
-
+    
     animation: glow;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -179,7 +179,7 @@ body:nth-child(3) {
         margin: 2rem;
         transition: transform .5s;
     }
-
+    
     @keyframes fadeIn {
         from {
             opacity: 0;
