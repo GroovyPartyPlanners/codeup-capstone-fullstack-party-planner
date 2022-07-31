@@ -1,103 +1,103 @@
-@import "./homeKeyFrames.css";
+/*@import "./homeKeyFrames.css";*/
 
-:root{
-    --main: #5bb7b6;
-    --sec: #8f9aa8;
-    --third: #1c2541;
-    --accent: #6fffe9;
-    --color-main: #000000;
-    --shadow: #787b7b;
-    --btn-main: #12ebd2;
+/*:root{*/
+/*    --main: #5bb7b6;*/
+/*    --sec: #8f9aa8;*/
+/*    --third: #1c2541;*/
+/*    --accent: #6fffe9;*/
+/*    --color-main: #000000;*/
+/*    --shadow: #787b7b;*/
+/*    --btn-main: #12ebd2;*/
 
-}
+/*}*/
 
-.eventsContainer{
-    background-color: var(--main);
-    padding: 1rem;
-    border-radius: 10px;
-}
-.loopEvent{
-    border: 1px solid var(--third);
-    border-radius: 10px;
-    background-color: var(--sec);
-    box-shadow: 3px 3px var(--shadow);
-    padding: 1rem;
-    font-family: 'Righteous';
-}
-.loopEvent:hover{
-    box-shadow: 8px 8px 8px 8px var(--shadow);
-    transform: translateY(-.5rem);
-    transition: 1.5s;
-}
-.searchParams{
+/*.eventsContainer{*/
+/*    background-color: var(--main);*/
+/*    padding: 1rem;*/
+/*    border-radius: 10px;*/
+/*}*/
+/*.loopEvent{*/
+/*    border: 1px solid var(--third);*/
+/*    border-radius: 10px;*/
+/*    background-color: var(--sec);*/
+/*    box-shadow: 3px 3px var(--shadow);*/
+/*    padding: 1rem;*/
+/*    font-family: 'Righteous';*/
+/*}*/
+/*.loopEvent:hover{*/
+/*    box-shadow: 8px 8px 8px 8px var(--shadow);*/
+/*    transform: translateY(-.5rem);*/
+/*    transition: 1.5s;*/
+/*}*/
+/*.searchParams{*/
 
-    font-family: 'Chakra Petch', sans-serif;;
-}
-.inputBoxes{
-    color: var(--accent-third);
-    background-color: var(--accent);
-}
-.dropdown{
-    color: var(--accent-third);
-    background-color: var(--accent);
-}
-.btn{
-    background-color: var(--shadow);
-    box-shadow: 0 1px var(--accent);
-    color: var(--accent-third);
-}
-.btn:hover{
-    transform: translateY(-.2em);
-    box-shadow: 0 3px var(--accent);
-    color: var(--accent-third);
-}
-.btn:active{
-    box-shadow: 0 2px var(--accent);
-    transform: translateY(2px);
-}
-.pageNum:active{
-    background-color:red;
-}
-.totalEvents{
-    color: var(--sec-text-color);
-    border-bottom: 3px solid var(--accent);
-    text-align: center;
-    padding-bottom: 3rem;
-    font-family: 'Righteous';
-}
-.mapLabel{
-    color: var(--sec-text-color);
-    font-size: 2em;
-}
-#map{
-    border-radius: 30px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
+/*    font-family: 'Chakra Petch', sans-serif;;*/
+/*}*/
+/*.inputBoxes{*/
+/*    color: var(--accent-third);*/
+/*    background-color: var(--accent);*/
+/*}*/
+/*.dropdown{*/
+/*    color: var(--accent-third);*/
+/*    background-color: var(--accent);*/
+/*}*/
+/*.btn{*/
+/*    background-color: var(--shadow);*/
+/*    box-shadow: 0 1px var(--accent);*/
+/*    color: var(--accent-third);*/
+/*}*/
+/*.btn:hover{*/
+/*    transform: translateY(-.2em);*/
+/*    box-shadow: 0 3px var(--accent);*/
+/*    color: var(--accent-third);*/
+/*}*/
+/*.btn:active{*/
+/*    box-shadow: 0 2px var(--accent);*/
+/*    transform: translateY(2px);*/
+/*}*/
+/*.pageNum:active{*/
+/*    background-color:red;*/
+/*}*/
+/*.totalEvents{*/
+/*    color: var(--sec-text-color);*/
+/*    border-bottom: 3px solid var(--accent);*/
+/*    text-align: center;*/
+/*    padding-bottom: 3rem;*/
+/*    font-family: 'Righteous';*/
+/*}*/
+/*.mapLabel{*/
+/*    color: var(--sec-text-color);*/
+/*    font-size: 2em;*/
+/*}*/
+/*#map{*/
+/*    border-radius: 30px;*/
+/*    position: relative;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*}*/
 
-.popMeaning{
-    text-align: center;
+/*.popMeaning{*/
+/*    text-align: center;*/
 
-}
-ul{
-    list-style: none;
-}
+/*}*/
+/*ul{*/
+/*    list-style: none;*/
+/*}*/
 
-.break::after{
-    content: "";
-    width: 40rem;
-    height: .5rem;
-    background-color: var(--accent);
-    position: absolute;
-    left: 50%;
-    bottom:34rem;
-    transform: translateX(-50%);
-    border-radius: 2rem;
-}
-.hidden{
-    visibility: hidden;
-}
-.total, .pages{
-    text-align: center;
-}
+/*.break::after{*/
+/*    content: "";*/
+/*    width: 40rem;*/
+/*    height: .5rem;*/
+/*    background-color: var(--accent);*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    bottom:34rem;*/
+/*    transform: translateX(-50%);*/
+/*    border-radius: 2rem;*/
+/*}*/
+/*.hidden{*/
+/*    visibility: hidden;*/
+/*}*/
+/*.total, .pages{*/
+/*    text-align: center;*/
+/*}*/

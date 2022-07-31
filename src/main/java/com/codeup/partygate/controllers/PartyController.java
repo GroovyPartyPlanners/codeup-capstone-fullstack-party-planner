@@ -18,12 +18,9 @@ import java.util.ArrayList;
 @Controller
 public class PartyController {
 
-<<<<<<< HEAD
-=======
     @Value("${fileStackAPI}")
     private String fileStackAPIKey;
 
->>>>>>> ac628017e2a59c195536298530dd292ac85c9a06
     private final EventRepository eventsRepository;
     private final UserService userService;
     private final UserRepository userRepository;
@@ -73,7 +70,6 @@ public class PartyController {
 
     @PostMapping("/party/{id}/edit")
     public String editParty(@ModelAttribute Party party) {
-
         User user = userService.loggedInUser();
         party.setUser(user);
         partyRepository.saveAndFlush(party);
@@ -88,7 +84,6 @@ public class PartyController {
 
     @GetMapping("/party-form")
     public String viewPartyForm(@ModelAttribute Model model) {
-
         model.addAttribute("event", new Event());
         model.addAttribute("party", new Party());
         model.addAttribute("fileStackAPI", fileStackAPIKey);
@@ -103,9 +98,7 @@ public class PartyController {
             Event event = new Event();
             event.setEventApiId(eventId);
 //        event.setParties(parties);
-
             event = eventsRepository.save(event);
-
             User user = userRepository.getById(userService.loggedInUser().getId());
             party.setUser(user);
             party.setEvent(event);

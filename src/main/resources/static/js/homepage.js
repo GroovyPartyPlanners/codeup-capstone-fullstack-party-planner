@@ -152,10 +152,11 @@ document.getElementById('search-btn').addEventListener('click', function (e) {
                         }
                     }
                     document.getElementById("eventTitle").innerHTML = events
-                }
-            })
-            .catch(error => console.log(error));
-    });
+                )};
+            )};
+    )};
+
+    catch(error => console.log(error));
     upvote.addEventListener('click', function () {
         fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&range=${range}mi&client_id=${clientId}`)
             .then(response => response.json())
@@ -227,8 +228,7 @@ document.getElementById('search-btn').addEventListener('click', function (e) {
                 }
             })
             .catch(error => console.log(error));
-
-    });
+    }
 
 
 // function pin(num){
@@ -286,42 +286,42 @@ document.getElementById('search-btn').addEventListener('click', function (e) {
             }
         )
         .catch(error => console.log(error));
-});
 
     // commented out page(num) because was causing errors, and was not ever used.
 
-    // function page(num) {
-    //     var type = document.getElementById("type").value
-    //     var search = document.getElementById("search").value
-    //     fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&page=${num + 1}&client_id=${clientId}`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //
-    //                 console.log(data);
-    //                 console.log('page clicked!')
-    //                 var events = '';
-    //                 console.log(data.events);
-    //                 total = document.getElementById('total');
-    //                 total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
-    //                 for (var i = 0; i < data.events.length; i++) {
-    //                     const date = new Date(data.events[i].datetime_local);
-    //                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-    //                     const dateString = 'm/d/year' + " " + `${month}/${day}/${year}`;
-    //                     events += `<h1 class='loopEvent'>${data.events[i].title}` + " " + `${data.events[i].venue.name}` + " " + `${data.events[i].venue.display_location}` + " Date: " + dateString + " Popularity " + `${data.events[i].popularity}` + `<a href="#">Click</a></h1>`
-    //                 }
-    //                 // for(var i = 0; i < 1; i++) {
-    //                 //     if(data.meta.total>=11){
-    //                 //         pages = document.getElementById('pages');
-    //                 //         let pagesCount = Math.ceil(data.meta.total/10);
-    //
-    //                 //         pages.innerHTML = "";
-    //                 //         for(let i = 0; i < pagesCount; i++){
-    //                 //             pages.innerHTML += `<a href="" onclick="page(${i})">`+" "+`${i+1}</a>`
-    //                 //         }
-    //                 //     }
-    //                 let pageNum = document.getElementById('pageNum');
-    //                 pageNum.innerHTML = "Page" + " " + (num + 1)
-    //                 document.getElementById("eventTitle").innerHTML = events
-    //             }
-    //         ).catch(error => console.log(error));
-    // }
+    function page(num) {
+        var type = document.getElementById("type").value
+        var search = document.getElementById("search").value
+        fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&page=${num + 1}&client_id=${clientId}`)
+            .then(response => response.json())
+            .then(data => {
+
+                    console.log(data);
+                    console.log('page clicked!')
+                    var events = '';
+                    console.log(data.events);
+                    total = document.getElementById('total');
+                    total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                    for (var i = 0; i < data.events.length; i++) {
+                        const date = new Date(data.events[i].datetime_local);
+                        const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                        const dateString = 'm/d/year' + " " + `${month}/${day}/${year}`;
+                        events += `<h1 class='loopEvent'>${data.events[i].title}` + " " + `${data.events[i].venue.name}` + " " + `${data.events[i].venue.display_location}` + " Date: " + dateString + " Popularity " + `${data.events[i].popularity}` + `<a href="#">Click</a></h1>`
+                    }
+                    // for(var i = 0; i < 1; i++) {
+                    //     if(data.meta.total>=11){
+                    //         pages = document.getElementById('pages');
+                    //         let pagesCount = Math.ceil(data.meta.total/10);
+
+                    //         pages.innerHTML = "";
+                    //         for(let i = 0; i < pagesCount; i++){
+                    //             pages.innerHTML += `<a href="" onclick="page(${i})">`+" "+`${i+1}</a>`
+                    //         }
+                    //     }
+                    let pageNum = document.getElementById('pageNum');
+                    pageNum.innerHTML = "Page" + " " + (num + 1);
+                    document.getElementById("eventTitle").innerHTML = events;
+                }
+            ).catch(error => console.log(error));
+    )}
+}
