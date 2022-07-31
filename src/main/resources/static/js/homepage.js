@@ -46,7 +46,7 @@ fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=${type}&cli
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}">Click</a></h1>`
   
                 }
                 
@@ -96,7 +96,7 @@ marker.on('dragend', onDragEnd);
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}"">Click</a></h1>`
                 }
                 
                 for(var i = 0; i < 1; i++) {
@@ -112,20 +112,13 @@ marker.on('dragend', onDragEnd);
                         for(let i = 0; i < pagesCount; i++){
                             pages.innerHTML += `<a href="#" onclick="pin(${i})">`+" "+`${i+1}</a>`
                         }
-                        
-                    
                     }
-                    
-                    
                 }
                 document.getElementById("eventTitle").innerHTML = events
-                
             }
-
         )
         .catch(error => console.log(error));
         }
-
 getLocation();
 //
 //submit button
@@ -147,7 +140,7 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}">Click</a></h1>`
                 }
                 for(var i = 0; i < 1; i++) {
                     if(data.meta.total <11){
@@ -172,22 +165,22 @@ document.getElementById('search-btn').addEventListener('click', function (e){
 
 
 function pin(num){
-//     var type = document.getElementById("type").value
+    // var type = document.getElementById("type").value
 //     mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
-
+//
 // const map = new mapboxgl.Map({
 // container: 'map',
 // style: 'mapbox://styles/mapbox/streets-v11',
 // center: [0, 0],
 // zoom: 2
 // });
- 
+//
 // const marker = new mapboxgl.Marker({
 // draggable: true
 // })
 // .setLngLat([0, 0])
 // .addTo(map);
- 
+//
 // function onDragEnd() {
 // const lngLat = marker.getLngLat();
 // console.log(lngLat);
@@ -207,7 +200,7 @@ function pin(num){
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}"">Click</a></h1>`
                 }
                 // for(var i = 0; i < 1; i++) {
                 //     if(data.meta.total>=11){
@@ -236,7 +229,7 @@ function page(num){
         .then(data => {
             
                 console.log(data);
-                console.log('page clicked!')
+                console.log('page clicked!');
                 var events ='';
                 console.log(data.events);
                 total = document.getElementById('total');
@@ -245,7 +238,7 @@ function page(num){
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;                    
-                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
+                events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}">Click</a></h1>`
                 }
                 // for(var i = 0; i < 1; i++) {
                 //     if(data.meta.total>=11){

@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-
 @Controller
 public class PartyController {
 
@@ -43,16 +41,16 @@ public class PartyController {
         return "views/party-form";
     }
 
-    @PostMapping("event/party/{eventId}")
-    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
-        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
-        parties.add(party);
-        Event event = new Event();
-        event.setId(eventId);
-        event.setParties(parties);
-        eventsRepository.save(event);
-        return "views/home";
-    }
+//    @PostMapping("event/party/{eventId}")
+//    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
+//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
+//        parties.add(party);
+//        Event event = new Event();
+//        event.setId(eventId);
+//        event.setParties(parties);
+//        eventsRepository.save(event);
+//        return "views/home";
+//    }
 
     @GetMapping("/party/{id}")
     public String viewPartyDetails(@PathVariable long id, Model model) {
