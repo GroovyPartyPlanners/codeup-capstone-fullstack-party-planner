@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "fileStackAPI",
+      "type": "java.lang.String",
+      "description": "Description for fileStackAPI."
+  }
+] }

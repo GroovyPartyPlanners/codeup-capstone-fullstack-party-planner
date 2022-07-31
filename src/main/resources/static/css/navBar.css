@@ -1,10 +1,12 @@
-.profile-img {
-    width: 15rem;
-    height: 15rem;
-    object-fit: cover;
-    border-radius: 50%;
-    z-index: 999;
-    border: 1rem solid #ebeef8;
+:root{
+    --main: #5bb7b6;
+    --sec: #8f9aa8;
+    --third: #1c2541;
+    --accent: #6fffe9;
+    --color-main: #000000;
+    --shadow: #787b7b;
+    --btn-main: #12ebd2;
+
 }
 .btn{
     background-color: var(--shadow);

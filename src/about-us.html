@@ -1,0 +1,215 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8" name="fileStackAPI" th:content="${fileStackAPI}">-->
+<!--    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>About us</title>-->
+<!--    &lt;!&ndash; Bootstrap CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">-->
+<!--    &lt;!&ndash; Cloudflare CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">-->
+<!--    &lt;!&ndash; Font Awesome CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">-->
+<!--    &lt;!&ndash; Custom About Us CSS &ndash;&gt;-->
+<!--    &lt;!&ndash; <link rel="stylesheet" th:href="@{/css/about-us.css}"> &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="./about-us.css">-->
+<!--    -->
+<!--    &lt;!&ndash; Custom Footer CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">-->
+<!--    <link rel="stylesheet" th:href="@{/css/footer.css}">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div sec:authorize="!isAuthenticated()">-->
+<!--    &lt;!&ndash;    This content is only shown to UNAUTHENTICATED users.&ndash;&gt;-->
+<!--    <nav th:replace="partials/navbar :: navbar"></nav>-->
+<!--</div>-->
+
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    &lt;!&ndash;    This content is only shown to AUTHENTICATED users.&ndash;&gt;-->
+<!--    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>-->
+<!--</div>-->
+
+<!--<h1 class="heading">Meet The Team</h1>-->
+<!--<section class="about">-->
+<!--    <div class="container">-->
+<!--        <div class="card-wrapper">-->
+<!--            <div class="card">-->
+<!--                <img src="" alt="card background" class="card-img">-->
+<!--                <img src="" alt="profile img" class="profile-img">-->
+<!--                <h1>NAME HERE</h1>-->
+<!--                <p class="job-title">Software Developer</p>-->
+<!--                <p class="about">ABOUT ME INFORMATION HERE</p>-->
+<!--                <a href="" class="btn">Contact</a>-->
+<!--                <ul class="social-media">-->
+<!--                    <li><a href="#" target="_blank"><i class="fab fa-google"></i></a></li>-->
+<!--                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>-->
+<!--                    <li><a href="#" target="_blank"><i class="fab fa-github-square"></i></a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+<!--            <div class="card">-->
+<!--                <img src="https://cdn.vox-cdn.com/thumbor/ThmbFYgSBaozaBtr_xNqOc_s5nU=/0x0:10000x5622/1200x675/filters:focal(3928x1435:5528x3035)/cdn.vox-cdn.com/uploads/chorus_image/image/71056355/Webb_wallpaper.0.jpg" alt="" class="card-img">-->
+<!--                <img src="https://cdn.filestackcontent.com/xykxzYzaSBqPykvDrsUi" alt="profile img" class="profile-img">-->
+<!--                <h1>Keaton Hutto</h1>-->
+<!--                <p class="job-title">Software Developer</p>-->
+<!--                <p class="about">Navy Vet, Junior Full Stack Developer, Electronics Hobbyist</p>-->
+<!--                <a href="mailto:keatonhutto8@gmail.com?subject=subject" class="btn">Contact</a>-->
+<!--                <ul class="social-media">-->
+<!--                    <li><a href="mailto:keatonhutto8@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>-->
+<!--                    <li><a href="https://www.linkedin.com/in/keaton-hutto8" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>-->
+<!--                    <li><a href="https://github.com/TLAMHutto" target="_blank"><i class="fab fa-github-square"></i></a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+<!--            <div class="card">-->
+<!--                <img src="https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="card background" class="card-img">-->
+<!--                <img src="https://cdn.filestackcontent.com/JbuackQNQxao1S9HL2Fk" alt="profile img" class="profile-img">-->
+<!--                <h1>David Prieto</h1>-->
+<!--                <p class="job-title">Software Developer</p>-->
+<!--                <p class="about">I'm an Air Force veteran and Full Stack Developer with a passion for building applications that bring joy to people.</p>-->
+<!--                <a href="https://www.linkedin.com/in/davidsprieto/" target="_blank" class="btn">Contact</a>-->
+<!--                <ul class="social-media">-->
+<!--                    <li><a href="mailto:david.s.prieto1@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>-->
+<!--                    <li><a href="https://www.linkedin.com/in/davidsprieto/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>-->
+<!--                    <li><a href="https://github.com/davidsprieto" target="_blank"><i class="fab fa-github-square"></i></a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<!--&lt;!&ndash; Login Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header text-center">-->
+<!--                <h5 class="modal-title w-100 font-weight-bold" id="staticBackdropLabelLogin">Log In</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <form th:action="@{/login}" method="POST">-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fa-solid fa-circle-user"></i>-->
+<!--                                    <label for="username-login">Username:</label>-->
+<!--                                    <input id="username-login" name="username" type="text" class="form-control text-center" />-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-lock prefix"></i>-->
+<!--                                    <label for="password-login">Password:</label>-->
+<!--                                    <input id="password-login" name="password" type="password" class="form-control text-center" />-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input type="submit" value="Log In" class="btn btn-danger"/>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Sign-up Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="staticBackdropSignUp" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelSignUp" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header text-center">-->
+<!--                <h5 class="modal-title w-100 font-weight-bold" id="staticBackdropLabelSignUp">Fill in the Following Information to Sign-up</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <form th:action="@{/sign-up}" method="POST" th:object="${user}">-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-user prefix"></i>-->
+<!--                                    <label for="first-name">First Name:</label>-->
+<!--                                    <input id="first-name" class="form-control text-center" th:field="*{first_name}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-user prefix"></i>-->
+<!--                                    <label for="last-name">Last Name:</label>-->
+<!--                                    <input id="last-name" class="form-control text-center" th:field="*{last_name}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fa-solid fa-circle-user"></i>-->
+<!--                                    <label for="username-signup">Username:</label>-->
+<!--                                    <input id="username-signup" class="form-control text-center" th:field="*{username}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-envelope prefix"></i>-->
+<!--                                    <label for="email">Email Address:</label>-->
+<!--                                    <input id="email" class="form-control text-center" th:field="*{email}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>-->
+
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-tag prefix"></i>-->
+<!--                                    <label for="group-name">Group Name (optional):</label>-->
+<!--                                    <input id="group-name" class="form-control text-center" th:field="*{group_name}" />-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-lock prefix"></i>-->
+<!--                                    <label for="password-signup">Password:</label>-->
+<!--                                    <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <label for="profilePicUrl" class="form-label">Upload Profile Picture:</label>-->
+<!--                                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">-->
+<!--                                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <input value="Sign me up!" type="submit" class="btn btn-warning"/>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Partial that contains Footer HTML &ndash;&gt;-->
+<!--<div th:replace="partials/footer.html :: footer"></div>-->
+
+<!--&lt;!&ndash; Partial that contains Bootstrap and jQuery CDNs &ndash;&gt;-->
+<!--<div th:replace="partials/scripts :: scripts"></div>-->
+<!--&lt;!&ndash; Filestack API &ndash;&gt;-->
+<!--<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
+<!--&lt;!&ndash; Custom Filestack JS Script &ndash;&gt;-->
+<!--<script type="text/javascript" th:src="@{/js/profile-filestack.js}"></script>-->
+<!--</body>-->
+<!--</html>-->

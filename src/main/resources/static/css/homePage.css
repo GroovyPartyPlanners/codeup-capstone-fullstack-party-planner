@@ -8,7 +8,7 @@
     --color-main: #000000;
     --shadow: #787b7b;
     --btn-main: #12ebd2;
-    
+
 }
 
 .eventsContainer{
@@ -30,7 +30,7 @@
     transition: 1.5s;
 }
 .searchParams{
-    
+
     font-family: 'Chakra Petch', sans-serif;;
 }
 .inputBoxes{
@@ -53,7 +53,10 @@
 }
 .btn:active{
     box-shadow: 0 2px var(--accent);
-    transform: translateY(2px);  
+    transform: translateY(2px);
+}
+.pageNum:active{
+    background-color:red;
 }
 .totalEvents{
     color: var(--sec-text-color);
@@ -75,7 +78,7 @@
 
 .popMeaning{
     text-align: center;
-    
+
 }
 ul{
     list-style: none;
@@ -88,10 +91,13 @@ ul{
     background-color: var(--accent);
     position: absolute;
     left: 50%;
-    bottom:56%;
+    bottom:34rem;
     transform: translateX(-50%);
     border-radius: 2rem;
 }
 .hidden{
     visibility: hidden;
+}
+.total, .pages{
+    text-align: center;
 }
