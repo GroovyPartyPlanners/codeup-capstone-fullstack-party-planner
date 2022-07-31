@@ -1,5 +1,3 @@
-const openWeatherMapAPIkey = "feafd6977e777352873ac6e055014150";
-const mapboxToken = 'pk.eyJ1IjoiZGVyZWtiZXJrbGV5IiwiYSI6ImNsMnFteTlidjAxNmYzYnVocHRycHlqM24ifQ.Z28GcH4GAsjBOS4jyREK1Q';
 
 
 function getLocation() {
