@@ -24,19 +24,4 @@ public class HomeController {
     public String viewHomePage() {
         return "views/home";
     }
-
-    @GetMapping("/4xx")
-    public String errorPageFour() {
-        return "redirect: /views/4xx.html";
-    }
-
-    @GetMapping("/5xx")
-    public String errorPageFive() {
-        return "redirect: /views/5xx.html";
-    }
-
-    @GetMapping("/error")
-    public String errorPage() {
-        return "redirect: /views/error";
-    }
 }
