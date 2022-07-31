@@ -17,7 +17,6 @@ import java.util.ArrayList;
 @Controller
 public class PartyController {
 
-
     private final EventRepository eventsRepository;
     private final UserService userService;
     private final UserRepository userRepository;

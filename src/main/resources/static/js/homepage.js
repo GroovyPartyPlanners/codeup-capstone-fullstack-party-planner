@@ -208,19 +208,13 @@ function showPosition(position) {
                             pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
                         }
                     }
-
-
                 }
                 document.getElementById("eventTitle").innerHTML = events
-
             }
-
         )
         .catch(error => console.log(error));
-
 }
 getLocation();
-
 
 document.getElementById('search-btn').addEventListener('click', function (e){
     e.preventDefault();
@@ -238,7 +232,6 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
                     events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
-
                 }
                 for(var i = 0; i < 1; i++) {
                     if(data.meta.total>=11){
@@ -266,7 +259,6 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
                     events += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="#">Click</a></h1>`
-
                 }
                 for(var i = 0; i < 1; i++) {
                     if(data.meta.total>=11){
