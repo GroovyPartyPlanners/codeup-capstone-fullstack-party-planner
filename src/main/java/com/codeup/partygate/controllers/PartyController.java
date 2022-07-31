@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @Controller
 public class PartyController {
 
@@ -115,9 +117,17 @@ public class PartyController {
 //        return "views/parties";
 //    }
 
-    @GetMapping("/parties")
-    public String viewParties(Model model) {
-        model.addAttribute("parties", partyRepository.findAll());
+    @GetMapping("/parties/{eventId}")
+    public String viewParties(Model model, @PathVariable Long eventId) {
+        ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
+        ArrayList<Party> eventParties = new ArrayList<Party>();
+        for (Party party: parties
+             ) {
+            if (party.getEvent().getEventApiId() == (eventId)) {
+                eventParties.add(party);
+            }
+        }
+        model.addAttribute("parties", eventParties);
         return "views/parties";
     }
 }
