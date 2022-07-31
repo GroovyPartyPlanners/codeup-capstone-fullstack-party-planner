@@ -1,24 +1,24 @@
-/*:root{*/
-/*    --main: #5bb7b6;*/
-/*    --sec: #8f9aa8;*/
-/*    --third: #1c2541;*/
-/*    --accent: #6fffe9;*/
-/*    --color-main: #000000;*/
-/*    --shadow: #787b7b;*/
-/*    --btn-main: #12ebd2;*/
+:root{
+    --main: #5bb7b6;
+    --sec: #8f9aa8;
+    --third: #1c2541;
+    --accent: #6fffe9;
+    --color-main: #000000;
+    --shadow: #787b7b;
+    --btn-main: #12ebd2;
 
-/*}*/
-/*.btn{*/
-/*    background-color: var(--shadow);*/
-/*    box-shadow: 0 1px var(--accent);*/
+}
+.btn{
+    background-color: var(--shadow);
+    box-shadow: 0 1px var(--accent);
 
-/*}*/
-/*.btn:hover{*/
-/*    transform: translateY(-.2em);*/
-/*    box-shadow: 0 3px var(--accent);*/
+}
+.btn:hover{
+    transform: translateY(-.2em);
+    box-shadow: 0 3px var(--accent);
 
-/*}*/
-/*.btn:active{*/
-/*    box-shadow: 0 2px var(--accent);*/
-/*    transform: translateY(2px);*/
-/*}*/
+}
+.btn:active{
+    box-shadow: 0 2px var(--accent);
+    transform: translateY(2px);
+}

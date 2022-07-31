@@ -19,7 +19,6 @@ public class HomeController {
         }
         return "views/landing";
     }
-
     @GetMapping("/home")
     public String viewHomePage() {
         return "views/home";

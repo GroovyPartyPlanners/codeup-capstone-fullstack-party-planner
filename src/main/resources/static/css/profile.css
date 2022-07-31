@@ -1,22 +1,22 @@
-/*.profile-img {*/
-/*    width: 15rem;*/
-/*    height: 15rem;*/
-/*    object-fit: cover;*/
-/*    border-radius: 50%;*/
-/*    z-index: 999;*/
-/*    border: 1rem solid #ebeef8;*/
-/*}*/
-/*.btn{*/
-/*    background-color: var(--shadow);*/
-/*    box-shadow: 0 1px var(--accent);*/
+.profile-img {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 999;
+    border: 1rem solid #ebeef8;
+}
+.btn{
+    background-color: var(--shadow);
+    box-shadow: 0 1px var(--accent);
 
-/*}*/
-/*.btn:hover{*/
-/*    transform: translateY(-.2em);*/
-/*    box-shadow: 0 3px var(--accent);*/
+}
+.btn:hover{
+    transform: translateY(-.2em);
+    box-shadow: 0 3px var(--accent);
 
-/*}*/
-/*.btn:active{*/
-/*    box-shadow: 0 2px var(--accent);*/
-/*    transform: translateY(2px);*/
-/*}*/
+}
+.btn:active{
+    box-shadow: 0 2px var(--accent);
+    transform: translateY(2px);
+}

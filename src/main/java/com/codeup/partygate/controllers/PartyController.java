@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-
 @Controller
 public class PartyController {
 
@@ -43,16 +41,16 @@ public class PartyController {
         return "views/party-form";
     }
 
-    @PostMapping("event/party/{eventId}")
-    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
-        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
-        parties.add(party);
-        Event event = new Event();
-        event.setId(eventId);
-        event.setParties(parties);
-        eventsRepository.save(event);
-        return "views/home";
-    }
+//    @PostMapping("event/party/{eventId}")
+//    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
+//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
+//        parties.add(party);
+//        Event event = new Event();
+//        event.setId(eventId);
+//        event.setParties(parties);
+//        eventsRepository.save(event);
+//        return "views/home";
+//    }
 
     @GetMapping("/party/{id}")
     public String viewPartyDetails(@PathVariable long id, Model model) {
@@ -94,7 +92,7 @@ public class PartyController {
     public String postPartyForm(@ModelAttribute Party party, @RequestParam(name = "event-id") long eventId) {
 //        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
 //        parties.add(party);
-        if (eventsRepository.findAllById(eventId) == null) {
+//        if (eventsRepository.findAllById(eventId) == null) {
             Event event = new Event();
             event.setEventApiId(eventId);
 //        event.setParties(parties);
@@ -105,17 +103,17 @@ public class PartyController {
             partyRepository.save(party);
             return "redirect:/parties";
         }
-        User user = userRepository.getById(userService.loggedInUser().getId());
-        party.setUser(user);
-        for (Event event: eventsRepository.findAll()
-             ) {
-            if (event.getEventApiId() == eventId) {
-                party.setEvent(event);
-            }
-        }
-        partyRepository.save(party);
-        return "views/parties";
-    }
+//        User user = userRepository.getById(userService.loggedInUser().getId());
+//        party.setUser(user);
+//        for (Event event: eventsRepository.findAll()
+//             ) {
+//            if (event.getEventApiId() == eventId) {
+//                party.setEvent(event);
+//            }
+//        }
+//        partyRepository.save(party);
+//        return "views/parties";
+//    }
 
     @GetMapping("/parties")
     public String viewParties(Model model) {
