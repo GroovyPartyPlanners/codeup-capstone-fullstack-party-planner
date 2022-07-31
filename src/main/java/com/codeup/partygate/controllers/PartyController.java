@@ -94,7 +94,7 @@ public class PartyController {
     public String postPartyForm(@ModelAttribute Party party, @RequestParam(name = "event-id") long eventId) {
 //        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
 //        parties.add(party);
-        if (eventsRepository.findAllById(eventId) == null) {
+//        if (eventsRepository.findAllById(eventId) == null) {
             Event event = new Event();
             event.setEventApiId(eventId);
 //        event.setParties(parties);
@@ -105,17 +105,17 @@ public class PartyController {
             partyRepository.save(party);
             return "redirect:/parties";
         }
-        User user = userRepository.getById(userService.loggedInUser().getId());
-        party.setUser(user);
-        for (Event event: eventsRepository.findAll()
-             ) {
-            if (event.getEventApiId() == eventId) {
-                party.setEvent(event);
-            }
-        }
-        partyRepository.save(party);
-        return "views/parties";
-    }
+//        User user = userRepository.getById(userService.loggedInUser().getId());
+//        party.setUser(user);
+//        for (Event event: eventsRepository.findAll()
+//             ) {
+//            if (event.getEventApiId() == eventId) {
+//                party.setEvent(event);
+//            }
+//        }
+//        partyRepository.save(party);
+//        return "views/parties";
+//    }
 
     @GetMapping("/parties")
     public String viewParties(Model model) {
