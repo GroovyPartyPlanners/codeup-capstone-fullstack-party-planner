@@ -15,8 +15,10 @@
     <link rel="stylesheet" th:href="@{/css/about-us.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
 </head>
-<body>
+<body style="text-align: center">
 
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
@@ -208,5 +210,7 @@
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!-- Custom Filestack JS Script -->
 <script type="text/javascript" th:src="@{/js/profile-filestack.js}"></script>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

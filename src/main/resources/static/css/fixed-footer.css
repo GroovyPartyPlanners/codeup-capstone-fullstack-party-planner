@@ -10,7 +10,7 @@ footer {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     background-color: #ededed;
     position: fixed;
@@ -61,7 +61,7 @@ footer {
     margin-top: 0;
     padding: 0;
     list-style: none;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     margin-bottom: 0;
     text-align: center;
@@ -78,7 +78,7 @@ footer {
 }
 
 .footer ul li a:hover {
-    color: #5bc0be;
+    color: #445ae3;
 }
 
 .footer .copyright {
