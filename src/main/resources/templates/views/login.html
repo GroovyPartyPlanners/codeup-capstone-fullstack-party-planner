@@ -12,7 +12,9 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
-<!--    <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">-->
+    <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
 </head>
 <body style="text-align: center">
 
@@ -183,9 +185,11 @@
 <!-- Partial that contains Bootstrap and jQuery CDNs -->
 <div th:replace="partials/scripts :: scripts"></div>
 <!-- Filestack API -->
-<!--<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!-- Custom Filestack JS Script -->
-<!--<script type="text/javascript" th:src="@{/js/profile-filestack.js}"></script>-->
+<script type="text/javascript" th:src="@{/js/profile-filestack.js}"></script>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 
 </html>
