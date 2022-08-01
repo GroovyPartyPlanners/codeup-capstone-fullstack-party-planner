@@ -14,7 +14,7 @@ header {
 
 .logo {
     margin: 2rem;
-    background-image: url("static/imgs/partyBanner.png");
+    width: 250px;
 }
 
 .primary-header {

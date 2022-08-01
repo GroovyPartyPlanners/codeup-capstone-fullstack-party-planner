@@ -35,8 +35,8 @@
 <!--</nav>-->
 
 <header th:fragment="navbar-logged-in" class="primary-header flex">
-    <div class = "imgContainer">
-        <img src="../partyBanner.png" alt="PartyPlanners" class="logo">
+    <div>
+        <img th:src="@{/imgs/partyBanner.png}" alt="PartyPlanners" class="logo">
     </div>
 
     <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
@@ -46,13 +46,13 @@
     <nav>
         <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
             <li class="active">
-                <a style="color: white;" class="" th:href="@{/home}">
+                <a style="color: white;" class="" th:href="@{/events}">
                     <span aria-hidden="true">00</span>Events
                 </a>
             </li>
             <li>
-                <a style="color: white;" class="" th:href="@{/parties}">
-                    <span aria-hidden="true">01</span>Parties
+                <a style="color: white;" class="" th:href="@{/profile}">
+                    <span aria-hidden="true">01</span>Profile
                 </a>
             </li>
             <li>

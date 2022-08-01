@@ -19,6 +19,7 @@ body{
     font-size: 4rem;
     font-family: 'Kanit', sans-serif;
 }
+
 .events-title, .total{
     text-align: center;
 }
@@ -27,16 +28,18 @@ body{
     content: "";
     width: 40rem;
     height: .5rem;
-    background-color: var(--accent);
+    background-color: #45e19f;
     position: absolute;
     left: 50%;
     top: 14rem;
     transform: translateX(-50%);
     border-radius: 2rem;
+    margin-top: -15px;
 }
 .introParagraph{
     font-size: 2rem;
     text-align: center;
+    margin-top: 30px;
 }
 /* .introParagraph:after{
 
