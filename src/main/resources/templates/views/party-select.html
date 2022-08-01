@@ -15,6 +15,8 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 
 <!--    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">-->
 </head>
@@ -29,7 +31,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <div class="card mb-3">
     <img th:src="${party.getPartyPicUrl()}" class="card-img-top" alt="...">
     <div class="card-body">
@@ -48,6 +50,7 @@
         </div>
     </div>
     <a th:href="@{|/party/${party.id}/comment-form|}" class="btn btn-primary">Post a Comment</a>
+</div>
 </div>
 
 <!--    the id in the following href is the party_id, this button allows a user to "attend" a party-->

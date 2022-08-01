@@ -16,6 +16,8 @@
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 
 </head>
 <body>
@@ -28,7 +30,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <div class="container">
     <div class="container">
         <label class="mapLabel d-flex justify-content-center">Search map by dragging the dropped Pin</label>
@@ -77,6 +79,7 @@
             </h1>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Custom Navbar JS -->

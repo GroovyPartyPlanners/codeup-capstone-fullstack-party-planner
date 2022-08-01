@@ -30,7 +30,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <h1 class="heading">Parties</h1>
 
 <div th:fragment="parties">
@@ -61,6 +61,7 @@
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
+</div>
 <!--<div th:replace="partials/home-slice :: home-slice"></div>-->
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>

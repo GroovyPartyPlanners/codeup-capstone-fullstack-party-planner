@@ -15,9 +15,11 @@
     <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body style="text-align: center">
-
+<div class="backdrop">
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
     <nav th:replace="partials/navbar :: navbar"></nav>
@@ -50,6 +52,7 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Partial that contains Footer HTML -->
