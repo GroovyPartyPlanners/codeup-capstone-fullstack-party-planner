@@ -1,5 +1,6 @@
 package com.codeup.partygate.controllers;
 
+import com.codeup.partygate.models.Event;
 import com.codeup.partygate.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,8 @@ public class HomeController {
         return "views/landing";
     }
     @GetMapping("/home")
-    public String viewHomePage() {
+    public String viewHomePage(Model model) {
+        model.addAttribute("event", new Event());
         return "views/home";
     }
 }
