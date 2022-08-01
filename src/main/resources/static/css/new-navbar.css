@@ -40,6 +40,7 @@ header {
 
 .primary-navigation a {
     text-decoration: none;
+    color: white;
 }
 
 .primary-navigation a > span {
@@ -48,6 +49,20 @@ header {
 }
 
 .primary-navigation a:hover {
+    text-decoration: underline;
+    font-style: italic;
+    color: white;
+}
+
+button {
+    margin-left: -15px;
+    font-size: 100%;
+    border: 0;
+    padding: 0;
+    margin-top: -2px;
+}
+
+button:hover {
     text-decoration: underline;
     font-style: italic;
 }
@@ -98,7 +113,7 @@ header {
 @media (min-width: 45em) {
     .primary-navigation {
         --gap: clamp(1.5rem, 5vw, 3rem);
-        padding-block: 1.5rem;
+        padding-block: 1.2rem;
         padding-inline: clamp(3rem, 8vw, 10rem);
     }
 }
