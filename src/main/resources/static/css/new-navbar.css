@@ -10,11 +10,9 @@ header {
     font-family: 'Poppins', sans-serif;
 }
 
-/* logo broken*/
-
 .logo {
     margin: 2rem;
-    width: 250px;
+    width: 225px;
 }
 
 .primary-header {
@@ -30,12 +28,12 @@ header {
     list-style: none;
     padding: 0;
     margin: 0;
-    background: hsl(155, 72%, 58%);
+    background: hsl(123, 98%, 18%);
 }
 
 @supports (backdrop-filter: blur(1rem)) {
     .primary-navigation {
-        background: hsl(155, 72%, 58%);
+        background: hsl(123, 98%, 18%);
         backdrop-filter: blur(1rem);
     }
 }
