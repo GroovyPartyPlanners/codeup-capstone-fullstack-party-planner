@@ -12,14 +12,16 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
-    <!-- Custom CSS for Form Validation Errors -->
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Kanit:ital,wght@1,200&family=Righteous&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" th:href="@{/css/form-validation.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Kanit:ital,wght@1,200&family=Righteous&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" th:href="@{/css/landing.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body>
 
@@ -32,7 +34,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <div class="container">
 
     <h4 class="intro-title">Welcome to Party Planners</h4>
@@ -190,6 +192,7 @@
         </div>
     </div>
 </div>
+</div>
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
@@ -204,5 +207,7 @@
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
 
 <script type="text/javascript" th:src="@{/js/landing.js}"></script>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

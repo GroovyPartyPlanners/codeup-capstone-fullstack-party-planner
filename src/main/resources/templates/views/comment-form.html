@@ -13,6 +13,10 @@
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body style="text-align: center">
 
@@ -25,7 +29,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <h1>Post a Comment</h1>
 <div class="container">
     <div class="row">
@@ -44,10 +48,13 @@
         </div>
     </div>
 </div>
+</div>
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
 
 <div th:replace="partials/scripts :: scripts"></div>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

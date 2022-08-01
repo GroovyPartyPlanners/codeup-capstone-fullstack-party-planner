@@ -11,14 +11,19 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
-    <!-- Custom CSS -->
-
-    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">
-
+    <!-- Custom Profile CSS -->
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
+
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">-->
 </head>
 <body style="text-align: center">
+
 
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
@@ -31,6 +36,7 @@
 </div>
 
 <section style="background-color: #eee;">
+    <div class = "backdrop">
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-4">
@@ -134,11 +140,15 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
 
 <div th:replace="partials/scripts :: scripts"></div>
+</div>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

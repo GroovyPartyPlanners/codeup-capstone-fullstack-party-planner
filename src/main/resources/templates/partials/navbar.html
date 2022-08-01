@@ -1,40 +1,85 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Navbar</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
 </head>
 <body>
 
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" th:href="@{/home}">PartyPlanners</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<!--<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <a class="navbar-brand" th:href="@{/home}">PartyPlanners</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/home}">Events</a></li>-->
+<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/parties}">Parties</a></li>-->
+<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/about-us}">About Us</a></li>-->
+<!--        </ul>-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+<!--                &lt;!&ndash; Button trigger Login modal &ndash;&gt;-->
+<!--                <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#staticBackdropLogin">-->
+<!--                    Login-->
+<!--                </button>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                &lt;!&ndash; Button trigger Sign-up modal &ndash;&gt;-->
+<!--                <button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#staticBackdropSignUp">-->
+<!--                    Sign-up-->
+<!--                </button>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<header th:fragment="navbar" class="primary-header flex">
+    <div>
+        <img th:src="@{/imgs/partyBanner.png}" alt="PartyPlanners" class="logo">
+    </div>
+
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="sr-only">Menu</span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item btn"><a class="btn nav-link" th:href="@{/home}">Events</a></li>
-            <li class="nav-item"><a class="btn nav-link" th:href="@{/parties}">Parties</a></li>
-            <li class="nav-item"><a class="btn nav-link" th:href="@{/about-us}">About Us</a></li>
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <!-- Button trigger Login modal -->
-                <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#staticBackdropLogin">
-                    Login
-                </button>
+    <nav>
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+            <li class="active">
+                <a style="color: white;" class="" th:href="@{/events}">
+                    <span aria-hidden="true">00</span>Events
+                </a>
             </li>
-            <li class="nav-item">
-                <!-- Button trigger Sign-up modal -->
-                <button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#staticBackdropSignUp">
-                    Sign-up
-                </button>
+            <li>
+                <a style="color: white;" class="" th:href="@{/profile}">
+                    <span aria-hidden="true">01</span>Profile
+                </a>
+            </li>
+            <li>
+                <a style="color: white;" class="" th:href="@{/about-us}">
+                    <span aria-hidden="true">02</span>About Us
+                </a>
+            </li>
+            <li>
+                <a style="color: white; cursor: pointer;" class="" data-toggle="modal" data-target="#staticBackdropSignUp">
+                    <span aria-hidden="true">03</span>Sign-up
+                </a>
+            </li>
+            <li>
+                <a style="color: white; cursor: pointer;" class="" data-toggle="modal" data-target="#staticBackdropLogin">
+                    <span aria-hidden="true">04</span>Log In
+                </a>
             </li>
         </ul>
-    </div>
-</nav>
+    </nav>
+</header>
 
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

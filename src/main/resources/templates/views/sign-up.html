@@ -13,6 +13,10 @@
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body style="text-align: center">
 
@@ -29,7 +33,7 @@
 <div class="container">
     <h1>Create an account</h1>
 </div>
-
+<div class="backdrop">
 <div class="container">
     <div class="row">
         <div class="col">
@@ -132,6 +136,7 @@
         </div>
     </div>
 </div>
+</div>
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
@@ -142,5 +147,7 @@
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!-- Custom Filestack JS Script -->
 <script type="text/javascript" th:src="@{/js/profile-filestack.js}"></script>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

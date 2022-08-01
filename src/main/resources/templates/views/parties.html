@@ -12,10 +12,12 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Parties CSS -->
     <link rel="stylesheet" th:href="@{/css/parties.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/navBar.css}">-->
 </head>
 <body>
 
@@ -28,7 +30,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <h1 class="heading">Parties</h1>
 
 <div th:fragment="parties">
@@ -59,7 +61,9 @@
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
-
+</div>
 <!--<div th:replace="partials/home-slice :: home-slice"></div>-->
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

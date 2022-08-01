@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-* {
+.about {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
+html {
     font-size: 10px;
     font-family: 'Poppins', sans-serif;
 }
@@ -23,7 +23,7 @@ body:nth-child(3) {
 
 .heading {
     text-transform: uppercase;
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     letter-spacing: 3px;
     margin-right: -3px;
     margin-bottom: 5rem;
@@ -78,8 +78,12 @@ body:nth-child(3) {
     margin-top: -11rem;
     z-index: 999;
     border: 1rem solid #ebeef8;
-}
 
+    animation: glow;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    border: 3px solid #ffffff;
+}
 .card h1 {
     font-size: 2.5rem;
     color: #333;
@@ -150,7 +154,17 @@ body:nth-child(3) {
 .fa-google:hover, .fa-linkedin-in:hover, .fa-github-square:hover {
     color: #45e19f;
 }
-
+@keyframes glow {
+    0%{
+        box-shadow: 0px 0px #45e19f;
+    }
+    50%{
+        box-shadow: 5px 5px 5px #45e19f;
+    }
+    100%{
+        box-shadow: 0px 0px #45e19f;
+    }
+}
 /* Media Queries */
 
 @media screen and (min-width: 700px) {
@@ -165,7 +179,7 @@ body:nth-child(3) {
         margin: 2rem;
         transition: transform .5s;
     }
-    
+
     @keyframes fadeIn {
         from {
             opacity: 0;
