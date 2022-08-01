@@ -10,8 +10,11 @@ header {
     font-family: 'Poppins', sans-serif;
 }
 
+/* logo broken*/
+
 .logo {
     margin: 2rem;
+    background-image: url("static/imgs/partyBanner.png");
 }
 
 .primary-header {
