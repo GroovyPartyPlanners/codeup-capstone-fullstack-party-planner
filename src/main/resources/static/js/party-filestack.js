@@ -3,7 +3,7 @@
 window.addEventListener("DOMContentLoaded", function () {
 
     let apikey = document.querySelector('meta').content;
-    const client = filestack.init(apikey);
+    const client = filestack.init("AFbgWdLpFS5eOJphQhyTEz");
 
     let options = {
         onUploadDone: (res) => {
