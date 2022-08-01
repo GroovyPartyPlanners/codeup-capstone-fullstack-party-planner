@@ -20,6 +20,8 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body>
 
@@ -32,7 +34,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <div class="container">
 
     <h4 class="intro-title">Welcome to Party Planners</h4>
@@ -46,6 +48,7 @@
     </div>
     <div class="eventsContainer">
         <h3 class="events-title">Below are the events in your area!</h3>
+        <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" ></img>
         <p class="total" id="total"></p>
         <p class="pages" id="pages"></p>
         <h1 class="eventTitle" id="eventTitle">
@@ -189,6 +192,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Partial that contains Footer HTML -->
