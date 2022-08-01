@@ -1,4 +1,9 @@
 "use strict";
+function windowLoading(){
+    console.log('Loading...');
+    document.getElementById('loading').style.display = 'block';
+    setTimeout(function(){
+        document.getElementById('loading').style.display = 'none';
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -43,7 +48,10 @@ function showPosition(position) {
 
 }
 getLocation();
-
+console.log('Loaded!');
+}, 5000);
+}
+windowLoading();
 // fetch('https://api.unsplash.com/photos/random/?&topics=BJJMtteDJA4&client_id=eJIyvaW_YdQEcelyLpGcNQwYQgRo0LtO7EHZ8PstJp0')
 // .then(response => response.json())
 // .then(data => {

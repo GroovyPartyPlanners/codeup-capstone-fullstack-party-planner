@@ -1,5 +1,12 @@
 
-function getLocation() {
+function windowLoading(){
+    console.log('Loading...');
+    document.getElementById('loading').style.display = 'block';
+    setTimeout(function(){
+        document.getElementById('loading').style.display = 'none';
+
+
+        function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
@@ -254,4 +261,8 @@ function page(num){
                 document.getElementById("eventTitle").innerHTML = events
             }
         ).catch(error => console.log(error));
+    }
+    console.log('Loaded!');
+}, 5000);
 }
+windowLoading();
