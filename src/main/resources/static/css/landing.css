@@ -34,6 +34,7 @@ body{
     top: 14rem;
     transform: translateX(-50%);
     border-radius: 2rem;
+    margin-top: -15px;
 }
 .introParagraph{
     font-size: 2rem;
