@@ -1,4 +1,13 @@
 
+
+
+function windowLoading(){
+    console.log('Loading...');
+    document.getElementById('loading').style.display = 'block';
+    setTimeout(function(){
+        document.getElementById('loading').style.display = 'none';
+        
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -10,19 +19,19 @@ function getLocation() {
 function showPosition(position) {
     
     var lat = position.coords.latitude;
-    var long = position.coords.longitude;
+    var lng = position.coords.longitude;
     mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
     const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [long, lat],
+    center: [lng, lat],
     zoom: 8
     });
 
 const marker = new mapboxgl.Marker({
 draggable: true
 })
-.setLngLat([long, lat])
+.setLngLat([lng, lat])
 .addTo(map);
 
 
@@ -33,9 +42,8 @@ let long = lngLat.lng;
 let type = document.getElementById('type').value;
 let pages = document.getElementById('pages');
 
-
 //dragging pin fetch
-fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=${type}&client_id=${clientId}`)
+fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=${type}&client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI`)
         .then(response => response.json())
         .then(data => {
                 
@@ -84,7 +92,7 @@ fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=${type}&cli
 marker.on('dragend', onDragEnd);
 
 //window onload
-    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=comedy&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&type=comedy&client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -125,8 +133,8 @@ marker.on('dragend', onDragEnd);
 
         )
         .catch(error => console.log(error));
+        }
 
-}
 getLocation();
 //
 //submit button
@@ -136,7 +144,7 @@ document.getElementById('search-btn').addEventListener('click', function (e){
     var type = document.getElementById("type").value
     var search = document.getElementById("search").value
     
-    fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI`)
         .then(response => response.json())
         .then(data => {
                 console.log(data);
@@ -173,28 +181,28 @@ document.getElementById('search-btn').addEventListener('click', function (e){
 
 
 function pin(num){
-    var type = document.getElementById("type").value
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
+//     var type = document.getElementById("type").value
+//     mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';
 
-const map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: [0, 0],
-zoom: 2
-});
+// const map = new mapboxgl.Map({
+// container: 'map',
+// style: 'mapbox://styles/mapbox/streets-v11',
+// center: [0, 0],
+// zoom: 2
+// });
  
-const marker = new mapboxgl.Marker({
-draggable: true
-})
-.setLngLat([0, 0])
-.addTo(map);
+// const marker = new mapboxgl.Marker({
+// draggable: true
+// })
+// .setLngLat([0, 0])
+// .addTo(map);
  
-function onDragEnd() {
-const lngLat = marker.getLngLat();
-console.log(lngLat);
+// function onDragEnd() {
+// const lngLat = marker.getLngLat();
+// console.log(lngLat);
 
 
-    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=${type}&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&type=${type}&client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI`)
         .then(response => response.json())
         .then(data => {
             
@@ -232,7 +240,7 @@ console.log(lngLat);
 function page(num){
     var type = document.getElementById("type").value
     var search = document.getElementById("search").value
-    fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&page=${num+1}&client_id=${clientId}`)
+    fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&page=${num+1}&client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI`)
         .then(response => response.json())
         .then(data => {
             
@@ -265,9 +273,8 @@ function page(num){
         ).catch(error => console.log(error));
     
 }
-
-
-
-
-
+console.log('Loaded!');
+    }, 5000);
+}
+windowLoading();
 
