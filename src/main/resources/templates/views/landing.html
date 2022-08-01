@@ -20,6 +20,8 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body>
 
@@ -32,7 +34,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <div class="container">
 
     <h4 class="intro-title">Welcome to Party Planners</h4>
@@ -189,6 +191,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Partial that contains Footer HTML -->

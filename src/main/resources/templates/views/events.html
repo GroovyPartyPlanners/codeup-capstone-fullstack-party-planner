@@ -16,6 +16,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places"></script>
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 
 </head>
 <body>
@@ -28,7 +30,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-
+<div class="backdrop">
 <div class="container">
     <label class="mapLabel d-flex justify-content-center">Search map by dragging the dropped Pin</label>
     <div id='map' class="d-flex justify-content-center" style='width: 400px; height: 300px;'></div>
@@ -71,6 +73,7 @@
             <h2 class="popularity" id="popularity"></h2>
         </h1>
     </div>
+</div>
 </div>
 
 <!-- Custom Navbar JS -->
