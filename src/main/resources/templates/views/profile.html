@@ -22,7 +22,6 @@
 </head>
 <body style="text-align: center">
 
-
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
     <nav th:replace="partials/navbar :: navbar"></nav>
@@ -45,7 +44,7 @@
                         <p class="text-muted mb-1">INFORMATION HERE</p>
                         <p class="text-muted mb-4">INFORMATION HERE</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <a th:href="@{|/profile/${user.id}|}"><button type="button" class="btn btn-outline-primary ms-1">Edit Profile</button></a>                            </div>
+                            <a th:href="@{|/profile/${user.id}|}"><button type="button" class="btn btn-outline-primary ms-1">Edit Profile</button></a></div>
                     </div>
                 </div>
                 <div class="card mb-4 mb-lg-0">
@@ -130,6 +129,7 @@
                         <h5 class="card-title" th:text="${party.party_name}"></h5>
                         <p class="card-text" th:text="${party.description}"></p>
                         <a th:href="@{|/party/${party.id}/edit|}" class="btn btn-primary">Edit Party Details</a>
+                        <a th:href="@{|/party/${party.id}|}" class="btn btn-primary">View Party Details</a>
                     </div>
                     <div class="card-footer text-muted">
                         2 days ago
@@ -145,7 +145,6 @@
 <div th:replace="partials/footer.html :: footer"></div>
 
 <div th:replace="partials/scripts :: scripts"></div>
-</div>
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
