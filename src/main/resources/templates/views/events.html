@@ -13,14 +13,16 @@
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places"></script>
-    <!-- Custom Navbar CSS -->
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">
-    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
     <!-- Background Styling-->
     <link rel="stylesheet" th:href="@{/css/background.css}">
-
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
 </head>
+
 <body style="text-align: center">
+
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
     <nav th:replace="partials/navbar :: navbar"></nav>
@@ -30,6 +32,7 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
+
 <div class="backdrop">
 <div class="container">
     <div class="container">
@@ -67,7 +70,7 @@
                     <button id="upvote"class="btn hidden">⬆</button>
                     <button id="downvote" class="btn hidden">⬇</button></li>
                 <h5 class="popMeaning hidden">Popularity is on a scale of 0-1</h5>
-                <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" ></img>
+                <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" />
                 <p class="total" id="total"></p>
                 <p class="pages" id="pages"></p>
                 <p class="page" id="pageNum"></p>
@@ -82,9 +85,10 @@
 </div>
 </div>
 
-<!-- Custom Navbar JS -->
+
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
 <script type="text/javascript" th:src="@{/js/homepage.js}"></script>
+<!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

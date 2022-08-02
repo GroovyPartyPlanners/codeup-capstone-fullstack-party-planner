@@ -25,7 +25,7 @@ body {
     content: "";
     width: 10rem;
     height: .8rem;
-    background-color: #45e19f;
+    background-color: #47E1A1;
     position: absolute;
     bottom: -2rem;
     left: 50%;
@@ -105,7 +105,7 @@ article {
 }
 
 .details .button {
-    background: #45e19f;
+    background: #47E1A1;
     padding: 8px 10px;
     width: 100%;
     margin: 0 auto;

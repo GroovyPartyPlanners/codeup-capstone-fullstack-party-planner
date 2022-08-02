@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 :root{
     --main: #5bb7b6;
@@ -21,7 +22,7 @@
     background-color: var(--sec);
     box-shadow: 3px 3px var(--shadow);
     padding: 1rem;
-    font-family: 'Righteous';
+    font-family: "Poppins", sans-serif;
 }
 .loopEvent:hover{
     box-shadow: 8px 8px 8px 8px var(--shadow);
@@ -30,7 +31,7 @@
 }
 .searchParams{
 
-    font-family: 'Chakra Petch', sans-serif;;
+    font-family: "Poppins", sans-serif;;
 }
 .inputBoxes{
     color: var(--accent-third);
@@ -62,7 +63,7 @@
     border-bottom: 3px solid var(--accent);
     text-align: center;
     padding-bottom: 3rem;
-    font-family: 'Righteous';
+    font-family: "Poppins", sans-serif;
 }
 .mapLabel{
     color: var(--sec-text-color);

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.form-container {
+    font-size: 16px;
+    max-width: 700px;
+    width: 100%;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.form-container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.form-container .title::after {
+    content: "";
+    position: absolute;
+    left: 46%;
+    bottom: 0;
+    height: 3px;
+    width: 40px;
+    background: linear-gradient(135deg, #015A06, #47E1A1);
+}
+
+.form-container .form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #47E1A1;
+}
+
+.form .form-btn {
+    height: 45px;
+    margin: 45px 0;
+}
+
+.form .form-btn input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #015A06, #47E1A1);
+}
+
+.form .form-btn input:hover {
+    background: linear-gradient(-135deg, #015A06, #47E1A1);
+}
+
+@media (max-width: 584px) {
+    .form-container {
+        max-width: 100%;
+    }
+
+    .form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-container .form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 0;
+    }
+}

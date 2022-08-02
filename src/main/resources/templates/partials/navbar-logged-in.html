@@ -46,24 +46,24 @@
     <nav>
         <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
             <li class="active">
-                <a style="color: white;" class="" th:href="@{/events}">
+                <a th:href="@{/events}">
                     <span aria-hidden="true">00</span>Events
                 </a>
             </li>
             <li>
-                <a style="color: white;" class="" th:href="@{/profile}">
+                <a th:href="@{/profile}">
                     <span aria-hidden="true">01</span>Profile
                 </a>
             </li>
             <li>
-                <a style="color: white;" class="" th:href="@{/about-us}">
+                <a th:href="@{/about-us}">
                     <span aria-hidden="true">02</span>About Us
                 </a>
             </li>
             <li>
                 <form th:action="@{/logout}" th:method="post">
-                    <a style="color: white; cursor: pointer;">
-                        <span aria-hidden="true">03</span><input type="hidden"/>Log Out
+                    <a>
+                        <span style="color: white;" aria-hidden="true">03</span><button class="btn logout-btn" style="color: white;">Log Out</button>
                     </a>
                 </form>
             </li>

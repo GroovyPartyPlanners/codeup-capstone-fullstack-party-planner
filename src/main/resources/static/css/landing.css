@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
 :root{
     --main: #5bc0be;
     --sec: #8f9aa8;
@@ -17,7 +19,7 @@ body{
 .intro-title{
     text-align: center;
     font-size: 4rem;
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .events-title, .total{
@@ -31,7 +33,7 @@ body{
     background-color: #45e19f;
     position: absolute;
     left: 50%;
-    top: 14rem;
+    top: 12rem;
     transform: translateX(-50%);
     border-radius: 2rem;
     margin-top: 38px;

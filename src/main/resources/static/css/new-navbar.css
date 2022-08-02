@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
 /* Flex */
 .flex {
     display: flex;
@@ -32,15 +34,16 @@ header {
     background: hsl(123, 98%, 18%);
 }
 
-@supports (backdrop-filter: blur(1rem)) {
+@supports (backdrop-filter: blur(2rem)) {
     .primary-navigation {
         background: hsl(123, 98%, 18%);
-        backdrop-filter: blur(1rem);
+        backdrop-filter: blur(2rem);
     }
 }
 
 .primary-navigation a {
     text-decoration: none;
+    color: white;
 }
 
 .primary-navigation a > span {
@@ -50,7 +53,6 @@ header {
 
 .primary-navigation a:hover {
     text-decoration: underline;
-    font-style: italic;
     color: white;
 }
 
@@ -63,7 +65,6 @@ header {
 
 .logout-btn:hover {
     text-decoration: underline;
-    font-style: italic;
 }
 
 /* Media Queries */

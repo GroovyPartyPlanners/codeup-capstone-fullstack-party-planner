@@ -35,6 +35,10 @@ public class User {
     @Column(length = 60, nullable = false)
     private String password;
 
+    @NotBlank
+    @Column(length = 60, nullable = false)
+    private String confirmPassword;
+
     @Column
     private String profilePicUrl;
 
@@ -56,17 +60,18 @@ public class User {
 
     public User () {}
 
-    public User(String first_name, String last_name, String email, String username, String group_name, String password, String profilePicUrl) {
+    public User(String first_name, String last_name, String email, String username, String group_name, String password, String confirmPassword, String profilePicUrl) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.username = username;
         this.group_name = group_name;
         this.password = password;
+        this.confirmPassword = confirmPassword;
         this.profilePicUrl = profilePicUrl;
     }
 
-    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String profilePicUrl, List<Party> parties, List<Comment> comments) {
+    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String confirmPassword, String profilePicUrl, List<Party> parties, List<Comment> comments) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -74,6 +79,7 @@ public class User {
         this.username = username;
         this.group_name = group_name;
         this.password = password;
+        this.confirmPassword = confirmPassword;
         this.profilePicUrl = profilePicUrl;
         this.parties = parties;
         this.comments = comments;
@@ -88,6 +94,7 @@ public class User {
         username = copy.username;
         group_name = copy.group_name;
         password = copy.password;
+        confirmPassword = copy.confirmPassword;
         profilePicUrl = copy.profilePicUrl;
     }
 
@@ -145,6 +152,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public String getProfilePicUrl() {

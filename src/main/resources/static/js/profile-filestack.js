@@ -25,4 +25,24 @@ window.addEventListener("DOMContentLoaded", function () {
     $("#upload").click(function () {
         client.picker(options).open();
     })
+
+    $('#confirmPassword').focusout(function () {
+        let password = $("#password-signup").val();
+        let confirmPassword = $("#confirmPassword").val();
+        if (password !== confirmPassword) {
+            $("#confirmPasswordError").html("Passwords do not match.").css("color", "red");
+        } else {
+            $("#confirmPasswordError").html("");
+        }
+    });
+
+    $("#signUpForm").keyup(function () {
+        let password = $("#password-signup").val();
+        let confirmPass = $("#confirmPassword").val();
+        if (password === confirmPass) {
+            $("#submit-btn").removeAttr("disabled");
+        } else {
+            $("#submit-btn").attr("disabled", "disabled");
+        }
+    })
 });
