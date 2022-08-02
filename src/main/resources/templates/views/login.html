@@ -12,9 +12,11 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
-    <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Custom Page Form CSS -->
+    <link rel="stylesheet" th:href="@{/css/page-forms.css}">
 </head>
 <body style="text-align: center">
 
@@ -28,7 +30,6 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<h1>Log In</h1>
 <div class="errors" th:if="${param.logout}">
     You have been logged out.
 </div>
@@ -36,67 +37,30 @@
     Invalid Username and Password.
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form th:action="@{/login}" method="POST">
+<div class="form-body">
+    <div class="form-container">
+        <div class="title">Log In</div>
+        <form class="form" th:action="@{/login}" method="POST">
+            <div class="user-details">
 
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input id="username" name="username" type="text" class="form-control text-center" />
+                <div class="input-box">
+                    <span class="details"><label for="username-login">Username:</label></span>
+                    <input id="username-login" type="text" class="form-control text-center"/>
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input id="password" name="password" type="password" class="form-control text-center" />
+                <div class="input-box">
+                    <span class="details"><label for="password-login">Password:</label></span>
+                    <input id="password-login" type="password" class="form-control text-center"/>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Log In" class="btn btn-danger"/>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Login Modal -->
-<div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h5 class="modal-title w-100 font-weight-bold" id="staticBackdropLabelLogin">Log In</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <form th:action="@{/login}" method="POST">
-
-                                <div class="form-group">
-                                    <i class="fa-solid fa-circle-user"></i>
-                                    <label for="username-login">Username:</label>
-                                    <input id="username-login" name="username" type="text" class="form-control text-center" />
-                                </div>
-
-                                <div class="form-group">
-                                    <i class="fas fa-lock prefix"></i>
-                                    <label for="password-login">Password:</label>
-                                    <input id="password-login" name="password" type="password" class="form-control text-center" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Log In" class="btn btn-danger"/>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
 
             </div>
-        </div>
+            <div>
+                <p>Don't have an account? <a th:href="@{/sign-up}">Sign-up</a></p>
+            </div>
+            <div class="form-btn">
+                <input type="submit" value="Log In">
+            </div>
+        </form>
     </div>
 </div>
 
@@ -104,75 +68,70 @@
 <div class="modal fade" id="staticBackdropSignUp" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelSignUp" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header text-center">
-                <h5 class="modal-title w-100 font-weight-bold" id="staticBackdropLabelSignUp">Fill in the Following Information to Sign-up</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="text-center">
             </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+            <div class="form-body">
+                <div class="form-container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                    <div class="title">Sign-up</div>
+                    <form class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
+                        <div class="user-details">
+                            <div class="input-box">
+                                <span class="details"><label for="first-name">First Name:</label></span>
+                                <input id="first-name" class="" th:field="*{first_name}" />
+                                <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>
+                            </div>
 
-                                <div class="form-group">
-                                    <i class="fas fa-user prefix"></i>
-                                    <label for="first-name">First Name:</label>
-                                    <input id="first-name" class="form-control text-center" th:field="*{first_name}" />
-                                    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>
-                                </div>
+                            <div class="input-box">
+                                <span class="details"><label for="last-name">Last Name:</label></span>
+                                <input id="last-name" class="" th:field="*{last_name}" />
+                                <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>
+                            </div>
 
-                                <div class="form-group">
-                                    <i class="fas fa-user prefix"></i>
-                                    <label for="last-name">Last Name:</label>
-                                    <input id="last-name" class="form-control text-center" th:field="*{last_name}" />
-                                    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>
-                                </div>
+                            <div class="input-box">
+                                <span class="details"><label for="username-signup">Username:</label></span>
+                                <input id="username-signup" class="" th:field="*{username}" />
+                                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>
+                            </div>
 
-                                <div class="form-group">
-                                    <i class="fa-solid fa-circle-user"></i>
-                                    <label for="username-signup">Username:</label>
-                                    <input id="username-signup" class="form-control text-center" th:field="*{username}" />
-                                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>
-                                </div>
+                            <div class="input-box">
+                                <span class="details"><label for="email">Email Address:</label></span>
+                                <input id="email" class="" th:field="*{email}" />
+                                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>
+                            </div>
 
-                                <div class="form-group">
-                                    <i class="fas fa-envelope prefix"></i>
-                                    <label for="email">Email Address:</label>
-                                    <input id="email" class="form-control text-center" th:field="*{email}" />
-                                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>
-                                </div>
+                            <div class="input-box">
+                                <span class="details"><label for="password-signup">Password:</label></span>
+                                <input id="password-signup" type="password" class="" th:field="*{password}" />
+                                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>
+                            </div>
 
-                                <div class="form-group">
-                                    <i class="fas fa-tag prefix"></i>
-                                    <label for="group-name">Group Name (optional):</label>
-                                    <input id="group-name" class="form-control text-center" th:field="*{group_name}" />
-                                </div>
+                            <div class="input-box">
+                                <span class="details"><label for="confirmPassword">Confirm Password:</label></span>
+                                <input id="confirmPassword" type="password" class="" th:field="*{confirmPassword}"/>
+                                <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" th:class="${#fields.hasErrors('confirmPassword')}? errors"></p>
+                            </div>
 
-                                <div class="form-group">
-                                    <i class="fas fa-lock prefix"></i>
-                                    <label for="password-signup">Password:</label>
-                                    <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />
-                                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>
-                                </div>
+                            <div class="input-box">
+                                <span class="details"><label for="group-name">Group Name (optional):</label></span>
+                                <input id="group-name" class="" th:field="*{group_name}" />
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="profilePicUrl" class="form-label">Upload Profile Picture:</label>
-                                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">
-                                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>
-                                </div>
-
-                                <div class="form-group">
-                                    <input value="Sign me up!" type="submit" class="btn btn-warning"/>
-                                </div>
-
-                            </form>
+                            <div class="input-box">
+                                <span class="details"><label for="profilePicUrl">Upload Profile Picture:</label></span>
+                                <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">
+                                <button id="upload" type="button" class="upload-btn">Upload Picture</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-
+                        <div>
+                            <p>Already have an account? <a th:href="@{/login}">Log In</a></p>
+                        </div>
+                        <div class="form-btn">
+                            <input type="submit" value="Sign me up!">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
