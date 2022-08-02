@@ -1,4 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+
 .backdrop{
-    background-color: #909BAB
+    background-color: #f0f2f4
 }
 
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.italics{
+    font-family: 'Lato', sans-serif;
+}
+
+#map {
+    border: 2px solid #f0f2f4;
+    /*display: flex;*/
+    /*float: left;*/
+    /*position: fixed;*/
+}

@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 :root{
-    --main: #5bb7b6;
-    --sec: #8f9aa8;
-    --third: #1c2541;
+    --main: #f0f2f4;
+    --sec: white;
+    --third: #015A06;
     --accent: #6fffe9;
     --color-main: #000000;
     --shadow: #787b7b;
-    --btn-main: #12ebd2;
+    --btn-main: #015A06;
+    /*#47E1A1 bright green*/
 
+    /*#015A06 drk green*/
 }
 
 .eventsContainer{
@@ -23,6 +25,8 @@
     box-shadow: 3px 3px var(--shadow);
     padding: 1rem;
     font-family: "Poppins", sans-serif;
+    font-size: Large;
+    /*font-family: 'Poppins';*/
 }
 .loopEvent:hover{
     box-shadow: 8px 8px 8px 8px var(--shadow);
