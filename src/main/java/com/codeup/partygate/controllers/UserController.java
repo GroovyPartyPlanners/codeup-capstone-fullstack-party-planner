@@ -38,6 +38,14 @@ public class UserController {
             model.addAttribute("errors", validation);
             model.addAttribute("user", user);
             return "views/sign-up";
+        } else if (usersRepository.findByUsername(user.getUsername()) != null) {
+            model.addAttribute("showError", true);
+            model.addAttribute("error", "An account with that username already exists.");
+            return "views/sign-up";
+        } else if (usersRepository.findByEmail(user.getEmail()) != null) {
+            model.addAttribute("showError", true);
+            model.addAttribute("error", "An account with that email already exists.");
+            return "views/sign-up";
         } else {
             String hashPass = passwordEncoder.encode(user.getPassword());
             user.setPassword(hashPass);
