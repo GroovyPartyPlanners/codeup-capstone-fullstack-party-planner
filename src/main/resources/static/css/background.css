@@ -3,7 +3,7 @@
 
 
 .backdrop{
-    background-color: #909BAB
+    background-color: #f0f2f4
 }
 
 *{
@@ -12,4 +12,11 @@
 
 .italics{
     font-family: 'Lato', sans-serif;
+}
+
+#map {
+    border: 2px solid #f0f2f4;
+    /*display: flex;*/
+    /*float: left;*/
+    /*position: fixed;*/
 }

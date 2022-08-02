@@ -24,18 +24,18 @@ body{
     text-align: center;
 }
 
-.intro-title:after{
-    content: "";
-    width: 40rem;
-    height: .5rem;
-    background-color: #45e19f;
-    position: absolute;
-    left: 50%;
-    top: 14rem;
-    transform: translateX(-50%);
-    border-radius: 2rem;
-    margin-top: 38px;
-}
+/*.intro-title:after{*/
+/*    content: "";*/
+/*    width: 40rem;*/
+/*    height: .5rem;*/
+/*    background-color: #45e19f;*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    top: 14rem;*/
+/*    transform: translateX(-50%);*/
+/*    border-radius: 2rem;*/
+/*    margin-top: 38px;*/
+/*}*/
 .introParagraph{
     font-size: 2rem;
     text-align: center;
