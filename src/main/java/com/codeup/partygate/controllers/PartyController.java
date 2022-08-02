@@ -100,6 +100,9 @@ public class PartyController {
 //        event.setParties(parties);
             event = eventsRepository.save(event);
             User user = userRepository.getById(userService.loggedInUser().getId());
+        if (party.getPartyPicUrl().length() == 0) {
+            party.setPartyPicUrl("https://picsum.photos/id/158/200/300");
+        }
             party.setUser(user);
             party.setEvent(event);
             partyRepository.save(party);

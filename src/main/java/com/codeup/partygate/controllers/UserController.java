@@ -42,9 +42,9 @@ public class UserController {
             String hash = passwordEncoder.encode(user.getPassword());
             user.setPassword(hash);
             if (user.getProfilePicUrl().length() == 0) {
-                user.setProfilePicUrl("https://picsum.photos/id/1043/200/300");
-                usersRepository.save(user);
+                user.setProfilePicUrl("https://picsum.photos/seed/picsum/200/300?grayscale");
             }
+            usersRepository.save(user);
         }
         return "redirect:/login";
     }
