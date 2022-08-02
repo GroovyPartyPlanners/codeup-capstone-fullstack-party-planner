@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
         let password = $("#password-signup").val();
         let confirmPassword = $("#confirmPassword").val();
         if (password !== confirmPassword) {
-            $("#confirmPasswordError").html("Passwords do not match.").css("color", "red");
+            $("#confirmPasswordError").html("Passwords don't match.").css("color", "red");
         } else {
             $("#confirmPasswordError").html("");
         }
