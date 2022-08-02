@@ -53,8 +53,8 @@ function showPosition(position) {
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
-                    events += `<div><h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}">Host a party at ${data.events[i].title}</a></h1>`+
-                        `<h2 class='loopEvent'><a href="/parties/${data.events[i].id}">Or see parties at ${data.events[i].title}</a></h2></br></div>`
+                    events += `<div><h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}">Host a party at ${data.events[i].title}</a></br>`+
+                        `<p class='loopEvent'><a href="/parties/${data.events[i].id}">Or see parties at ${data.events[i].title}</a></p></br></h1></div>`
                 }
 
                 for(var i = 0; i < 1; i++) {
