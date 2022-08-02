@@ -17,12 +17,8 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
-    <!-- Background Styling-->
-<!--    <link rel="stylesheet" th:href="@{/css/background.css}">-->
     <!-- Custom Modal Form CSS -->
     <link rel="stylesheet" th:href="@{/css/modal-forms.css}">
-    <!-- Font Oswald-->
-<!--    <link th:replace="partials/font :: font">-->
 </head>
 <body style="text-align: center">
 
@@ -174,6 +170,7 @@
                                 <span class="details"><label for="confirmPassword">Confirm Password:</label></span>
                                 <input id="confirmPassword" type="password" class="form-control text-center" th:field="*{confirmPassword}"/>
                                 <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" th:class="${#fields.hasErrors('confirmPassword')}? errors"></p>
+                                <div id="confirmPasswordError" class="form-text"></div>
                             </div>
 
                             <div class="input-box">
@@ -191,7 +188,7 @@
                             <p>Already have an account? <a th:href="@{/login}">Log In</a></p>
                         </div>
                         <div class="form-btn">
-                            <input type="submit" value="Sign me up!">
+                            <input id="submit-btn" type="submit" value="Sign me up!">
                         </div>
                     </form>
                 </div>
