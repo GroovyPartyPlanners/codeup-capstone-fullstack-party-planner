@@ -47,7 +47,7 @@
                         <span><i class="fa-solid fa-circle-user" th:text="' Posted By: ' + ${party.getUser().username}"></i></span>
                     </span>
                 </div>
-                <p th:text="${party.getEvent()}"></p>
+<!--                <p th:text="${party.getEvent()}"></p>-->
                 <div class="details">
                     <div>
                         <a th:href="@{|/party/${party.id}|}" class="button">View Party Details</a>
