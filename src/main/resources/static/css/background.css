@@ -1,4 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&family=Oswald:wght@400;500;600&display=swap');
+
 .backdrop{
     background-color: #909BAB
 }
 
+*{
+    font-family: 'Oswald', sans-serif;
+}
+
+.italics{
+    font-family: 'Lato', sans-serif;
+}
