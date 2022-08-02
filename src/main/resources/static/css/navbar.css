@@ -2,16 +2,14 @@
     --main: #f0f2f4;
     --sec: white;
     --third: #015A06;
-    --accent: #6fffe9;
+    --accent: #47E1A1FF;
     --color-main: #000000;
     --shadow: #787b7b;
     --btn-main: #015A06;
-
 }
 .btn{
     background-color: var(--shadow);
     box-shadow: 0 1px var(--accent);
-
 }
 .btn:hover{
     transform: translateY(-.2em);

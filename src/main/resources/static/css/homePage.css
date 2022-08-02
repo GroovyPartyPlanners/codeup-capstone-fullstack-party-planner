@@ -4,7 +4,7 @@
     --main: #f0f2f4;
     --sec: white;
     --third: #015A06;
-    --accent: #6fffe9;
+    --accent: #47E1A1;
     --color-main: #000000;
     --shadow: #787b7b;
     --btn-main: #015A06;
@@ -19,7 +19,7 @@
     border-radius: 10px;
 }
 .loopEvent{
-    border: 1px solid var(--third);
+    border: 4px solid var(--third);
     border-radius: 10px;
     background-color: var(--sec);
     box-shadow: 3px 3px var(--shadow);
@@ -38,11 +38,11 @@
     font-family: "Poppins", sans-serif;;
 }
 .inputBoxes{
-    color: var(--accent-third);
+    color: var(--third);
     background-color: var(--accent);
 }
 .dropdown{
-    color: var(--accent-third);
+    color: var(--third);
     background-color: var(--accent);
 }
 .btn{
