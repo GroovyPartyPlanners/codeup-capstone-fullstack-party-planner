@@ -39,8 +39,10 @@ public class UserController {
             model.addAttribute("user", user);
             return "views/sign-up";
         } else {
-            String hash = passwordEncoder.encode(user.getPassword());
-            user.setPassword(hash);
+            String hashPass = passwordEncoder.encode(user.getPassword());
+            user.setPassword(hashPass);
+            String hashPassConfirm = passwordEncoder.encode(user.getConfirmPassword());
+            user.setConfirmPassword(hashPassConfirm);
             if (user.getProfilePicUrl().length() == 0) {
                 user.setProfilePicUrl("https://picsum.photos/seed/picsum/200/300?grayscale");
             }

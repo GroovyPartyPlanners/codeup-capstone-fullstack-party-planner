@@ -40,17 +40,17 @@
 <div class="form-body">
     <div class="form-container">
         <div class="title">Log In</div>
-        <form class="form" th:action="@{/login}" method="POST">
+        <form id="loginForm" class="form" th:action="@{/login}" method="POST">
             <div class="user-details">
 
                 <div class="input-box">
-                    <span class="details"><label for="username-login">Username:</label></span>
-                    <input id="username-login" type="text" class="form-control text-center"/>
+                    <span class="details"><label for="username">Username:</label></span>
+                    <input id="username" name="username" type="text" class="form-control text-center"/>
                 </div>
 
                 <div class="input-box">
-                    <span class="details"><label for="password-login">Password:</label></span>
-                    <input id="password-login" type="password" class="form-control text-center"/>
+                    <span class="details"><label for="password">Password:</label></span>
+                    <input id="password" name="password" type="password" class="form-control text-center"/>
                 </div>
 
             </div>
@@ -76,7 +76,7 @@
                         <span aria-hidden="true">X</span>
                     </button>
                     <div class="title">Sign-up</div>
-                    <form class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
+                    <form id="signUpForm" class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details"><label for="first-name">First Name:</label></span>

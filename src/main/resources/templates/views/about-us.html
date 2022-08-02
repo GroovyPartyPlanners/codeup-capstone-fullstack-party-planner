@@ -18,11 +18,11 @@
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
     <!-- Background Styling-->
-    <link rel="stylesheet" th:href="@{/css/background.css}">
+<!--    <link rel="stylesheet" th:href="@{/css/background.css}">-->
     <!-- Custom Modal Form CSS -->
     <link rel="stylesheet" th:href="@{/css/modal-forms.css}">
     <!-- Font Oswald-->
-    <link th:replace="partials/font :: font">
+<!--    <link th:replace="partials/font :: font">-->
 </head>
 <body style="text-align: center">
 
@@ -99,17 +99,17 @@
                         <span aria-hidden="true">X</span>
                     </button>
                     <div class="title">Log In</div>
-                    <form class="form" th:action="@{/login}" method="POST">
+                    <form id="loginForm" class="form" th:action="@{/login}" method="POST">
                         <div class="user-details">
 
                             <div class="input-box">
                                 <span class="details"><label for="username-login">Username:</label></span>
-                                <input id="username-login" type="text" class="form-control text-center"/>
+                                <input id="username-login" name="username" type="text" class="form-control text-center"/>
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="password-login">Password:</label></span>
-                                <input id="password-login" type="password" class="form-control text-center"/>
+                                <input id="password-login" name="password" type="password" class="form-control text-center"/>
                             </div>
 
                         </div>
@@ -138,52 +138,52 @@
                         <span aria-hidden="true">X</span>
                     </button>
                     <div class="title">Sign-up</div>
-                    <form class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
+                    <form id="signUpForm" class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details"><label for="first-name">First Name:</label></span>
-                                <input id="first-name" class="" th:field="*{first_name}" />
+                                <input id="first-name" class="form-control text-center" th:field="*{first_name}" />
                                 <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="last-name">Last Name:</label></span>
-                                <input id="last-name" class="" th:field="*{last_name}" />
+                                <input id="last-name" class="form-control text-center" th:field="*{last_name}" />
                                 <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="username-signup">Username:</label></span>
-                                <input id="username-signup" class="" th:field="*{username}" />
+                                <input id="username-signup" class="form-control text-center" th:field="*{username}" />
                                 <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="email">Email Address:</label></span>
-                                <input id="email" class="" th:field="*{email}" />
+                                <input id="email" class="form-control text-center" th:field="*{email}" />
                                 <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="password-signup">Password:</label></span>
-                                <input id="password-signup" type="password" class="" th:field="*{password}" />
+                                <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />
                                 <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="confirmPassword">Confirm Password:</label></span>
-                                <input id="confirmPassword" type="password" class="" th:field="*{confirmPassword}"/>
+                                <input id="confirmPassword" type="password" class="form-control text-center" th:field="*{confirmPassword}"/>
                                 <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" th:class="${#fields.hasErrors('confirmPassword')}? errors"></p>
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="group-name">Group Name (optional):</label></span>
-                                <input id="group-name" class="" th:field="*{group_name}" />
+                                <input id="group-name" class="form-control text-center" th:field="*{group_name}" />
                             </div>
 
                             <div class="input-box">
                                 <span class="details"><label for="profilePicUrl">Upload Profile Picture:</label></span>
-                                <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">
+                                <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden" class="form-control text-center">
                                 <button id="upload" type="button" class="upload-btn">Upload Picture</button>
                             </div>
                         </div>
