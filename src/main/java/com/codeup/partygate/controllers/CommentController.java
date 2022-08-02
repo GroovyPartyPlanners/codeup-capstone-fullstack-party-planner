@@ -58,13 +58,13 @@ public class CommentController {
         Party party = partyRepository.getById(partyId);
         comment.setParty(party);
         commentRepository.saveAndFlush(comment);
-        return "redirect:/parties";
+        return "redirect:/party/" + partyId;
     }
 
     @PostMapping("comment/{id}/delete")
     public String deleteComment(@PathVariable long id) {
         commentRepository.deleteById(id);
-        return "redirect:/parties";
+        return "redirect:/party/" + id;
     }
 
 }

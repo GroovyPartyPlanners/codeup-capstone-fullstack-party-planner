@@ -8,6 +8,7 @@
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
 <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
     <!-- Cloudflare CDN -->
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
@@ -48,6 +49,7 @@
     </div>
     <div class="eventsContainer">
         <h3 class="events-title">Below are the events in your area!</h3>
+        <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" ></img>
         <p class="total" id="total"></p>
         <p class="pages" id="pages"></p>
         <h1 class="eventTitle" id="eventTitle">
@@ -203,11 +205,11 @@
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!-- Custom Filestack JS Script -->
 <script type="text/javascript" th:src="@{/js/filestack.js}"></script>
-
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
 
 <script type="text/javascript" th:src="@{/js/landing.js}"></script>
 <!-- Custom Navbar JS -->
-<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+
 </body>
 </html>

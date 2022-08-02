@@ -4,15 +4,16 @@
     gap: var(--gap, 1rem);
 }
 
+/* Logo */
+.logo {
+    margin: 2rem;
+    width: 225px;
+}
+
 /* Primary header */
 header {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-}
-
-.logo {
-    margin: 2rem;
-    width: 225px;
 }
 
 .primary-header {
@@ -47,7 +48,26 @@ header {
     margin-inline-end: 0.75em;
 }
 
-@media (max-width: 35em) {
+.primary-navigation a:hover {
+    text-decoration: underline;
+    font-style: italic;
+    color: white;
+}
+
+/* Logout Button */
+.logout-btn {
+    font-size: 100%;
+    border: 0;
+    padding: 0;
+}
+
+.logout-btn:hover {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+/* Media Queries */
+@media (max-width: 45em) {
     .primary-navigation {
         --gap: 2em;
         position: fixed;
@@ -84,13 +104,13 @@ header {
     }
 }
 
-@media (min-width: 35em) and (max-width: 55em) {
+@media (min-width: 45em) and (max-width: 55em) {
     .primary-navigation a > span[aria-hidden] {
         display: none;
     }
 }
 
-@media (min-width: 35em) {
+@media (min-width: 45em) {
     .primary-navigation {
         --gap: clamp(1.5rem, 5vw, 3rem);
         padding-block: 1rem;

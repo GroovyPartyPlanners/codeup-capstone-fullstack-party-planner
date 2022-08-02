@@ -37,7 +37,7 @@
         <div class="col">
             <form th:action="@{/party-form}" method="POST" th:object="${party}">
                 <div th:if="${eventId != null}">
-                    <h1> Here's a cool event id: <span th:text="${eventId}"></span></h1>
+                    <h1>Enter your party details<span th:text="${eventId}"></span></h1>
                 </div>
 
                 <div class="form-group">
@@ -70,6 +70,7 @@
 <!-- Partial that contains Footer HTML -->
 <footer th:replace="partials/footer.html :: footer"></footer>
 
+<!-- Partial that contains Bootstrap and jQuery CDNs -->
 <div th:replace="partials/scripts :: scripts"></div>
 <!-- Filestack API -->
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>

@@ -103,7 +103,7 @@ public class PartyController {
             party.setUser(user);
             party.setEvent(event);
             partyRepository.save(party);
-            return "redirect:/parties";
+            return "redirect:/parties/" + eventId;
         }
 //        User user = userRepository.getById(userService.loggedInUser().getId());
 //        party.setUser(user);
