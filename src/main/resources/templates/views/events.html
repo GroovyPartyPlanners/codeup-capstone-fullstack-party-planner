@@ -23,11 +23,6 @@
 
 <body style="text-align: center">
 
-<div sec:authorize="!isAuthenticated()">
-    <!--    This content is only shown to UNAUTHENTICATED users.-->
-    <nav th:replace="partials/navbar :: navbar"></nav>
-</div>
-
 <div sec:authorize="isAuthenticated()">
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
@@ -98,7 +93,6 @@
 
 
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
-<script type="text/javascript" th:src="@{/js/homepage.js}"></script>
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 <script type="text/javascript" th:src="@{/js/homepage.js}"></script>

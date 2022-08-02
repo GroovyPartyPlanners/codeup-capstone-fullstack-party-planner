@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<!-------- OLD NAVBAR LOGGED IN -------->
+
 <!--<nav th:fragment="navbar-logged-in" class="navbar navbar-expand-lg navbar-light bg-light">-->
 <!--    <a class="navbar-brand" th:href="@{/home}">PartyPlanners</a>-->
 <!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
@@ -36,7 +38,9 @@
 
 <header th:fragment="navbar-logged-in" class="primary-header flex">
     <div>
-        <img th:src="@{/imgs/partyBanner.png}" alt="PartyPlanners" class="logo">
+        <a th:href="@{/events}">
+            <img th:src="@{/imgs/partyBanner.png}" alt="PartyPlanners" class="logo">
+        </a>
     </div>
 
     <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
