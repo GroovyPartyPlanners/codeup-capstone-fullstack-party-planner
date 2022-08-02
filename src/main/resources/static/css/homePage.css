@@ -21,7 +21,8 @@
     background-color: var(--sec);
     box-shadow: 3px 3px var(--shadow);
     padding: 1rem;
-    font-family: 'Righteous';
+    font-size: Large;
+    /*font-family: 'Poppins';*/
 }
 .loopEvent:hover{
     box-shadow: 8px 8px 8px 8px var(--shadow);
