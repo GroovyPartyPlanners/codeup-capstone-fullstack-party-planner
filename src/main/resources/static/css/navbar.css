@@ -1,15 +1,17 @@
 :root{
-    --main: #f0f2f4;
-    --sec: white;
-    --third: #015A06;
-    --accent: #47E1A1FF;
+    --main: #5bb7b6;
+    --sec: #8f9aa8;
+    --third: #1c2541;
+    --accent: #6fffe9;
     --color-main: #000000;
     --shadow: #787b7b;
-    --btn-main: #015A06;
+    --btn-main: #12ebd2;
+
 }
 .btn{
     background-color: var(--shadow);
     box-shadow: 0 1px var(--accent);
+
 }
 .btn:hover{
     transform: translateY(-.2em);
