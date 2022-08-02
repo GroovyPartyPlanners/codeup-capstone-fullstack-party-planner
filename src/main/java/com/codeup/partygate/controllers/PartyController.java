@@ -59,7 +59,7 @@ public class PartyController {
         Party party = partyRepository.getById(id);
         model.addAttribute("party", party);
         model.addAttribute("comments", commentRepository.findAllByPartyId(party.getId()));
-        return "views/party-select";
+        return "views/party";
     }
 
     @GetMapping("/party/{id}/edit")
