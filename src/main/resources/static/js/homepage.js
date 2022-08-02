@@ -67,7 +67,7 @@ function showPosition(position) {
                         pages.innerHTML = "";
                         let pagesCount = Math.ceil(data.meta.total/10);
                         pageNum = document.getElementById('pageNum');
-                        for(let i = 0; i < pagesCount; i++){
+                        for(let i = 0; i < 11; i++){
                             pageNum.innerHTML = 'Page:'
                             pages.innerHTML += `<a href="#"  onclick="page(${i})">`+" "+`${i+1}</a>`
                         }
@@ -113,7 +113,7 @@ function showPosition(position) {
                         pages = document.getElementById('pages');
                         let pagesCount = Math.ceil(data.meta.total/10);
                         pages.innerHTML = "";
-                        for(let i = 0; i < pagesCount; i++){
+                        for(let i = 0; i < 11; i++){
                             pages.innerHTML += `<a href="#" onclick="pin(${i})">`+" "+`${i+1}</a>`
                         }
                     }
@@ -160,7 +160,7 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                         let pagesCount = Math.ceil(data.meta.total / 10);
                         pages.innerHTML = "";
 
-                        for (let i = 0; i < pagesCount; i++) {
+                        for (let i = 0; i < 11; i++) {
                             pages.innerHTML += `<a href="#"  onclick="page(${i})">` + " " + `${i + 1}</a>`
 
                         }
