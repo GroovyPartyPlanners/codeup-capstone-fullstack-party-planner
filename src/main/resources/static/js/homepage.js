@@ -69,7 +69,7 @@ function windowLoading(){
                                 let pagesCount = Math.ceil(data.meta.total/10);
                                 pageNum = document.getElementById('pageNum');
                                 console.log(lat,lng)
-                                for(let i = 0; i < pagesCount; i++){
+                                for(let i = 0; i < 11; i++){
                                     pageNum.innerHTML = 'Page:'
                                     pages.innerHTML += `<a href="#"  onclick="page(${i},${lat},${lng})">`+" "+`${i+1}</a>`
 
@@ -118,7 +118,7 @@ function windowLoading(){
                                 pages = document.getElementById('pages');
                                 let pagesCount = Math.ceil(data.meta.total/10);
                                 pages.innerHTML = "";
-                                for(let i = 0; i < pagesCount; i++){
+                                for(let i = 0; i < 11; i++){
                                     pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
                                 }
                             }
@@ -194,8 +194,8 @@ function page(num, lat,lng){
                     console.log('page clicked!, if statemnt')
                     var events ='';
                     console.log(data.events);
-                    total = document.getElementById('total');
-                    total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+                    // total = document.getElementById('total');
+                    // total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
                     for(var i = 0; i < data.events.length; i++) {
                         // if(data.[i].p)
                         const date = new Date(data.events[i].datetime_local);
