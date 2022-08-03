@@ -15,6 +15,8 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Custom Page Form CSS -->
+    <link rel="stylesheet" th:href="@{/css/party-forms.css}">
 </head>
 <body style="text-align: center">
 
@@ -28,41 +30,39 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form th:action="@{/party-form}" method="POST" th:object="${party}">
-                <div th:if="${eventId != null}">
-                    <h1>Enter your party details<span th:text="${eventId}"></span></h1>
+<div class="form-body">
+    <div class="form-container">
+        <div class="title">Enter your party details!</div>
+        <form id="party-form" class="form" th:action="@{/party-form}" method="POST" th:object="${party}">
+            <div th:if="${eventId == null}">
+                <span th:text="${eventId}"></span>
+            </div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details"><label for="partyPicUrl">Upload Party Picture:</label></span>
+                    <input id="partyPicUrl" name="partyPicUrl" value="replaceMe" th:field="*{partyPicUrl}" type="hidden"/>
+                    <button id="upload" type="button">Upload Picture</button>
                 </div>
 
-                <div class="form-group">
-                    <label for="partyPicUrl" class="form-label">Upload Party Picture:</label>
-                    <input id="partyPicUrl" name="partyPicUrl" value="replaceMe" th:field="*{partyPicUrl}" type="hidden">
-                    <br>
-                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>
-                </div>
-
-                <div class="form-group">
-                    <label for="party-name">Party Name:</label>
-                    <input id="party-name" class="form-control text-center" th:field="*{party_name}" />
+                <div class="input-box">
+                    <span class="details"><label for="party-name">Party Name:</label></span>
+                    <input id="party-name" class="form-control text-center" th:field="*{party_name}"/>
                 </div>
 
                 <input id="event-id" name="event-id" type="hidden" th:value="${eventId}">
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description" class="form-control text-center" rows="5" th:field="*{description}"></textarea>
+
+                <div class="input-box">
+                    <span class="details"><label for="description">Description:</label></span>
+                    <textarea id="description" name="description" class="form-control text-center" th:field="*{description}"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <input value="Create a Party!" type="submit" class="btn btn-primary"/>
-                </div>
-            </form>
-        </div>
+            </div>
+            <div class="form-btn">
+                <input type="submit" value="Host a Party!">
+            </div>
+        </form>
     </div>
 </div>
-
 
 <!-- Partial that contains Footer HTML -->
 <footer th:replace="partials/footer.html :: footer"></footer>
