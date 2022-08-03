@@ -32,7 +32,7 @@
 
 <div class="form-body">
     <div class="form-container">
-        <div class="title">Edit or Delete your Comment:</div>
+        <div class="title">Edit or Delete Comment:</div>
         <form class="form" th:action="@{/comment/{commentId}/{partyId}/edit(commentId=${comment.id}, partyId=${comment.getParty().getId()})}" method="POST" th:object="${comment}">
             <div class="user-details">
 

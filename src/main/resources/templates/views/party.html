@@ -11,12 +11,14 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom Party CSS -->
+    <link rel="stylesheet" th:href="@{/css/party.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
 </head>
-<body style="text-align: center">
+<body>
 
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
@@ -34,23 +36,53 @@
         <p class="card-text"><small class="text-muted" th:text="'Posted by: ' + ${party.user.username}"></small></p>
         <h5 class="card-title" th:text="${party.party_name}"></h5>
         <p class="card-text" th:text="${party.description}"></p>
-        <div class="card text-center mb-3" th:each="comment : ${comments}">
-            <div class="card-header">Comments</div>
-            <div class="card-body">
-                <h3 class="card-title" th:text="${comment.getUser().username}"></h3>
-                <p class="card-text" th:text="${comment.comment_content}"></p>
-                <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
-                    <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit or Delete Comment</a>
-                </div>
-            </div>
-        </div>
+<!--        <div class="card text-center mb-3" th:each="comment : ${comments}">-->
+<!--            <div class="card-header">Comments</div>-->
+<!--            <div class="card-body">-->
+<!--                <h3 class="card-title" th:text="${comment.getUser().username}"></h3>-->
+<!--                <p class="card-text" th:text="${comment.comment_content}"></p>-->
+<!--                <div th:if="${comment.getUser().getId() == #authentication.principal.id}">-->
+<!--                    <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit or Delete Comment</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
     <a th:href="@{|/party/${party.id}/comment-form|}" class="btn btn-primary">Post a Comment</a>
 </div>
 
+<h1 class="comment-heading">Comments</h1>
+<section th:each="comment : ${comments}">
+    <div class="container my-5 py-5 text-dark">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-11 col-lg-9 col-xl-7">
+                <div class="d-flex flex-start mb-4">
+                    <div class="form-container card w-100">
+                        <div class="card-body p-4">
+                            <img class="rounded-circle shadow-1-strong me-3"
+                                 th:src="${comment.getUser().getProfilePicUrl()}" alt="avatar" width="65"
+                                 height="65" />
+                            <div class="">
+                                <h5 th:text="${comment.getUser().username}"></h5>
+                                <p class="text-center" th:text="${comment.comment_content}"></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    </div>
+                                    <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
+                                        <a th:href="@{|/comment/${comment.id}/edit|}" class="link-muted"><i class="fas fa-reply me-1"></i> Edit or Delete Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
-
+<!-- Partial that contains Bootstrap and jQuery CDNs -->
 <div th:replace="partials/scripts :: scripts"></div>
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>

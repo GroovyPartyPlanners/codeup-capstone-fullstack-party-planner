@@ -88,17 +88,17 @@ ul{
     list-style: none;
 }
 
-.break::after{
-    content: "";
-    width: 40rem;
-    height: .5rem;
-    background-color: var(--accent);
-    position: absolute;
-    left: 50%;
-    bottom:34rem;
-    transform: translateX(-50%);
-    border-radius: 2rem;
-}
+/*.break::after{*/
+/*    content: "";*/
+/*    width: 40rem;*/
+/*    height: .5rem;*/
+/*    background-color: var(--accent);*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    bottom:34rem;*/
+/*    transform: translateX(-50%);*/
+/*    border-radius: 2rem;*/
+/*}*/
 .hidden{
     visibility: hidden;
 }
