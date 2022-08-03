@@ -43,17 +43,6 @@ public class PartyController {
         return "views/party-form";
     }
 
-//    @PostMapping("event/party/{eventId}")
-//    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
-//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
-//        parties.add(party);
-//        Event event = new Event();
-//        event.setId(eventId);
-//        event.setParties(parties);
-//        eventsRepository.save(event);
-//        return "views/home";
-//    }
-
     @GetMapping("/party/{id}")
     public String viewPartyDetails(@PathVariable long id, Model model) {
         Party party = partyRepository.getById(id);
@@ -109,17 +98,6 @@ public class PartyController {
             partyRepository.save(party);
             return "redirect:/parties/" + eventId;
         }
-//        User user = userRepository.getById(userService.loggedInUser().getId());
-//        party.setUser(user);
-//        for (Event event: eventsRepository.findAll()
-//             ) {
-//            if (event.getEventApiId() == eventId) {
-//                party.setEvent(event);
-//            }
-//        }
-//        partyRepository.save(party);
-//        return "views/parties";
-//    }
 
     @GetMapping("/parties/{eventId}")
     public String viewParties(Model model, @PathVariable Long eventId) {
@@ -135,6 +113,29 @@ public class PartyController {
         return "views/parties";
     }
 }
+
+//    @PostMapping("event/party/{eventId}")
+//    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
+//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
+//        parties.add(party);
+//        Event event = new Event();
+//        event.setId(eventId);
+//        event.setParties(parties);
+//        eventsRepository.save(event);
+//        return "views/home";
+//    }
+
+//        User user = userRepository.getById(userService.loggedInUser().getId());
+//        party.setUser(user);
+//        for (Event event: eventsRepository.findAll()
+//             ) {
+//            if (event.getEventApiId() == eventId) {
+//                party.setEvent(event);
+//            }
+//        }
+//        partyRepository.save(party);
+//        return "views/parties";
+//    }
 
 //    @GetMapping(path = "parties/{event_id}")
 //    public String showEventParties(@PathVariable String event_id, @ModelAttribute Model model) {

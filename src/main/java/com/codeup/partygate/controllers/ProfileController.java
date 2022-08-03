@@ -58,8 +58,10 @@ public class ProfileController {
             model.addAttribute("user", user);
             return "views/edit-profile";
         } else {
-            String hash = passwordEncoder.encode(user.getPassword());
-            user.setPassword(hash);
+            String hashPass = passwordEncoder.encode(user.getPassword());
+            user.setPassword(hashPass);
+            String hashPassConfirm = passwordEncoder.encode(user.getConfirmPassword());
+            user.setConfirmPassword(hashPassConfirm);
             usersRepository.saveAndFlush(user);
             return "redirect:/profile";
         }
