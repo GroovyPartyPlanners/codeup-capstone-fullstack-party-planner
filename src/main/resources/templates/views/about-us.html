@@ -17,6 +17,12 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Background Styling-->
+<!--    <link rel="stylesheet" th:href="@{/css/background.css}">-->
+    <!-- Custom Modal Form CSS -->
+    <link rel="stylesheet" th:href="@{/css/modal-forms.css}">
+    <!-- Font Oswald-->
+<!--    <link th:replace="partials/font :: font">-->
 </head>
 <body style="text-align: center">
 
@@ -55,6 +61,7 @@
                 <p class="job-title">Software Developer</p>
                 <p class="about">Navy Vet, Junior Full Stack Developer, Electronics Hobbyist</p>
                 <a href="https://www.keaton-kreations.com/dist/" class="btn">Portfolio</a>
+                <a href="../../../resources/static/resumes/keaton_hutto_Resume_2022.pdf" download="keaton_hutto_Resume_2022.pdf" class="btn">Resume</a>
                 <ul class="social-media">
                     <li><a href="mailto:keatonhutto8@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>
                     <li><a href="https://www.linkedin.com/in/keaton-hutto8" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -79,12 +86,129 @@
     </div>
 </section>
 
+
+<!-- Login Modal -->
+<div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="text-center">
+            </div>
+            <div class="form-body">
+                <div class="form-container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                    <div class="title">Log In</div>
+                    <form id="loginForm" class="form" th:action="@{/login}" method="POST">
+                        <div class="user-details">
+
+                            <div class="input-box">
+                                <span class="details"><label for="username-login">Username:</label></span>
+                                <input id="username-login" name="username" type="text" class="form-control text-center"/>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="password-login">Password:</label></span>
+                                <input id="password-login" name="password" type="password" class="form-control text-center"/>
+                            </div>
+
+                        </div>
+                        <div>
+                            <p>Don't have an account? <a th:href="@{/sign-up}">Sign-up</a></p>
+                        </div>
+                        <div class="form-btn">
+                            <input type="submit" value="Log In">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sign-up Modal -->
+<div class="modal fade" id="staticBackdropSignUp" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelSignUp" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="text-center">
+            </div>
+            <div class="form-body">
+                <div class="form-container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                    <div class="title">Sign-up</div>
+                    <form id="signUpForm" class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
+                        <div class="user-details">
+                            <div class="input-box">
+                                <span class="details"><label for="first-name">First Name:</label></span>
+                                <input id="first-name" class="form-control text-center" th:field="*{first_name}" />
+                                <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="last-name">Last Name:</label></span>
+                                <input id="last-name" class="form-control text-center" th:field="*{last_name}" />
+                                <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="username-signup">Username:</label></span>
+                                <input id="username-signup" class="form-control text-center" th:field="*{username}" />
+                                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="email">Email Address:</label></span>
+                                <input id="email" class="form-control text-center" th:field="*{email}" />
+                                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="password-signup">Password:</label></span>
+                                <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />
+                                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="confirmPassword">Confirm Password:</label></span>
+                                <input id="confirmPassword" type="password" class="form-control text-center" th:field="*{confirmPassword}"/>
+                                <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" th:class="${#fields.hasErrors('confirmPassword')}? errors"></p>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="group-name">Group Name (optional):</label></span>
+                                <input id="group-name" class="form-control text-center" th:field="*{group_name}" />
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details"><label for="profilePicUrl">Upload Profile Picture:</label></span>
+                                <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden" class="form-control text-center">
+                                <button id="upload" type="button" class="upload-btn">Upload Picture</button>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Already have an account? <a th:href="@{/login}">Log In</a></p>
+                        </div>
+                        <div class="form-btn">
+                            <input type="submit" value="Sign me up!">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
 
 <!-- Partial that contains Bootstrap and jQuery CDNs -->
 <div th:replace="partials/scripts :: scripts"></div>
-
+<!-- Filestack API -->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!-- Custom Filestack JS Script -->
+<script type="text/javascript" th:src="@{/js/profile-filestack.js}"></script>
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>

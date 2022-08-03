@@ -67,7 +67,7 @@ function showPosition(position) {
                         pages.innerHTML = "";
                         let pagesCount = Math.ceil(data.meta.total/10);
                         pageNum = document.getElementById('pageNum');
-                        for(let i = 0; i < 11; i++){
+                        for(let i = 0; i < pagesCount; i++){
                             pageNum.innerHTML = 'Page:'
                             pages.innerHTML += `<a href="#"  onclick="page(${i})">`+" "+`${i+1}</a>`
                         }
@@ -113,7 +113,7 @@ function showPosition(position) {
                         pages = document.getElementById('pages');
                         let pagesCount = Math.ceil(data.meta.total/10);
                         pages.innerHTML = "";
-                        for(let i = 0; i < 11; i++){
+                        for(let i = 0; i < pagesCount; i++){
                             pages.innerHTML += `<a href="#" onclick="pin(${i})">`+" "+`${i+1}</a>`
                         }
                     }
@@ -132,45 +132,42 @@ document.getElementById('search-btn').addEventListener('click', function (e){
 
     var type = document.getElementById("type").value
     var search = document.getElementById("search").value
-    if (search == ""){
-        alert("Please enter a search term")
-    } else {
-        fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                var events = '';
 
-                total = document.getElementById('total');
-                total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
-                for (var i = 0; i < data.events.length; i++) {
-                    const date = new Date(data.events[i].datetime_local);
-                    const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year' + " " + `${month}/${day}/${year}`;
-                    events += `<div><h1 class='loopEvent'>${data.events[i].title}` + " " + `${data.events[i].venue.name}` + " " + `${data.events[i].venue.display_location}` + " Date: " + dateString + " Popularity " + `${data.events[i].popularity}` + `<a href="/events/${data.events[i].id}">Host a party at ${data.events[i].title}</a></h1>` +
-                        `<h2 class='loopEvent'><a href="/parties/${data.events[i].id}">Or see parties at ${data.events[i].title}</a></h2></br></div>`
+    fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&client_id=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            var events ='';
+
+            total = document.getElementById('total');
+            total.innerHTML = `<h1>Total Events ${data.meta.total}</h1>`
+            for(var i = 0; i < data.events.length; i++) {
+                const date = new Date(data.events[i].datetime_local);
+                const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                events += `<div><h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}`+`<a href="/events/${data.events[i].id}">Host a party at ${data.events[i].title}</a></h1>`+
+                    `<h2 class='loopEvent'><a href="/parties/${data.events[i].id}">Or see parties at ${data.events[i].title}</a></h2></br></div>`
+            }
+            for(var i = 0; i < 1; i++) {
+                if(data.meta.total <11){
+                    pages = document.getElementById('pages');
+                    pages.innerHTML = "";
                 }
-                for (var i = 0; i < 1; i++) {
-                    if (data.meta.total < 11) {
-                        pages = document.getElementById('pages');
-                        pages.innerHTML = "";
-                    }
-                    if (data.meta.total >= 11) {
-                        pages = document.getElementById('pages');
-                        let pagesCount = Math.ceil(data.meta.total / 10);
-                        pages.innerHTML = "";
+                if(data.meta.total>=11){
+                    pages = document.getElementById('pages');
+                    let pagesCount = Math.ceil(data.meta.total/10);
+                    pages.innerHTML = "";
 
-                        for (let i = 0; i < 11; i++) {
-                            pages.innerHTML += `<a href="#"  onclick="page(${i})">` + " " + `${i + 1}</a>`
-
-                        }
+                    for(let i = 0; i < pagesCount; i++){
+                        pages.innerHTML += `<a href="#"  onclick="page(${i})">`+" "+`${i+1}</a>`
 
                     }
-                    document.getElementById("eventTitle").innerHTML = events
+
                 }
-            })
-            .catch(error => console.log(error));
-    }});
+                document.getElementById("eventTitle").innerHTML = events
+            }})
+        .catch(error => console.log(error));
+});
 
 function pin(num){
 //     var type = document.getElementById("type").value

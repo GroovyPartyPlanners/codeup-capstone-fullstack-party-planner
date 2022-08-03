@@ -9,7 +9,7 @@
 
 .form-body {
     display: flex;
-    height: 80vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     padding-left: 25px;
@@ -27,7 +27,6 @@
 }
 
 .form-container .title {
-    margin-bottom: 5px;
     font-size: 25px;
     font-weight: 500;
     position: relative;
