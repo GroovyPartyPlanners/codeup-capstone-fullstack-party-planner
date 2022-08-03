@@ -25,4 +25,9 @@ public class AboutController {
         return "views/about-us";
     }
 
+    @GetMapping("/terms")
+    public String showTerms() {
+        return "views/terms";
+    }
+
 }
