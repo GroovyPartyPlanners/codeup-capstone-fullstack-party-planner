@@ -7,8 +7,6 @@
     <title>Landing Page</title>
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-
     <!-- Cloudflare CDN -->
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
@@ -16,9 +14,10 @@
 
 <!--    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Kanit:ital,wght@1,200&family=Righteous&display=swap" rel="stylesheet">-->
 
-    <link rel="stylesheet" th:href="@{/css/landing.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/footer.css}">
+
+    <link rel="stylesheet" th:href="@{/css/landing.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
     <!-- Background Styling-->
@@ -37,9 +36,7 @@
 </div>
 
 <div class="backdrop">
-
     <div class="container">
-
         <h4 class="intro-title">Welcome to Party Planners</h4>
         <p class="introParagraph">
             PartyGate is a web application that allows you to plan your party and tailgates with people.
@@ -59,23 +56,8 @@
                 <h2 class="popularity" id="popularity"></h2>
             </h1>
         </div>
-
+    </div>
 </div>
-
-<!--OLD CODE THAT REDIRECTS USER TO A SEPARATE LOGIN OR SIGN-UP PAGE  -->
-<!--<div class="container">-->
-<!--    <div class="col">-->
-<!--        <div class="row">-->
-<!--            <div class="col">-->
-<!--                <a class="btn btn-primary" th:href="@{/login}">Login</a>-->
-<!--            </div>-->
-
-<!--            <div class="col">-->
-<!--                <a class="btn btn-primary" th:href="@{/sign-up}">Sign-up</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>

@@ -6,9 +6,14 @@
     box-sizing: border-box;
 }
 
+section {
+    margin-top: -80px;
+    margin-bottom: -150px;
+}
+
 .comment-heading {
     text-transform: uppercase;
-    font-size: 4.5rem;
+    font-size: 4rem;
     letter-spacing: 3px;
     margin-right: -3px;
     margin-bottom: 5rem;
@@ -27,6 +32,7 @@
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2rem;
+    margin-bottom: 20px;
 }
 
 .form-container {
@@ -36,18 +42,35 @@
     background: #ffffff;
     padding: 25px 30px;
     border-radius: 10px;
-    box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.2);
+    box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+section img {
+    margin-left: -25px;
+    margin-top: -25px;
 }
 
 h5 {
-    margin-left: 15px;
+    margin-left: -10px;
+}
+
+.comment-content {
+    margin-top: -80px;
+    margin-left: 35px;
 }
 
 .link-muted {
-    margin-top: 10px;
     color: #aaa;
 }
 
+.edit-container {
+    margin-bottom: -50px;
+}
+
 .link-muted:hover {
-    color: #1266f1;
+    color: #47E1A1;
+}
+
+.footer {
+    margin-top: 200px;
 }

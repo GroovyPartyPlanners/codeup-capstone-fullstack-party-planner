@@ -17,7 +17,6 @@
 
 .backdrop{
     background-color: #f0f2f4;
-    padding-top: 30px;
 }
 
 *{
@@ -39,7 +38,6 @@
 .profile-div-outer {
     border: 2px solid #015A06;
     border-radius: 6px;
-    padding: 20px;
 }
 
 /*https://www.joshwcomeau.com/css/designing-shadows/*/
@@ -52,34 +50,19 @@
 }
 
 .profile-btn{
-    color: white;
-    background-color: #015A06;
-    border: 2px solid #47E1A1;
+    color: black;
+    background-color: #47E1A1;
+    border: 2px solid #015A06;
     border-radius: 12px;
     margin: 5px;
     font-weight: bolder;
-    height: 60px;
 }
 
 .profile-btn:hover{
-    color: #015A06;
-    background-color: #f0f2f4;
+    color: white;
+    background-color: #015A06;
     border: 2px solid #47E1A1;
     margin: 5px;
     font-weight: bolder;
-    text-decoration: none;
-    height: 60px;
 }
 
-/*.container.profile-div-outer{*/
-/*    background-color: white;*/
-/*    padding: 40px;*/
-/*}*/
-
-.eventsContainer{
-    padding: 0px;
-}
-
-/*.canvas.mapboxgl-canvas{*/
-/*    margin: 20px;*/
-/*}*/
