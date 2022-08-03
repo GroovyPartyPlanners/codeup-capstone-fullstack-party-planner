@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="fileStackAPI" th:content="${fileStackAPI}">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit Party Form</title>
@@ -12,9 +12,11 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
-    <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Custom Page Form CSS -->
+    <link rel="stylesheet" th:href="@{/css/party-forms.css}">
 </head>
 <body style="text-align: center">
 
@@ -28,29 +30,36 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<h1>Edit your Party Details</h1>
+<div class="form-body">
+    <div class="form-container">
+        <div class="title">Edit your party details!</div>
+        <form id="party-form" class="form" th:action="@{/party/{id}/edit(id=${party.id})}" method="POST" th:object="${party}">
+            <div class="user-details">
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form th:action="@{/party/{id}/edit(id=${party.id})}" method="POST" th:object="${party}">
-
-                <div class="form-group">
-                    <label for="title">Party Name</label>
-                    <input th:field="*{party_name}" id="title" name="title" type="text" class="form-control text-center" />
+                <div class="input-box">
+                    <span class="details"><label for="partyPicUrl">Upload Party Picture:</label></span>
+                    <input id="partyPicUrl" name="partyPicUrl" value="replaceMe" th:field="*{partyPicUrl}" type="hidden"/>
+                    <button id="upload" type="button">Upload Picture</button>
                 </div>
 
-                <div class="form-group">
-                    <label for="description">Party Description</label>
-                    <textarea th:field="*{description}" id="description" name="description" class="form-control text-center" rows="5"></textarea>
+                <div class="input-box">
+                    <span class="details"><label for="party-name">Party Name:</label></span>
+                    <input id="party-name" class="form-control text-center" th:field="*{party_name}"/>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Edit Party" class="btn btn-primary"/>
-                </div>
-            </form>
 
-            <form th:action="@{|/party/${party.id}/delete|}" th:method="POST">
-                <input type="submit" value="Delete Party" class="btn btn-primary" />
+                <div class="input-box">
+                    <span class="details"><label for="description">Description:</label></span>
+                    <textarea id="description" name="description" class="form-control text-center" th:field="*{description}"></textarea>
+                </div>
+
+            </div>
+            <div class="form-btn">
+                <input type="submit" value="Update Party Details!">
+            </div>
+        </form>
+        <div class="form-btn">
+            <form class="delete-btn" th:action="@{|/party/${party.id}/delete|}" th:method="POST">
+                <input type="submit" value="Delete Party" />
             </form>
         </div>
     </div>
@@ -60,6 +69,10 @@
 <div th:replace="partials/footer.html :: footer"></div>
 
 <div th:replace="partials/scripts :: scripts"></div>
+<!-- Filestack API -->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!-- Custom Filestack JS Script -->
+<script type="text/javascript" th:src="@{/js/party-filestack.js}"></script>
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
