@@ -89,3 +89,11 @@ body{
     margin: 1rem;
     box-shadow: 3px 3px var(--accent);
 }
+
+header {
+    background-color: #f0f2f4;
+}
+
+.footer {
+    background-color: #f0f2f4;
+}
