@@ -70,10 +70,10 @@ header {
 /* Media Queries */
 @media (max-width: 45em) {
     .primary-navigation {
-        --gap: 2em;
+        --gap: 3em;
         position: fixed;
         z-index: 1000;
-        inset: 0 0 0 30%;
+        inset: 0 0 0 55%;
         flex-direction: column;
         padding: min(30vh, 10rem) 2em;
         transform: translateX(100%);

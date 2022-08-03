@@ -12,40 +12,44 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
     <!-- Custom Footer CSS -->
-    <link rel="stylesheet" th:href="@{/css/fixed-footer.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
-    <!-- Background Styling-->
-    <link rel="stylesheet" th:href="@{/css/background.css}">
+    <!-- Custom Page Form CSS -->
+    <link rel="stylesheet" th:href="@{/css/comment-forms.css}">
 </head>
 <body style="text-align: center">
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
 
 <div sec:authorize="isAuthenticated()">
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<div class="backdrop">
-<h1>Edit your Comment</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <form th:action="@{/comment/{commentId}/{partyId}/edit(commentId=${comment.id}, partyId=${comment.getParty().getId()})}" method="POST" th:object="${comment}">
+<div class="form-body">
+    <div class="form-container">
+        <div class="title">Edit or Delete your Comment:</div>
+        <form class="form" th:action="@{/comment/{commentId}/{partyId}/edit(commentId=${comment.id}, partyId=${comment.getParty().getId()})}" method="POST" th:object="${comment}">
+            <div class="user-details">
 
-                    <div class="form-group">
-                        <label for="comment-content">Comment Content:</label>
-                        <textarea th:field="*{comment_content}" id="comment-content" name="comment-content" class="form-control text-center" rows="5"></textarea>
-                    </div>
+                <div class="input-box">
+                    <span class="details"><label for="comment-content"></label></span>
+                    <textarea th:field="*{comment_content}" id="comment-content" name="comment-content" class="form-control text-center"></textarea>
+                </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="Edit Comment" class="btn btn-primary"/>
-                    </div>
-                </form>
-
-                <form th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">
-                    <input type="submit" value="Delete Comment" class="btn btn-primary" />
-                </form>
             </div>
+            <div class="form-btn">
+                <input type="submit" value="Edit">
+            </div>
+        </form>
+        <div class="form-btn">
+            <form class="delete-btn" th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">
+                <input type="submit" value="Delete" />
+            </form>
         </div>
     </div>
 </div>

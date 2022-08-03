@@ -366,5 +366,52 @@
 <!--    </a>-->
 <!--</li>-->
 
+<!-------- OLD COMMENT FORM -------->
+
+<!--<h1>Post a Comment</h1>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/party/{id}/comment-form(id=${party.id})}" method="POST" th:object="${comment}">-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="comment">Comment:</label>-->
+<!--                    <textarea th:field="*{comment_content}" id="comment" class="form-control text-center" rows="5"></textarea>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input value="Post Comment" type="submit" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD EDIT COMMENT FORM -------->
+
+<!--<h1>Edit your Comment</h1>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/comment/{commentId}/{partyId}/edit(commentId=${comment.id}, partyId=${comment.getParty().getId()})}" method="POST" th:object="${comment}">-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="comment-content">Comment Content:</label>-->
+<!--                    <textarea th:field="*{comment_content}" id="comment-content" name="comment-content" class="form-control text-center" rows="5"></textarea>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input type="submit" value="Edit Comment" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
+
+<!--            <form th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">-->
+<!--                <input type="submit" value="Delete Comment" class="btn btn-primary" />-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
 </body>
 </html>

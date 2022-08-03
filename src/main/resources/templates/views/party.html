@@ -20,6 +20,11 @@
 </head>
 <body style="text-align: center">
 
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
+
 <div sec:authorize="isAuthenticated()">
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
@@ -38,7 +43,7 @@
                     <h3 class="card-title" th:text="${comment.getUser().username}"></h3>
                     <p class="card-text" th:text="${comment.comment_content}"></p>
                     <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
-                        <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit Comment</a>
+                        <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit or Delete Comment</a>
                     </div>
                 </div>
             </div>

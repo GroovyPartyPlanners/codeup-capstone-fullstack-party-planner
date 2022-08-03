@@ -17,9 +17,13 @@
     <link rel="stylesheet" th:href="@{/css/parties.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
-<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}">-->
 </head>
 <body>
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
 
 <div sec:authorize="isAuthenticated()">
     <!--    This content is only shown to AUTHENTICATED users.-->
