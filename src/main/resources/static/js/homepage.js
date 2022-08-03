@@ -234,3 +234,4 @@ function page(num, lat,lng){
             ).catch(error => console.log(error));
     }
 }
+
