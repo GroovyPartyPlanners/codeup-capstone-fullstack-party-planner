@@ -53,7 +53,7 @@
 .form .user-details .input-box {
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
-}ƒ
+}
 
 .user-details .input-box .details {
     display: block;
@@ -76,6 +76,23 @@
 .user-details .input-box input:focus,
 .user-details .input-box input:valid {
     border-color: #47E1A1;
+}
+
+.form .input-box button {
+    height: 60%;
+    width: 100%;
+    outline: none;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: #47E1A1;
+}
+
+.form .input-box button:hover {
+    background: lightseagreen;
 }
 
 .form .form-btn {
