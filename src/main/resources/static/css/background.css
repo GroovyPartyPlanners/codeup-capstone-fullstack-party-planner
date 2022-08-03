@@ -16,7 +16,7 @@
 }
 
 .backdrop{
-    background-color: #f0f2f4
+    background-color: #f0f2f4;
 }
 
 *{
@@ -65,3 +65,4 @@
     margin: 5px;
     font-weight: bolder;
 }
+
