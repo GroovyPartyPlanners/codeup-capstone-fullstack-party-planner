@@ -65,6 +65,7 @@ public class PartyController {
     @GetMapping("/party/{id}/edit")
     public String editPartyForm(@PathVariable long id, Model model) {
         model.addAttribute("party", partyRepository.getById(id));
+        model.addAttribute("fileStackAPI", fileStackAPIKey);
         return "views/edit-party";
     }
 
