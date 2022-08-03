@@ -36,15 +36,23 @@
 </div>
 
 <div class="backdrop">
+<br/><span class="backdrop"></span><br/>
 
 <div class="container">
     <div class="row">
-        <div class="col-5">
+        <div class="col-6">
     <div class="container">
-        <label class="mapLabel d-flex justify-content-center">Search map by dragging the dropped Pin</label>
+        <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>
+        <div class="container profile-div-outer">
         <div id='map' style='width: 500px; height: 675px;'></div>
+        </div>
+        <br/>
         <form>
-        <ul>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-auto col-md-3 d-flex justify-content-center">
+
+        <ul class="profile-div-outer list-unstyled">
             <li>
                 <label for="search">Enter a location(City,State,Stadium,Theatre,etc.)Or keywords(Performers, Teams, etc.)</label><input type="text" id="search" placeholder="Search"></li>
             <li>
@@ -63,25 +71,28 @@
                     <option value="soccer">Soccer</option>
                     <option value="football">Football</option>
                 </select></li>
-            <li><button id="search-btn" class="button">Search</button></li>
+            <li><button id="search-btn" class="button profile-btn">Search</button></li>
         </ul>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
     </div>
 
 
-        <div class="col-7">
-        <div class="container eventsContainer">
 
-            <ul>
-                <li><label class="hidden">Sort By Popularity</label>
+        <div class="col-6">
+        <div class="container eventsContainer">
+            <p class="total" id="total"></p>
+            <ul class="hidden">
+                <li class="hidden"><label class="hidden">Sort By Popularity</label>
                     <button id="upvote"class="button hidden">⬆</button>
                     <button id="downvote" class="button hidden">⬇</button></li>
                 <h5 class="popMeaning hidden">Popularity is on a scale of 0-1</h5>
                 <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" />
-                <p class="total" id="total"></p>
-                <p class="pages" id="pages"></p>
-                <p class="page" id="pageNum"></p>
+<!--                <p class="total" id="total"></p>-->
+
 
             </ul>
             <div class = "container">
@@ -89,6 +100,8 @@
                 <h2 class="eventDate" id="eventDate"></h2>
                 <h2 class="popularity" id="popularity"></h2>
             </h1>
+                <p class="pages" id="pages"></p>
+                <p class="page" id="pageNum"></p>
             </div>
         </div>
         </div>
