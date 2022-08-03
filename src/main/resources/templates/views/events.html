@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">
     <!-- Background Styling-->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
@@ -35,32 +36,19 @@
 </div>
 
 <div class="backdrop">
-<br/><span class="backdrop"></span><br/>
+</br><span class="backdrop"></span></br>
 
 <div class="container">
     <div class="row">
         <div class="col-6">
     <div class="container">
-
         <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>
         <div class="container profile-div-outer">
-
-
-        <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>
-        <div class="container profile-div-outer">
-
-        <label class="mapLabel d-flex justify-content-center">Search the map by dragging the dropped pin:</label>
-
-
         <div id='map' style='width: 500px; height: 675px;'></div>
         </div>
-        <br/>
+        </br>
         <form>
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-auto col-md-3 d-flex justify-content-center">
-
-        <ul class="profile-div-outer list-unstyled">
+        <ul class="profile-div-outer">
             <li>
                 <label for="search">Enter a location(City,State,Stadium,Theatre,etc.)Or keywords(Performers, Teams, etc.)</label><input type="text" id="search" placeholder="Search"></li>
             <li>
@@ -81,9 +69,6 @@
                 </select></li>
             <li><button id="search-btn" class="button profile-btn">Search</button></li>
         </ul>
-                    </div>
-                </div>
-            </div>
         </form>
     </div>
     </div>
@@ -115,7 +100,6 @@
         </div>
     </div>
     </div>
-</div>
 </div>
 
 <!-- Partial that contains Footer HTML -->
