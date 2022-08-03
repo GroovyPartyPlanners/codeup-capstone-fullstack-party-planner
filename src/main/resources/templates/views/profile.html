@@ -129,8 +129,7 @@
                         <h5 class="card-title" th:text="${party.party_name}"></h5>
                         <p class="card-text" th:text="${party.description}"></p>
                         <a th:href="@{|/party/${party.id}/edit|}" class="btn btn-primary">Edit Party Details</a>
-                        <a th:href="@{|/party/${party.id}|}" class="btn btn-primary">View Party Details</a>
-                        <a th:href="@{|/party/${party.id}/delete|}" class="btn btn-primary">Delete Party</a>
+                        <a th:href="@{|/party/${party.id}|}" class="btn btn-primary">View Party Details</a></br>
                     </div>
                     <div class="card-footer text-muted">
                         2 days ago
