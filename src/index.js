@@ -175,7 +175,10 @@ document.getElementById('search-btn').addEventListener('click', function (e){
         .catch(error => console.log(error));
         
 });
-
+console.log('Loaded!');
+}, 5000);
+}
+windowLoading();
 function page(num, lat,lng){
     console.log(lat,lng)
     var type = document.getElementById("type").value
@@ -232,7 +235,3 @@ function page(num, lat,lng){
     }
 }
 
-    console.log('Loaded!');
-}, 5000);
-}
-windowLoading();
