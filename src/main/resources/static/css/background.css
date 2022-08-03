@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --main: #f0f2f4;
+    --sec: white;
+    --third: #015A06;
+    --accent: #47E1A1;
+    --color-main: #000000;
+    --shadow: #787b7b;
+    --btn-main: #015A06;
+    --shadow-color: #015A06;
+    /*#47E1A1 bright green*/
+    /*#015A06 drk green*/
+}
+
+.backdrop{
+    background-color: #f0f2f4;
+    text-decoration: none;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .1ch;
+}
+
+.italics{
+    font-family: 'Lato', sans-serif;
+}
+
+#map {
+    border: 2px solid #f0f2f4;
+    /*display: flex;*/
+    /*float: left;*/
+    /*position: fixed;*/
+}
+
+.profile-div-outer {
+    border: 2px solid #015A06;
+    border-radius: 6px;
+}
+
+/*https://www.joshwcomeau.com/css/designing-shadows/*/
+.goldilocks {
+    box-shadow: #f0f2f4;
+
+    filter: drop-shadow(
+            1px 2px 8px var(--shadow-color));
+    --shadow-color: hsl(220deg 60% 80%);
+}
+
+.profile-btn{
+    color: white;
+    background-color: #015A06;
+    border: 2px solid #47E1A1;
+    border-radius: 12px;
+    margin: 5px;
+    font-weight: bolder;
+}
+
+.profile-btn:hover{
+    color: black;
+    background-color: #f0f2f4;
+    border: 2px solid #47E1A1;
+    margin: 5px;
+    font-weight: bolder;
+}
+

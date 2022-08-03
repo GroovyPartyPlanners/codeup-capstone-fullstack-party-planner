@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comment Form</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <!-- Cloudflare CDN -->
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom Footer CSS -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+    <!-- Custom Page Form CSS -->
+    <link rel="stylesheet" th:href="@{/css/comment-forms.css}">
+</head>
+<body style="text-align: center">
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+</div>
+
+<div class="form-body">
+    <div class="form-container">
+        <div class="title">Post a Comment:</div>
+        <form class="form" th:action="@{/party/{id}/comment-form(id=${party.id})}" method="POST" th:object="${comment}">
+            <div class="user-details">
+
+                <div class="input-box">
+                    <span class="details"><label for="comment"></label></span>
+                    <textarea th:field="*{comment_content}" id="comment" class="form-control text-center"></textarea>
+                    <p th:if="${#fields.hasErrors('comment_content')}" th:errors="*{comment_content}" th:class="${#fields.hasErrors('comment_content')}? errors"></p>
+                </div>
+
+            </div>
+            <div class="form-btn">
+                <input type="submit" value="Post!">
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Partial that contains Footer HTML -->
+<div th:replace="partials/footer.html :: footer"></div>
+
+<div th:replace="partials/scripts :: scripts"></div>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+</body>
+</html>

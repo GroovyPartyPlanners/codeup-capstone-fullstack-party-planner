@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --main: #f0f2f4;
+    --sec: white;
+    --third: #015A06;
+    --accent: #47E1A1;
+    --color-main: #000000;
+    --shadow: #787b7b;
+    --btn-main: #015A06;
+    /*#47E1A1 bright green*/
+    /*#015A06 drk green*/
+}
+
+.eventsContainer{
+    background-color: var(--main);
+    padding: 1rem;
+    border-radius: 10px;
+}
+.loopEvent{
+    border: 4px solid var(--third);
+    border-radius: 10px;
+    background-color: var(--sec);
+    box-shadow: 3px 3px var(--shadow);
+    padding: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-size: Large;
+    /*font-family: 'Poppins';*/
+}
+.loopEvent:hover{
+    box-shadow: 8px 8px 8px 8px var(--shadow);
+    transform: translateY(-.5rem);
+    transition: 1.5s;
+}
+.searchParams{
+
+    font-family: "Poppins", sans-serif;;
+}
+.inputBoxes{
+    color: var(--third);
+    background-color: var(--accent);
+}
+.dropdown{
+    color: var(--third);
+    background-color: var(--accent);
+}
+.button{
+    background-color: var(--shadow);
+    box-shadow: 0 1px var(--accent);
+    color: var(--accent-third);
+}
+.button:hover{
+    transform: translateY(-.2em);
+    box-shadow: 0 3px var(--accent);
+    color: var(--accent-third);
+}
+.button:active{
+    box-shadow: 0 2px var(--accent);
+    transform: translateY(2px);
+}
+.pageNum:active{
+    background-color:red;
+}
+.totalEvents{
+    color: var(--sec-text-color);
+    border-bottom: 3px solid var(--accent);
+    text-align: center;
+    padding-bottom: 3rem;
+    font-family: "Poppins", sans-serif;
+}
+.mapLabel{
+    color: var(--sec-text-color);
+    font-size: 2em;
+}
+#map{
+    border-radius: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.popMeaning{
+    text-align: center;
+
+}
+ul{
+    list-style: none;
+}
+
+/*.break::after{*/
+/*    content: "";*/
+/*    width: 40rem;*/
+/*    height: .5rem;*/
+/*    background-color: var(--accent);*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    bottom:34rem;*/
+/*    transform: translateX(-50%);*/
+/*    border-radius: 2rem;*/
+/*}*/
+
+.hidden{
+    visibility: hidden;
+}
+.total, .pages{
+    text-align: center;
+}

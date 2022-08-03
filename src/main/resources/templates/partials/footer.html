@@ -2,12 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Footer</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom Footer CSS -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
 </head>
 <body>
 
 <div th:fragment="footer" th:remove="tag">
+    <footer>
+        <section class="footer">
+            <div class="social">
+                <a href="mailto:david.s.prieto1@gmail.com; keatonhutto8@gmail.com; stout.stephen13@gmail.com" target="_blank"><i class="fab fa-google"></i></a>
+                <a href="https://www.linkedin.com/school/codeup/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/GroovyPartyPlanners" target="_blank"><i class="fab fa-github-square"></i></a>
+            </div>
 
+            <ul class="list">
+                <li>
+                    <a th:href="@{/home}">Events</a>
+                </li>
+                <li>
+                    <a th:href="@{/about-us}">About Us</a>
+                </li>
+                <li>
+                    <a th:href="@{/terms}">Terms and Conditions</a>
+                </li>
+<!--                <li>-->
+<!--                    <a href="#">Privacy Policy</a>-->
+<!--                </li>-->
+            </ul>
+            <p class="copyright">
+                Party Planners &copy; 2022
+            </p>
+        </section>
+    </footer>
 </div>
 
 </body>

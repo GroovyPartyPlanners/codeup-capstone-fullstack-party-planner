@@ -1,9 +1,11 @@
 package com.codeup.partygate.controllers;
 
+import com.codeup.partygate.models.Party;
 import com.codeup.partygate.models.User;
 import com.codeup.partygate.repositories.PartyRepository;
 import com.codeup.partygate.repositories.UserRepository;
 import com.codeup.partygate.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Collections;
 
 @Controller
 public class ProfileController {
+
+    @Value("${fileStackAPI}")
+    private String fileStackAPIKey;
 
     private final PartyRepository partyRepository;
     private final UserRepository usersRepository;
@@ -30,10 +36,10 @@ public class ProfileController {
     }
 
     @GetMapping("/profile")
-    public String showProfilePage(Model model) {
+    public String showProfilePage(Model model, Party party) {
         User user = userService.loggedInUser();
         model.addAttribute("user", user);
-        model.addAttribute("parties", partyRepository.findAllByUserId(user.getId()));
+        model.addAttribute("parties", partyRepository.findAllById(Collections.singleton(user.getId())));
         return "views/profile";
     }
 
@@ -41,6 +47,7 @@ public class ProfileController {
     public String viewProfileInfo(@PathVariable long id, Model model) {
         User user = userService.loggedInUser();
         model.addAttribute("user", user);
+        model.addAttribute("fileStackAPI", fileStackAPIKey);
         return "views/edit-profile";
     }
 
@@ -51,13 +58,13 @@ public class ProfileController {
             model.addAttribute("user", user);
             return "views/edit-profile";
         } else {
-            String hash = passwordEncoder.encode(user.getPassword());
-            user.setPassword(hash);
+            String hashPass = passwordEncoder.encode(user.getPassword());
+            user.setPassword(hashPass);
+            String hashPassConfirm = passwordEncoder.encode(user.getConfirmPassword());
+            user.setConfirmPassword(hashPassConfirm);
             usersRepository.saveAndFlush(user);
             return "redirect:/profile";
         }
+
     }
-
-
-
 }

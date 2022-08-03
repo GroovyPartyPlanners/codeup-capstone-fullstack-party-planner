@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    margin-top: -80px;
+    margin-bottom: -150px;
+}
+
+.comment-heading {
+    text-transform: uppercase;
+    font-size: 4rem;
+    letter-spacing: 3px;
+    margin-right: -3px;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
+.comment-heading::after {
+    content: "";
+    width: 10rem;
+    height: .8rem;
+    background-color: #47E1A1;
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    font-size: 16px;
+    max-width: 700px;
+    width: 100%;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+section img {
+    margin-left: -25px;
+    margin-top: -25px;
+}
+
+h5 {
+    margin-left: -10px;
+}
+
+.comment-content {
+    margin-top: -80px;
+    margin-left: 35px;
+}
+
+.link-muted {
+    color: #aaa;
+}
+
+.edit-container {
+    margin-bottom: -50px;
+}
+
+.link-muted:hover {
+    color: #47E1A1;
+}
+
+.footer {
+    margin-top: 200px;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events/Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Righteous&display=swap" rel="stylesheet">-->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">
+    <!-- Custom Footer CSS -->
+    <link rel="stylesheet" th:href="@{/css/gray-footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+</head>
+
+<body style="text-align: center">
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+</div>
+
+<div class="backdrop">
+<br/><span class="backdrop"></span><br/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+    <div class="container">
+
+
+        <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>
+        <div class="container">
+
+
+
+<!--        <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>-->
+<!--        <div class="container profile-div-outer">-->
+
+<!--        <label class="mapLabel d-flex justify-content-center">Search the map by dragging the dropped pin:</label>-->
+
+
+        <div id='map' style='width: 500px; height: 675px;'></div>
+        </div>
+        <br/>
+        <form>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-auto col-md-3 d-flex justify-content-center">
+
+        <ul class="profile-div-outer list-unstyled">
+            <li>
+                <label for="search">Enter a location(City,State,Stadium,Theatre,etc.)Or keywords(Performers, Teams, etc.)</label><input type="text" id="search" placeholder="Search"></li>
+            <li>
+                <label for="type">Choose type of Event</label><select id="type">
+                    <option value="">All</option>
+                    <option value="Concert">Concert</option>
+                    <option value="mls">MLS</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="theater">Theater</option>
+                    <option value="family">Family</option>
+                    <option value="broadway_tickets_national">Boadway</option>
+                    <option value="dance_performance_tour">Dance Preformance</option>
+                    <option value="music_festival">Music Festival</option>
+                    <option value="minor_league_baseball">Minor League Baseball</option>
+                    <option value="soccer">Soccer</option>
+                    <option value="football">Football</option>
+                </select></li>
+            <li><button id="search-btn" class="button profile-btn">Search</button></li>
+        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+
+
+        <div class="col-6">
+        <div class="container eventsContainer">
+            <p class="total" id="total"></p>
+            <ul class="hidden">
+                <li class="hidden"><label class="hidden">Sort By Popularity</label>
+                    <button id="upvote"class="button hidden">⬆</button>
+                    <button id="downvote" class="button hidden">⬇</button></li>
+                <h5 class="popMeaning hidden">Popularity is on a scale of 0-1</h5>
+<!--                <p class="total" id="total"></p>-->
+
+
+            </ul>
+            <div class = "container">
+                <img th:src="@{imgs/Spinner-1s-200px (1).svg}" src="../../static/imgs/Spinner-1s-200px (1).svg" id="loading" />
+
+                <h1 class="eventTitle" id="eventTitle">
+                <h2 class="eventDate" id="eventDate"></h2>
+                <h2 class="popularity" id="popularity"></h2>
+            </h1>
+                <p class="pages" id="pages"></p>
+                <p class="page" id="pageNum"></p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- Partial that contains Footer HTML -->
+<div th:replace="partials/footer.html :: footer"></div>
+
+<script type="text/javascript" th:src="@{/js/clientid.js}"></script>
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/homepage.js}"></script>
+
+<link rel="stylesheet" th:href="@{/css/background.css}">
+</body>
+</html>

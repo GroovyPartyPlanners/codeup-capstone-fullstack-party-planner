@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -29,47 +28,62 @@ public class User {
     @Column(length = 50, nullable = false, unique = true)
     private String username;
 
-    @Column(length = 75, nullable = true)
+    @Column(length = 75)
     private String group_name;
 
     @NotBlank
     @Column(length = 60, nullable = false)
     private String password;
 
-    @Column(length = 100, nullable = true)
-    private String user_pic_url;
+    @NotBlank
+    @Column(length = 60, nullable = false)
+    private String confirmPassword;
+
+    @Column
+    private String profilePicUrl;
 
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Party> parties;
 
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Comment> comments;
+
+//    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
+//    added missing referencedColumnName
 //    @ManyToMany
 //    @JoinTable(name = "attendees",
+////            , nullable = true, updatable = true
 //            joinColumns = @JoinColumn(name = "user_id"),
+////            , nullable = true, updatable = true
 //            inverseJoinColumns = @JoinColumn(name = "party_id"))
 //    private List<Party> tailgateParties;
 
-
-    //parties owned by user
-    public List<Party> getParties() {
-        return parties;
-    }
-//
-//    //parties owned by user
-    public void setParties(List<Party> parties) {
-        this.parties = parties;
-    }
-//
-//    //parties attended by user
-//    public List<Party> getTailgateParties() {
-//        return tailgateParties;
-//    }
-//
-//    //parties attended by user
-//    public void setTailgateParties(List<Party> tailgateParties) {
-//        this.tailgateParties = tailgateParties;
-//    }
-
     public User () {}
+
+    public User(String first_name, String last_name, String email, String username, String group_name, String password, String confirmPassword, String profilePicUrl) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+        this.group_name = group_name;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.profilePicUrl = profilePicUrl;
+    }
+
+    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String confirmPassword, String profilePicUrl, List<Party> parties, List<Comment> comments) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+        this.group_name = group_name;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.profilePicUrl = profilePicUrl;
+        this.parties = parties;
+        this.comments = comments;
+    }
 
     //  NEW CONSTRUCTOR for authentication process (login/logout)
     public User(User copy) {
@@ -80,20 +94,9 @@ public class User {
         username = copy.username;
         group_name = copy.group_name;
         password = copy.password;
-        user_pic_url = copy.user_pic_url;
+        confirmPassword = copy.confirmPassword;
+        profilePicUrl = copy.profilePicUrl;
     }
-
-//  OLD CONSTRUCTOR - BEFORE AUTHENTICATION PROCESS
-//    public User(long id, String first_name, String last_name, String email, String username, String group_name, String password, String user_pic_url) {
-//        this.id = id;
-//        this.first_name = first_name;
-//        this.last_name = last_name;
-//        this.email = email;
-//        this.username = username;
-//        this.group_name = group_name;
-//        this.password = password;
-//        this.user_pic_url = user_pic_url;
-//    }
 
     public long getId() {
         return id;
@@ -151,11 +154,43 @@ public class User {
         this.password = password;
     }
 
-    public String getUser_pic_url() {
-        return user_pic_url;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setUser_pic_url(String user_pic_url) {
-        this.user_pic_url = user_pic_url;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
+
+    public String getProfilePicUrl() {
+        return profilePicUrl;
+    }
+
+    public void setProfilePicUrl(String profilePicUrl) {
+        this.profilePicUrl = profilePicUrl;
+    }
+
+    public List<Party> getParties() {
+        return parties;
+    }
+
+    public void setParties(List<Party> parties) {
+        this.parties = parties;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+//    public List<Party> getTailgateParties() {
+//        return tailgateParties;
+//    }
+//
+//    public void setTailgateParties(List<Party> tailgateParties) {
+//        this.tailgateParties = tailgateParties;
+//    }
 }

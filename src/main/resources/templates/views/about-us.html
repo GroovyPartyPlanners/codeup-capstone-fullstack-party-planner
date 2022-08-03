@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8" name="fileStackAPI" th:content="${fileStackAPI}">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About us</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <!-- Cloudflare CDN -->
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom About Us CSS -->
+    <link rel="stylesheet" th:href="@{/css/about-us.css}">
+    <!-- Custom Footer CSS -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+</head>
+<body style="text-align: center">
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+    <!--    This content is only shown to AUTHENTICATED users.-->
+    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
+</div>
+
+<h1 class="heading">Meet The Team</h1>
+<section class="about">
+    <div class="container">
+        <div class="card-wrapper">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/37403/bora-bora-french-polynesia-sunset-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="card background" class="card-img">
+                <img src="https://cdn.filestackcontent.com/RJm126jjTEyQbtusPvtF" alt="profile img" class="profile-img">
+                <h1>Stephen Andrew Stout</h1>
+                <p class="job-title">Full-Stack Java Developer</p>
+                <p class="about">Passionate about technology, helping people, and improving the world</p>
+                <a href="" class="btn">Contact</a>
+                <ul class="social-media">
+                    <li><a href="mailto:stout.stephen13@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/stephen-a-stout/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://github.com/Stout13" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn.vox-cdn.com/thumbor/ThmbFYgSBaozaBtr_xNqOc_s5nU=/0x0:10000x5622/1200x675/filters:focal(3928x1435:5528x3035)/cdn.vox-cdn.com/uploads/chorus_image/image/71056355/Webb_wallpaper.0.jpg" alt="" class="card-img">
+                <img src="https://cdn.filestackcontent.com/xykxzYzaSBqPykvDrsUi" alt="profile img" class="profile-img">
+                <h1>Keaton Hutto</h1>
+                <p class="job-title">Software Developer</p>
+                <p class="about">Navy Vet, Junior Full Stack Developer, Electronics Hobbyist</p>
+                <a href="https://www.keaton-kreations.com/dist/" class="btn">Portfolio</a>
+                <ul class="social-media">
+                    <li><a href="mailto:keatonhutto8@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/keaton-hutto8" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://github.com/TLAMHutto" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="card background" class="card-img">
+                <img src="https://cdn.filestackcontent.com/JbuackQNQxao1S9HL2Fk" alt="profile img" class="profile-img">
+                <h1>David Prieto</h1>
+                <p class="job-title">Software Developer</p>
+                <p class="about">I'm an Air Force veteran and Full Stack Developer with a passion for building applications that bring joy to people.</p>
+                <a href="https://www.linkedin.com/in/davidsprieto/" target="_blank" class="btn">Contact</a>
+                <ul class="social-media">
+                    <li><a href="mailto:david.s.prieto1@gmail.com?subject=subject" target="_blank"><i class="fab fa-google"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/davidsprieto/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://github.com/davidsprieto" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partial that contains Footer HTML -->
+<div th:replace="partials/footer.html :: footer"></div>
+
+<!-- Partial that contains Bootstrap and jQuery CDNs -->
+<div th:replace="partials/scripts :: scripts"></div>
+
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+</body>
+</html>

@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head  th:replace="partials/header :: header-links"></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parties Page</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <!-- Cloudflare CDN -->
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom Parties CSS -->
+    <link rel="stylesheet" th:href="@{/css/parties.css}">
+    <!-- Custom Footer CSS -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
+</head>
 <body style="text-align: center">
 
 <div sec:authorize="!isAuthenticated()">
@@ -13,22 +30,34 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<h1>Hey!  Check out all these cool parties!  Pick one!</h1>
-<div class="container">
-<!--    <a th:href="@{'/details/'+${user.login}(orderId=${o.id})}">view</a>-->
-    <div th:each="party : ${parties}">
-        <p><a th:text="${party.party_name}" th:href="@{'/party-select/'+ ${party.id}}"></a></p><br/>
-<!--        <button th:text = "join ${party.party_name}" th:method="POST" th:href="@{/}" th:object = "party"></button>-->
-<!--            th:name="${party.party_name}-->
+<h1 class="heading">Parties</h1>
+<div class="main-wrapper">
+    <div class="party-collection">
+        <article th:each="party : ${parties}">
+            <div class="img-box">
+                <img th:src="${party.getPartyPicUrl()}" alt="image here">
+            </div>
+            <div class="text-content">
+                <h3 th:text="${party.party_name}"></h3>
+                <div class="post-user">
+                    <span>
+                        <span><i class="fa-solid fa-circle-user" th:text="' Posted By: ' + ${party.getUser().username}"></i></span>
+                    </span>
+                </div>
+                <div class="details">
+                    <div>
+                        <a th:href="@{|/party/${party.id}|}" class="button">View Party Details</a>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
-
 </div>
-    <br/>
-    <br/>
-    <br/>
-<!--    <h1 th:href="@{/party-form}">Create a Party</h1>-->
-<!--</div>-->
 
-<div th:replace="partials/scripts :: scripts"></div>
+<!-- Partial that contains Footer HTML -->
+<div th:replace="partials/footer.html :: footer"></div>
+
+<!-- Custom Navbar JS -->
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 </html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OLD FORMS</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <!-- Cloudflare CDN -->
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+</head>
+<body>
+
+<!-------- OLD SIGN-UP FORM -------->
+
+<!--<div class="container">-->
+<!--    <h1>Create an account</h1>-->
+<!--</div>-->
+<!--<div class="backdrop">-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/sign-up}" method="POST" th:object="${user}">-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-user prefix"></i>-->
+<!--                    <label for="first-name">First Name:</label>-->
+<!--                    <input id="first-name" class="form-control text-center" th:field="*{first_name}" />-->
+<!--                    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-user prefix"></i>-->
+<!--                    <label for="last-name">Last Name:</label>-->
+<!--                    <input id="last-name" class="form-control text-center" th:field="*{last_name}" />-->
+<!--                    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fa-solid fa-circle-user"></i>-->
+<!--                    <label for="username-signup">Username:</label>-->
+<!--                    <input id="username-signup" class="form-control text-center" th:field="*{username}" />-->
+<!--                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-envelope prefix"></i>-->
+<!--                    <label for="email">Email Address:</label>-->
+<!--                    <input id="email" class="form-control text-center" th:field="*{email}" />-->
+<!--                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>-->
+
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-tag prefix"></i>-->
+<!--                    <label for="group-name">Group Name (optional):</label>-->
+<!--                    <input id="group-name" class="form-control text-center" th:field="*{group_name}" />-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-lock prefix"></i>-->
+<!--                    <label for="password-signup">Password:</label>-->
+<!--                    <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />-->
+<!--                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="profilePicUrl" class="form-label">Upload Profile Picture:</label>-->
+<!--                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">-->
+<!--                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input value="Sign me up!" type="submit" class="btn btn-warning"/>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD LOGIN FORM -------->
+
+<!--<h1>Log In</h1>-->
+<!--<div class="errors" th:if="${param.logout}">-->
+<!--    You have been logged out.-->
+<!--</div>-->
+<!--<div class="errors" th:if="${param.error}">-->
+<!--    Invalid Username and Password.-->
+<!--</div>-->
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/login}" method="POST">-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="username">Username:</label>-->
+<!--                    <input id="username" name="username" type="text" class="form-control text-center" />-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="password">Password:</label>-->
+<!--                    <input id="password" name="password" type="password" class="form-control text-center" />-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <input type="submit" value="Log In" class="btn btn-danger"/>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD SIGN-UP MODAL FORM -------->
+
+<!--<div class="modal fade" id="staticBackdropSignUp" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelSignUp" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header text-center">-->
+<!--                <h5 class="modal-title w-100 font-weight-bold" id="staticBackdropLabelSignUp">Fill in the Following Information to Sign-up</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <form th:action="@{/sign-up}" method="POST" th:object="${user}">-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-user prefix"></i>-->
+<!--                                    <label for="first-name">First Name:</label>-->
+<!--                                    <input id="first-name" class="form-control text-center" th:field="*{first_name}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-user prefix"></i>-->
+<!--                                    <label for="last-name">Last Name:</label>-->
+<!--                                    <input id="last-name" class="form-control text-center" th:field="*{last_name}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fa-solid fa-circle-user"></i>-->
+<!--                                    <label for="username-signup">Username:</label>-->
+<!--                                    <input id="username-signup" class="form-control text-center" th:field="*{username}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-envelope prefix"></i>-->
+<!--                                    <label for="email">Email Address:</label>-->
+<!--                                    <input id="email" class="form-control text-center" th:field="*{email}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-tag prefix"></i>-->
+<!--                                    <label for="group-name">Group Name (optional):</label>-->
+<!--                                    <input id="group-name" class="form-control text-center" th:field="*{group_name}" />-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-lock prefix"></i>-->
+<!--                                    <label for="password-signup">Password:</label>-->
+<!--                                    <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />-->
+<!--                                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <label for="profilePicUrl" class="form-label">Upload Profile Picture:</label>-->
+<!--                                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">-->
+<!--                                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <input value="Sign me up!" type="submit" class="btn btn-warning"/>-->
+<!--                                </div>-->
+
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD LOGIN MODAL FORM -------->
+
+<!--<div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header text-center">-->
+<!--                <h5 class="modal-title w-100 font-weight-bold" id="staticBackdropLabelLogin">Log In</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <form th:action="@{/login}" method="POST">-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fa-solid fa-circle-user"></i>-->
+<!--                                    <label for="username-login">Username:</label>-->
+<!--                                    <input id="username-login" name="username" type="text" class="form-control text-center" />-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <i class="fas fa-lock prefix"></i>-->
+<!--                                    <label for="password-login">Password:</label>-->
+<!--                                    <input id="password-login" name="password" type="password" class="form-control text-center" />-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input type="submit" value="Log In" class="btn btn-danger"/>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- NEW SIGN-UP MODAL -------->
+
+<!--<div class="modal fade" id="staticBackdropSignUp" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelSignUp" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="text-center">-->
+<!--            </div>-->
+<!--            <div class="form-body">-->
+<!--                <div class="form-container">-->
+<!--                    <div class="title">Sign-up</div>-->
+<!--                    <div th:if="${showError}" class="alert alert-danger text-center" role="alert"><span th:text="${error}"></span></div>-->
+<!--                    <form id="signUpForm" class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">-->
+<!--                        <div class="user-details">-->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="first-name">First Name:</label></span>-->
+<!--                                <input id="first-name" class="form-control text-center" th:field="*{first_name}" />-->
+<!--                                <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="last-name">Last Name:</label></span>-->
+<!--                                <input id="last-name" class="form-control text-center" th:field="*{last_name}" />-->
+<!--                                <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="username-signup">Username:</label></span>-->
+<!--                                <input id="username-signup" class="form-control text-center" th:field="*{username}" />-->
+<!--                                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="email">Email Address:</label></span>-->
+<!--                                <input id="email" class="form-control text-center" th:field="*{email}" />-->
+<!--                                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="password-signup">Password:</label></span>-->
+<!--                                <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />-->
+<!--                                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="confirmPassword">Confirm Password:</label></span>-->
+<!--                                <input id="confirmPassword" type="password" class="form-control text-center" th:field="*{confirmPassword}"/>-->
+<!--                                <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" th:class="${#fields.hasErrors('confirmPassword')}? errors"></p>-->
+<!--                                <div id="confirmPasswordError" class="form-text"></div>-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="group-name">Group Name (optional):</label></span>-->
+<!--                                <input id="group-name" class="form-control text-center" th:field="*{group_name}" />-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="profilePicUrl">Upload Profile Picture:</label></span>-->
+<!--                                <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden" class="form-control text-center">-->
+<!--                                <button id="upload" type="button" class="upload-btn">Upload Picture</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <p>Already have an account? <a th:href="@{/login}">Log In</a></p>-->
+<!--                        </div>-->
+<!--                        <div class="form-btn">-->
+<!--                            <input id="submit-btn" type="submit" value="Sign me up!">-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- SIGN-UP MODAL BUTTON FOR NAVBAR -------->
+
+<!--<li>-->
+<!--    <a style="color: white; cursor: pointer;" class="" data-toggle="modal" data-target="#staticBackdropSignUp">-->
+<!--        <span aria-hidden="true">03</span>Sign-up-->
+<!--    </a>-->
+<!--</li>-->
+
+<!-------- NEW LOG IN MODAL -------->
+
+<!--<div class="modal fade" id="staticBackdropLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="text-center">-->
+<!--            </div>-->
+<!--            <div class="form-body">-->
+<!--                <div class="form-container">-->
+<!--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                        <span aria-hidden="true">X</span>-->
+<!--                    </button>-->
+<!--                    <div class="title">Log In</div>-->
+<!--                    <form id="loginForm" class="form" th:action="@{/login}" method="POST">-->
+<!--                        <div class="user-details">-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="username-login">Username:</label></span>-->
+<!--                                <input id="username-login" name="username" type="text" class="form-control text-center"/>-->
+<!--                            </div>-->
+
+<!--                            <div class="input-box">-->
+<!--                                <span class="details"><label for="password-login">Password:</label></span>-->
+<!--                                <input id="password-login" name="password" type="password" class="form-control text-center"/>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <p>Don't have an account? <a th:href="@{/sign-up}">Sign-up</a></p>-->
+<!--                        </div>-->
+<!--                        <div class="form-btn">-->
+<!--                            <input type="submit" value="Log In">-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- LOGIN MODAL BUTTON FOR NAVBAR -------->
+
+<!--<li>-->
+<!--    <a style="color: white; cursor: pointer;" class="" data-toggle="modal" data-target="#staticBackdropLogin">-->
+<!--        <span aria-hidden="true">04</span>Log In-->
+<!--    </a>-->
+<!--</li>-->
+
+<!-------- OLD COMMENT FORM -------->
+
+<!--<h1>Post a Comment</h1>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/party/{id}/comment-form(id=${party.id})}" method="POST" th:object="${comment}">-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="comment">Comment:</label>-->
+<!--                    <textarea th:field="*{comment_content}" id="comment" class="form-control text-center" rows="5"></textarea>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input value="Post Comment" type="submit" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD EDIT COMMENT FORM -------->
+
+<!--<h1>Edit your Comment</h1>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/comment/{commentId}/{partyId}/edit(commentId=${comment.id}, partyId=${comment.getParty().getId()})}" method="POST" th:object="${comment}">-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="comment-content">Comment Content:</label>-->
+<!--                    <textarea th:field="*{comment_content}" id="comment-content" name="comment-content" class="form-control text-center" rows="5"></textarea>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input type="submit" value="Edit Comment" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
+
+<!--            <form th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">-->
+<!--                <input type="submit" value="Delete Comment" class="btn btn-primary" />-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!-------- OLD NAVBAR -------->
+
+<!--<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <a class="navbar-brand" th:href="@{/home}">PartyPlanners</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/home}">Events</a></li>-->
+<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/parties}">Parties</a></li>-->
+<!--            <li class="nav-item"><a class="btn nav-link" th:href="@{/about-us}">About Us</a></li>-->
+<!--        </ul>-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+<!--                &lt;!&ndash; Button trigger Login modal &ndash;&gt;-->
+<!--                <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#staticBackdropLogin">-->
+<!--                    Login-->
+<!--                </button>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                &lt;!&ndash; Button trigger Sign-up modal &ndash;&gt;-->
+<!--                <button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#staticBackdropSignUp">-->
+<!--                    Sign-up-->
+<!--                </button>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<!-------- OLD NAVBAR LOGGED IN -------->
+
+<!--<nav th:fragment="navbar-logged-in" class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <a class="navbar-brand" th:href="@{/home}">PartyPlanners</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item"><a class="btn btn-light nav-link" th:href="@{/home}">Events</a></li>-->
+<!--            <li class="nav-item"><a class="btn btn-light nav-link" th:href="@{/profile}">Profile</a></li>-->
+<!--            <li class="nav-item"><a class="btn btn-light nav-link" th:href="@{/parties}">Parties</a></li>-->
+<!--            <li class="nav-item"><a class="btn btn-light nav-link" th:href="@{/party-form}">Host Party</a></li>-->
+<!--            <li class="nav-item"><a class="btn btn-light nav-link" th:href="@{/about-us}">About Us</a></li>-->
+<!--        </ul>-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+<!--                <form th:action="@{/logout}" th:method="post">-->
+<!--                    <a class="btn btn-light nav-link"><button>Logout</button></a>-->
+<!--                </form>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<!-------- OLD PARTY FORM -------->
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/party-form}" method="POST" th:object="${party}">-->
+<!--                <div th:if="${eventId != null}">-->
+<!--                    <h1>Enter your party details<span th:text="${eventId}"></span></h1>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="partyPicUrl" class="form-label">Upload Party Picture:</label>-->
+<!--                    <input id="partyPicUrl" name="partyPicUrl" value="replaceMe" th:field="*{partyPicUrl}" type="hidden">-->
+<!--                    <br>-->
+<!--                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="party-name">Party Name:</label>-->
+<!--                    <input id="party-name" class="form-control text-center" th:field="*{party_name}" />-->
+<!--                </div>-->
+
+<!--                <input id="event-id" name="event-id" type="hidden" th:value="${eventId}">-->
+<!--                <div class="form-group">-->
+<!--                    <label for="description">Description:</label>-->
+<!--                    <textarea id="description" name="description" class="form-control text-center" rows="5" th:field="*{description}"></textarea>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input value="Create a Party!" type="submit" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD EDIT PARTY FORM -------->
+
+<!--<h1>Edit your Party Details</h1>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/party/{id}/edit(id=${party.id})}" method="POST" th:object="${party}">-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="title">Party Name</label>-->
+<!--                    <input th:field="*{party_name}" id="title" name="title" type="text" class="form-control text-center" />-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="description">Party Description</label>-->
+<!--                    <textarea th:field="*{description}" id="description" name="description" class="form-control text-center" rows="5"></textarea>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <input type="submit" value="Edit Party" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
+
+<!--            <form th:action="@{|/party/${party.id}/delete|}" th:method="POST">-->
+<!--                <input type="submit" value="Delete Party" class="btn btn-primary" />-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD EDIT PROFILE FORM -------->
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <form th:action="@{/profile/{id}/update(id=${user.id})}" method="POST" th:object="${user}">-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-user prefix"></i>-->
+<!--                    <label for="first-name">First Name:</label>-->
+<!--                    <input id="first-name" class="form-control text-center" th:field="*{first_name}" />-->
+<!--                    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" th:class="${#fields.hasErrors('first_name')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-user prefix"></i>-->
+<!--                    <label for="last-name">Last Name:</label>-->
+<!--                    <input id="last-name" class="form-control text-center" th:field="*{last_name}" />-->
+<!--                    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" th:class="${#fields.hasErrors('last_name')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fa-solid fa-circle-user"></i>-->
+<!--                    <label for="username">Username:</label>-->
+<!--                    <input id="username" class="form-control text-center" th:field="*{username}" />-->
+<!--                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-envelope prefix"></i>-->
+<!--                    <label for="email">Email Address:</label>-->
+<!--                    <input id="email" class="form-control text-center" th:field="*{email}" />-->
+<!--                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-tag prefix"></i>-->
+<!--                    <label for="group-name">Group Name (optional):</label>-->
+<!--                    <input id="group-name" class="form-control text-center" th:field="*{group_name}" />-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <i class="fas fa-lock prefix"></i>-->
+<!--                    <label for="password">Password:</label>-->
+<!--                    <input id="password" type="password" class="form-control text-center" th:field="*{password}" />-->
+<!--                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <label for="profilePicUrl" class="form-label">Upload Profile Picture:</label>-->
+<!--                    <input id="profilePicUrl" name="profilePicUrl" value="replaceMe" th:field="*{profilePicUrl}" type="hidden">-->
+<!--                    <button id="upload" type="button" class="btn btn-danger">Upload Picture</button>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input value="Update" type="submit" class="btn btn-primary"/>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD CODE THAT REDIRECTS USER TO A SEPARATE LOGIN OR SIGN-UP PAGE  -------->
+
+<!--<div class="container">-->
+<!--    <div class="col">-->
+<!--        <div class="row">-->
+<!--            <div class="col">-->
+<!--                <a class="btn btn-primary" th:href="@{/login}">Login</a>-->
+<!--            </div>-->
+
+<!--            <div class="col">-->
+<!--                <a class="btn btn-primary" th:href="@{/sign-up}">Sign-up</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-------- OLD PARTY PAGE CARDS -------->
+
+<!--<div class="card mb-3">-->
+<!--    <img th:src="${party.getPartyPicUrl()}" class="card-img-top" alt="...">-->
+<!--    <div class="card-body">-->
+<!--        <p class="card-text"><small class="text-muted" th:text="'Posted by: ' + ${party.user.username}"></small></p>-->
+<!--        <h5 class="card-title" th:text="${party.party_name}"></h5>-->
+<!--        <p class="card-text" th:text="${party.description}"></p>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="container">-->
+<!--    <div class="card mb-3">-->
+<!--        <img th:src="${party.getPartyPicUrl()}" class="card-img-top" alt="Party Picture"/>-->
+<!--        <div class="card-body">-->
+<!--            <h5 class="card-title" th:text="${party.party_name}"></h5>-->
+<!--            <p class="card-text" th:text="${party.description}"></p>-->
+<!--            <p class="card-text">-->
+<!--                <small class="text-muted" th:text="'Posted by: ' + ${party.user.username}"></small>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+</body>
+</html>
