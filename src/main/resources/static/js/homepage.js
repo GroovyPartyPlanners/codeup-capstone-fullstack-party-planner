@@ -119,7 +119,7 @@ function windowLoading(){
                                 let pagesCount = Math.ceil(data.meta.total/10);
                                 pages.innerHTML = "";
                                 for(let i = 0; i < pagesCount; i++){
-                                    pages.innerHTML += `<a href="#" onclick="pin(${i})">`+" "+`${i+1}</a>`
+                                    pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
                                 }
                             }
                         }
