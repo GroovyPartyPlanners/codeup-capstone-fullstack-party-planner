@@ -82,12 +82,8 @@ public class PartyController {
 
     @PostMapping("/party-form")
     public String postPartyForm(@ModelAttribute Party party, @RequestParam(name = "event-id") long eventId) {
-//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
-//        parties.add(party);
-//        if (eventsRepository.findAllById(eventId) == null) {
             Event event = new Event();
             event.setEventApiId(eventId);
-//        event.setParties(parties);
             event = eventsRepository.save(event);
             User user = userRepository.getById(userService.loggedInUser().getId());
         if (party.getPartyPicUrl().length() == 0) {
@@ -113,6 +109,12 @@ public class PartyController {
         return "views/parties";
     }
 }
+
+//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);
+//        parties.add(party);
+//        if (eventsRepository.findAllById(eventId) == null) {
+
+//        event.setParties(parties);
 
 //    @PostMapping("event/party/{eventId}")
 //    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {
