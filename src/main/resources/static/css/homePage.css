@@ -9,7 +9,6 @@
     --shadow: #787b7b;
     --btn-main: #015A06;
     /*#47E1A1 bright green*/
-
     /*#015A06 drk green*/
 }
 
@@ -99,6 +98,7 @@ ul{
 /*    transform: translateX(-50%);*/
 /*    border-radius: 2rem;*/
 /*}*/
+
 .hidden{
     visibility: hidden;
 }
