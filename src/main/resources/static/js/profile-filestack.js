@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", function () {
     })
 
     $('#confirmPassword').focusout(function () {
-        let password = $("#password-signup").val();
+        let password = $("#password").val();
         let confirmPassword = $("#confirmPassword").val();
         if (password !== confirmPassword) {
             $("#confirmPasswordError").html("Passwords don't match.").css("color", "red");
@@ -36,8 +36,8 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $("#signUpForm").keyup(function () {
-        let password = $("#password-signup").val();
+    $("#userProfileForm").keyup(function () {
+        let password = $("#password").val();
         let confirmPass = $("#confirmPassword").val();
         if (password === confirmPass) {
             $("#submit-btn").removeAttr("disabled");

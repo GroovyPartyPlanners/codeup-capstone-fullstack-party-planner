@@ -35,7 +35,7 @@
     <div class="form-container">
         <div class="title">Sign-up</div>
         <div th:if="${showError}" role="alert" class="alert alert-danger text-center"><span th:text="${error}"></span></div>
-        <form id="signUpForm" class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
+        <form id="userProfileForm" class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details"><label for="first-name">First Name:</label></span>
@@ -50,8 +50,8 @@
                 </div>
 
                 <div class="input-box">
-                    <span class="details"><label for="username-signup">Username:</label></span>
-                    <input id="username-signup" class="form-control text-center" th:field="*{username}" />
+                    <span class="details"><label for="username">Username:</label></span>
+                    <input id="username" class="form-control text-center" th:field="*{username}" />
                     <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? errors"></p>
                 </div>
 
@@ -62,8 +62,8 @@
                 </div>
 
                 <div class="input-box">
-                    <span class="details"><label for="password-signup">Password:</label></span>
-                    <input id="password-signup" type="password" class="form-control text-center" th:field="*{password}" />
+                    <span class="details"><label for="password">Password:</label></span>
+                    <input id="password" type="password" class="form-control text-center" th:field="*{password}" />
                     <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? errors"></p>
                 </div>
 
