@@ -29,35 +29,28 @@
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
+
 <div class="backdrop">
-<div class="card mb-3">
-    <img th:src="${party.getPartyPicUrl()}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text"><small class="text-muted" th:text="'Posted by: ' + ${party.user.username}"></small></p>
-        <h5 class="card-title" th:text="${party.party_name}"></h5>
-        <p class="card-text" th:text="${party.description}"></p>
-        <div class="card text-center mb-3" th:each="comment : ${comments}">
-            <div class="card-header">Comments</div>
-            <div class="card-body">
-                <h3 class="card-title" th:text="${comment.getUser().username}"></h3>
-                <p class="card-text" th:text="${comment.comment_content}"></p>
-                <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
-                    <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit Comment</a>
+    <div class="card mb-3">
+        <img th:src="${party.getPartyPicUrl()}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text"><small class="text-muted" th:text="'Posted by: ' + ${party.user.username}"></small></p>
+            <h5 class="card-title" th:text="${party.party_name}"></h5>
+            <p class="card-text" th:text="${party.description}"></p>
+            <div class="card text-center mb-3" th:each="comment : ${comments}">
+                <div class="card-header">Comments</div>
+                <div class="card-body">
+                    <h3 class="card-title" th:text="${comment.getUser().username}"></h3>
+                    <p class="card-text" th:text="${comment.comment_content}"></p>
+                    <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
+                        <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit or Delete Comment</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <a th:href="@{|/party/${party.id}/comment-form|}" class="btn btn-primary">Post a Comment</a>
     </div>
-    <a th:href="@{|/party/${party.id}/comment-form|}" class="btn btn-primary">Post a Comment</a>
 </div>
-</div>
-
-<!--    the id in the following href is the party_id, this button allows a user to "attend" a party-->
-<!--    <form  class="form-group" th:action="@{'/attend/'+${user.id}+'/'+${id}}">-->
-<!--        <div class="form-group">-->
-<!--            <input th:value="${name}" type="submit" class="btn btn-primary"/>-->
-<!--        </div>-->
-<!--    </form>-->
-<!--    <br/>-->
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>

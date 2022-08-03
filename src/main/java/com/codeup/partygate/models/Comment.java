@@ -11,7 +11,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
+    @NotBlank (message = "Can't leave a blank comment")
     @Column(length = 1000, nullable = false)
     private String comment_content;
 

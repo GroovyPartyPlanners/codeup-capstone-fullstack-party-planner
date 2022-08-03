@@ -16,7 +16,7 @@
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
     <!-- Custom Page Form CSS -->
-    <link rel="stylesheet" th:href="@{/css/page-forms.css}">
+    <link rel="stylesheet" th:href="@{/css/user-forms.css}">
 </head>
 <body style="text-align: center">
 
@@ -34,6 +34,7 @@
 <div class="form-body">
     <div class="form-container">
         <div class="title">Sign-up</div>
+        <div th:if="${showError}" role="alert" class="alert alert-danger text-center"><span th:text="${error}"></span></div>
         <form id="signUpForm" class="form" th:action="@{/sign-up}" method="POST" th:object="${user}">
             <div class="user-details">
                 <div class="input-box">

@@ -15,16 +15,19 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/new-navbar.css}">
-    <!-- Background Styling-->
-    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body style="text-align: center">
+
+<div sec:authorize="!isAuthenticated()">
+    <!--    This content is only shown to UNAUTHENTICATED users.-->
+    <nav th:replace="partials/navbar :: navbar"></nav>
+</div>
 
 <div sec:authorize="isAuthenticated()">
     <!--    This content is only shown to AUTHENTICATED users.-->
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
-<div class = "backdrop">
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -84,7 +87,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
