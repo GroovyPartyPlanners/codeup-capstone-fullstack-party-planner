@@ -11,6 +11,8 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
+    <!-- Custom Parties CSS -->
+    <link rel="stylesheet" th:href="@{/css/parties.css}">
     <!-- Custom Party CSS -->
     <link rel="stylesheet" th:href="@{/css/party.css}">
     <!-- Custom Footer CSS -->
@@ -30,24 +32,28 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<div class="card mb-3">
-    <img th:src="${party.getPartyPicUrl()}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text"><small class="text-muted" th:text="'Posted by: ' + ${party.user.username}"></small></p>
-        <h5 class="card-title" th:text="${party.party_name}"></h5>
-        <p class="card-text" th:text="${party.description}"></p>
-<!--        <div class="card text-center mb-3" th:each="comment : ${comments}">-->
-<!--            <div class="card-header">Comments</div>-->
-<!--            <div class="card-body">-->
-<!--                <h3 class="card-title" th:text="${comment.getUser().username}"></h3>-->
-<!--                <p class="card-text" th:text="${comment.comment_content}"></p>-->
-<!--                <div th:if="${comment.getUser().getId() == #authentication.principal.id}">-->
-<!--                    <a th:href="@{|/comment/${comment.id}/edit|}" class="btn btn-primary">Edit or Delete Comment</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+<h1 class="heading" th:text="${party.party_name}"></h1>
+<div class="main-wrapper">
+    <div class="party-collection">
+        <article>
+            <div class="img-box">
+                <img th:src="${party.getPartyPicUrl()}" alt="image here">
+            </div>
+            <div class="text-content">
+                <h3 th:text="${party.description}">></h3>
+                <div class="post-user">
+                    <span>
+                        <span><i class="fa-solid fa-circle-user" th:text="' Posted By: ' + ${party.getUser().username}"></i></span>
+                    </span>
+                </div>
+                <div class="details">
+                    <div>
+                        <a th:href="@{|/party/${party.id}/comment-form|}" class="button">Post a Comment</a>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
-    <a th:href="@{|/party/${party.id}/comment-form|}" class="btn btn-primary">Post a Comment</a>
 </div>
 
 <h1 class="comment-heading">Comments</h1>
@@ -63,11 +69,11 @@
                                  height="65" />
                             <div class="">
                                 <h5 th:text="${comment.getUser().username}"></h5>
-                                <p class="text-center" th:text="${comment.comment_content}"></p>
+                                <p class="comment-content text-center" th:text="${comment.comment_content}"></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex align-items-center">
                                     </div>
-                                    <div th:if="${comment.getUser().getId() == #authentication.principal.id}">
+                                    <div class="edit-container" th:if="${comment.getUser().getId() == #authentication.principal.id}">
                                         <a th:href="@{|/comment/${comment.id}/edit|}" class="link-muted"><i class="fas fa-reply me-1"></i> Edit or Delete Comment</a>
                                     </div>
                                 </div>

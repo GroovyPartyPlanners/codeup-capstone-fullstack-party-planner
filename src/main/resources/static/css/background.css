@@ -17,7 +17,7 @@
 
 .backdrop{
     background-color: #f0f2f4;
-    padding-top: 30px;
+
 }
 
 *{
@@ -71,15 +71,3 @@
     height: 60px;
 }
 
-/*.container.profile-div-outer{*/
-/*    background-color: white;*/
-/*    padding: 40px;*/
-/*}*/
-
-.eventsContainer{
-    padding: 0px;
-}
-
-/*.canvas.mapboxgl-canvas{*/
-/*    margin: 20px;*/
-/*}*/
