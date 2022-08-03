@@ -1,0 +1,17 @@
+body, html {
+    height: 100%;
+}
+
+.bg {
+
+    background-image: url("https://www.pexels.com/photo/scenic-view-of-snow-capped-mountains-during-night-3408744/");
+
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*error page css from*/
+/*w3schools.com/howto/howto_css_full_page.asp*/
