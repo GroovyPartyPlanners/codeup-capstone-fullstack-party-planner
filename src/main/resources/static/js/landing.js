@@ -31,6 +31,9 @@ function showPosition(position) {
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
                     events.innerHTML += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}</h1>`
                 }
+        //     events.innerHtml += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
+        //         `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
+        // }
                 /*for(var i = 0; i < 1; i++) {
                     if(data.meta.total>=11){
                         pages = document.getElementById('pages');

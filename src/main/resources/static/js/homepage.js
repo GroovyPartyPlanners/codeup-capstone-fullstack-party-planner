@@ -93,7 +93,7 @@ function windowLoading(){
                         var events ='';
 
                         total = document.getElementById('total');
-                        total.innerHTML = `<label class='totalEvents'>Total Events ${data.meta.total}</label>`;
+                        total.innerHTML = `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
                             const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
@@ -139,7 +139,7 @@ function windowLoading(){
                     var events ='';
 
                     total = document.getElementById('total');
-                    total.innerHTML = `<h2>Total Events ${data.meta.total}</h2>`
+                    total.innerHTML = `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                     for(var i = 0; i < data.events.length; i++) {
                         const date = new Date(data.events[i].datetime_local);
                         const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
@@ -198,7 +198,7 @@ function windowLoading(){
                         var events ='';
                         console.log(data.events);
                         total = document.getElementById('total');
-                        total.innerHTML = `<h2>Total Events ${data.meta.total}</h2>`
+                        total.innerHTML = `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
                             const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
@@ -237,7 +237,7 @@ function windowLoading(){
                         var events ='';
                         console.log(data.events);
                         total = document.getElementById('total');
-                        total.innerHTML = `<h2>Total Events ${data.meta.total}</h2>`
+                        total.innerHTML = `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
                             const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
