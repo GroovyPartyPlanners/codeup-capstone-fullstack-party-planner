@@ -51,15 +51,15 @@
     box-shadow: 0 1px var(--accent);
     color: var(--accent-third);
 }
-.button:hover{
-    transform: translateY(-.2em);
-    box-shadow: 0 3px var(--accent);
-    color: var(--accent-third);
-}
-.button:active{
-    box-shadow: 0 2px var(--accent);
-    transform: translateY(2px);
-}
+/*.button:hover{*/
+/*    transform: translateY(-.2em);*/
+/*    box-shadow: 0 3px var(--accent);*/
+/*    color: var(--accent-third);*/
+/*}*/
+/*.button:active{*/
+/*    box-shadow: 0 2px var(--accent);*/
+/*    transform: translateY(2px);*/
+/*}*/
 .pageNum:active{
     background-color:red;
 }
@@ -85,9 +85,11 @@
     text-align: center;
 
 }
-ul{
-    list-style: none;
-}
+
+/*ul {*/
+/*    list-style-type: none;*/
+/*    list-style-position: outside;*/
+/*}*/
 
 /*.break::after{*/
 /*    content: "";*/
@@ -135,6 +137,7 @@ ul{
     flex-direction: column;
     justify-content: left;
 }
+
 
 /** {*/
 /*    text-decoration: none;*/
