@@ -5,7 +5,6 @@ function windowLoading(){
     setTimeout(function(){
         document.getElementById('loading').style.display = 'none';
 
-
         function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -53,8 +52,8 @@ function showPosition(position) {
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
-                    events += `<div class='loopEvent profile-div-outer row'>${data.events[i].title}\n`+" "+`${data.events[i].venue.name}\n`+" "+`${data.events[i].venue.display_location}\n`+" Date: "+ dateString + `${data.events[i].popularity}\n`+`<div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">Host a party at ${data.events[i].title}</a>`+
-                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">Or see parties at ${data.events[i].title}</a></div></div></br></br>`
+                    events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/>${data.events[i].popularity}<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
+                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                 }
 
                 for(var i = 0; i < 1; i++) {
@@ -68,8 +67,8 @@ function showPosition(position) {
                         let pagesCount = Math.ceil(data.meta.total/10);
                         pageNum = document.getElementById('pageNum');
                         for(let i = 0; i < pagesCount; i++){
-                            pageNum.innerHTML = 'Page:'
-                            pages.innerHTML += `<a href="#"  onclick="page(${i})">`+" "+`${i+1}</a>`
+                            pageNum.innerHTML = 'Page:';
+                            pages.innerHTML += `<a href="#"  onclick="page(${i})">`+" "+`${i+1}</a>`;
                         }
 
                         if(data.events <11){
@@ -77,7 +76,7 @@ function showPosition(position) {
                             pages.innerHTML = "no pages";
                         }
                     }
-                    document.getElementById("eventTitle").innerHTML = events
+                    document.getElementById("eventTitle").innerHTML = events;
                 }}
             )
             .catch(error => console.log(error));
@@ -94,13 +93,13 @@ function showPosition(position) {
                 var events ='';
 
                 total = document.getElementById('total');
-                total.innerHTML = `<h2 class='totalEvents'>Total Events ${data.meta.total}</h2>`
+                total.innerHTML = `<h2 class='totalEvents'>Total Events ${data.meta.total}</h2>`;
                 for(var i = 0; i < data.events.length; i++) {
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = `${month}/${day}/${year}`;
-                    events += `<div class='loopEvent profile-div-outer row'>${data.events[i].title}\n`+" "+`${data.events[i].venue.name}\n`+" "+`${data.events[i].venue.display_location}\n`+" Date: "+ dateString + `${data.events[i].popularity}\n`+`<div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">Host a party at ${data.events[i].title}</a>`+
-                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">Or see parties at ${data.events[i].title}</a></div></div></br></br>`
+                    events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/>${data.events[i].popularity}<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
+                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                 }
 
                 for(var i = 0; i < 1; i++) {
@@ -145,8 +144,8 @@ document.getElementById('search-btn').addEventListener('click', function (e){
                 const date = new Date(data.events[i].datetime_local);
                 const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                 const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
-                events += `<div class='loopEvent profile-div-outer row'>${data.events[i].title}\n`+" "+`${data.events[i].venue.name}\n`+" "+`${data.events[i].venue.display_location}\n`+" Date: "+ dateString + `${data.events[i].popularity}\n`+`<div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">Host a party at ${data.events[i].title}</a>`+
-                    `<a href="/parties/${data.events[i].id}" class="col profile-btn">Or see parties at ${data.events[i].title}</a></div></div></br></br>`
+                events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/>${data.events[i].popularity}<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
+                    `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
             }
             for(var i = 0; i < 1; i++) {
                 if(data.meta.total <11){
@@ -204,8 +203,8 @@ function pin(num){
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
-                    events += `<div class='loopEvent profile-div-outer row'>${data.events[i].title}\n`+" "+`${data.events[i].venue.name}\n`+" "+`${data.events[i].venue.display_location}\n`+" Date: "+ dateString + `${data.events[i].popularity}\n`+`<div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">Host a party at ${data.events[i].title}</a>`+
-                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">Or see parties at ${data.events[i].title}</a></div></div></br></br>`
+                    events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/>${data.events[i].popularity}<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
+                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                 }
                 // for(var i = 0; i < 1; i++) {
                 //     if(data.meta.total>=11){
@@ -243,8 +242,8 @@ function page(num){
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
                     const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
-                    events += `<div class='loopEvent profile-div-outer row'>${data.events[i].title}\n`+" "+`${data.events[i].venue.name}\n`+" "+`${data.events[i].venue.display_location}\n`+" Date: "+ dateString + `${data.events[i].popularity}\n`+`<div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">Host a party at ${data.events[i].title}</a>`+
-                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">Or see parties at ${data.events[i].title}</a></div></div></br></br>`
+                    events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/>${data.events[i].popularity}<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
+                        `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                 }
                 // for(var i = 0; i < 1; i++) {
                 //     if(data.meta.total>=11){
@@ -257,8 +256,8 @@ function page(num){
                 //         }
                 //     }
                 let pageNum = document.getElementById('pageNum');
-                pageNum.innerHTML = "Page" +" " + (num+1)
-                document.getElementById("eventTitle").innerHTML = events
+                pageNum.innerHTML = "Page" +" " + (num+1);
+                document.getElementById("eventTitle").innerHTML = events;
             }
         ).catch(error => console.log(error));
     }
