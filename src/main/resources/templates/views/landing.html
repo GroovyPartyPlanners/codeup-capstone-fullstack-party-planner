@@ -39,8 +39,9 @@
     <div class="container">
         <h4 class="intro-title">Welcome to Party Planners</h4>
         <p class="introParagraph">
-            PartyGate is a web application that allows you to plan your party and tailgates with people.
-            Sign up to comment, create parties, and view events in your local area or desired location!</p>
+            Welcome to PartyGate! Check out some Events near you and plan your before, or after party and tailgates at the event of your choice!
+        </p><br>
+        <p class="introParagraph">Sign up to comment, create parties, and be sure to check out our interactive map of Events on the <a th:href="@{/events}">Events Page!</a></p>
         <div class="imgContainer">
             <img class="img image1" th:src="@{imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp}" src="../../static/imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp">
             <img class="img image2" th:src="@{imgs/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg}" alt="test" src="../../static/imgs/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg">
@@ -48,7 +49,7 @@
         </div>
         <div class="eventsContainer">
             <h3 class="events-title">Below are the events in your area!</h3>
-            <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" ></img>
+            <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" >
             <p class="total" id="total"></p>
             <p class="pages" id="pages"></p>
             <h1 class="eventTitle" id="eventTitle">
