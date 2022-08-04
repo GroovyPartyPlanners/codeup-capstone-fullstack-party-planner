@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
-import java.util.Collections;
 
 @Controller
 public class ProfileController {
@@ -39,7 +38,7 @@ public class ProfileController {
     public String showProfilePage(Model model, Party party) {
         User user = userService.loggedInUser();
         model.addAttribute("user", user);
-        model.addAttribute("parties", partyRepository.findAllById(Collections.singleton(user.getId())));
+        model.addAttribute("parties", partyRepository.findAllByUserId(user.getId()));
         return "views/profile";
     }
 
