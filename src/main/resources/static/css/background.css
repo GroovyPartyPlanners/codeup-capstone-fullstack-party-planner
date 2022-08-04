@@ -17,6 +17,8 @@
 .backdrop{
     background-color: #f0f2f4;
     text-decoration: none;
+    text-align: center;
+    align-items: center;
 }
 
 *{
@@ -52,17 +54,19 @@
 .profile-btn{
     color: white;
     background-color: #015A06;
-    border: 2px solid #47E1A1;
-    border-radius: 12px;
+    border: 2px solid #f0f2f4;
+    border-radius: 2px;
     margin: 5px;
-    font-weight: bolder;
+    padding: 5px;
+    /*font-weight: bolder;*/
 }
 
 .profile-btn:hover{
     color: black;
     background-color: #f0f2f4;
-    border: 2px solid #47E1A1;
+    border: 2px solid #015A06;
     margin: 5px;
-    font-weight: bolder;
+    border-radius: 2px;
+    text-decoration: none;
+    padding: 5px;
 }
-
