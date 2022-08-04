@@ -7,15 +7,17 @@
     --accent: #6fffe9;
     --color-main: #000000;
     --shadow: rgb(98, 98, 98);
-
 }
+
 body{
     background-color: rgb(253, 253, 253);
 }
+
 .img{
     width: 500px;
     height: 300px;
 }
+
 .intro-title{
     text-align: center;
     font-size: 4rem;
@@ -41,6 +43,7 @@ body{
     padding: 1rem;
     border-radius: 10px;
 }
+
 .loopEvent{
     border: 1px solid var(--third);
     border-radius: 10px;
@@ -48,11 +51,13 @@ body{
     box-shadow: 3px 3px var(--shadow);
     padding: 1rem;
 }
+
 .loopEvent:hover{
     box-shadow: 8px 8px 8px 8px var(--shadow);
     transform: translateY(-.5rem);
     transition: 1.5s;
 }
+
 .imgContainer{
     display: flex;
     justify-content: space-around;
