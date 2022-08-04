@@ -127,10 +127,10 @@ article {
     box-shadow: none;
 }
 
-.party-collection article:nth-child(even) {
-    display: flex;
-    flex-direction: column-reverse;
-}
+/*.party-collection article:nth-child(even) {*/
+/*    display: flex;*/
+/*    flex-direction: column-reverse;*/
+/*}*/
 
 /* Media Queries */
 
@@ -144,8 +144,7 @@ article {
     article {
         flex: 0 0 100%;
     }
-
-    .party-collection article:nth-child(even) {
-        flex-direction: column;
-    }
+    /*.party-collection article:nth-child(even) {*/
+    /*    flex-direction: column;*/
+    /*}*/
 }

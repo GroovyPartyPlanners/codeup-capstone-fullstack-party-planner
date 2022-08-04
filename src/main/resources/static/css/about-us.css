@@ -53,7 +53,7 @@ body:nth-child(3) {
 
 .card {
     width: 32rem;
-    background-color: #ebeef8;
+    background-color: #f0f2f4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,7 +105,7 @@ body:nth-child(3) {
 
 .card .btn {
     padding: 1rem 2.5rem;
-    background-color: #445ae3;
+    background-color: #47E1A1;
     border-radius: 2rem;
     margin: 1rem 0;
     text-transform: uppercase;
@@ -117,6 +117,7 @@ body:nth-child(3) {
 .card .btn:hover {
     transform: translateY(-2px);
     box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
 }
 
 .card .btn:active {
@@ -156,13 +157,13 @@ body:nth-child(3) {
 }
 @keyframes glow {
     0%{
-        box-shadow: 0px 0px #47E1A1;
+        box-shadow: 0 0 #47E1A1;
     }
     50%{
         box-shadow: 5px 5px 5px #47E1A1;
     }
     100%{
-        box-shadow: 0px 0px #47E1A1;
+        box-shadow: 0 0 #47E1A1;
     }
 }
 /* Media Queries */
