@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"lang="en">
 <head>
 
 <!--        <meta charset="UTF-8" th:content="${fileStackAPI}">-->
@@ -24,22 +24,9 @@
 </head>
 <body>
 
-<div sec:authorize="!isAuthenticated()">
+
     <!--    This content is only shown to UNAUTHENTICATED users.-->
     <nav th:replace="partials/navbar :: navbar"></nav>
-</div>
-
-<div sec:authorize="isAuthenticated()">
-    <!--    This content is only shown to AUTHENTICATED users.-->
-    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
-</div>
-
-<div class="errors" th:if="${param.logout}">
-    You have been logged out.
-</div>
-<div class="errors" th:if="${param.error}">
-    Invalid Username and Password.
-</div>
 
 <th:block th:switch="${error}">
     <div th:case="'Not Found'">

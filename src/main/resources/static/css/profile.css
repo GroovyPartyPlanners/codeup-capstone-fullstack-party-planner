@@ -5,12 +5,14 @@
 }
 
 .profile-img {
+    margin-top: 40px;
     width: 15rem;
     height: 15rem;
     object-fit: cover;
     border-radius: 50%;
     z-index: 999;
     border: 1rem solid #ebeef8;
+    margin-bottom: 60px;
 }
 
 /*.btn{*/

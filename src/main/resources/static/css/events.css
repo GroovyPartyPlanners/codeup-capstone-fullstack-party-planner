@@ -40,15 +40,15 @@
 }
 .inputBoxes{
     color: var(--third);
-    background-color: var(--accent);
+    /*background-color: var(--accent);*/
 }
 .dropdown{
     color: var(--third);
-    background-color: var(--accent);
+    /*background-color: var(--accent);*/
 }
 .button{
     background-color: var(--shadow);
-    box-shadow: 0 1px var(--accent);
+    /*box-shadow: 0 1px var(--accent);*/
     color: var(--accent-third);
 }
 /*.button:hover{*/
@@ -61,7 +61,7 @@
 /*    transform: translateY(2px);*/
 /*}*/
 .pageNum:active{
-    background-color:red;
+    background-color: #663399;
 }
 .totalEvents{
     color: var(--sec-text-color);
@@ -70,10 +70,10 @@
     /*padding-bottom: 3rem;*/
     font-family: "Poppins", sans-serif;
 }
-.mapLabel{
-    color: var(--sec-text-color);
-    /*font-size: 2em;*/
-}
+/*.mapLabel{*/
+/*    color: var(--sec-text-color);*/
+/*    !*font-size: 2em;*!*/
+/*}*/
 #map{
     border-radius: 30px;
     position: relative;
