@@ -69,10 +69,10 @@ public class CommentController {
         return "redirect:/party/" + partyId;
     }
 
-    @PostMapping("comment/{id}/delete")
-    public String deleteComment(@PathVariable long id) {
-        commentRepository.deleteById(id);
-        return "redirect:/party/" + id;
+    @PostMapping("comment/{commentId}/{partyId}/delete")
+    public String deleteComment(@PathVariable long commentId, @PathVariable long partyId) {
+        commentRepository.deleteById(commentId);
+        return "redirect:/party/" + partyId;
     }
 
 }

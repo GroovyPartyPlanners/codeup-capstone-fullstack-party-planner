@@ -47,7 +47,7 @@
             </div>
         </form>
         <div class="form-btn">
-            <form class="delete-btn" th:action="@{|/comment/${comment.id}/delete|}" th:method="POST">
+            <form class="delete-btn" th:action="@{/comment/{commentId}/{partyId}/delete(commentId=${comment.id}, partyId=${comment.getParty().getId()})}" th:method="POST">
                 <input type="submit" value="Delete" />
             </form>
         </div>
