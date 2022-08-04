@@ -28,19 +28,24 @@ function showPosition(position) {
                 for(var i = 0; i < data.events.length; i++) {
                     const date = new Date(data.events[i].datetime_local);
                     const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                    const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
-                    events.innerHTML += `<h1 class='loopEvent'>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}`+" Date: "+dateString+" Popularity "+ `${data.events[i].popularity}</h1>`
+                    const dateString = `${month}/${day}/${year}`;
+                    events.innerHTML += `<p class='loopEvent profile-div-outer'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>` + dateString + `</p><br/>`
                 }
-                /*for(var i = 0; i < 1; i++) {
-                    if(data.meta.total>=11){
-                        pages = document.getElementById('pages');
-                        let pagesCount = Math.ceil(data.meta.total/10);
-                        console.log(pagesCount);
-                        for(let i = 0; i < pagesCount; i++){
-                            pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
-                        }
-                    }
-                }*/
+        //     events.innerHtml += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
+        //         `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
+        // }
+
+    // profile-div-outer
+    /*for(var i = 0; i < 1; i++) {
+        if(data.meta.total>=11){
+            pages = document.getElementById('pages');
+            let pagesCount = Math.ceil(data.meta.total/10);
+            console.log(pagesCount);
+            for(let i = 0; i < pagesCount; i++){
+                pages.innerHTML += `<a href="#" onclick="page(${i})">`+" "+`${i+1}</a>`
+            }
+        }
+    }*/
             }
 
         )
@@ -68,10 +73,3 @@ windowLoading();
 // }
 // )
 // .catch(error => console.log(error));
-
-
-
-
-
-
-

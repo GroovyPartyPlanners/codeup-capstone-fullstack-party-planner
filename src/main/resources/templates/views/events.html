@@ -11,8 +11,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places"></script>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
-    <!-- Custom Events CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/homePage.css}">
+
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/events.css}">
+
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/gray-footer.css}">
     <!-- Custom Navbar CSS -->
@@ -33,35 +35,31 @@
 
 <div class="backdrop">
 <br/><span class="backdrop"></span><br/>
-
-<div class="container">
+    <div class="row main">
+        <div class="col=6 left">
+            <label class="mapLabel justify-content-center label">Drag the pin, find events!</label>
+        </div>
+        <div class="col=6 right">
+            <label class="total justify-content-center label" id="total"></label>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-5">
-    <div class="container">
-
-
-        <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>
-        <div class="container">
-
-
-
+            <div class="col-6 left">
+                <div class="container">
 <!--        <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>-->
 <!--        <div class="container profile-div-outer">-->
 
 <!--        <label class="mapLabel d-flex justify-content-center">Search the map by dragging the dropped pin:</label>-->
-
-
         <div id='map' style='width: 500px; height: 675px;'></div>
         </div>
         <br/>
-        <form>
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-auto col-md-3 d-flex justify-content-center">
+            <div class="container">
+<!--                <div class="row justify-content-center profile-div-outer">-->
+<!--                    <div class="col-auto col-md-3 d-flex justify-content-center">-->
 
-        <ul class="profile-div-outer list-unstyled">
-            <li>
-                <label for="search">Enter a location(City,State,Stadium,Theatre,etc.)Or keywords(Performers, Teams, etc.)</label><input type="text" id="search" placeholder="Search"></li>
+        <ul class="col list-unstyled align-items-left text-align-left profile-div-outer" id="searchList">
+            <li class="row">
+                <label class="col" for="search">Enter a location(City,State,Stadium,Theatre,etc.)Or keywords(Performers, Teams, etc.)</label><input class="col" type="text" id="search" placeholder="Search"></li><br>
             <li>
                 <label for="type">Choose type of Event</label><select id="type">
                     <option value="">All</option>
@@ -80,25 +78,16 @@
                 </select></li>
             <li><button id="search-btn" class="button profile-btn">Search</button></li>
         </ul>
-                    </div>
-                </div>
             </div>
-        </form>
-    </div>
-    </div>
-
-
-
-        <div class="col-7">
+            </div>
+        <div class="col-6">
         <div class="container eventsContainer">
-            <p class="total" id="total"></p>
             <ul class="hidden">
                 <li class="hidden"><label class="hidden">Sort By Popularity</label>
                     <button id="upvote"class="button hidden">⬆</button>
                     <button id="downvote" class="button hidden">⬇</button></li>
                 <h5 class="popMeaning hidden">Popularity is on a scale of 0-1</h5>
 <!--                <p class="total" id="total"></p>-->
-
 
             </ul>
             <div class = "container">
@@ -116,7 +105,7 @@
     </div>
     </div>
 </div>
-</div>
+
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>

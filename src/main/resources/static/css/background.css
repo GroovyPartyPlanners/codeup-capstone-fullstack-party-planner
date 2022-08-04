@@ -19,6 +19,7 @@
     text-decoration: none;
     text-align: center;
     align-items: center;
+    padding-top: 60px;
 }
 
 *{
@@ -38,10 +39,16 @@
 }
 
 .profile-div-outer {
+    background-color: white;
     border: 2px solid #015A06;
     border-radius: 6px;
     padding: 40px;
     line-height: 1.5;
+}
+
+#searchList{
+    align-items: start;
+    text-align-all: left;
 }
 
 /*https://www.joshwcomeau.com/css/designing-shadows/*/
@@ -72,3 +79,31 @@
     text-decoration: none;
     padding: 5px;
 }
+
+li{
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+label{
+    text-align: left;
+}
+
+ul{
+    text-align: left;
+    align-content: start;
+    align-items: start;
+}
+
+/*.search-btn{*/
+/*    align-self: end;*/
+/*}*/
+
+#search{
+    height: 20px;
+}
+
+/*#searchRow{*/
+/*    display: flex;*/
+
+/*}*/

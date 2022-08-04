@@ -16,6 +16,8 @@
     background-color: var(--main);
     padding: 1rem;
     border-radius: 10px;
+    margin-top: -80px;
+    margin-left: 30px;
 }
 .loopEvent{
     border: 4px solid var(--third);
@@ -49,28 +51,28 @@
     box-shadow: 0 1px var(--accent);
     color: var(--accent-third);
 }
-.button:hover{
-    transform: translateY(-.2em);
-    box-shadow: 0 3px var(--accent);
-    color: var(--accent-third);
-}
-.button:active{
-    box-shadow: 0 2px var(--accent);
-    transform: translateY(2px);
-}
+/*.button:hover{*/
+/*    transform: translateY(-.2em);*/
+/*    box-shadow: 0 3px var(--accent);*/
+/*    color: var(--accent-third);*/
+/*}*/
+/*.button:active{*/
+/*    box-shadow: 0 2px var(--accent);*/
+/*    transform: translateY(2px);*/
+/*}*/
 .pageNum:active{
     background-color:red;
 }
 .totalEvents{
     color: var(--sec-text-color);
-    border-bottom: 3px solid var(--accent);
+    /*border-bottom: 3px solid var(--accent);*/
     text-align: center;
-    padding-bottom: 3rem;
+    /*padding-bottom: 3rem;*/
     font-family: "Poppins", sans-serif;
 }
 .mapLabel{
     color: var(--sec-text-color);
-    font-size: 2em;
+    /*font-size: 2em;*/
 }
 #map{
     border-radius: 30px;
@@ -83,9 +85,11 @@
     text-align: center;
 
 }
-ul{
-    list-style: none;
-}
+
+/*ul {*/
+/*    list-style-type: none;*/
+/*    list-style-position: outside;*/
+/*}*/
 
 /*.break::after{*/
 /*    content: "";*/
@@ -105,6 +109,35 @@ ul{
 .total, .pages{
     text-align: center;
 }
+
+.label{
+    font-size: 32px;
+
+}
+
+.main{
+    flex-grow: 1;
+    justify-content: space-around;
+    /*justify-items: auto;*/
+}
+
+.left{
+    margin-right: -60px;
+    margin-bottom: 80px;
+    margin-left: 60px;
+}
+
+.right{
+    margin-left: -60px;
+    margin-right: 60px;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
 
 /** {*/
 /*    text-decoration: none;*/
