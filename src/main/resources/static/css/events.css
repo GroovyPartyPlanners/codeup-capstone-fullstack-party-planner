@@ -63,14 +63,14 @@
 }
 .totalEvents{
     color: var(--sec-text-color);
-    border-bottom: 3px solid var(--accent);
+    /*border-bottom: 3px solid var(--accent);*/
     text-align: center;
-    padding-bottom: 3rem;
+    /*padding-bottom: 3rem;*/
     font-family: "Poppins", sans-serif;
 }
 .mapLabel{
     color: var(--sec-text-color);
-    font-size: 2em;
+    /*font-size: 2em;*/
 }
 #map{
     border-radius: 30px;
@@ -106,6 +106,14 @@ ul{
     text-align: center;
 }
 
+.label{
+    font-size: 32px;
+
+}
+
+.main{
+    flex-grow: 1;
+}
 /** {*/
 /*    text-decoration: none;*/
 /*}*/
