@@ -118,13 +118,13 @@ nav {
 @media (min-width: 45em) {
     .primary-navigation {
         --gap: clamp(1.5rem, 5vw, 3rem);
-        padding-block: .3rem;
+        padding-block: .8rem;
         padding-inline: clamp(3rem, 8vw, 10rem);
         justify-content: space-around;
         align-items: center;
     }
 
     .li-logo {
-        margin-left: -15rem;
+        margin-left: -9rem;
     }
 }
