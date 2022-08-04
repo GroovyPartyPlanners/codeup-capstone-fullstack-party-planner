@@ -32,13 +32,6 @@
     <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>
 </div>
 
-<div class="errors" th:if="${param.logout}">
-    You have been logged out.
-</div>
-<div class="errors" th:if="${param.error}">
-    Invalid Username and Password.
-</div>
-
 <th:block th:switch="${error}">
     <div th:case="'Not Found'">
         <h1>Internal Server Error!!</h1>
