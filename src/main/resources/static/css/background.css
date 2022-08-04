@@ -103,6 +103,11 @@ ul{
     height: 20px;
 }
 
+.theList {
+    margin-right: 40px;
+    width: 500px;
+    margin-left: 85px;
+}
 /*#searchRow{*/
 /*    display: flex;*/
 
