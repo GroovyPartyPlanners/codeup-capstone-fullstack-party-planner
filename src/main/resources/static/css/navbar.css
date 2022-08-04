@@ -3,13 +3,13 @@
 /* Flex */
 .flex {
     display: flex;
-    gap: var(--gap, 1rem);
+    gap: var(--gap, 2rem);
 }
 
 /* Logo */
 .logo {
     margin: 0;
-    width: 225px;
+    width: 200px;
 }
 
 /* Primary header */
@@ -35,12 +35,12 @@ nav {
     list-style: none;
     padding: 0;
     margin: 0;
-    background: hsl(123, 98%, 18%);
+    background: hsl(123, 96%, 22%);
 }
 
 @supports (backdrop-filter: blur(2rem)) {
     .primary-navigation {
-        background: hsl(123, 98%, 18%);
+        background: hsl(123, 96%, 22%);
         backdrop-filter: blur(2rem);
     }
 }
@@ -103,7 +103,7 @@ nav {
         right: 2rem;
     }
 
-    .mobile-nav-toggle[aria-expaned="true"] {
+    .mobile-nav-toggle[aria-expanded="true"] {
         background-size: cover;
         background-image: url("https://img.icons8.com/fluency-systems-filled/2x/delete-sign.png");
     }
@@ -118,7 +118,13 @@ nav {
 @media (min-width: 45em) {
     .primary-navigation {
         --gap: clamp(1.5rem, 5vw, 3rem);
-        padding-block: 1.7rem;
+        padding-block: .3rem;
         padding-inline: clamp(3rem, 8vw, 10rem);
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .li-logo {
+        margin-left: -15rem;
     }
 }
