@@ -34,13 +34,13 @@
 
 <h1 class="heading" th:text="${party.party_name}"></h1>
 <div class="main-wrapper">
-    <div class="party-collection">
+    <div class="party-collection-party">
         <article>
-            <div class="img-box">
+            <div class="img-box-party">
                 <img th:src="${party.getPartyPicUrl()}" alt="Party Picture">
             </div>
             <div class="text-content">
-                <h3 th:text="'Details: ' + ${party.description}"></h3>
+                <h3 th:text="${party.description}"></h3>
                 <div class="post-user">
                     <span>
                         <span><i class="fa-solid fa-circle-user" th:text="' Posted By: ' + ${party.getUser().username}"></i></span>

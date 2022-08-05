@@ -20,7 +20,8 @@
 
     <title th:text="'Ooops, ' + ${error}"></title>
 </head>
-<body>
+<body style="text-align: center">
+
 <div sec:authorize="!isAuthenticated()">
     <!--    This content is only shown to UNAUTHENTICATED users.-->
     <nav th:replace="partials/navbar :: navbar"></nav>
@@ -40,7 +41,7 @@
     </div>
 </th:block>
 
-<img src="../GiantHole.jpg" width="1000" th:src="@{imgs/GiantHole.jpg}"class="bg" alt="This is not the droid you are looking for.">
+<img src="/static/imgs/GiantHole.jpg" width="1000" th:src="@{/static/imgs/GiantHole.jpg}" class="bg" alt="This is not the droid you are looking for.">
 
 </body>
 </html>
