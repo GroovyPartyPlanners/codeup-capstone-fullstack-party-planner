@@ -63,7 +63,7 @@ body {
 
 /* Individual PARTY page */
 .party-collection-party {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -83,7 +83,7 @@ article {
 }
 
 .post-user {
-    font-size: 16px;
+    font-size: 13px;
     margin-bottom: 10px;
 }
 
@@ -96,6 +96,7 @@ article {
 }
 
 .text-content {
+    text-align: center;
     padding: 0 25px;
 }
 
