@@ -11,15 +11,14 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
-
-<!--    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Kanit:ital,wght@1,200&family=Righteous&display=swap" rel="stylesheet">-->
-
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/gray-footer.css}">
-
+    <!-- Custom Landing CSS -->
     <link rel="stylesheet" th:href="@{/css/landing.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <!-- Custom Background CSS -->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 <body style="text-align: center">
 
@@ -38,22 +37,22 @@
         <h4 class="intro-title">Welcome to Party Planners</h4>
         <p class="introParagraph">
             Check out some Events near you and plan your before, or after party and tailgates at the event of your choice!
-        </p><br>
+        </p>
+        <br>
         <p class="introParagraph">Sign up to comment, create parties, and be sure to check out our interactive map of Events on the <a th:href="@{/events}">Events Page!</a></p>
         <div class="imgContainer">
-            <img class="img image1" th:src="@{imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp}" src="../../static/imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp">
+            <img class="img image1" th:src="@{imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp}" src="../../static/imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp" alt="">
             <img class="img image2" th:src="@{imgs/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg}" alt="test" src="../../static/imgs/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg">
-            <img class="img image3" th:src="@{imgs/18920718_303.jpg}" src="../../static/imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp">
+            <img class="img image3" th:src="@{imgs/18920718_303.jpg}" src="../../static/imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp" alt="">
         </div>
         <div class="eventsContainer">
             <h3 class="events-title">Below are the events in your area!</h3>
-            <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading" >
+            <img th:src="@{imgs/Spinner-1s-200px%20(1).svg}" src="../../static/imgs/Spinner-1s-200px%20(1).svg" id="loading"  alt="">
             <p class="total" id="total"></p>
             <p class="pages" id="pages"></p>
-            <h1 class="eventTitle" id="eventTitle">
-                <h2 class="eventDate" id="eventDate"></h2>
-                <h2 class="popularity" id="popularity"></h2>
-            </h1>
+            <h1 class="eventTitle" id="eventTitle"></h1>
+            <h2 class="eventDate" id="eventDate"></h2>
+            <h2 class="popularity" id="popularity"></h2>
         </div>
     </div>
 </div>
@@ -63,13 +62,11 @@
 
 <!-- Partial that contains Bootstrap and jQuery CDNs -->
 <div th:replace="partials/scripts :: scripts"></div>
-
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
-
+<!-- Custom ClientId JS -->
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
-
+<!-- Custom Landing JS -->
 <script type="text/javascript" th:src="@{/js/landing.js}"></script>
-<link rel="stylesheet" th:href="@{/css/background.css}">
 </body>
 </html>

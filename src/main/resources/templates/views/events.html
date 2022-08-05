@@ -11,13 +11,14 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkLTs_JIK818BW-_QWPtOTUFjOPJj1L8&libraries=places"></script>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">
-
+    <!-- Custom Events Page CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/css/events.css}">
-
     <!-- Custom Footer CSS -->
     <link rel="stylesheet" th:href="@{/css/gray-footer.css}">
     <!-- Custom Navbar CSS -->
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <!-- Custom Background CSS -->
+    <link rel="stylesheet" th:href="@{/css/background.css}">
 </head>
 
 <body style="text-align: center">
@@ -43,17 +44,10 @@
         </div>
     </div>
     <div class="row">
-            <div class="col-5 left container">
+        <div class="col-5 left container">
 
-<!--        <label class="mapLabel d-flex justify-content-center">Drag the pin, find events!</label>-->
-<!--        <div class="container profile-div-outer">-->
-
-<!--        <label class="mapLabel d-flex justify-content-center">Search the map by dragging the dropped pin:</label>-->
         <div id='map' style='width: 500px; height: 675px;'></div>
         <br/>
-
-<!--                <div class="row justify-content-center profile-div-outer">-->
-<!--                    <div class="col-auto col-md-3 d-flex justify-content-center">-->
 
         <ul class="w-75 align-self-center list-unstyled profile-div-outer" id="getFixed">
             <li>
@@ -73,49 +67,44 @@
                     <option value="minor_league_baseball">Minor League Baseball</option>
                     <option value="soccer">Soccer</option>
                     <option value="football">Football</option>
-                </select></li>
+                </select>
+            </li>
             <li><button id="search-btn" class="button profile-btn">Search</button></li>
         </ul>
 
-            </div>
+        </div>
         <div class="col-6">
-        <div class="container eventsContainer">
-            <ul class="hidden">
-                <li class="hidden"><label class="hidden">Sort By Popularity</label>
-                    <button id="upvote"class="button hidden">⬆</button>
-                    <button id="downvote" class="button hidden">⬇</button></li>
-                <h5 class="popMeaning hidden">Popularity is on a scale of 0-1</h5>
-<!--                <p class="total" id="total"></p>-->
+            <div class="container eventsContainer">
+                <ul class="hidden">
+                    <li class="hidden"><label class="hidden">Sort By Popularity</label>
+                        <button id="upvote"class="button hidden">⬆</button>
+                        <button id="downvote" class="button hidden">⬇</button>
+                    </li>
+                    <h5 class="popMeaning hidden">Popularity is on a scale of 0-1</h5>
+                </ul>
+                <div class = "container">
+                    <img th:src="@{imgs/Spinner-1s-200px (1).svg}" src="../../static/imgs/Spinner-1s-200px (1).svg" id="loading" />
 
-            </ul>
-            <div class = "container">
-                <img th:src="@{imgs/Spinner-1s-200px (1).svg}" src="../../static/imgs/Spinner-1s-200px (1).svg" id="loading" />
+                    <h1 class="eventTitle" id="eventTitle"></h1>
+                    <h2 class="eventDate" id="eventDate"></h2>
+                    <h2 class="popularity" id="popularity"></h2>
 
-                <h1 class="eventTitle" id="eventTitle">
-                <h2 class="eventDate" id="eventDate"></h2>
-                <h2 class="popularity" id="popularity"></h2>
-            </h1>
-                <p class="pages" id="pages"></p>
-                <p class="page" id="pageNum"></p>
+                    <p class="pages" id="pages"></p>
+                    <p class="page" id="pageNum"></p>
+                </div>
             </div>
         </div>
-        </div>
-            </div>
     </div>
-
-
-
-
+</div>
 
 <!-- Partial that contains Footer HTML -->
 <div th:replace="partials/footer.html :: footer"></div>
 
+<!-- Custom ClientId JS -->
 <script type="text/javascript" th:src="@{/js/clientid.js}"></script>
 <!-- Custom Navbar JS -->
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
-
+<!-- Custom Homepage JS -->
 <script type="text/javascript" th:src="@{/js/homepage.js}"></script>
-
-<link rel="stylesheet" th:href="@{/css/background.css}">
 </body>
 </html>

@@ -48,16 +48,6 @@ public class User {
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "user")
     private List<Comment> comments;
 
-//    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
-//    added missing referencedColumnName
-//    @ManyToMany
-//    @JoinTable(name = "attendees",
-////            , nullable = true, updatable = true
-//            joinColumns = @JoinColumn(name = "user_id"),
-////            , nullable = true, updatable = true
-//            inverseJoinColumns = @JoinColumn(name = "party_id"))
-//    private List<Party> tailgateParties;
-
     public User () {}
 
     public User(String first_name, String last_name, String email, String username, String group_name, String password, String confirmPassword, String profilePicUrl) {
@@ -186,11 +176,4 @@ public class User {
         this.comments = comments;
     }
 
-//    public List<Party> getTailgateParties() {
-//        return tailgateParties;
-//    }
-//
-//    public void setTailgateParties(List<Party> tailgateParties) {
-//        this.tailgateParties = tailgateParties;
-//    }
 }

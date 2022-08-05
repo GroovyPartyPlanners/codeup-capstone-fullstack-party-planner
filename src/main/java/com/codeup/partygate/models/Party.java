@@ -116,39 +116,3 @@ public class Party {
         this.event = event;
     }
 }
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "event_id")
-//    private Event event;
-
-//    public Event getEvent() {
-//        return event;
-//    }
-//
-//    public void setEvent(Event event) {
-//        this.event = event;
-//    }
-
-//    @ManyToOne
-//    @JoinColumn(name = "event_id")
-//    private Event event;
-
-//    public Event getEvent() {
-//        return event;
-//    }
-//
-//    public void setEvent(Event event) {
-//        this.event = event;
-//    }
-//
-//    public Event getMainEvent() {
-//        return eventId;
-//    }
-//
-//    public void setMainEvent(Event event) {
-//        this.eventId = eventId;
-//    }
-
-//    @ManyToOne
-//    @JoinColumn(name = "event_id")
-//    private Event event;

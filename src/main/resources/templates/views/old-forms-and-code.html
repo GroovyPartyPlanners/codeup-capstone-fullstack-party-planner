@@ -637,5 +637,641 @@
 <!--    </div>-->
 <!--</div>-->
 
+<!-------- OLD EVENT CONTROLLER CODE -------->
+
+<!--//package com.codeup.partygate.controllers;-->
+<!--//-->
+<!--//-->
+<!--//import com.codeup.partygate.models.MainEvent;-->
+<!--////import com.codeup.partygate.repositories.EventRepository;-->
+<!--//import org.springframework.stereotype.Controller;-->
+<!--//import org.springframework.web.bind.annotation.PathVariable;-->
+<!--//import org.springframework.web.bind.annotation.PostMapping;-->
+<!--//-->
+<!--//@Controller-->
+<!--//public class EventController {-->
+<!--//-->
+<!--////    private final EventRepository eventsRepository;-->
+<!--//-->
+<!--////    public EventController(EventRepository eventsRepository) {-->
+<!--////        this.eventsRepository = eventsRepository;-->
+<!--////    }-->
+<!--//-->
+<!--//    @PostMapping(path = "/save-event/{event_id}")-->
+<!--//    public String eventSave(@PathVariable String event_id) {-->
+<!--//        Long eventId = Long.getLong(event_id);-->
+<!--//        if (eventsRepository.findAll().contains(eventsRepository.getById(eventId))){-->
+<!--//            String html = "parties/" + eventId;-->
+<!--//            return html;-->
+<!--//        }-->
+<!--//        MainEvent thisEvent = new MainEvent();-->
+<!--//        thisEvent.setId(eventId);-->
+<!--//        eventsRepository.save(thisEvent);-->
+<!--//        String html = "parties/" + eventId;-->
+<!--//        return html;-->
+<!--//    }-->
+<!--//}-->
+
+<!-------- OLD EXCEPTION HANDLING CONTROLLER CODE -------->
+
+<!--//package com.codeup.partygate.controllers;-->
+<!--//-->
+<!--//import org.springframework.dao.DataAccessException;-->
+<!--//import org.springframework.dao.DataIntegrityViolationException;-->
+<!--//import org.springframework.http.HttpStatus;-->
+<!--//import org.springframework.stereotype.Controller;-->
+<!--//import org.springframework.web.bind.annotation.ExceptionHandler;-->
+<!--//import org.springframework.web.bind.annotation.ResponseStatus;-->
+<!--//import org.springframework.web.servlet.ModelAndView;-->
+<!--//-->
+<!--//import javax.servlet.http.HttpServletRequest;-->
+<!--//import java.sql.SQLException;-->
+<!--//-->
+<!--//@Controller-->
+<!--//public class ExceptionHandlingController {-->
+<!--//-->
+<!--//    // @RequestHandler methods-->
+<!--//-->
+<!--//    // Exception handling methods-->
+<!--//-->
+<!--//    // Convert a predefined exception to an HTTP Status code-->
+<!--//    @ResponseStatus(value= HttpStatus.CONFLICT,-->
+<!--//            reason="Data integrity violation")  // 409-->
+<!--//    @ExceptionHandler(DataIntegrityViolationException.class)-->
+<!--//    public void conflict() {-->
+<!--//        // Nothing to do-->
+<!--//    }-->
+<!--//-->
+<!--//    // Specify name of a specific view that will be used to display the error:-->
+<!--//    @ExceptionHandler({SQLException.class, DataAccessException.class})-->
+<!--//    public String databaseError() {-->
+<!--//        // Nothing to do.  Returns the logical view name of an error page, passed-->
+<!--//        // to the view-resolver(s) in usual way.-->
+<!--//        // Note that the exception is NOT available to this view (it is not added-->
+<!--//        // to the model) but see "Extending ExceptionHandlerExceptionResolver"-->
+<!--//        // below.-->
+<!--//        return "databaseError";-->
+<!--//    }-->
+<!--//-->
+<!--//    // Total control - setup a model and return the view name yourself. Or-->
+<!--//    // consider subclassing ExceptionHandlerExceptionResolver (see below).-->
+<!--//    @ExceptionHandler(Exception.class)-->
+<!--//    public ModelAndView handleError(HttpServletRequest req, Exception ex) {-->
+<!--//        logger.error("Request: " + req.getRequestURL() + " raised " + ex);-->
+<!--//-->
+<!--//        ModelAndView mav = new ModelAndView();-->
+<!--//        mav.addObject("exception", ex);-->
+<!--//        mav.addObject("url", req.getRequestURL());-->
+<!--//        mav.setViewName("error");-->
+<!--//        return mav;-->
+<!--//    }-->
+<!--//}-->
+
+<!-------- OLD PARTY CONTROLLER CODE -------->
+
+<!--//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);-->
+<!--//        parties.add(party);-->
+<!--//        if (eventsRepository.findAllById(eventId) == null) {-->
+
+<!--//        event.setParties(parties);-->
+
+<!--//    @PostMapping("event/party/{eventId}")-->
+<!--//    public String eventPartyCreate(@ModelAttribute Model model, Party party, @PathVariable long eventId) {-->
+<!--//        ArrayList<Party> parties = eventsRepository.findAllById(eventId);-->
+<!--//        parties.add(party);-->
+<!--//        Event event = new Event();-->
+<!--//        event.setId(eventId);-->
+<!--//        event.setParties(parties);-->
+<!--//        eventsRepository.save(event);-->
+<!--//        return "views/home";-->
+<!--//    }-->
+
+<!--//        User user = userRepository.getById(userService.loggedInUser().getId());-->
+<!--//        party.setUser(user);-->
+<!--//        for (Event event: eventsRepository.findAll()-->
+<!--//             ) {-->
+<!--//            if (event.getEventApiId() == eventId) {-->
+<!--//                party.setEvent(event);-->
+<!--//            }-->
+<!--//        }-->
+<!--//        partyRepository.save(party);-->
+<!--//        return "views/parties";-->
+<!--//    }-->
+
+<!--//    @GetMapping(path = "parties/{event_id}")-->
+<!--//    public String showEventParties(@PathVariable String event_id, @ModelAttribute Model model) {-->
+<!--//        Long eventLong = Long.getLong(event_id);-->
+<!--//        ArrayList<Event> events = (ArrayList<Event>) eventsRepository.findAllById(Collections.singleton(eventLong));-->
+<!--//        Event thisEvent = events.get(0);-->
+<!--//        long eventId = thisEvent.getId();-->
+<!--//        List<Party> parties = partyRepository.findAll();-->
+<!--//        List<Party> eventParties = null;-->
+<!--//        for (Party party : parties-->
+<!--//        ) {-->
+<!--//            if (party.getId() == eventId) {-->
+<!--//                eventParties.add(party);-->
+<!--//            }-->
+<!--//        }-->
+<!--//        model.addAttribute("event", thisEvent);-->
+<!--////        model.addAttribute("events", events);-->
+<!--//        model.addAttribute("parties", eventParties);-->
+<!--//        return "views/parties";-->
+<!--//    }-->
+
+<!--//    //  delivers the party-creation form which allows the creation of new parties-->
+<!--//    @GetMapping(path = "/party-form")-->
+<!--//    public String partyForm (Model model) {-->
+<!--//-->
+<!--////        System.out.println("Stuff is going to happen");-->
+<!--//        model.addAttribute("party", new Party());-->
+<!--//        return "/views/party-form";-->
+<!--//    }-->
+<!--//-->
+<!--////    Shows all the parties in an index-->
+<!--////    Creates a new, necessary party object that-->
+<!--////    is included in the anchor for each party-->
+<!--////    which allows navigation to /party-select/{id}, the individual party page-->
+<!--//    @GetMapping(path = "/parties")-->
+<!--//    public String partiesShow(Model model) {-->
+<!--//        model.addAttribute("party", new Party());-->
+<!--//        ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();-->
+<!--//        model.addAttribute("parties", parties);-->
+<!--//-->
+<!--//        return "views/parties";-->
+<!--//    }-->
+<!--////    allows the storing of new party details-->
+<!--////    redirects to party index page-->
+<!--//    @PostMapping(path = "/party/save")-->
+<!--//    public String partySave(@ModelAttribute Party party) {-->
+<!--////        if (party.getEvent_id() == null) {-->
+<!--////            party.setEvent_id("0");-->
+<!--////        }-->
+<!--//        partyRepository.save(party);-->
+<!--//-->
+<!--//        return "views/parties";-->
+<!--//    }-->
+<!--//-->
+<!--//-->
+<!--//-->
+<!--////    @GetMapping(path = "/party")-->
+<!--////    public String showNoParty() {-->
+<!--////        return "/views/party";-->
+<!--////    }-->
+<!--//-->
+<!--//-->
+<!--////-->
+<!--////    @PostMapping(path = "/party-form")-->
+<!--////    public String partyCreate (@ModelAttribute Party party) {-->
+<!--////        partyRepository.save(party);-->
+<!--////        return "views/home";-->
+<!--////    }-->
+<!--//-->
+<!--////    uses party id-->
+<!--//    @GetMapping(path = "/party-select/{id}")-->
+<!--//    public String partyPage(@PathVariable long id, Model model) {-->
+<!--//        User loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();-->
+<!--////        Party party = partyRepository.findAll(party_id);-->
+<!--////        party = partyRepository.getById(party_id);-->
+<!--////        String partyName = party.getParty_name();-->
+<!--////        String partyDescription = party.getDescription();-->
+<!--//        Party party = partyRepository.getById(id);-->
+<!--//        ArrayList<Comment> comments = (ArrayList<Comment>) commentRepository.findAll();-->
+<!--//        model.addAttribute("comments", comments);-->
+<!--//        model.addAttribute("user", loggedUser);-->
+<!--//        model.addAttribute("name", party.getParty_name());-->
+<!--//        model.addAttribute("description", party.getDescription());-->
+<!--//        model.addAttribute("id", id);-->
+<!--//        return "views/party-select";-->
+<!--//    }-->
+<!--//-->
+<!--//    @GetMapping(path="/attend/{userId}/{partyId}")-->
+<!--//    public String userAttend(@PathVariable String userId, String partyId) {-->
+<!--//        //        HOW TO JOIN TABLES-->
+<!--////===========================================================================-->
+<!--//        Long user = Integer.toUnsignedLong(Integer.parseInt(userId));-->
+<!--//        Long party = Integer.toUnsignedLong(Integer.parseInt(partyId));-->
+<!--//        User u = userRepository.getById(user);-->
+<!--//        Party p = partyRepository.getById(party);-->
+<!--//-->
+<!--////        System.out.println("user.getUsername() = " + user.getUsername());-->
+<!--////        System.out.println("party.getParty_name() = " + party.getParty_name());-->
+<!--//-->
+<!--//        Set<Party> parties = new HashSet<>();-->
+<!--////        List<User> users = new ArrayList<>();-->
+<!--//        parties.add(p);-->
+<!--////        users.add(u);-->
+<!--////===============-->
+<!--////        p.setAttendees(users);-->
+<!--////        user-party association-->
+<!--//        u.setTailgateParties(parties);-->
+<!--////        System.out.println(party);-->
+<!--////        System.out.println(user);-->
+<!--////        partyRepository.save(p);-->
+<!--//        userRepository.save(u); //persist to the db-->
+<!--//        String redirect = "/views/party-select/" + partyId;-->
+<!--////===========================================================================-->
+<!--//        return redirect;-->
+<!--//    }-->
+
+<!--//        for (Party party: parties-->
+<!--//             )-->
+<!--//        {-->
+<!--//            if (party.getParty_id() == party_id) {-->
+<!--//                model.addAttribute("partyName", party.getParty_name());-->
+<!--//                model.addAttribute("partyDescription", party.getDescription());-->
+<!--//-->
+<!--//            }-->
+<!--//        }-->
+<!--//        model.addAttribute("partyName", thisParty.getParty_name());-->
+<!--//        model.addAttribute("partyDescription", thisParty.getDescription());-->
+<!--//        model.addAttribute("partyid", party.getParty_id());-->
+
+<!--//    @GetMapping(path = "/party/{id}")-->
+<!--//    public void showParty(@PathVariable String id, Model model, Request request) {-->
+<!--//        ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();-->
+<!--//        Party thisParty = null;-->
+<!--//-->
+<!--//        long partyId = Integer.parseInt(id);-->
+<!--//        for (Party party : parties) {-->
+<!--//            if (Objects.equals(party.getParty_id(), partyId)) {-->
+<!--//                thisParty = party;-->
+<!--//            }-->
+<!--//        }-->
+<!--//        model.addAttribute("party", thisParty);-->
+<!--//        HttpSession session = request.getSession();-->
+<!--//        session.setAttribute("party_id", request.getParameter("name"));-->
+<!--////        assert thisParty != null;-->
+<!--////        String html = "/views/party/{" + id + "}";-->
+<!--////        return html;-->
+<!--//    }-->
+
+<!-------- OLD PARTY MODEL CODE -------->
+
+<!--//    @ManyToOne(cascade = CascadeType.ALL)-->
+<!--//    @JoinColumn(name = "event_id")-->
+<!--//    private Event event;-->
+
+<!--//    public Event getEvent() {-->
+<!--//        return event;-->
+<!--//    }-->
+<!--//-->
+<!--//    public void setEvent(Event event) {-->
+<!--//        this.event = event;-->
+<!--//    }-->
+
+<!--//    @ManyToOne-->
+<!--//    @JoinColumn(name = "event_id")-->
+<!--//    private Event event;-->
+
+<!--//    public Event getEvent() {-->
+<!--//        return event;-->
+<!--//    }-->
+<!--//-->
+<!--//    public void setEvent(Event event) {-->
+<!--//        this.event = event;-->
+<!--//    }-->
+<!--//-->
+<!--//    public Event getMainEvent() {-->
+<!--//        return eventId;-->
+<!--//    }-->
+<!--//-->
+<!--//    public void setMainEvent(Event event) {-->
+<!--//        this.eventId = eventId;-->
+<!--//    }-->
+
+<!--//    @ManyToOne-->
+<!--//    @JoinColumn(name = "event_id")-->
+<!--//    private Event event;-->
+
+<!-------- OLD USER MODEL CODE -------->
+
+<!--//    example from https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping-->
+<!--//    added missing referencedColumnName-->
+<!--//    @ManyToMany-->
+<!--//    @JoinTable(name = "attendees",-->
+<!--////            , nullable = true, updatable = true-->
+<!--//            joinColumns = @JoinColumn(name = "user_id"),-->
+<!--////            , nullable = true, updatable = true-->
+<!--//            inverseJoinColumns = @JoinColumn(name = "party_id"))-->
+<!--//    private List<Party> tailgateParties;-->
+
+
+<!--//    public List<Party> getTailgateParties() {-->
+<!--//        return tailgateParties;-->
+<!--//    }-->
+<!--//-->
+<!--//    public void setTailgateParties(List<Party> tailgateParties) {-->
+<!--//        this.tailgateParties = tailgateParties;-->
+<!--//    }   -->
+
+<!-------- OLD 404 DRAFT CODE -------->
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8"/>-->
+<!--    <title>Ooops, Not Found</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Page not found!!</h1>-->
+<!--<p>Watch a video instead</p>-->
+<!--<iframe-->
+<!--        width="420"-->
+<!--        height="315"-->
+<!--        src="https://www.youtube.com/embed/NN75im_us4k?autoplay=1"-->
+<!--        frameborder="0"-->
+<!--        allowfullscreen="allowfullscreen"-->
+<!--&gt;-->
+<!--</iframe>-->
+<!--</body>-->
+<!--</html>-->
+
+<!-------- OLD 405 DRAFT CODE -------->
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8"/>-->
+<!--    <title>Ooops, Not Found</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Page not found!!</h1>-->
+<!--<p>Watch a video instead</p>-->
+<!--<iframe-->
+<!--        width="420"-->
+<!--        height="315"-->
+<!--        src="https://www.youtube.com/embed/NN75im_us4k?autoplay=1"-->
+<!--        frameborder="0"-->
+<!--        allowfullscreen="allowfullscreen"-->
+<!--&gt;-->
+<!--</iframe>-->
+<!--</body>-->
+<!--</html>-->
+
+<!-------- OLD 500 DRAFT CODE -------->
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8"/>-->
+<!--    <title th:text="'Ooops, ' + ${error}"></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<th:block th:switch="${error}">-->
+<!--    <div th:case="'Not Found'">-->
+<!--        <h1>Page not found!!</h1>-->
+<!--    </div>-->
+<!--    <div th:case="'Forbidden'">-->
+<!--        <h1>You don't have permission to view this page.</h1>-->
+<!--    </div>-->
+<!--</th:block>-->
+<!--<p>Watch a video instead</p>-->
+<!--<iframe-->
+<!--        width="420"-->
+<!--        height="315"-->
+<!--        src="https://www.youtube.com/watch?v=trjbUkBqM6o"-->
+<!--        frameborder="0"-->
+<!--        allowfullscreen="allowfullscreen"-->
+<!--&gt;-->
+<!--</iframe>-->
+<!--</body>-->
+<!--</html>-->
+
+<!-------- OLD ERROR DRAFT CODE -------->
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8"/>-->
+<!--    <title th:text="'Ooops, ' + ${error}"></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<th:block th:switch="${error}">-->
+<!--    <div th:case="'Not Found'">-->
+<!--        <h1>Page not found!!</h1>-->
+<!--    </div>-->
+<!--    <div th:case="'Forbidden'">-->
+<!--        <h1>You don't have permission to view this page.</h1>-->
+<!--    </div>-->
+<!--</th:block>-->
+<!--<p>Watch a video instead</p>-->
+<!--<iframe-->
+<!--        width="420"-->
+<!--        height="315"-->
+<!--        src="https://www.youtube.com/watch?v=5ODiMDCPbrg"-->
+<!--        frameborder="0"-->
+<!--        allowfullscreen="allowfullscreen"-->
+<!--&gt;-->
+<!--</iframe>-->
+<!--</body>-->
+<!--</html>-->
+
+<!-------- OLD HOME-SLICE CODE -------->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:fragment="home-slice">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--&lt;!&ndash;    <title th:text="${title}"></title>&ndash;&gt;-->
+<!--    <title th:text="works"></title>-->
+<!--    &lt;!&ndash; Bootstrap CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">-->
+<!--    &lt;!&ndash; Cloudflare CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">-->
+<!--    &lt;!&ndash; Custom CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{/css/party-planner.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 class="eventTitle" id="eventTitle">-->
+<!--    <h2 class="eventDate" id="eventDate"></h2>-->
+<!--    <img src='' id="eventImage" alt="">-->
+<!--</h1>-->
+
+<!--</body>-->
+<!--<script>-->
+
+<!--function getLocation() {-->
+<!--if (navigator.geolocation) {-->
+<!--navigator.geolocation.getCurrentPosition(showPosition);-->
+<!--} else {-->
+<!--console.log("Geolocation is not supported by this browser.");-->
+<!--}-->
+<!--}-->
+
+<!--function showPosition(position) {-->
+<!--console.log(position);-->
+<!--var lat = position.coords.latitude;-->
+<!--var long = position.coords.longitude;-->
+<!--mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';-->
+<!--mapboxgl.accessToken = 'pk.eyJ1Ijoia2VhdG9uaHV0dG8iLCJhIjoiY2wycWw3cWRnMDFwOTNqcGFwbDhqZTh6aCJ9.JA4KRbfaB02VWnaD8Ecs7g';-->
+<!--const coordinates = document.getElementById('coordinates');-->
+<!--const map = new mapboxgl.Map({-->
+<!--container: 'map',-->
+<!--style: 'mapbox://styles/mapbox/streets-v11',-->
+<!--center: [long, lat],-->
+<!--zoom: 8-->
+<!--});-->
+
+<!--const marker = new mapboxgl.Marker({-->
+<!--draggable: true-->
+<!--})-->
+<!--.setLngLat([long, lat])-->
+<!--.addTo(map);-->
+
+<!--function onDragEnd() {-->
+<!--const lngLat = marker.getLngLat();-->
+<!--let lat = lngLat.lat;-->
+<!--let lng = lngLat.lng;-->
+<!--console.log(lat, lng);-->
+<!--// coordinates.style.display = 'block';-->
+<!--// coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;-->
+<!--fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${lng}&client_id=${clientId}`)-->
+<!--.then(response => response.json())-->
+<!--.then(data => {-->
+<!--console.log(data);-->
+<!--var events ='';-->
+<!--var eventsDate = '';-->
+<!--var eventsLocation = '';-->
+<!--var eventsCity = '';-->
+<!--var eventImage = '';-->
+<!--for(var i = 0; i < data.events.length; i++) {-->
+<!--events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`-->
+<!--eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`-->
+
+<!--}-->
+<!--document.getElementById("eventTitle").innerHTML = events-->
+<!--}-->
+
+<!--)-->
+<!--.catch(error => console.log(error));-->
+<!--}-->
+
+<!--marker.on('dragend', onDragEnd);-->
+
+<!--fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${clientId}`)-->
+<!--.then(response => response.json())-->
+<!--.then(data => {-->
+<!--console.log(data);-->
+<!--var eventsDate = '';-->
+<!--var eventsLocation = '';-->
+<!--var eventsCity = '';-->
+<!--var eventImage = '';-->
+<!--var events ='';-->
+
+<!--for(var i = 0; i < data.events.length; i++) {-->
+<!--events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`-->
+<!--}-->
+<!--document.getElementById("eventTitle").innerHTML = events-->
+<!--}-->
+<!--)-->
+<!--.catch(error => console.log(error));-->
+<!--}-->
+
+
+<!--// google.maps.event.addDomListener(window, 'load', function () {-->
+<!--//     var places = new google.maps.places.Autocomplete(document.getElementById('search'));-->
+<!--//     google.maps.event.addListener(places, 'place_changed', function () {-->
+<!--//         var city = places.getPlace().address_components[0].long_name;-->
+<!--//         var state = places.getPlace().address_components[2].short_name-->
+<!--//         var fulladdres = places.getPlace().formatted_address;-->
+<!--//          fetch(`https://api.seatgeek.com/2/events?venue.state=${state}&venue.city=${city}&client_id=${clientId}`)-->
+
+<!--//             .then(response => response.json())-->
+<!--//             .then(data => {-->
+<!--//                 console.log(data);-->
+<!--//                 var events ='';-->
+<!--//                 var eventsDate = '';-->
+<!--//                 var eventsLocation = '';-->
+<!--//                 var eventsCity = '';-->
+<!--//                 var eventImage = '';-->
+<!--//                 for(var i = 0; i < data.events.length; i++) {-->
+<!--//                     events += `<h1>${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`-->
+<!--//                     eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`-->
+<!--//                 }-->
+<!--//                 document.getElementById("eventTitle").innerHTML = events-->
+<!--//             }-->
+<!--//             )-->
+<!--//             .catch(error => console.log(error));-->
+<!--//     });-->
+<!--// });-->
+<!--document.getElementById('search-btn').addEventListener('click', function (e) {-->
+<!--e.preventDefault();-->
+
+<!--var type = document.getElementById("type").value-->
+<!--var search = document.getElementById("search").value-->
+<!--console.log(search)-->
+<!--fetch(`https://api.seatgeek.com/2/events?q=${search}&type=${type}&client_id=${clientId}`)-->
+<!--.then(response => response.json())-->
+<!--.then(data => {-->
+<!--console.log(data);-->
+<!--var events = '';-->
+<!--var eventsDate = '';-->
+<!--var eventsLocation = '';-->
+<!--var eventsCity = '';-->
+<!--var eventImage = '';-->
+<!--var eventAnchor = '';-->
+
+<!--// for(var i = 0; i < data.events.length; i++) {-->
+<!--//     eventAnchor += `<a th:href="@{/parties/${data.events[i].id}">`-->
+<!--    for (var i = 0; i < data.events.length; i++) {-->
+
+<!--    console.log(data.events[i]);-->
+<!--    var events = '';-->
+
+
+<!--    events += `<h1>${data.events[i].title}\`+" "+\`${data.events[i].venue.name}\`+" "+\`${data.events[i].venue.display_location}</h1><a th:href=`/"@{/parties/"`${data.events[i].id}}>click here</a>`-->
+
+<!--// events += `<h1><a th:href="@{/parties">${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</h1>`-->
+<!--// events += `<h1><a th:href="@{/parties/${data.events[i].id}">${data.events[i].title}`+" "+`${data.events[i].venue.name}`+" "+`${data.events[i].venue.display_location}</a></h1>`-->
+<!--// eventsLocation += `<h1>${data.events[i].venue.display_location}</h1>`-->
+<!--document.getElementById("eventTitle").innerHTML = events;-->
+<!--// for(var i = 0; i < data.events.length; i++) {-->
+<!--//     document.getElementById(`${data.events[i].id}`).innerHTML = eventAnchor;-->
+<!--// }-->
+<!--}-->
+<!--})-->
+<!--.catch(error => console.log(error));-->
+<!--});-->
+<!--const clientId = "Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI";-->
+<!--const clientSecret = "client_secret=Mjc4MTcxNDZ8MTY1NzU3OTE4MC4yMjE1NzI&client_secret=cbd2.......";-->
+<!--getLocation();</script>-->
+<!--</html>-->
+
+<!-------- OLD EVENT PAGE CODE -------->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Events Page</title>-->
+<!--    &lt;!&ndash; Bootstrap CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">-->
+<!--    &lt;!&ndash; Cloudflare CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css}">-->
+<!--    &lt;!&ndash; Font Awesome CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}">-->
+<!--</head>-->
+<!--<body style="text-align: center">-->
+
+<!--<div sec:authorize="!isAuthenticated()">-->
+<!--    &lt;!&ndash;    This content is only shown to UNAUTHENTICATED users.&ndash;&gt;-->
+<!--    <nav th:replace="partials/navbar :: navbar"></nav>-->
+<!--</div>-->
+
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    &lt;!&ndash;    This content is only shown to AUTHENTICATED users.&ndash;&gt;-->
+<!--    <nav th:replace="partials/navbar-logged-in :: navbar-logged-in"></nav>-->
+<!--</div>-->
+
+<!--<h1>List of Events Page Here</h1>-->
+
+<!--<div th:replace="partials/scripts :: scripts"></div>-->
+<!--</body>-->
+<!--</html>-->
+
 </body>
 </html>

@@ -14,11 +14,8 @@ public class Event {
     @Column
     private long eventApiId;
 
-
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private List<Party> parties;
-
 
     public Event() {
     }
