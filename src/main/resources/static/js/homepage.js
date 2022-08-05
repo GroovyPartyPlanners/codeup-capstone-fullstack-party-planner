@@ -51,7 +51,7 @@ function windowLoading(){
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
                             const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                            const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                            const dateString = `${month}/${day}/${year}`;
                             events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
                                 `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                         }
@@ -143,7 +143,7 @@ function windowLoading(){
                     for(var i = 0; i < data.events.length; i++) {
                         const date = new Date(data.events[i].datetime_local);
                         const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                        const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                        const dateString = `${month}/${day}/${year}`;
                         events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
                             `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                     }
@@ -202,7 +202,7 @@ function windowLoading(){
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
                             const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                            const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                            const dateString = `${month}/${day}/${year}`;
                             events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
                                 `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                         }
@@ -241,7 +241,7 @@ function windowLoading(){
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
                             const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-                            const dateString = 'm/d/year'+" "+`${month}/${day}/${year}`;
+                            const dateString = `${month}/${day}/${year}`;
                             events += `<div class='loopEvent profile-div-outer col'>${data.events[i].title}<br/>${data.events[i].venue.name}<br/>${data.events[i].venue.display_location}<br/>`+ dateString +`<br/><div class="row"><a href="/events/${data.events[i].id}" class="col profile-btn">THROW PARTY</a>`+
                                 `<a href="/parties/${data.events[i].id}" class="col profile-btn">VIEW PARTIES</a></div></div></br>`
                         }

@@ -121,21 +121,21 @@
     /*justify-items: auto;*/
 }
 
-.left{
-    margin-right: -60px;
-    margin-bottom: 80px;
-    margin-left: 60px;
-}
+/*.left{*/
+/*    margin-right: -120px;*/
+/*    margin-bottom: 80px;*/
+/*    margin-left: 60px;*/
+/*}*/
 
-.right{
-    margin-left: -60px;
-    margin-right: 60px;
-}
+/*.right{*/
+/*    margin-left: -60px;*/
+/*    margin-right: 20px;*/
+/*}*/
 
 .list{
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    justify-content: center;
 }
 
 
