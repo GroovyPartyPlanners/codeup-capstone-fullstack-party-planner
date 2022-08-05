@@ -46,8 +46,8 @@ function windowLoading(){
 
                         var events ='';
                         var popularity = '';
-                        total = document.getElementById('total');
-                        total.innerHTML = `<h2>${data.meta.total}</h2>`
+                        let total = document.getElementById('total');
+                        `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
                             const [year, month, day] = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
@@ -92,7 +92,7 @@ function windowLoading(){
                         console.log('on load')
                         var events ='';
 
-                        total = document.getElementById('total');
+                    let total = document.getElementById('total');
                         total.innerHTML = `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
@@ -138,7 +138,7 @@ function windowLoading(){
                     console.log(data);
                     var events ='';
 
-                    total = document.getElementById('total');
+                    let total = document.getElementById('total');
                     total.innerHTML = `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                     for(var i = 0; i < data.events.length; i++) {
                         const date = new Date(data.events[i].datetime_local);
@@ -197,7 +197,7 @@ function windowLoading(){
                         console.log('page clicked!')
                         var events ='';
                         console.log(data.events);
-                        total = document.getElementById('total');
+                    let total = document.getElementById('total');
                         total.innerHTML = `<label class='totalEvents'>Total Events Near You ${data.meta.total}</label>`;
                         for(var i = 0; i < data.events.length; i++) {
                             const date = new Date(data.events[i].datetime_local);
