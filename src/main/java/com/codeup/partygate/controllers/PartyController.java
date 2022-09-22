@@ -99,8 +99,7 @@ public class PartyController {
     public String viewParties(Model model, @PathVariable Long eventId) {
         ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         ArrayList<Party> eventParties = new ArrayList<Party>();
-        for (Party party : parties
-             ) {
+        for (Party party : parties) {
             if (party.getEvent().getEventApiId() == (eventId)) {
                 eventParties.add(party);
             }
