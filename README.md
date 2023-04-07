@@ -16,7 +16,7 @@ Frameworks:
 - jQuery
 - Bootstrap
 
-Relational Databse Management System:
+Relational Database Management System:
 - MySQL
 
 APIs:
