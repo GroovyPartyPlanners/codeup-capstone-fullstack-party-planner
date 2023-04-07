@@ -1,5 +1,5 @@
 # PartyPlanner - Post and Plan your Party based on Events at a Chosen Location!
-Full-Stack web application developed using:
+Full-Stack Web Application developed using:
 
 Markup Language:
 - HTML
