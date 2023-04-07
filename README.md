@@ -2,8 +2,14 @@
 Web application developed using:
 - Spring Framework 
 - Java
+- MySQL
 - JavaScript
 - jQuery Framework
-- HTML
-- Bootstrap
 - CSS
+- Bootstrap
+- HTML
+
+APIs:
+- SeatGeek
+- Mapbox
+- Filestack
