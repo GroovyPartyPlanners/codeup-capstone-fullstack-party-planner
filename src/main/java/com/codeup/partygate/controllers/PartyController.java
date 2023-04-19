@@ -82,25 +82,24 @@ public class PartyController {
 
     @PostMapping("/party-form")
     public String postPartyForm(@ModelAttribute Party party, @RequestParam(name = "event-id") long eventId) {
-            Event event = new Event();
-            event.setEventApiId(eventId);
-            event = eventsRepository.save(event);
-            User user = userRepository.getById(userService.loggedInUser().getId());
+        Event event = new Event();
+        event.setEventApiId(eventId);
+        event = eventsRepository.save(event);
+        User user = userRepository.getById(userService.loggedInUser().getId());
         if (party.getPartyPicUrl().length() == 0) {
             party.setPartyPicUrl("https://picsum.photos/id/158/200/300");
         }
-            party.setUser(user);
-            party.setEvent(event);
-            partyRepository.save(party);
-            return "redirect:/parties/" + eventId;
-        }
+        party.setUser(user);
+        party.setEvent(event);
+        partyRepository.save(party);
+        return "redirect:/parties/" + eventId;
+    }
 
     @GetMapping("/parties/{eventId}")
     public String viewParties(Model model, @PathVariable Long eventId) {
         ArrayList<Party> parties = (ArrayList<Party>) partyRepository.findAll();
         ArrayList<Party> eventParties = new ArrayList<Party>();
-        for (Party party : parties
-             ) {
+        for (Party party : parties) {
             if (party.getEvent().getEventApiId() == (eventId)) {
                 eventParties.add(party);
             }
