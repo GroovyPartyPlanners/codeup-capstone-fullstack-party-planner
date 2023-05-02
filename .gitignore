@@ -35,6 +35,6 @@ src/api.js
 .vscode/
 
 # API
-/src/api.js
+static/js/api.js
 #Node.js
 node_modules
