@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8" name="fileStackAPI" th:content="${fileStackAPI}">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Landing Page</title>
     <!-- Bootstrap CDN -->
@@ -36,18 +37,19 @@
     <div class="container">
         <h4 class="intro-title">Welcome to Party Planners</h4>
         <p class="introParagraph">
-            Check out some Events near you and plan your before, or after party and tailgates at the event of your choice!
+            Check out some Events near you and plan your before, or after party and tailgates at the event of your
+            choice!
         </p>
         <br>
-        <p class="introParagraph">Sign up to comment, create parties, and be sure to check out our interactive map of Events on the <a th:href="@{/events}">Events Page!</a></p>
+        <p class="introParagraph">Sign up to comment, create parties, and be sure to check out our interactive map of
+            Events on the <a th:href="@{/events}">Events Page!</a></p>
         <div class="imgContainer">
-            <img class="img image1" th:src="@{imgs/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp}" src="../../static/assets/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp" alt="">
-            <img class="img image2" th:src="@{imgs/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg}" alt="test" src="../../static/assets/50_Top_2018_Index_Bangkok_CountdownCentral_World_0.jpg">
-            <img class="img image3" th:src="@{imgs/18920718_303.jpg}" src="../../static/assets/26-030333-how_much_the_average_fan_spends_on_an_nfl_tailgate.webp" alt="">
+            <img class="img image1" src="" alt="">
         </div>
         <div class="eventsContainer">
             <h3 class="events-title">Below are the events in your area!</h3>
-            <img th:src="@{imgs/Spinner-1s-200px.svg}" src="../../static/assets/Spinner-1s-200px.svg" id="loading" alt="">
+            <img th:src="@{imgs/Spinner-1s-200px.svg}" src="../../static/assets/Spinner-1s-200px.svg" id="loading"
+                 alt="">
             <p class="total" id="total"></p>
             <p class="pages" id="pages"></p>
             <h1 class="eventTitle" id="eventTitle"></h1>
